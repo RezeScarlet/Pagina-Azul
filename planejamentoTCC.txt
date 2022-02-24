@@ -1,0 +1,21 @@
+Conceito: um espaço virtual modular para divulgação e exposição de produtos e serviços provenientes de terceiros (empresas de diversos portes/setores e/ou microempreendedores). 
+
+Exemplos: 
+
+- Setor gastronômico (padarias, restaurantes, lanchonetes);
+
+- Setor de moda (lojas de roupa, sapatarias, joalherias);
+
+- Setor de tecnologia (lojas de jogos, hardware, periféricos);
+
+- Setor de esportes;
+
+- Setor vitual (sites, jogos, serviços de assinatura, redes sociais, aplicativos)
+
+- Setor de arte (música, arte digital)
+
+- Microempreendedores;
+
+tecnologias:
+HTML, CSS, SASS, JS, SQL, PHP;
+
