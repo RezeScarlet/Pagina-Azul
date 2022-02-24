@@ -19,3 +19,4 @@ Exemplos:
 tecnologias:
 HTML, CSS, SASS, JS, SQL, PHP;
 
+repositório feito inicialmente no github
