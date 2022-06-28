@@ -1,0 +1,143 @@
+
+/* DESTAQUES GRID */
+
+.destaques__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  gap: 1rem;
+}
+  
+@media all and (max-width: 650px) {
+  .destaques__grid {
+      grid-template-columns: 1fr;
+  }
+}
+  
+.destaques__grid-item {
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* ----------------- */
+
+
+/* SCROLL HORIZONTAL */
+
+.slider {
+  position: relative;
+}
+
+.scroll-horizontal {
+  --scrollbar-color: #2D3F99;
+  
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 22%;
+  gap: 0.75rem;
+  padding-bottom: 0.25rem;
+  overflow: auto;
+  scroll-snap-type: inline mandatory;
+}
+  
+@media (hover: hover) {
+  @supports (scrollbar-width: thin) {
+    .scroll-horizontal {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-color) transparent;
+    }
+  }
+
+  .scroll-horizontal::-webkit-scrollbar { height: 7px; }
+
+  .scroll-horizontal::-webkit-scrollbar-track { background: transparent; }
+
+  .scroll-horizontal::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--scrollbar-color);
+  }
+}
+  
+.scroll-horizontal > .scroll__item {
+  scroll-snap-align: start;
+}
+
+@media all and (max-width: 1000px) {
+  .scroll-horizontal { grid-auto-columns: 29%; }
+}
+  
+@media all and (max-width: 700px) {
+  .scroll-horizontal { grid-auto-columns: 36%; }
+}
+  
+@media all and (max-width: 550px) {
+  .scroll-horizontal {
+    grid-auto-columns: 72%;
+    padding-inline: 0;
+  }
+  
+  .scroll-horizontal > .scroll__item { scroll-snap-align: center; }
+}
+
+.scroll__btn {
+  position: absolute;
+  top: 40%;
+  z-index: 6;
+  width: 40px;
+  height: 40px;
+  font-size: 1.25rem;
+  background-color: rgba(128 128 128 / 0.5);
+  color: rgba(255 255 255 / 0.8);
+  border: 0;
+}
+
+.scroll__btn.left {
+  left: -10px;
+}
+
+.scroll__btn.right {
+  right: -10px;
+}
+  
+.scroll__item {
+  overflow: hidden;
+  border-radius: 5px;
+}
+  
+.destaques__img, 
+.scroll__img {
+  border-radius: 5px;
+
+  -moz-user-select: none; 
+  -webkit-user-select: none;
+  -ms-user-select: none; 
+  user-select: none; 
+  -webkit-user-drag: none; 
+}
+
+/* ----------------- */
+
+
+/* SCROLL HORIZONTAL PEQUENO */
+
+.scroll-horizontal--sm {
+  grid-auto-columns: 11%;
+  padding-bottom: 1.25rem;
+}
+  
+@media all and (max-width: 1000px) {
+  .scroll-horizontal--sm { grid-auto-columns: 15%; }
+}
+  
+@media all and (max-width: 630px) {
+  .scroll-horizontal--sm { grid-auto-columns: 20%; }
+}
+  
+@media all and (max-width: 630px) {
+  .scroll-horizontal--sm { grid-auto-columns: 24%; }
+}
+  
+
+/* ----------------- */
