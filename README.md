@@ -8,4 +8,4 @@
 - Thiago Fukuyama Marcilli
 
 ### Tema:
-Um site de anúncios!
+Um site de publicidade!
