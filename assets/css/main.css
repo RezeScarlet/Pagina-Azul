@@ -3,7 +3,8 @@
 
 :root {
   --bg-primary: rgb(247, 247, 247);
-  --bg-seccondary: #253FC2;
+  /* #253FC2 */
+  --bg-seccondary: #22267D;
 
   --fc-primary: rgb(0, 0, 0);
   --fc-secondary: rgb(239 239 239);
@@ -317,7 +318,7 @@ nav {
 .section__title {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 600;
-  color: rgb(1, 1, 56);
+  color: rgb(1, 1, 71);
   margin-bottom: 1.5rem;
 } 
 
