@@ -18,54 +18,53 @@
     <script src="assets/js/main.js" defer></script>
     <title>Página Azul | HOME</title>
   </head>
+
   <body>
     <!-- HEADER -->
     <header>
-      <nav>
-        <div class="navbar">
-          <div class="nav__header">
-            <span class="nav__icon menu-toggler" aria-hidden="true"
-              ><i class="fa fa-bars" aria-hidden="true"></i
-            ></span>
-            <span class="logo"><a href="index.html">Página</a></span>
-          </div>
-          <ul class="nav__list">
-            <li class="nav__item active">
-              <a href="#" class="nav__link">Home</a>
-            </li>
-            <li class="nav__item">
-              <a href="#" class="nav__link">Categorias</a>
-            </li>
-            <li class="nav__item">
-              <a href="#" class="nav__link">Serviços</a>
-            </li>
-            <li class="nav__item"><a href="#" class="nav__link">Suporte</a></li>
-            <li class="nav__item"><a href="#" class="nav__link">Sobre</a></li>
-            <li class="nav__close-btn">
-              <button type="button" class="nav__icon">
-                <i class="fa fa-times" aria-hidden="true"></i>
-              </button>
-            </li>
-          </ul>
-          <div class="nav__btns">
-            <form action="#" method="post" class="nav__search-wrapper">
-              <button
-                class="nav__icon"
-                type="button"
-                id="search-btn"
-                aria-hidden="true"
-              >
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-              <input
-                type="search"
-                name="search_bar"
-                class="nav__search"
-                placeholder="Pesquisar"
-              />
-            </form>
-            <a href="#" class="nav__btn">Login</a>
-          </div>
+      <nav class="nav">
+        <div class="nav__header">
+          <span class="nav__icon menu-toggler" aria-hidden="true"
+            ><i class="fa fa-bars" aria-hidden="true"></i
+          ></span>
+          <span class="logo"><a href="index.html">Página</a></span>
+        </div>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#" class="nav__link active">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Categorias</a>
+          </li>
+          <li class="nav__item">
+            <a href="#" class="nav__link">Serviços</a>
+          </li>
+          <li class="nav__item"><a href="#" class="nav__link">Suporte</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Sobre</a></li>
+          <li class="nav__close-btn">
+            <button type="button" class="nav__icon">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+          </li>
+        </ul>
+        <div class="nav__btns">
+          <form action="#" method="post" class="nav__search-wrapper">
+            <button
+              class="nav__icon"
+              type="button"
+              id="search-btn"
+              aria-hidden="true"
+            >
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <input
+              type="search"
+              name="search_bar"
+              class="nav__search"
+              placeholder="Pesquisar"
+            />
+          </form>
+          <a href="#" class="btn btn--secondary">Login</a>
         </div>
       </nav>
     </header>
@@ -87,10 +86,10 @@
               <p class="subheading">Tudo ao seu alcance, em um só lugar</p>
               <form action="#" method="post" class="search__form">
                 <input
-                  class="search_bar"
+                  class="search__bar"
                   type="search"
-                  name="search_bar"
-                  id="search_bar"
+                  name="searchbar"
+                  id="searchbar"
                   placeholder="Encontre o que precisa"
                 />
                 <input class="btn" type="submit" value="Pesquisar" />
@@ -100,359 +99,357 @@
         </section>
       </div>
 
-      <div class="wrapper">
-        <!-- DESTAQUES -->
-        <section class="destaques" id="destaques">
-          <div class="container">
-            <h1 class="section__title">Nossos Destaques</h1>
-            <div class="destaques__grid">
-              <div class="destaques__grid-item">
+      <!-- DESTAQUES -->
+      <section class="destaques" id="destaques">
+        <div class="container">
+          <h1 class="section__title">Nossos Destaques</h1>
+          <div class="destaques__grid">
+            <div class="destaques__grid-item">
+              <a href="#" class="link-wrapper">
+                <img
+                  src="https://picsum.photos/700/400?random=2345"
+                  alt=""
+                  class="destaques__img"
+                />
+              </a>
+            </div>
+            <div class="destaques__grid-item">
+              <a href="#" class="link-wrapper">
+                <img
+                  src="https://picsum.photos/700/400?random=4567"
+                  alt=""
+                  class="destaques__img"
+                />
+              </a>
+            </div>
+
+            <div class="destaques__grid-item">
+              <a href="#" class="link-wrapper">
+                <img
+                  src="https://picsum.photos/700/400?random=6785"
+                  alt=""
+                  class="destaques__img"
+                />
+              </a>
+            </div>
+
+            <div class="destaques__grid-item">
+              <a href="#" class="link-wrapper">
+                <img
+                  src="https://picsum.photos/700/400?random=087"
+                  alt=""
+                  class="destaques__img"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDIOS -->
+      <section class="medios" id="medios">
+        <div class="container">
+          <h1 class="section__title">Scroll Horizontal</h1>
+          <div class="slider">
+            <button
+              type="button"
+              class="scroll__btn left rounded"
+              data-control="left"
+            >
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </button>
+
+            <div class="scroll-horizontal" data-slide>
+              <div class="scroll__item">
                 <a href="#" class="link-wrapper">
-                  <img
-                   src="https://picsum.photos/700/400?random=2345"
-                    alt=""
-                    class="destaques__img"
-                  />
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=65487986"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
                 </a>
               </div>
-              <div class="destaques__grid-item">
+
+              <div class="scroll__item">
                 <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=653476745"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=135452476"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=5987"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=2435234"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=34563456"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=34565436"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=6543654"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=35463546"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=123"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+
+              <div class="scroll__item">
+                <a href="#" class="link-wrapper">
+                  <div class="scroll__img-container">
+                    <img
+                      src="https://picsum.photos/400/400?random=11"
+                      class="scroll__img"
+                      draggable="false"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="scroll__btn right rounded"
+              data-control="right"
+            >
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORIAS -->
+      <section class="categorias" id="categorias">
+        <div class="container">
+          <h1 class="section__title text-center">Categorias</h1>
+          <div class="slider">
+            <button
+              type="button"
+              class="scroll__btn left rounded"
+              data-control="left"
+            >
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </button>
+
+            <div class="scroll-horizontal scroll-horizontal--sm" data-slide>
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
                   <img
-                   src="https://picsum.photos/700/400?random=4567"
+                    src="https://picsum.photos/150/150?random=1"
                     alt=""
-                    class="destaques__img"
+                    class="rounded"
+                    draggable="false"
                   />
                 </a>
               </div>
 
-              <div class="destaques__grid-item">
-                <a href="#" class="link-wrapper">
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
                   <img
-                    src="https://picsum.photos/700/400?random=6785"
+                    src="https://picsum.photos/150/150?random=2"
                     alt=""
-                    class="destaques__img"
+                    class="rounded"
+                    draggable="false"
                   />
                 </a>
               </div>
 
-              <div class="destaques__grid-item">
-                <a href="#" class="link-wrapper">
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
                   <img
-                    src="https://picsum.photos/700/400?random=087"
+                    src="https://picsum.photos/150/150?random=3"
                     alt=""
-                    class="destaques__img"
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=4"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=5"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=6"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=7"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=8"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=9"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=10"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
+                  />
+                </a>
+              </div>
+
+              <div class="scroll__item rounded">
+                <a href="#" class="link__wrapper">
+                  <img
+                    src="https://picsum.photos/150/150?random=11"
+                    alt=""
+                    class="rounded"
+                    draggable="false"
                   />
                 </a>
               </div>
             </div>
+
+            <button
+              type="button"
+              class="scroll__btn right rounded"
+              data-control="right"
+            >
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
           </div>
-        </section>
-
-        <!-- MEDIOS -->
-        <section class="medios" id="medios">
-          <div class="container">
-            <h1 class="section__title">Scroll Horizontal</h1>
-            <div class="slider">
-              <button
-                type="button"
-                class="scroll__btn left rounded"
-                data-control="left"
-              >
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-              </button>
-
-              <div class="scroll-horizontal" data-slide>
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=65487986"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=653476745"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=135452476"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=5987"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=2435234"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=34563456"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=34565436"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=6543654"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=35463546"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=123"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-
-                <div class="scroll__item">
-                  <a href="#" class="link-wrapper">
-                    <div class="scroll__img-container">
-                      <img
-                        src="https://picsum.photos/400/400?random=11"
-                        class="scroll__img"
-                        draggable="false"
-                      />
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                class="scroll__btn right rounded"
-                data-control="right"
-              >
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <!-- CATEGORIAS -->
-        <section class="categorias" id="categorias">
-          <div class="container">
-            <h1 class="section__title text-center">Categorias</h1>
-            <div class="slider">
-              <button
-                type="button"
-                class="scroll__btn left rounded"
-                data-control="left"
-              >
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-              </button>
-
-              <div class="scroll-horizontal scroll-horizontal--sm" data-slide>
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=1"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=2"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=3"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=4"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=5"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=6"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=7"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=8"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=9"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=10"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-
-                <div class="scroll__item rounded">
-                  <a href="#" class="link__wrapper">
-                    <img
-                      src="https://picsum.photos/150/150?random=11"
-                      alt=""
-                      class="rounded"
-                      draggable="false"
-                    />
-                  </a>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                class="scroll__btn right rounded"
-                data-control="right"
-              >
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </button>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
