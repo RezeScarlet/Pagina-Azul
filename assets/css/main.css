@@ -332,7 +332,7 @@ nav {
   margin-bottom: 2rem;
 }
 
-.pesquisa {
+.search {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -341,7 +341,7 @@ nav {
   gap: 1rem;
 }
 
-.pesquisa__wrapper {
+.search__wrapper {
   display: grid;
   place-items: center;
   width: 100%;
@@ -358,7 +358,7 @@ nav {
   color: rgb(126, 125, 125);
 }
 
-.pesquisa__form {
+.search__form {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -366,7 +366,7 @@ nav {
   gap: 1rem;
 }
 
-.barra-pesquisa {
+.search_bar {
   display: block;
   width: 100%;
   padding: 1rem;
@@ -379,7 +379,7 @@ nav {
   box-shadow: 0 2px 0.5em rgb(0, 0, 0, 0.4);
 }
 
-.barra-pesquisa::placeholder {
+.search_bar::placeholder {
   color: rgb(116, 116, 116);
 }
 
