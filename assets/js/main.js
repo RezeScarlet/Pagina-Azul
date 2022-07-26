@@ -5,7 +5,7 @@
 
 // Função para selecionar elementos
 
-const $ = (element, all = false) => {
+const select = (element, all = false) => {
     if (all) {
         return Array.from(document.querySelectorAll(element));
     } else {
@@ -24,43 +24,39 @@ const notActive = (element) => {
     element.classList.remove("active");
 }
 
-// --------------------
-
 
 
 // --------------------
 // NAVBAR
 // --------------------
 
-const menu_toggler = $(".menu-toggler");
-const close_btn = $(".nav__close-btn");
-const nav_list = $(".nav__list");
+const menuToggler = select(".menu-toggler");
+const closeMenuBtn = select(".nav__close-btn");
+const navList = select(".nav__list");
 
-menu_toggler.addEventListener("click", () => {
-    active(nav_list);
+menuToggler.addEventListener("click", () => {
+    active(navList);
 })
 
-close_btn.addEventListener("click", () => {
-    notActive(nav_list);
+closeMenuBtn.addEventListener("click", () => {
+    notActive(navList);
 })
 
 window.addEventListener("click", (e) => {
     let target = e.target.parentElement;
 
-    if (target === menu_toggler) return;
+    if (target === menuToggler) return;
 
-    if (e.target !== nav_list) {
-        notActive(nav_list)
+    if (e.target !== navList) {
+        notActive(navList)
     }
 })
 
 
-const nav_search = $(".nav__search");
-const search_btn = $("#search-btn");
+const navSearchBar = select(".nav__search");
+const navSearchBtn = select("#search-btn");
 
-search_btn.addEventListener("click", () => nav_search.focus())
-
-// --------------------
+navSearchBtn.addEventListener("click", () => navSearchBar.focus())
 
 
 
@@ -68,7 +64,7 @@ search_btn.addEventListener("click", () => nav_search.focus())
 // SCROL HORIZONTAL
 // --------------------
 
-const sliders = $(".slider", true);
+const sliders = select(".slider", true);
 
 if (sliders) {
     sliders.forEach((slider) => {
@@ -120,27 +116,23 @@ if (sliders) {
     })
 }
 
-// --------------------
-
 
 
 // --------------------
 // BOTÃO DE VOLTA AO TOPO
 // --------------------
 
-const back_to_top = $(".back-to-top");
+const backToTopBtn = select(".back-to-top");
 
-if (back_to_top) {
+if (backToTopBtn) {
     const toggle = () => {
         if (window.scrollY > 50) {
-            active(back_to_top);
+            active(backToTopBtn);
         } else {
-            notActive(back_to_top);
+            notActive(backToTopBtn);
         }
     }
 
     window.addEventListener("load", toggle);
     window.addEventListener("scroll", toggle);
 }
-
-// --------------------
