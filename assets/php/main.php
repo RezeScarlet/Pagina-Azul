@@ -12,18 +12,6 @@ function destaque($anunciante) {
     />
   </a>
   </div>";
-  
-
-  // echo "
-  // <div class='destaques__grid-item'>
-  // <a href='#' class='link-wrapper'>
-  //   <img
-  //     src='https://picsum.photos/700/400?random=".rand()."'
-  //     alt=''
-  //     class='destaques__img'
-  //   />
-  // </a>
-  // </div>";
 
 }
 
