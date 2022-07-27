@@ -141,7 +141,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 2rem;
+  padding: 1rem 2rem;
   width: 100%;
   max-width: 1200px;
 }
@@ -163,9 +163,16 @@ header {
   font-size: 2rem;
 }
 
-.logo a {
+.nav__brand {
   color: whitesmoke;
   font-size: 1.5rem;
+  width: 35px;
+}
+
+.logo {
+  width: 449px;
+  height: 162px;
+  margin-bottom: 1rem;
 }
 
 .nav__list {
@@ -288,6 +295,8 @@ header {
 .subheading{
   font-size: clamp(1rem, 3vw, 1.25rem);
   margin-bottom: 2.5rem;
+  font-style: italic;
+  font-weight: 300;
   color: rgb(126, 125, 125);
 }
 
