@@ -108,13 +108,17 @@
             <?php
             // Link do arquivo php principal
             require_once('assets/php/main.php');
+
+            // Array representando 
+            $destaques = array("microsoft", "netflix", "crunchyroll", "meta");
+            
             // looping responsavel por gerar 3 imagens de destaque através da função destaque()
-            for ($x=0; $x<3; $x++) {
-              destaque();
+            foreach($destaques as $destaque) {
+              destaque($destaque);
             }
             ?>
 
-            <div class="destaques__grid-item">
+            <!-- <div class="destaques__grid-item">
               <a href="#" class="link-wrapper">
                 <img
                   src="https://picsum.photos/700/400?random=087"
@@ -122,7 +126,7 @@
                   class="destaques__img"
                 />
               </a>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -144,12 +148,12 @@
               
               <?php
               // Gera 10 imagens "medias"
-                for ($x=0; $x<10; $x++) {
+                for ($x=0; $x<11; $x++) {
                   medio();
                 }
               ?>
 
-              <div class="scroll__item">
+              <!-- <div class="scroll__item">
                 <a href="#" class="link-wrapper">
                   <div class="scroll__img-container">
                     <img
@@ -159,7 +163,7 @@
                     />
                   </div>
                 </a>
-              </div>
+              </div> -->
             </div>
 
             <button
