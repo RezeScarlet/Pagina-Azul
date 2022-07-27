@@ -104,34 +104,15 @@
         <div class="container">
           <h1 class="section__title">Nossos Destaques</h1>
           <div class="destaques__grid">
-            <div class="destaques__grid-item">
-              <a href="#" class="link-wrapper">
-                <img
-                  src="https://picsum.photos/700/400?random=2345"
-                  alt=""
-                  class="destaques__img"
-                />
-              </a>
-            </div>
-            <div class="destaques__grid-item">
-              <a href="#" class="link-wrapper">
-                <img
-                  src="https://picsum.photos/700/400?random=4567"
-                  alt=""
-                  class="destaques__img"
-                />
-              </a>
-            </div>
 
-            <div class="destaques__grid-item">
-              <a href="#" class="link-wrapper">
-                <img
-                  src="https://picsum.photos/700/400?random=6785"
-                  alt=""
-                  class="destaques__img"
-                />
-              </a>
-            </div>
+            <?php
+            // Link do arquivo php principal
+            require_once('assets/php/main.php');
+            // looping responsavel por gerar 3 imagens de destaque através da função destaque()
+            for ($x=0; $x<3; $x++) {
+              destaque();
+            }
+            ?>
 
             <div class="destaques__grid-item">
               <a href="#" class="link-wrapper">
@@ -142,6 +123,7 @@
                 />
               </a>
             </div>
+
           </div>
         </div>
       </section>
@@ -158,127 +140,14 @@
             >
               <i class="fa fa-arrow-left" aria-hidden="true"></i>
             </button>
-
             <div class="scroll-horizontal" data-slide>
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=65487986"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=653476745"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=135452476"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=5987"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=2435234"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=34563456"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=34565436"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=6543654"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=35463546"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
-
-              <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=123"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div>
+              
+              <?php
+              // Gera 10 imagens "medias"
+                for ($x=0; $x<10; $x++) {
+                  medio();
+                }
+              ?>
 
               <div class="scroll__item">
                 <a href="#" class="link-wrapper">
