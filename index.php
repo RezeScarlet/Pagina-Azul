@@ -1,3 +1,11 @@
+<?php
+
+  // Conexão com BD
+  require_once('assets/php/conexao.php');
+  // Link do arquivo php principal
+  require_once('assets/php/main.php');
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -5,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favcon -->
-    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <!-- FONT AWESOME -->
     <link
       rel="stylesheet"
@@ -106,19 +114,17 @@
         <div class="container">
           <h1 class="section__title">Nossos Destaques</h1>
           <div class="destaques__grid">
-
-            <?php
-            // Link do arquivo php principal
-            require_once('assets/php/main.php');
-
-            // Array representando 
-            $destaques = array("microsoft", "netflix", "crunchyroll", "meta");
             
-            // looping responsavel por gerar 3 imagens de destaque através da função destaque()
-            foreach($destaques as $destaque) {
-              destaque($destaque);
-            }
-            ?>
+            <?php
+              $listagem = $conexao->prepare("SELECT * FROM anuncio");
+              $listagem->execute();
+              while($lista=$listagem->fetch(PDO::FETCH_ASSOC)):
+                $imagem = $lista['imagem'];
+                $nome = $linha['nome'];
+                destaque($imagem, $nome);
+              endwhile;
+              ?>
+
 
             <!-- <div class="destaques__grid-item">
               <a href="#" class="link-wrapper">

@@ -1,10 +1,18 @@
 <?php
 
-  $conexao = mysqli_connect("localhost", "root", "", "pagina azul");
+$servidor = "localhost:3306";
+$usuario = "root";
+$senha = "usbw";
+$bancodados = "pagina azul";
 
-  if (mysqli_connect_error()) {
-    echo "Failed to connect to MySQL:" . mysqli_connect_error();
-  }
+$datasource = "mysql:host=$servidor;dbname=$bancodados;charset=UTF8";
 
+try {
+  $conexao = new PDO($datasource, $usuario, $senha);
+  $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  // echo "conexão estabelecida";
+} catch(PDOException $e) {
+  // echo "Erro na conexão";
+}
 
 ?>

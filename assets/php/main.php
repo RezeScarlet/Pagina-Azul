@@ -1,13 +1,13 @@
 <?php
 
-function destaque($anunciante) {
+function destaque($imagem, $nome) {
 
   echo "
   <div class='destaques__grid-item'>
   <a href='#' class='link-wrapper'>
     <img
-      src='assets/imgAnunciante/$anunciante/$anunciante.png'
-      alt='$anunciante'
+      src='$imagem'
+      alt='$nome'
       class='destaques__img'
     />
   </a>
@@ -30,4 +30,5 @@ function medio() {
     </a>
   </div>";
 }
+
 ?>
