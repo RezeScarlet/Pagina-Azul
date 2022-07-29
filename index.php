@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favcon -->
-    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon">
     <!-- FONT AWESOME -->
     <link
       rel="stylesheet"
@@ -37,7 +37,7 @@
           <span class="nav__icon menu-toggler" aria-hidden="true"
             ><i class="fa fa-bars" aria-hidden="true"></i
           ></span>
-          <a href="index.html"><img src="assets/img/logo-white.png" alt="" class="nav__brand" title="Página Azul"></a>
+          <a href="index.php"><img src="assets/img/logo-white.png" alt="" class="nav__brand" title="Página Azul"></a>
         </div>
         <ul class="nav__list">
           <li class="nav__item">
@@ -86,7 +86,7 @@
         <section class="hero">
           <div class="search">
             <div class="search__wrapper">
-              <a href="index.html">
+              <a href="index.php">
                 <img
                   src="assets/img/logo-marca.png"
                   alt="Página Azul"
@@ -124,17 +124,6 @@
                 destaque($imagem, $nome);
               endwhile;
               ?>
-
-
-            <!-- <div class="destaques__grid-item">
-              <a href="#" class="link-wrapper">
-                <img
-                  src="https://picsum.photos/700/400?random=087"
-                  alt=""
-                  class="destaques__img"
-                />
-              </a>
-            </div> -->
 
           </div>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 28-Jul-2022 às 23:29
+-- Tempo de geração: 29-Jul-2022 às 01:52
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 8.1.3
 
@@ -31,9 +31,19 @@ USE `pagina azul`;
 
 CREATE TABLE `anunciante` (
   `idAnunciante` int(11) NOT NULL,
-  `Nome` varchar(20) NOT NULL,
+  `nome` varchar(20) NOT NULL,
   `idPlano` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `anunciante`
+--
+
+INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`) VALUES
+(1, 'Microsoft', 3),
+(2, 'Netflix', 3),
+(3, 'Meta', 3),
+(4, 'Crunchyroll', 3);
 
 -- --------------------------------------------------------
 
@@ -46,9 +56,17 @@ CREATE TABLE `anuncio` (
   `idPlano` int(11) NOT NULL,
   `imagem` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL,
-  `Nome` varchar(20) NOT NULL,
+  `nome` varchar(20) NOT NULL,
   `idAnunciante` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `anuncio`
+--
+
+INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `link`, `nome`, `idAnunciante`) VALUES
+(1, 3, 'assets/img-anunciante/microsoft/microsoft.png', 'a', 'Microsoft', 1),
+(2, 3, 'assets/img-anunciante/meta/meta.png', 'a', 'Meta', 3);
 
 -- --------------------------------------------------------
 
@@ -98,7 +116,7 @@ INSERT INTO `planos` (`idPlano`, `nome`, `tamanho`) VALUES
 --
 ALTER TABLE `anunciante`
   ADD PRIMARY KEY (`idAnunciante`),
-  ADD UNIQUE KEY `Nome` (`Nome`),
+  ADD UNIQUE KEY `Nome` (`nome`),
   ADD KEY `idPlano` (`idPlano`);
 
 --
@@ -108,7 +126,7 @@ ALTER TABLE `anuncio`
   ADD PRIMARY KEY (`idAnuncio`),
   ADD KEY `fk_anuncio_planos` (`idPlano`),
   ADD KEY `idAnunciante` (`idAnunciante`),
-  ADD KEY `Nome` (`Nome`);
+  ADD KEY `Nome` (`nome`);
 
 --
 -- Índices para tabela `paginaanunciante`
@@ -131,13 +149,13 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT de tabela `anunciante`
 --
 ALTER TABLE `anunciante`
-  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `paginaanunciante`
@@ -167,7 +185,7 @@ ALTER TABLE `anunciante`
 ALTER TABLE `anuncio`
   ADD CONSTRAINT `anuncio_ibfk_1` FOREIGN KEY (`idPlano`) REFERENCES `anunciante` (`idPlano`),
   ADD CONSTRAINT `anuncio_ibfk_2` FOREIGN KEY (`idAnunciante`) REFERENCES `anunciante` (`idAnunciante`),
-  ADD CONSTRAINT `anuncio_ibfk_3` FOREIGN KEY (`Nome`) REFERENCES `anunciante` (`Nome`);
+  ADD CONSTRAINT `anuncio_ibfk_3` FOREIGN KEY (`nome`) REFERENCES `anunciante` (`nome`);
 
 --
 -- Limitadores para a tabela `paginaanunciante`
