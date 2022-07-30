@@ -116,13 +116,29 @@
           <div class="destaques__grid">
             
             <?php
-              $listagem = $conexao->prepare("SELECT * FROM anuncio");
-              $listagem->execute();
-              while($lista=$listagem->fetch(PDO::FETCH_ASSOC)):
-                $imagem = $lista['imagem'];
-                $nome = $linha['nome'];
-                destaque($imagem, $nome);
-              endwhile;
+            // Usar para visualizar um array:
+            // echo '<pre>'; print_r($anuncios); echo '</pre>';
+            
+            // Faz o SELECT no BD e executa
+            $anunciosQuery = $conexao->prepare("SELECT * FROM anuncio WHERE idPlano = 3");
+            $anunciosQuery -> execute();
+            
+            // Looping para adicionar cada anuncio a um só array
+            for ($x=0; $x<4; $x++) {
+
+              $array = $anunciosQuery->fetch(PDO::FETCH_ASSOC);
+              $anunciosArray[] = $array;
+              
+            }
+
+            // Função que reorganiza o array de forma aleatória
+            shuffle($anunciosArray);
+
+            // Faz um looping pelo array com todos os anuncio e os manda para uma função que da echo nos HTML
+            foreach($anunciosArray as $anuncio) {
+              destaque($anuncio['imagem'], $anuncio['nome']); 
+              
+            }
               ?>
 
           </div>

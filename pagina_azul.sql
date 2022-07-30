@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 29-Jul-2022 às 01:52
+-- Tempo de geração: 30-Jul-2022 às 00:14
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 8.1.3
 
@@ -65,8 +65,10 @@ CREATE TABLE `anuncio` (
 --
 
 INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `link`, `nome`, `idAnunciante`) VALUES
-(1, 3, 'assets/img-anunciante/microsoft/microsoft.png', 'a', 'Microsoft', 1),
-(2, 3, 'assets/img-anunciante/meta/meta.png', 'a', 'Meta', 3);
+(1, 3, 'assets/img-anunciante/microsoft/microsoft.png', '', 'Microsoft', 1),
+(3, 3, 'assets/img-anunciante/netflix/netflix.png', '', 'Netflix', 2),
+(2, 3, 'assets/img-anunciante/meta/meta.png', '', 'Meta', 3),
+(4, 3, 'assets/img-anunciante/crunchyroll/crunchyroll.png', '', 'Crunchyroll', 4);
 
 -- --------------------------------------------------------
 
@@ -155,7 +157,7 @@ ALTER TABLE `anunciante`
 -- AUTO_INCREMENT de tabela `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `paginaanunciante`

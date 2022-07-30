@@ -8,6 +8,7 @@ function destaque($imagem, $nome) {
     <img
       src='$imagem'
       alt='$nome'
+      title='$nome'
       class='destaques__img'
     />
   </a>
