@@ -66,8 +66,8 @@ CREATE TABLE `anuncio` (
 
 INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `link`, `nome`, `idAnunciante`) VALUES
 (1, 3, 'assets/img-anunciante/microsoft/microsoft.png', '', 'Microsoft', 1),
-(3, 3, 'assets/img-anunciante/netflix/netflix.png', '', 'Netflix', 2),
-(2, 3, 'assets/img-anunciante/meta/meta.png', '', 'Meta', 3),
+(2, 3, 'assets/img-anunciante/netflix/netflix.png', '', 'Netflix', 2),
+(3, 3, 'assets/img-anunciante/meta/meta.png', '', 'Meta', 3),
 (4, 3, 'assets/img-anunciante/crunchyroll/crunchyroll.png', '', 'Crunchyroll', 4);
 
 -- --------------------------------------------------------
