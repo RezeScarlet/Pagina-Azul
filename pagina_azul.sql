@@ -43,7 +43,8 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`) VALUES
 (1, 'Microsoft', 3),
 (2, 'Netflix', 3),
 (3, 'Meta', 3),
-(4, 'Crunchyroll', 3);
+(4, 'Crunchyroll', 3),
+(5, 'Google', 3);
 
 -- --------------------------------------------------------
 
@@ -68,7 +69,8 @@ INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `link`, `nome`, `idAnun
 (1, 3, 'assets/img-anunciante/microsoft/microsoft.png', '', 'Microsoft', 1),
 (2, 3, 'assets/img-anunciante/netflix/netflix.png', '', 'Netflix', 2),
 (3, 3, 'assets/img-anunciante/meta/meta.png', '', 'Meta', 3),
-(4, 3, 'assets/img-anunciante/crunchyroll/crunchyroll.png', '', 'Crunchyroll', 4);
+(4, 3, 'assets/img-anunciante/crunchyroll/crunchyroll.png', '', 'Crunchyroll', 4),
+(5, 3, 'assets/img-anunciante/google/google.png', '', 'Google', 5);
 
 -- --------------------------------------------------------
 

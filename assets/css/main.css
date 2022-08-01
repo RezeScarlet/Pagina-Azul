@@ -64,9 +64,9 @@ section:not(.hero) {
   padding-bottom: 6rem;
 }
 
-img {
+/* img {
   max-width: 100%;
-}
+} */
 
 button,
 input[type="submit"],

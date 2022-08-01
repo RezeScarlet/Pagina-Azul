@@ -120,11 +120,17 @@
             // echo '<pre>'; print_r($anuncios); echo '</pre>';
             
             // Faz o SELECT no BD e executa
-            $anunciosQuery = $conexao->prepare("SELECT * FROM anuncio WHERE idPlano = 3");
+            $anunciosQuery = $conexao->prepare("SELECT * FROM anuncio WHERE idPlano = 3 OR idPlano = 2");
             $anunciosQuery -> execute();
+
+            // Detecta quantas rows exitem na tabela e as armazena em $max
+            $quantQuery = $conexao -> prepare("SELECT MAX(idAnuncio) AS maxId FROM anuncio");
+            $quantQuery -> execute() ;
+            $quantQuery = $quantQuery -> fetch(PDO::FETCH_ASSOC);
+            $max = $quantQuery['maxId'];
             
             // Looping para adicionar cada anuncio a um só array
-            for ($x=0; $x<4; $x++) {
+            for ($x=0; $x<$max; $x++) {
 
               $array = $anunciosQuery->fetch(PDO::FETCH_ASSOC);
               $anunciosArray[] = $array;
@@ -133,10 +139,16 @@
 
             // Função que reorganiza o array de forma aleatória
             shuffle($anunciosArray);
-
+            
             // Faz um looping pelo array com todos os anuncio e os manda para uma função que da echo nos HTML
-            foreach($anunciosArray as $anuncio) {
-              destaque($anuncio['imagem'], $anuncio['nome']); 
+            // foreach($anunciosArray as $anuncio) {
+              //   destaque($anuncio['imagem'], $anuncio['nome']);
+              
+              // }
+              // echo '<pre>'; print_r($anunciosArray); echo '</pre>';
+              for ($x=0; $x<4; $x++) {
+
+              destaque($anunciosArray[$x]['imagem'], $anunciosArray[$x]['nome']);
               
             }
               ?>

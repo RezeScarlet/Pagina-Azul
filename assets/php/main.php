@@ -10,6 +10,8 @@ function destaque($imagem, $nome) {
       alt='$nome'
       title='$nome'
       class='destaques__img'
+      style='width: 592px;
+             height: 338px;'
     />
   </a>
   </div>";
