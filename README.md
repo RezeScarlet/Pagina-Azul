@@ -1,5 +1,5 @@
 # TCC
-## TCC do curso de Informática para Internet integrado ao ensino médio da ETEC Francisco Garcia no ano de 2022
+## TCC do curso de Informática para Internet integrado ao ensino médio da ETEC Francisco Garcia no ano de 2022.
 
 ### Integrantes do grupo:
 - Guilherme de Souza Dionisio Rosseti
