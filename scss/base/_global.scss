@@ -1,0 +1,18 @@
+.link-wrapper {
+  display: block;
+}
+
+section {
+  padding: 0 1.25rem;
+}
+
+section:not(.hero) {
+  padding-bottom: 6rem;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100%;
+  max-width: 1200px;
+}
