@@ -149,15 +149,13 @@ header {
 
     #search_btn:focus ~ &__search,
     &__search:focus {
-      $translateX: -120%;
-
       opacity: 1;
       pointer-events: all;
-      transform: translateX($translateX);
+      transform: translateX(-120%);
       outline: none;
 
       @media all and (max-width: 330px) {
-        $translateX: -95%;
+        transform: translateX(-95%);
       }
     }
 

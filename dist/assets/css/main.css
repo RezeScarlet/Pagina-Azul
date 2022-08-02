@@ -219,6 +219,11 @@ header .nav__search {
   transform: translateX(-120%);
   outline: none;
 }
+@media all and (max-width: 330px) {
+  #search_btn:focus ~ header .nav__search, header .nav__search:focus {
+    transform: translateX(-95%);
+  }
+}
 header .nav .menu-toggler {
   display: none;
 }
