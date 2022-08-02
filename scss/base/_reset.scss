@@ -1,3 +1,7 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
 *,
 *::before,
 *::after {
@@ -13,10 +17,11 @@ html, body {
 }
 
 body {
-  background-color: var(--clr-primary);
   min-width: 100%;
-  font-family: var(--fs-primary);
+  font-family: t.$ff-primary;
   line-height: 1.6;
+  background-color: c.$clr-primary;
+  color: c.$fc-primary;
 }
 
 h1,
@@ -35,4 +40,10 @@ a, a:hover {
 
 img {
   max-width: 100%;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
 }
