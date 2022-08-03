@@ -31,6 +31,7 @@ require_once 'assets/php/main.php';
   <body>
   <!-- HEADER -->
   <?php
+  // chama a Header do site
   include_once 'assets/html/header.html';
   ?>
 
@@ -79,7 +80,7 @@ require_once 'assets/php/main.php';
           // Função que reorganiza o array de forma aleatória
           shuffle($destaquesArray);
 
-          // Gera as imagens
+          // Gera as imagens de destaque
           for ($x = 0; $x < 4; $x++) {
           ?>
 
@@ -172,7 +173,7 @@ require_once 'assets/php/main.php';
 
           <div class="scroll-horizontal scroll-horizontal--sm" data-slide>
           <?php
-
+          // Looping para gerar as imagens da seção categorias 
           for ($x=0; $x<30; $x++) {
             ?>
 
