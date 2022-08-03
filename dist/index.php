@@ -57,7 +57,7 @@ require_once 'assets/php/main.php';
     <!-- DESTAQUES -->
     <section class="destaques" id="destaques">
       <div class="container">
-        <h1 class="section__title">Nossos Destaques</h1>
+        <h1 class="section-title">Nossos Destaques</h1>
         <div class="destaques__grid">
 
           <?php
@@ -65,25 +65,21 @@ require_once 'assets/php/main.php';
           // echo '<pre>'; print_r($anuncios); echo '</pre>';
 
           // Faz o SELECT no BD e executa
-          $destaquesQuery = $conexao->prepare("SELECT * FROM anuncio WHERE idPlano = 2 OR idPlano = 3");
-          $destaquesQuery->execute() ;
+          $destaquesQuery = $conexao -> prepare("SELECT * FROM anuncio WHERE idPlano = 2 OR idPlano = 3");
+          $destaquesQuery -> execute() ;
           
-          // Detecta quantas rows exitem na tabela e as armazena em $max
-          $quantQuery = $conexao->prepare("SELECT MAX(idAnuncio) AS maxId FROM anuncio WHERE idPlano = 3 OR idPlano = 2");
-          $quantQuery->execute();
-          $quantQuery = $quantQuery->fetch(PDO::FETCH_ASSOC);
-          $max = $quantQuery['maxId'];
-
+          
           // Looping para adicionar cada anuncio a um só array
           while ($array = $destaquesQuery->fetch(PDO::FETCH_ASSOC)) {
-
+            
             $destaquesArray[] = $array;
-
+            
           }
 
           // Função que reorganiza o array de forma aleatória
           shuffle($destaquesArray);
 
+          // Gera as imagens
           for ($x = 0; $x < 4; $x++) {
           ?>
 
@@ -109,7 +105,7 @@ require_once 'assets/php/main.php';
     <!-- MEDIOS -->
     <section class="medios" id="medios">
       <div class="container">
-        <h1 class="section__title">Scroll Horizontal</h1>
+        <h1 class="section-title">Scroll Horizontal</h1>
         <div class="slider">
           <button type="button" class="scroll__btn left rounded" data-control="left">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
@@ -151,7 +147,7 @@ require_once 'assets/php/main.php';
                      title='<?php echo $mediosArray[$x]["nome"]; ?>'
                      class='destaques__img'
                      style='width: 268px;
-                           height: 268px;' />
+                            height: 268px;' />
               </a>
             </div>
 
@@ -182,79 +178,34 @@ require_once 'assets/php/main.php';
     <!-- CATEGORIAS -->
     <section class="categorias" id="categorias">
       <div class="container">
-        <h1 class="section__title text-center">Categorias</h1>
+        <h1 class="section-title text-center">Categorias</h1>
         <div class="slider">
           <button type="button" class="scroll__btn left rounded" data-control="left">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
           </button>
 
           <div class="scroll-horizontal scroll-horizontal--sm" data-slide>
+          <?php
+
+          for ($x=0; $x<11; $x++) {
+            ?>
+
             <div class="scroll__item rounded">
+              <a href="#" class="link__wrapper">
+                <img src="https://picsum.photos/150/150?random=<?php echo $x; ?>" alt="" class="rounded" draggable="false" />
+              </a>
+            </div>
+
+            <?php
+          }
+          ?>
+
+            <!--<div class="scroll__item rounded">
               <a href="#" class="link__wrapper">
                 <img src="https://picsum.photos/150/150?random=1" alt="" class="rounded" draggable="false" />
               </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=2" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=3" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=4" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=5" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=6" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=7" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=8" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=9" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=10" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-
-            <div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=11" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>
-          </div>
+            </div>-->
+          </div> 
 
           <button type="button" class="scroll__btn right rounded" data-control="right">
             <i class="fa fa-arrow-right" aria-hidden="true"></i>
