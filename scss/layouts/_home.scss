@@ -1,0 +1,22 @@
+
+.hero {
+  display: grid;
+  place-items: center;
+  min-height: calc(65vh - (3rem + 10vmin));
+  padding: 2.5rem 0;
+  margin-bottom: 2rem;
+}
+  
+.subheading{
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  margin-bottom: 2.5rem;
+  font-style: italic;
+  font-weight: 300;
+  color: rgb(126, 125, 125);
+}
+
+.logo {
+  max-width: 550px;
+  width: calc(100% - 1rem);
+  margin-bottom: 1rem;
+}

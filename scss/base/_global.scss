@@ -1,0 +1,29 @@
+
+section {
+  padding: 0 1.25rem;
+
+  &:not(.hero) {
+    padding-bottom: 6rem;
+
+    @media all and (max-width: 750px) {
+      padding-bottom: 4rem;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 600;
+  color: rgb(1, 1, 71);
+  margin-bottom: 1.5rem;
+} 
+
+.link-wrapper {
+  display: block;
+}
