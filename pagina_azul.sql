@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 30-Jul-2022 às 00:14
--- Versão do servidor: 5.7.36
--- versão do PHP: 8.1.3
+-- Host: 127.0.0.1:3306
+-- Generation Time: 03-Ago-2022 às 15:01
+-- Versão do servidor: 5.7.21
+-- PHP Version: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,8 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `pagina azul`
+-- Database: `pagina azul`
 --
+DROP DATABASE IF EXISTS `pagina azul`; 
+
 CREATE DATABASE IF NOT EXISTS `pagina azul` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `pagina azul`;
 
@@ -29,11 +32,15 @@ USE `pagina azul`;
 -- Estrutura da tabela `anunciante`
 --
 
-CREATE TABLE `anunciante` (
-  `idAnunciante` int(11) NOT NULL,
+DROP TABLE IF EXISTS `anunciante`;
+CREATE TABLE IF NOT EXISTS `anunciante` (
+  `idAnunciante` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(20) NOT NULL,
-  `idPlano` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idPlano` int(11) NOT NULL,
+  PRIMARY KEY (`idAnunciante`),
+  UNIQUE KEY `Nome` (`nome`),
+  KEY `idPlano` (`idPlano`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `anunciante`
@@ -44,7 +51,12 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`) VALUES
 (2, 'Netflix', 3),
 (3, 'Meta', 3),
 (4, 'Crunchyroll', 3),
-(5, 'Google', 3);
+(5, 'Google', 3),
+(6, 'Nintendo', 3),
+(7, 'Xbox', 3),
+(8, 'Oracle', 3),
+(9, 'Python', 3),
+(10, 'Amazon', 3);
 
 -- --------------------------------------------------------
 
@@ -52,25 +64,66 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`) VALUES
 -- Estrutura da tabela `anuncio`
 --
 
-CREATE TABLE `anuncio` (
-  `idAnuncio` int(11) NOT NULL,
+DROP TABLE IF EXISTS `anuncio`;
+CREATE TABLE IF NOT EXISTS `anuncio` (
+  `idAnuncio` int(11) NOT NULL AUTO_INCREMENT,
   `idPlano` int(11) NOT NULL,
   `imagem` varchar(100) NOT NULL,
+  `imagemP` varchar(100) DEFAULT NULL,
   `link` varchar(100) NOT NULL,
   `nome` varchar(20) NOT NULL,
-  `idAnunciante` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idAnunciante` int(11) NOT NULL,
+  PRIMARY KEY (`idAnuncio`),
+  KEY `fk_anuncio_planos` (`idPlano`),
+  KEY `idAnunciante` (`idAnunciante`),
+  KEY `Nome` (`nome`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `anuncio`
 --
 
-INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `link`, `nome`, `idAnunciante`) VALUES
-(1, 3, 'assets/img-anunciante/microsoft/microsoft.png', '', 'Microsoft', 1),
-(2, 3, 'assets/img-anunciante/netflix/netflix.png', '', 'Netflix', 2),
-(3, 3, 'assets/img-anunciante/meta/meta.png', '', 'Meta', 3),
-(4, 3, 'assets/img-anunciante/crunchyroll/crunchyroll.png', '', 'Crunchyroll', 4),
-(5, 3, 'assets/img-anunciante/google/google.png', '', 'Google', 5);
+INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `imagemP`, `link`, `nome`, `idAnunciante`) VALUES
+(1, 3, 'assets/img-anunciante/microsoft/microsoft.png', 'assets/img-anunciante/microsoft/microsoftP.png', '', 'Microsoft', 1),
+(2, 3, 'assets/img-anunciante/netflix/netflix.png', 'assets/img-anunciante/netflix/netflixP.png', '', 'Netflix', 2),
+(3, 3, 'assets/img-anunciante/meta/meta.png', 'assets/img-anunciante/meta/metaP.png', '', 'Meta', 3),
+(4, 3, 'assets/img-anunciante/crunchyroll/crunchyroll.png', 'assets/img-anunciante/crunchyroll/crunchyrollP.png', '', 'Crunchyroll', 4),
+(5, 3, 'assets/img-anunciante/google/google.png', 'assets/img-anunciante/google/googleP.png', '', 'Google', 5),
+(6, 3, 'assets/img-anunciante/nintendo/nintendo.png', 'assets/img-anunciante/nintendo/nintendoP.png', '', 'Nintendo', 6),
+(7, 3, 'assets/img-anunciante/xbox/xbox.png', 'assets/img-anunciante/xbox/xboxP.png', '', 'Xbox', 7),
+(8, 3, 'assets/img-anunciante/oracle/oracle.png', 'assets/img-anunciante/oracle/oracleP.png', '', 'Oracle', 8),
+(9, 3, 'assets/img-anunciante/python/python.png', 'assets/img-anunciante/python/pythonP.png', '', 'Python', 9),
+(10, 3, 'assets/img-anunciante/amazon/amazon.png', 'assets/img-anunciante/amazon/amazonP.png', '', 'Amazon', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categorias`
+--
+
+DROP TABLE IF EXISTS `categorias`;
+CREATE TABLE IF NOT EXISTS `categorias` (
+  `idCategoria` int(11) NOT NULL AUTO_INCREMENT,
+  `nomeCategoria` varchar(30) NOT NULL,
+  PRIMARY KEY (`idCategoria`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `categorias`
+--
+
+INSERT INTO `categorias` (`idCategoria`, `nomeCategoria`) VALUES
+(1, 'Alimentacao'),
+(2, 'Educacao'),
+(3, 'Saude'),
+(4, 'Construcao'),
+(5, 'Imobiliaria'),
+(6, 'Automotivo'),
+(7, 'Moda'),
+(8, 'Pet'),
+(9, 'Turismo'),
+(10, 'Perfumaria'),
+(11, 'Esportes');
 
 -- --------------------------------------------------------
 
@@ -78,8 +131,9 @@ INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `link`, `nome`, `idAnun
 -- Estrutura da tabela `paginaanunciante`
 --
 
-CREATE TABLE `paginaanunciante` (
-  `idPagina` int(11) NOT NULL,
+DROP TABLE IF EXISTS `paginaanunciante`;
+CREATE TABLE IF NOT EXISTS `paginaanunciante` (
+  `idPagina` int(11) NOT NULL AUTO_INCREMENT,
   `nomeLoja` varchar(100) NOT NULL,
   `idPlano` int(11) NOT NULL,
   `descricao` varchar(100) DEFAULT NULL,
@@ -87,7 +141,9 @@ CREATE TABLE `paginaanunciante` (
   `imagemBanner` varchar(100) DEFAULT NULL,
   `imagemLoja` varchar(100) DEFAULT NULL,
   `imagemPerfil` varchar(100) DEFAULT NULL,
-  `social` varchar(100) DEFAULT NULL
+  `social` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idPagina`),
+  KEY `fk_pagina_anunciante_planos` (`idPlano`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
@@ -96,11 +152,13 @@ CREATE TABLE `paginaanunciante` (
 -- Estrutura da tabela `planos`
 --
 
-CREATE TABLE `planos` (
-  `idPlano` int(11) NOT NULL,
+DROP TABLE IF EXISTS `planos`;
+CREATE TABLE IF NOT EXISTS `planos` (
+  `idPlano` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
-  `tamanho` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `tamanho` varchar(100) NOT NULL,
+  PRIMARY KEY (`idPlano`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `planos`
@@ -112,69 +170,7 @@ INSERT INTO `planos` (`idPlano`, `nome`, `tamanho`) VALUES
 (3, 'Pago 2', 'Grande e pequeno');
 
 --
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `anunciante`
---
-ALTER TABLE `anunciante`
-  ADD PRIMARY KEY (`idAnunciante`),
-  ADD UNIQUE KEY `Nome` (`nome`),
-  ADD KEY `idPlano` (`idPlano`);
-
---
--- Índices para tabela `anuncio`
---
-ALTER TABLE `anuncio`
-  ADD PRIMARY KEY (`idAnuncio`),
-  ADD KEY `fk_anuncio_planos` (`idPlano`),
-  ADD KEY `idAnunciante` (`idAnunciante`),
-  ADD KEY `Nome` (`nome`);
-
---
--- Índices para tabela `paginaanunciante`
---
-ALTER TABLE `paginaanunciante`
-  ADD PRIMARY KEY (`idPagina`),
-  ADD KEY `fk_pagina_anunciante_planos` (`idPlano`);
-
---
--- Índices para tabela `planos`
---
-ALTER TABLE `planos`
-  ADD PRIMARY KEY (`idPlano`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `anunciante`
---
-ALTER TABLE `anunciante`
-  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de tabela `anuncio`
---
-ALTER TABLE `anuncio`
-  MODIFY `idAnuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de tabela `paginaanunciante`
---
-ALTER TABLE `paginaanunciante`
-  MODIFY `idPagina` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `planos`
---
-ALTER TABLE `planos`
-  MODIFY `idPlano` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
