@@ -88,6 +88,7 @@ require_once 'assets/php/main.php';
                 <img src='<?php echo $destaquesArray[$x]["imagem"]; ?>'
                      alt='<?php echo $destaquesArray[$x]["nome"]; ?>'
                      title='<?php echo $destaquesArray[$x]["nome"]; ?>'
+                     draggable="false"
                      class='destaques__img'
                      style='width: 592px;
                            height: 338px;' />
@@ -120,16 +121,9 @@ require_once 'assets/php/main.php';
           $mediosQuery = $conexao->prepare("SELECT * FROM anuncio WHERE idPlano = 1 OR idPlano = 3");
           $mediosQuery->execute();
 
-          // Detecta quantas rows exitem na tabela e as armazena em $max
-          $quantQuery = $conexao->prepare("SELECT MAX(idAnuncio) AS maxId FROM anuncio WHERE idPlano = 1 OR idPlano = 3");
-          $quantQuery->execute();
-          $quantQuery = $quantQuery->fetch(PDO::FETCH_ASSOC);
-          $max = $quantQuery['maxId'];
-
           // Looping para adicionar cada anuncio a um só array
-          for ($x = 0; $x < $max; $x++) {
-
-            $array = $mediosQuery->fetch(PDO::FETCH_ASSOC);
+          while ($array = $mediosQuery->fetch(PDO::FETCH_ASSOC)) {
+            
             $mediosArray[] = $array;
 
           }
@@ -137,35 +131,27 @@ require_once 'assets/php/main.php';
           // Função que reorganiza o array de forma aleatória
           shuffle($mediosArray);
 
-          for ($x = 0; $x < $max; $x++) {
+          // Mostra o item do scroll horizontal
+          for ($x = 0; $x < 7; $x++) {
           ?>
 
-            <div class='destaques__grid-item'>
+            <div class='scroll__item'>
               <a href='#' class='link-wrapper'>
+               <div class="scroll__img-container">
                 <img src='<?php echo $mediosArray[$x]["imagemP"]; ?>'
                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'
                      title='<?php echo $mediosArray[$x]["nome"]; ?>'
-                     class='destaques__img'
+                     class='scroll__img'
+                     draggable="false"
                      style='width: 268px;
                             height: 268px;' />
+               </div>
               </a>
             </div>
 
           <?php
           }
           ?>
-
-            <!-- <div class="scroll__item">
-                <a href="#" class="link-wrapper">
-                  <div class="scroll__img-container">
-                    <img
-                      src="https://picsum.photos/400/400?random=11"
-                      class="scroll__img"
-                      draggable="false"
-                    />
-                  </div>
-                </a>
-              </div> -->
           </div>
 
           <button type="button" class="scroll__btn right rounded" data-control="right">
@@ -199,12 +185,6 @@ require_once 'assets/php/main.php';
             <?php
           }
           ?>
-
-            <!--<div class="scroll__item rounded">
-              <a href="#" class="link__wrapper">
-                <img src="https://picsum.photos/150/150?random=1" alt="" class="rounded" draggable="false" />
-              </a>
-            </div>-->
           </div> 
 
           <button type="button" class="scroll__btn right rounded" data-control="right">
