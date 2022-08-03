@@ -16,7 +16,7 @@ require_once 'assets/php/main.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- Favcon -->
-    <link rel="shortcut icon" href="assets/img/logo.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -187,7 +187,7 @@ require_once 'assets/php/main.php';
           <div class="scroll-horizontal scroll-horizontal--sm" data-slide>
           <?php
 
-          for ($x=0; $x<11; $x++) {
+          for ($x=0; $x<30; $x++) {
             ?>
 
             <div class="scroll__item rounded">
