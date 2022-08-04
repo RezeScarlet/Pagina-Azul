@@ -3,9 +3,6 @@
 // Conexão com BD
 require_once 'assets/php/conexao.php';
 
-// Link do arquivo php principal
-require_once 'assets/php/main.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
