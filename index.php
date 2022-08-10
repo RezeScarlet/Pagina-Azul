@@ -1,7 +1,7 @@
 <?php
 
 // Conexão com BD
-require_once 'assets/php/conexao.php';
+require_once '/htdocs/assets/php/conexao.php';
 
 ?>
 <!DOCTYPE html>
@@ -78,7 +78,7 @@ require_once 'assets/php/conexao.php';
 
             <div class='destaques__grid-item'>
               <a href='#' class='link-wrapper'>
-                <img src='<?php echo $destaquesArray[$x]["imagem"]; ?>'
+                <img src='/htdocs/assets/img/img-anunciante/<?= $destaquesArray[$x]["imagem"]; ?>'
                      alt='<?php echo $destaquesArray[$x]["nome"]; ?>'
                      title='<?php echo $destaquesArray[$x]["nome"]; ?>'
                      draggable="false"
@@ -130,7 +130,7 @@ require_once 'assets/php/conexao.php';
             <div class='scroller__item'>
               <a href='#' class='link-wrapper'>
                <div class="scroller__img-container">
-                <img src='<?php echo $mediosArray[$x]["imagemP"]; ?>'
+                <img src='/htdocs/assets/img/img-anunciante/<?php echo $mediosArray[$x]["imagemP"]; ?>'
                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'
                      title='<?php echo $mediosArray[$x]["nome"]; ?>'
                      class='scroller__img'
