@@ -2,7 +2,7 @@
     position: relative;
   }
   
-.scroll-horizontal {
+.scroller {
   $scrollbar-color: rgb(180, 180, 180);
   
   position: relative;
@@ -27,7 +27,7 @@
     padding-inline: 0;
   }
 
-  & > .scroll__item {
+  & > .scroller__item {
     scroll-snap-align: start;
     
     @media only screen and (max-width: 550px) {
@@ -49,12 +49,12 @@
     background-color: $scrollbar-color;
   }
 
-  .scroll__item {
+  .scroller__item {
     overflow: hidden;
     border-radius: 5px;
   }
 
-  .scroll__img {
+  .scroller__img {
     border-radius: 5px;
     -moz-user-select: none; 
     -webkit-user-select: none;
@@ -81,7 +81,7 @@
   }
 }
 
-.scroll__btn {
+.scroller__btn {
   position: absolute;
   top: 40%;
   z-index: 6;

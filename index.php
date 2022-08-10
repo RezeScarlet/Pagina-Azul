@@ -11,16 +11,12 @@ require_once 'assets/php/conexao.php';
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
     <!-- Favcon -->
-    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
-    
+    <link rel="shortcut icon" href="assets/img/logos/logo.png" type="image/x-icon">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
     <!-- CSS E JS -->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
     <script src="assets/js/main.js" defer></script>
     <title>Página Azul | HOME</title>
   </head>
@@ -28,8 +24,7 @@ require_once 'assets/php/conexao.php';
   <body>
   <!-- HEADER -->
   <?php
-  // chama a Header do site
-  include_once 'assets/html/header.html';
+    include_once 'assets/include/header.html';
   ?>
 
   <!-- MAIN -->
@@ -40,7 +35,7 @@ require_once 'assets/php/conexao.php';
         <div class="search">
           <div class="search__wrapper">
             <a href="index.php">
-              <img src="assets/img/logo-marca.png" alt="Página Azul" class="logo" />
+              <img src="assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
             </a>
             <p class="subheading">Tudo ao seu alcance, em um só lugar</p>
             <form action="#" method="post" class="search__form">
@@ -88,8 +83,7 @@ require_once 'assets/php/conexao.php';
                      title='<?php echo $destaquesArray[$x]["nome"]; ?>'
                      draggable="false"
                      class='destaques__img'
-                     style='width: 592px;
-                           height: 338px;' />
+                />
               </a>
             </div>
 
@@ -106,10 +100,10 @@ require_once 'assets/php/conexao.php';
       <div class="container">
         <h1 class="section-title">Scroll Horizontal</h1>
         <div class="slider">
-          <button type="button" class="scroll__btn left rounded" data-control="left">
+          <button type="button" class="scroller__btn left rounded" data-control="left">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
           </button>
-          <div class="scroll-horizontal" data-slide>
+          <div class="scroller" data-slide>
 
           <?php
           // Usar para visualizar um array:
@@ -133,16 +127,15 @@ require_once 'assets/php/conexao.php';
           for ($x = 0; $x < 7; $x++) {
           ?>
 
-            <div class='scroll__item'>
+            <div class='scroller__item'>
               <a href='#' class='link-wrapper'>
-               <div class="scroll__img-container">
+               <div class="scroller__img-container">
                 <img src='<?php echo $mediosArray[$x]["imagemP"]; ?>'
                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'
                      title='<?php echo $mediosArray[$x]["nome"]; ?>'
-                     class='scroll__img'
+                     class='scroller__img'
                      draggable="false"
-                     style='width: 268px;
-                            height: 268px;' />
+                />
                </div>
               </a>
             </div>
@@ -152,7 +145,7 @@ require_once 'assets/php/conexao.php';
           ?>
           </div>
 
-          <button type="button" class="scroll__btn right rounded" data-control="right">
+          <button type="button" class="scroller__btn right rounded" data-control="right">
             <i class="fa fa-arrow-right" aria-hidden="true"></i>
           </button>
         </div>
@@ -164,17 +157,17 @@ require_once 'assets/php/conexao.php';
       <div class="container">
         <h1 class="section-title text-center">Categorias</h1>
         <div class="slider">
-          <button type="button" class="scroll__btn left rounded" data-control="left">
+          <button type="button" class="scroller__btn left rounded" data-control="left">
             <i class="fa fa-arrow-left" aria-hidden="true"></i>
           </button>
 
-          <div class="scroll-horizontal scroll-horizontal--sm" data-slide>
+          <div class="scroller scroller--sm" data-slide>
           <?php
           // Looping para gerar as imagens da seção categorias 
           for ($x=0; $x<30; $x++) {
             ?>
 
-            <div class="scroll__item rounded">
+            <div class="scroller__item rounded">
               <a href="#" class="link__wrapper">
                 <img src="https://picsum.photos/150/150?random=<?php echo $x; ?>" alt="" class="rounded" draggable="false" />
               </a>
@@ -185,7 +178,7 @@ require_once 'assets/php/conexao.php';
           ?>
           </div> 
 
-          <button type="button" class="scroll__btn right rounded" data-control="right">
+          <button type="button" class="scroller__btn right rounded" data-control="right">
             <i class="fa fa-arrow-right" aria-hidden="true"></i>
           </button>
         </div>

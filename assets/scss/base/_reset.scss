@@ -12,8 +12,8 @@
 }
 
 html, body {
-  min-height: 100%;
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
@@ -31,6 +31,14 @@ h4,
 h5,
 h6 {
   line-height: 1.1;
+}
+
+p {
+  margin-bottom: 0.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 a, a:hover {

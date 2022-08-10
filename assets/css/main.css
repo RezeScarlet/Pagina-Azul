@@ -9,8 +9,8 @@
 }
 
 html, body {
-  min-height: 100%;
   overflow-x: hidden;
+  height: 100%;
 }
 
 body {
@@ -28,6 +28,13 @@ h4,
 h5,
 h6 {
   line-height: 1.1;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}
+p:last-child {
+  margin-bottom: 0;
 }
 
 a, a:hover {
@@ -90,6 +97,7 @@ header {
   background-color: hsl(237deg, 57%, 22%);
   color: hsl(0deg, 0%, 94%);
   box-shadow: 1px 1px 1px hsl(237deg, 57%, 31%);
+  font-size: 0.9rem;
   z-index: 999;
 }
 header .nav {
@@ -98,14 +106,14 @@ header .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1rem;
   gap: 1rem;
   width: 100%;
   max-width: 1200px;
 }
 @media all and (max-width: 455px) {
   header .nav {
-    padding: 1.25rem 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 header .nav__header {
@@ -114,7 +122,8 @@ header .nav__header {
   gap: 1rem;
 }
 header .nav__brand {
-  width: 35px;
+  width: 25px;
+  margin-bottom: -0.5rem;
 }
 header .nav__list {
   display: flex;
@@ -124,6 +133,7 @@ header .nav__list {
        column-gap: 2rem;
   row-gap: 1.5rem;
   list-style: none;
+  padding-left: 4rem;
 }
 @media all and (max-width: 980px) {
   header .nav__list {
@@ -140,7 +150,6 @@ header .nav__list {
     padding: 6rem 10vw 5rem;
     background-color: rgb(0, 0, 36);
     box-shadow: 2px 0 5px black;
-    font-size: 1.25rem;
     transition: transform 250ms ease-in;
   }
   header .nav__list.active {
@@ -153,7 +162,7 @@ header .nav__item {
 header .nav__link {
   outline: none;
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 header .nav__link::before {
   content: "";
@@ -174,7 +183,6 @@ header .nav__close-btn {
   position: absolute;
   top: 1rem;
   right: 1.5rem;
-  font-size: 1.925rem;
   cursor: pointer;
 }
 @media all and (max-width: 980px) {
@@ -191,10 +199,10 @@ header .nav__icon {
   background-color: transparent;
   border: 0;
   color: hsl(0deg, 0%, 94%);
-  font-size: 1.75rem;
   outline: none;
   cursor: pointer;
   transition: color 100ms ease-in;
+  font-size: 1.5rem;
 }
 header .nav__icon:hover, header .nav__icon:focus {
   color: rgb(205, 205, 205);
@@ -236,12 +244,11 @@ header .nav .menu-toggler i {
   display: block !important;
   min-width: 100% !important;
   min-height: 100% !important;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .btn {
   padding: 0.5em 0.75em;
-  font-size: 1rem;
   border: 0;
   border-radius: 3px;
   font-weight: 600;
@@ -299,7 +306,7 @@ header .nav .menu-toggler i {
   border-radius: 3px;
   color: rgb(82, 82, 82);
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 2px 0.5em rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 }
 .search__bar::-moz-placeholder {
   color: rgb(116, 116, 116);
@@ -375,7 +382,7 @@ footer {
   position: relative;
 }
 
-.scroll-horizontal {
+.scroller {
   position: relative;
   display: grid;
   grid-auto-flow: column;
@@ -387,50 +394,50 @@ footer {
       scroll-snap-type: inline mandatory;
 }
 @media only screen and (max-width: 1000px) {
-  .scroll-horizontal {
+  .scroller {
     grid-auto-columns: 29%;
   }
 }
 @media only screen and (max-width: 700px) {
-  .scroll-horizontal {
+  .scroller {
     grid-auto-columns: 36%;
   }
 }
 @media only screen and (max-width: 550px) {
-  .scroll-horizontal {
+  .scroller {
     grid-auto-columns: 72%;
     padding-inline: 0;
   }
 }
-.scroll-horizontal > .scroll__item {
+.scroller > .scroller__item {
   scroll-snap-align: start;
 }
 @media only screen and (max-width: 550px) {
-  .scroll-horizontal > .scroll__item {
+  .scroller > .scroller__item {
     scroll-snap-align: center;
   }
 }
 @supports (scrollbar-width: thin) {
-  .scroll-horizontal {
+  .scroller {
     scrollbar-width: thin;
     scrollbar-color: rgb(180, 180, 180) transparent;
   }
 }
-.scroll-horizontal::-webkit-scrollbar {
+.scroller::-webkit-scrollbar {
   height: 7px;
 }
-.scroll-horizontal::-webkit-scrollbar-track {
+.scroller::-webkit-scrollbar-track {
   background: transparent;
 }
-.scroll-horizontal::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgb(180, 180, 180);
 }
-.scroll-horizontal .scroll__item {
+.scroller .scroller__item {
   overflow: hidden;
   border-radius: 5px;
 }
-.scroll-horizontal .scroll__img {
+.scroller .scroller__img {
   border-radius: 5px;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -438,27 +445,27 @@ footer {
   user-select: none;
   -webkit-user-drag: none;
 }
-.scroll-horizontal--sm {
+.scroller--sm {
   grid-auto-columns: 9%;
   padding-bottom: 1rem;
 }
 @media only screen and (max-width: 1000px) {
-  .scroll-horizontal--sm {
+  .scroller--sm {
     grid-auto-columns: 12%;
   }
 }
 @media only screen and (max-width: 730px) {
-  .scroll-horizontal--sm {
+  .scroller--sm {
     grid-auto-columns: 16%;
   }
 }
 @media only screen and (max-width: 630px) {
-  .scroll-horizontal--sm {
+  .scroller--sm {
     grid-auto-columns: 22%;
   }
 }
 
-.scroll__btn {
+.scroller__btn {
   position: absolute;
   top: 40%;
   z-index: 6;
@@ -469,10 +476,10 @@ footer {
   color: rgba(255, 255, 255, 0.8);
   border: 0;
 }
-.scroll__btn.left {
+.scroller__btn.left {
   left: -15px;
 }
-.scroll__btn.right {
+.scroller__btn.right {
   right: -15px;
 }
 
@@ -493,7 +500,21 @@ footer {
 }
 
 .logo {
-  max-width: 550px;
+  max-width: 500px;
   width: calc(100% - 1rem);
   margin-bottom: 1rem;
+}
+
+.sobre {
+  position: relative;
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 3rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.sobre img {
+  max-width: 200px;
+  position: absolute;
+  opacity: 0.4;
 }/*# sourceMappingURL=main.css.map */

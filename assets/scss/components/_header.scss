@@ -11,6 +11,7 @@ header {
   background-color: c.$clr-secondary-200;
   color: c.$fc-secondary;
   box-shadow: 1px 1px 1px c.$clr-secondary-100;
+  font-size: 0.9rem;
   z-index: 999;
 
   .nav {
@@ -19,13 +20,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1rem;
     gap: 1rem;
     width: 100%;
     max-width: 1200px;
 
     @media all and (max-width: 455px) {
-      padding: 1.25rem 1rem;
+      padding: 0.5rem 1rem;
     }
 
     &__header {
@@ -35,7 +36,8 @@ header {
     }
 
     &__brand {
-      width: 35px;
+      width: 25px;
+      margin-bottom: -0.5rem;
     }
 
     &__list {
@@ -45,6 +47,7 @@ header {
       column-gap: 2rem;
       row-gap: 1.5rem;
       list-style: none;
+      padding-left: 4rem;
 
       @media all and (max-width: 980px) {
         transform: translateX(calc(-100% - 10px));
@@ -60,7 +63,6 @@ header {
         padding: 6rem 10vw 5rem;
         background-color: rgb(0, 0, 36);
         box-shadow: 2px 0 5px black;
-        font-size: 1.25rem;
         transition: transform 250ms ease-in;
 
         &.active {
@@ -76,7 +78,7 @@ header {
     &__link {
       outline: none;
       text-transform: uppercase;
-      font-size: 1.1rem;
+      font-size: 1rem;
 
       &::before {
         content: "";
@@ -102,7 +104,6 @@ header {
       position: absolute;
       top: 1rem;
       right: 1.5rem;
-      font-size: 1.925rem;
       cursor: pointer;
 
       @media all and (max-width: 980px) {
@@ -120,10 +121,10 @@ header {
       background-color: transparent;
       border: 0;
       color: c.$fc-secondary;
-      font-size: 1.75rem;
       outline: none;
       cursor: pointer;
       transition: color 100ms ease-in;
+      font-size: 1.5rem;
 
       &:hover,
       &:focus {
@@ -170,7 +171,7 @@ header {
         display: block !important;
         min-width: 100% !important;
         min-height: 100% !important;
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
   }

@@ -47,16 +47,16 @@ CREATE TABLE IF NOT EXISTS `anunciante` (
 --
 
 INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`) VALUES
-(1, 'Microsoft', 3),
-(2, 'Netflix', 3),
-(3, 'Meta', 3),
-(4, 'Crunchyroll', 3),
-(5, 'Google', 3),
-(6, 'Nintendo', 3),
-(7, 'Xbox', 3),
-(8, 'Oracle', 3),
-(9, 'Python', 3),
-(10, 'Amazon', 3);
+(1, 'Batata', 3),
+(2, 'Boi', 3),
+(3, 'Burg', 3),
+(4, 'Controle', 3),
+(5, 'Dragão', 3),
+(6, 'Esporte', 3),
+(7, 'Folha', 3),
+(8, 'Gato', 3),
+(9, 'Macaco', 3),
+(10, 'Montanha', 3);
 
 -- --------------------------------------------------------
 
@@ -84,16 +84,16 @@ CREATE TABLE IF NOT EXISTS `anuncio` (
 --
 
 INSERT INTO `anuncio` (`idAnuncio`, `idPlano`, `imagem`, `imagemP`, `link`, `nome`, `idAnunciante`) VALUES
-(1, 3, 'assets/img-anunciante/microsoft/microsoft.png', 'assets/img-anunciante/microsoft/microsoftP.png', '', 'Microsoft', 1),
-(2, 3, 'assets/img-anunciante/netflix/netflix.png', 'assets/img-anunciante/netflix/netflixP.png', '', 'Netflix', 2),
-(3, 3, 'assets/img-anunciante/meta/meta.png', 'assets/img-anunciante/meta/metaP.png', '', 'Meta', 3),
-(4, 3, 'assets/img-anunciante/crunchyroll/crunchyroll.png', 'assets/img-anunciante/crunchyroll/crunchyrollP.png', '', 'Crunchyroll', 4),
-(5, 3, 'assets/img-anunciante/google/google.png', 'assets/img-anunciante/google/googleP.png', '', 'Google', 5),
-(6, 3, 'assets/img-anunciante/nintendo/nintendo.png', 'assets/img-anunciante/nintendo/nintendoP.png', '', 'Nintendo', 6),
-(7, 3, 'assets/img-anunciante/xbox/xbox.png', 'assets/img-anunciante/xbox/xboxP.png', '', 'Xbox', 7),
-(8, 3, 'assets/img-anunciante/oracle/oracle.png', 'assets/img-anunciante/oracle/oracleP.png', '', 'Oracle', 8),
-(9, 3, 'assets/img-anunciante/python/python.png', 'assets/img-anunciante/python/pythonP.png', '', 'Python', 9),
-(10, 3, 'assets/img-anunciante/amazon/amazon.png', 'assets/img-anunciante/amazon/amazonP.png', '', 'Amazon', 10);
+(1, 3, 'assets/img/img-anunciante/batata.png', 'assets/img/img-anunciante/batataP.png', '', 'Batata', 1),
+(2, 3, 'assets/img/img-anunciante/boi.png', 'assets/img/img-anunciante/boiP.png', '', 'Boi', 2),
+(3, 3, 'assets/img/img-anunciante/burg.png', 'assets/img/img-anunciante/burgP.png', '', 'Burg', 3),
+(4, 3, 'assets/img/img-anunciante/controle.png', 'assets/img/img-anunciante/controleP.png', '', 'Controle', 4),
+(5, 3, 'assets/img/img-anunciante/dragao.png', 'assets/img/img-anunciante/dragaoP.png', '', 'Dragão', 5),
+(6, 3, 'assets/img/img-anunciante/esporte.png', 'assets/img/img-anunciante/esporteP.png', '', 'Esporte', 6),
+(7, 3, 'assets/img/img-anunciante/folha.png', 'assets/img/img-anunciante/folhaP.png', '', 'Folha', 7),
+(8, 3, 'assets/img/img-anunciante/gato.png', 'assets/img/img-anunciante/gatoP.png', '', 'Gato', 8),
+(9, 3, 'assets/img/img-anunciante/macaco.png', 'assets/img/img-anunciante/macacoP.png', '', 'Macaco', 9),
+(10, 3, 'assets/img/img-anunciante/montanha.png', 'assets/img/img-anunciante/montanhaP.png', '', 'Montanha', 10);
 
 -- --------------------------------------------------------
 

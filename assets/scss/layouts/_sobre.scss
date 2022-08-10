@@ -1,0 +1,18 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
+.sobre {
+  position: relative;
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 3rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+
+  img {
+    max-width: 200px;
+    position: absolute;
+    opacity: 0.4;
+  }
+}
