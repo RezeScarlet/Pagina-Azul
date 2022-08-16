@@ -2,7 +2,7 @@
 
 // Conexão com BD
 require_once '/htdocs/assets/php/conexao.php';
-
+echo $_SERVER['DOCUMENT_ROOT'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -77,10 +77,10 @@ require_once '/htdocs/assets/php/conexao.php';
           ?>
 
             <div class='destaques__grid-item'>
-              <a href='#' class='link-wrapper'>
+              <a href='anunciante/index.php?anunciante=<?= $$destaquesArray[$x]["link"]; ?>' class='link-wrapper'>
                 <img src='/htdocs/assets/img/img-anunciante/<?= $destaquesArray[$x]["imagem"]; ?>'
-                     alt='<?php echo $destaquesArray[$x]["nome"]; ?>'
-                     title='<?php echo $destaquesArray[$x]["nome"]; ?>'
+                     alt='<?= $destaquesArray[$x]["nome"]; ?>'
+                     title='<?= $destaquesArray[$x]["nome"]; ?>'
                      draggable="false"
                      class='destaques__img'
                 />

@@ -1,6 +1,6 @@
 <?php
 
-$servidor = "localhost:3306";
+$servidor = "localhost:3000";
 $usuario = "root";
 $senha = "usbw";
 $bancodados = "pagina azul";
