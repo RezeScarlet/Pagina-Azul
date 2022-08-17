@@ -1,31 +1,31 @@
 <?php
-
-// Conexão com BD
-require_once '/htdocs/assets/php/conexao.php';
-echo $_SERVER['DOCUMENT_ROOT'];
+require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
+// echo $_SERVER['DOCUMENT_ROOT'];
+// echo "<br>";
+// echo __DIR__;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
   
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Favcon -->
-    <link rel="shortcut icon" href="assets/img/logos/logo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS E JS -->
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="assets/js/main.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <script src="/assets/js/main.js" defer></script>
     <title>Página Azul | HOME</title>
   </head>
   
   <body>
   <!-- HEADER -->
   <?php
-    include_once 'assets/include/header.html';
-  ?>
+    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
+   ?>
 
   <!-- MAIN -->
   <main>
@@ -35,7 +35,7 @@ echo $_SERVER['DOCUMENT_ROOT'];
         <div class="search">
           <div class="search__wrapper">
             <a href="index.php">
-              <img src="assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
+              <img src="/assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
             </a>
             <p class="subheading">Tudo ao seu alcance, em um só lugar</p>
             <form action="#" method="post" class="search__form">
@@ -78,7 +78,7 @@ echo $_SERVER['DOCUMENT_ROOT'];
 
             <div class='destaques__grid-item'>
               <a href='anunciante/index.php?anunciante=<?= $$destaquesArray[$x]["link"]; ?>' class='link-wrapper'>
-                <img src='/htdocs/assets/img/img-anunciante/<?= $destaquesArray[$x]["imagem"]; ?>'
+                <img src='/assets/img/img-anunciante/<?= $destaquesArray[$x]["imagem"]; ?>'
                      alt='<?= $destaquesArray[$x]["nome"]; ?>'
                      title='<?= $destaquesArray[$x]["nome"]; ?>'
                      draggable="false"
@@ -130,7 +130,7 @@ echo $_SERVER['DOCUMENT_ROOT'];
             <div class='scroller__item'>
               <a href='#' class='link-wrapper'>
                <div class="scroller__img-container">
-                <img src='/htdocs/assets/img/img-anunciante/<?php echo $mediosArray[$x]["imagemP"]; ?>'
+                <img src='assets/img/img-anunciante/<?php echo $mediosArray[$x]["imagemP"]; ?>'
                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'
                      title='<?php echo $mediosArray[$x]["nome"]; ?>'
                      class='scroller__img'
