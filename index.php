@@ -77,7 +77,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
           ?>
 
             <div class='destaques__grid-item'>
-              <a href='anunciante/index.php?anunciante=<?= $$destaquesArray[$x]["link"]; ?>' class='link-wrapper'>
+              <a href='/anunciante/index.php?anunciante=<?= $destaquesArray[$x]["nome"]; ?>' class='link-wrapper'>
                 <img src='/assets/img/img-anunciante/<?= $destaquesArray[$x]["imagem"]; ?>'
                      alt='<?= $destaquesArray[$x]["nome"]; ?>'
                      title='<?= $destaquesArray[$x]["nome"]; ?>'
@@ -124,11 +124,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
           shuffle($mediosArray);
 
           // Mostra o item do scroll horizontal
-          for ($x = 0; $x < 7; $x++) {
+          for ($x = 0; $x < 7; $x++) { 
           ?>
-
             <div class='scroller__item'>
-              <a href='#' class='link-wrapper'>
+              <a href='/anunciante/index.php?anunciante=<?= $mediosArray[$x]["nome"]; ?>' class='link-wrapper'>
                <div class="scroller__img-container">
                 <img src='assets/img/img-anunciante/<?php echo $mediosArray[$x]["imagemP"]; ?>'
                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'

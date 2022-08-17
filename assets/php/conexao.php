@@ -3,7 +3,7 @@
 $servidor = "localhost:3000";
 $usuario = "root";
 $senha = "usbw";
-$bancodados = "pagina azul";
+$bancodados = "pagina_azul";
 
 $datasource = "mysql:host=$servidor;dbname=$bancodados;charset=UTF8";
 
