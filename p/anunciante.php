@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="/assets/css/main.css" />
   <script src="/assets/js/main.js" defer></script>
 </head>
-<body id="sobre">
+<body>
 
   <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
