@@ -61,7 +61,24 @@ navSearchBtn.addEventListener("click", () => navSearchBar.focus())
 
 
 // --------------------
-// SCROL HORIZONTAL
+// TORNAR LINKS DA NAVBAR ATIVOS
+// --------------------
+
+const pageId = document.body.id;
+const navLinks = select(".nav__link", true);
+
+navLinks.forEach((link) => {
+    if (!pageId) return;
+
+    if (link.innerText.toLowerCase() === pageId) {
+        active(link);
+    }
+})
+
+
+
+// --------------------
+// SCROLLER
 // --------------------
 
 const sliders = select(".slider", true);

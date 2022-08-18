@@ -1,9 +1,8 @@
+
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
-// echo $_SERVER['DOCUMENT_ROOT'];
-// echo "<br>";
-// echo __DIR__;
+  require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   
@@ -21,7 +20,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
     <title>Página Azul | HOME</title>
   </head>
   
-  <body>
+  <body id="home">
   <!-- HEADER -->
   <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
@@ -77,7 +76,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
           ?>
 
             <div class='destaques__grid-item'>
-              <a href='/anunciante/index.php?anunciante=<?= $destaquesArray[$x]["nome"]; ?>' class='link-wrapper'>
+              <a href='/p/anunciante.php?anunciante=<?= $destaquesArray[$x]["nome"]; ?>' class='link-wrapper'>
                 <img src='/assets/img/img-anunciante/<?= $destaquesArray[$x]["imagem"]; ?>'
                      alt='<?= $destaquesArray[$x]["nome"]; ?>'
                      title='<?= $destaquesArray[$x]["nome"]; ?>'
@@ -127,7 +126,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
           for ($x = 0; $x < 7; $x++) { 
           ?>
             <div class='scroller__item'>
-              <a href='/anunciante/index.php?anunciante=<?= $mediosArray[$x]["nome"]; ?>' class='link-wrapper'>
+              <a href='/p/anunciante.php?anunciante=<?= $mediosArray[$x]["nome"]; ?>' class='link-wrapper'>
                <div class="scroller__img-container">
                 <img src='assets/img/img-anunciante/<?php echo $mediosArray[$x]["imagemP"]; ?>'
                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'

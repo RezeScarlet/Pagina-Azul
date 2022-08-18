@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | SOBRE</title>
+  <title>Página Azul | SERVIÇOS</title>
   <!-- Favcon -->
   <link rel="shortcut icon" href="../assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../assets/css/main.css" />
   <script src="../assets/js/main.js" defer></script>
 </head>
-<body>
+<body id="serviços">
 
   <?php
     include_once '../assets/include/header.html';
