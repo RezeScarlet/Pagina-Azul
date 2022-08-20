@@ -97,32 +97,39 @@
         return $time;
       }
 
-      function validadeImg(){
+      function validadeImg($img_original, $img_tmp){
 
-        
+        $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
+
+        $fileExtension = strtolower(pathinfo($img_original, PATHINFO_EXTENSION));
+
+        if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
+          echo "Imagem invalida";
+        } else {
+          
+          echo "Imagem $img_original é válida";
+
+          move_uploaded_file($imgPerfil_tmp, $imgPerfil_final);        
+  
+          return $imgName = getTime(). "." .$fileExtension;
+
+        }
       }
-      $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
+      // $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
 
       $imgPerfil_tmp = $_FILES["imgPerfil"]["tmp_name"];
       $imgPerfil_original = $_FILES["imgPerfil"]["name"];
 
-      $fileExtension = strtolower(pathinfo($imgPerfil_original, PATHINFO_EXTENSION));
+      // $fileExtension = strtolower(pathinfo($imgPerfil_original, PATHINFO_EXTENSION));
 
-      $time = getTime();
+      // $time = getTime();
 
       $imgName = $time. "." .$fileExtension;
       $imgPerfil_final = $path . $imgName;
 
       // ====================================================
 
-      if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
-        $msg = $msg . "O arquivo selecionado não é uma imagem!";
-      } else {
-
-        move_uploaded_file($imgPerfil_tmp, $imgPerfil_final);        
-
-        $msg = "<div class='alert alert-info'>O arquivo $imgPerfil_original foi salvo com sucesso</div>";
-      }
+      validadeImg($imgPerfil_original, $imgPerfil_tmp);
     
       $result = $conexao -> prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
 
