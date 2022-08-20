@@ -91,33 +91,37 @@
       
       // ===========================
 
+      function getTime(){
+        date_default_timezone_set("America/Sao_Paulo");
+        $time = date("Ymd")."_".date("His");
+        return $time;
+      }
+
+      function validadeImg(){
+
+        
+      }
       $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
+
       $imgPerfil_tmp = $_FILES["imgPerfil"]["tmp_name"];
       $imgPerfil_original = $_FILES["imgPerfil"]["name"];
 
-      $fileExtension = strtolower(pathinfo($imgPerfil_completo, PATHINFO_EXTENSION));
+      $fileExtension = strtolower(pathinfo($imgPerfil_original, PATHINFO_EXTENSION));
 
-      date_default_timezone_set("America/Sao_Paulo");
-      $time = date("Ymd")."_".date("His");
+      $time = getTime();
 
       $imgName = $time. "." .$fileExtension;
       $imgPerfil_final = $path . $imgName;
 
       // ====================================================
 
-      $msg = "Nome do arquivo = $imgPerfil_original
-        <br>Extensão = $fileExtension";
-
       if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
         $msg = $msg . "O arquivo selecionado não é uma imagem!";
       } else {
-        $msg = $msg . "<br>O arquivo selecionado é uma imagem!";
 
-        move_uploaded_file($imgPerfil_tmp, $imgPerfil_completo);
+        move_uploaded_file($imgPerfil_tmp, $imgPerfil_final);        
 
-        
-
-        $msg = "<div class='alert alert-info'>O arquivo $imgPerfil_completo foi salvo com sucesso</div>";
+        $msg = "<div class='alert alert-info'>O arquivo $imgPerfil_original foi salvo com sucesso</div>";
       }
     
       $result = $conexao -> prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
@@ -125,7 +129,7 @@
         $result->bindValue(":nome", $nome);
         $result->bindValue(':idPlano', $idPlano);
         $result->bindValue(":descricao", $descricao);
-        $result->bindValue(":imgPerfil", $arquivo_imagem);
+        $result->bindValue(":imgPerfil", $imgName);
         $result->bindValue(":imgAnuncioP", $imgAnuncioP);
         $result->bindValue(":imgAnuncioG", $imgAnuncioG);
         $result->execute();
