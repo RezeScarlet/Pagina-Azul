@@ -1,0 +1,125 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
+.planos {
+    display: grid;
+    place-items: center;
+    padding: 3rem 0;
+    margin: calc(0.5rem + 0.5vw) auto;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 4rem;
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 2rem;
+        width: min(300px, 100%);
+        transition: 150ms ease-in;
+
+        &:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transform: scale(102%);
+        } 
+
+        &.gratuito {
+            --card-color: hsl(237, 57%, 31%);
+            order: 1;
+        }
+
+        &.medio {
+            --card-color: hsl(120, 50%, 53%);
+            order: 3;
+        }
+
+        &.destaque {
+            --card-color: hsl(35, 69%, 58%);
+            order: 2;
+            transform: scale(105%);
+
+            &:hover {
+                transform: scale(108%);
+            }
+
+            @media only screen and (max-width: 1027px) {
+                order: 3;
+                transform: scale(1);
+            }
+        }
+
+        &__title {
+            text-align: center;
+        }
+
+        &__price {
+            position: relative;
+            max-width: max-content;
+            margin: 0 auto;
+            color: var(--card-color);
+
+            .currency {
+                position: absolute;
+                top: 20%;
+                left: -25%;
+            }
+
+            .real {
+                font-size: 3rem;
+            }
+
+            .cents {
+                font-size: 1rem;
+            }
+        }
+
+        &__list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        &__list-item {
+            display: flex;
+            gap: 1rem;
+
+            &.positive {
+                i {
+                    color: hsl(204, 56%, 47%);
+                }
+            }
+
+            &.negative {
+                i {
+                    color: hsl(0, 82%, 70%);
+                }
+            }
+
+            span {
+                flex-grow: 1;
+                font-size: 0.9rem;
+            }
+        }
+
+        .btn-purchase {
+            background-color: var(--card-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+            transition: 100ms ease-in;
+
+            &:hover {
+                transform: scale(102%);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            }
+        }
+    }
+}

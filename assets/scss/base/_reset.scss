@@ -12,16 +12,22 @@
 }
 
 html, body {
-  overflow-x: hidden;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   min-width: 100%;
   font-family: t.$ff-primary;
   line-height: 1.6;
   background-color: c.$clr-primary;
   color: c.$fc-primary;
+
+  &.mobile-nav-active {
+    overflow-y: hidden;
+  }
 }
 
 h1,
@@ -54,4 +60,9 @@ button,
 input[type="submit"],
 input[type="reset"] {
   cursor: pointer;
+}
+
+::selection {
+  background-color: hsl(237, 67%, 41%);
+  color: whitesmoke;
 }

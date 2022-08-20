@@ -1,6 +1,9 @@
 
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
 section {
-  padding: 0 1.25rem;
+  padding: 0;
 
   &:not(.hero) {
     padding-bottom: 6rem;
@@ -12,9 +15,13 @@ section {
 }
 
 .container {
-  width: 100%;
+  width: calc(100% - 2rem);
   margin: 0 auto;
   max-width: 1200px;
+
+  &--sm {
+    max-width: 900px;
+  }
 }
 
 .section-title {

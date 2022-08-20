@@ -16,12 +16,20 @@ const select = (element, all = false) => {
 
 // Funções para colocar e tirar classe .active
 
-const active = (element) => {
-    element.classList.add("active");
+const toggleActive = (element) => {
+    element.classList.toggle("active");
 };
 
 const notActive = (element) => {
     element.classList.remove("active");
+}
+
+
+// Tornar Nav mobile ativa
+
+const toggleMobileNav = () => {
+   toggleActive(navList);
+   document.body.classList.toggle("mobile-nav-active");
 }
 
 
@@ -34,13 +42,8 @@ const menuToggler = select(".menu-toggler");
 const closeMenuBtn = select(".nav__close-btn");
 const navList = select(".nav__list");
 
-menuToggler.addEventListener("click", () => {
-    active(navList);
-})
-
-closeMenuBtn.addEventListener("click", () => {
-    notActive(navList);
-})
+menuToggler.addEventListener("click", toggleMobileNav)
+closeMenuBtn.addEventListener("click", toggleMobileNav)
 
 window.addEventListener("click", (e) => {
     let target = e.target.parentElement;
@@ -49,6 +52,7 @@ window.addEventListener("click", (e) => {
 
     if (e.target !== navList) {
         notActive(navList)
+        document.body.classList.remove("mobile-nav-active");
     }
 })
 
@@ -71,7 +75,7 @@ navLinks.forEach((link) => {
     if (!pageId) return;
 
     if (link.innerText.toLowerCase() === pageId) {
-        active(link);
+       toggleActive(link);
     }
 })
 
@@ -122,6 +126,8 @@ if (sliders) {
         })
     
         scroller.addEventListener("mousemove", (e) => {
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return;
+
             if (!isDown) return;
     
             e.preventDefault();
@@ -139,17 +145,18 @@ if (sliders) {
 // BOTÃO DE VOLTA AO TOPO
 // --------------------
 
-const backToTopBtn = select(".back-to-top");
+// const backToTopBtn = select(".back-to-top");
 
-if (backToTopBtn) {
-    const toggle = () => {
-        if (window.scrollY > 50) {
-            active(backToTopBtn);
-        } else {
-            notActive(backToTopBtn);
-        }
-    }
+// if (backToTopBtn) {
+//     const toggleBackToTopButton = () => {
+//         if (document.body.scrollY > 50) {
+//            toggleActive(backToTopBtn);
+//         } else {
+//             notActive(backToTopBtn);
+//         }
+//     }
 
-    window.addEventListener("load", toggle);
-    window.addEventListener("scroll", toggle);
-}
+//     document.body.addEventListener("scroll", toggleBackToTopButton);
+//     document.body.addEventListener("load", toggleBackToTopButton);
+// }
+
