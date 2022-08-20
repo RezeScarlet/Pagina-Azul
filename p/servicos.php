@@ -28,6 +28,7 @@
         <div class="cards-container">
           <div class="card gratuito">
             <h2 class="card__title">Gratuito</h2>
+            
             <div class="card__price">
               <span class="currency">R$</span>
               <span class="real">00</span><span class="cents">,00</span>
