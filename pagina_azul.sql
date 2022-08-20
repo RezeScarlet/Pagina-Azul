@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 20-Ago-2022 às 14:54
+-- Generation Time: 20-Ago-2022 às 18:47
 -- Versão do servidor: 5.6.34
 -- PHP Version: 5.6.32
 
@@ -67,14 +67,14 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`, `descricao`, `imgPe
 DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
   `idCategoria` int(11) NOT NULL,
-  `nomeCategoria` varchar(30) NOT NULL
+  `nome` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `categorias`
 --
 
-INSERT INTO `categorias` (`idCategoria`, `nomeCategoria`) VALUES
+INSERT INTO `categorias` (`idCategoria`, `nome`) VALUES
 (1, 'Alimentacao'),
 (2, 'Educacao'),
 (3, 'Saude'),
