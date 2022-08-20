@@ -24,7 +24,7 @@
 
     $anunciante = $_GET['anunciante'];
 
-    $paginaQuery = $conexao -> prepare("SELECT * FROM paginaanunciante WHERE nome = '$anunciante'");
+    $paginaQuery = $conexao -> prepare("SELECT * FROM anunciante WHERE nome = '$anunciante'");
     $paginaQuery -> execute();
 
     $paginaInfo = $paginaQuery->fetch(PDO::FETCH_ASSOC);
@@ -32,7 +32,7 @@
     ?>
     <h1><?= $paginaInfo['nome'] ?></h1>
     <p><?= $paginaInfo['descricao'] ?></p>
-    <img src="/assets/img/img-anunciante/<?= $paginaInfo['imagemPerfil']?>" alt="">  
+    <img src="/assets/img/img-anunciante/<?= $paginaInfo['imgPerfil']?>" alt="">  
   
 </body>
 </html>
