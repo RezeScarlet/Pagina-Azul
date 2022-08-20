@@ -24,6 +24,7 @@
     <section class="planos">
       <div class="container">
         <h1 class="section-title text-center">Nossos planos</h1>
+
         <div class="cards-container">
           <div class="card gratuito">
             <h2 class="card__title">Gratuito</h2>
@@ -31,6 +32,7 @@
               <span class="currency">R$</span>
               <span class="real">00</span><span class="cents">,00</span>
             </div>
+
             <ul class="card__list">
               <li class="card__list-item positive">
                 <span>Lorem, ipsum.</span>
@@ -49,14 +51,19 @@
                 <i class="fa fa-times" aria-hidden="true"></i>
               </li>
             </ul>
+
             <a href="#" class="btn btn-purchase">Adquirir</a>
           </div>
+
+
           <div class="card medio">
             <h2 class="card__title">Médio</h2>
+
             <div class="card__price">
               <span class="currency">R$</span>
               <span class="real">50</span><span class="cents">,00</span>
             </div>
+
             <ul class="card__list">
               <li class="card__list-item positive">
                 <span>Lorem, ipsum.</span>
@@ -75,14 +82,19 @@
                 <i class="fa fa-times" aria-hidden="true"></i>
               </li>
             </ul>
+
             <a href="#" class="btn btn-purchase">Adquirir</a>
           </div>
+
+
           <div class="card destaque">
             <h2 class="card__title">Destaque</h2>
+
             <div class="card__price">
               <span class="currency">R$</span>
               <span class="real">100</span><span class="cents">,00</span>
             </div>
+
             <ul class="card__list">
               <li class="card__list-item positive">
                 <span>Lorem, ipsum.</span>
@@ -101,6 +113,7 @@
                 <i class="fa fa-check" aria-hidden="true"></i>
               </li>
             </ul>
+            
             <a href="#" class="btn btn-purchase">Adquirir</a>
           </div>
         </div>
