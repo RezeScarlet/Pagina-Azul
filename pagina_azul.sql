@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 20-Ago-2022 às 18:47
+-- Generation Time: 20-Ago-2022 às 23:15
 -- Versão do servidor: 5.6.34
 -- PHP Version: 5.6.32
 
@@ -56,7 +56,8 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`, `descricao`, `imgPe
 (7, 'Ryan Keller Pharmacy', 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'ryankellerpharmacyP.png', 'ryankellerpharmacyP.png', 'ryankellerpharmacy.png'),
 (8, 'The Atomic Club', 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'theatomicclubP.png', 'theatomicclubP.png', 'theatomicclub.png'),
 (9, 'Uncle Louies Pizeri', 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'unclelouiespizzeriaP.png', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png'),
-(10, 'Yurt', 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'yurtP.png', 'yurtP.png', 'yurt.png');
+(10, 'Yurt', 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'yurtP.png', 'yurtP.png', 'yurt.png'),
+(41, 'Thiago Fukuyama Marcili', 3, 'gostosa', '20220820_201502.jpg', '20220820_201503.png', '20220820_201503.png');
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,7 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT for table `anunciante`
 --
 ALTER TABLE `anunciante`
-  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `planos`

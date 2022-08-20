@@ -21,7 +21,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
   ?>
   
-  <form action="signin.php" method="post">
+  <form action="signin.php" method="post" enctype="multipart/form-data">
     
     Nome:
     <input type="text" name="nome">
@@ -82,77 +82,77 @@
   </form>
 
 
-  <?php
-    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
-  ?>
   
-  <?php
+  <?php      
+      function getImg($img){
+
+        $img_tmp = $_FILES[$img]["tmp_name"];
+        $img_original = $_FILES[$img]["name"];
+        
+        $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
+
+        $fileExtension = strtolower(pathinfo($img_original, PATHINFO_EXTENSION));
+        
+        if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
+          echo "Imagem invalida";
+        } else {
+          
+          // echo "Imagem $img_original é válida";
+
+          date_default_timezone_set("America/Sao_Paulo");
+          $time = date("Ymd")."_".date("His");
+
+          $imgName = $time. "." .$fileExtension;
+          $img_final = $path . $imgName;
+          
+          
+          move_uploaded_file($img_tmp, $img_final);        
+          
+          return $imgName;
+          
+        }
+      }
     if (isset($_POST['registrar'])) {
       $nome = $_POST['nome'];
       $descricao = $_POST['descricao'];
       $categoria = $_POST['categoria'];
       $idPlano = $_POST['plano'];
-      $imgAnuncioP = "";
-      $imgAnuncioG = "";
       
       // ===========================
-
-      function getTime(){
-        date_default_timezone_set("America/Sao_Paulo");
-        $time = date("Ymd")."_".date("His");
-        return $time;
-      }
-
-      function validadeImg($img_original, $img_tmp){
-
-        $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
-
-        $fileExtension = strtolower(pathinfo($img_original, PATHINFO_EXTENSION));
-
-        if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
-          echo "Imagem invalida";
-        } else {
-          
-          echo "Imagem $img_original é válida";
-
-          move_uploaded_file($imgPerfil_tmp, $imgPerfil_final);        
-  
-          return $imgName = getTime(). "." .$fileExtension;
-
-        }
-      }
-      // $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
-
-      $imgPerfil_tmp = $_FILES["imgPerfil"]["tmp_name"];
-      $imgPerfil_original = $_FILES["imgPerfil"]["name"];
-
-      // $fileExtension = strtolower(pathinfo($imgPerfil_original, PATHINFO_EXTENSION));
-
-      // $time = getTime();
-
-      $imgName = $time. "." .$fileExtension;
-      $imgPerfil_final = $path . $imgName;
-
-      // ====================================================
-
-      validadeImg($imgPerfil_original, $imgPerfil_tmp);
-    
-      $result = $conexao -> prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
-
-        $result->bindValue(":nome", $nome);
-        $result->bindValue(':idPlano', $idPlano);
-        $result->bindValue(":descricao", $descricao);
-        $result->bindValue(":imgPerfil", $imgName);
-        $result->bindValue(":imgAnuncioP", $imgAnuncioP);
-        $result->bindValue(":imgAnuncioG", $imgAnuncioG);
-        $result->execute();
-
-    } else {
-        $msg = "";
-      }
-    
       
-    echo $msg;
-  ?>
+      // $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
+      
+      // $imgPerfil_tmp = $_FILES["imgPerfil"]["tmp_name"];
+      // $imgPerfil_original = $_FILES["imgPerfil"]["name"];
+      
+      // $fileExtension = strtolower(pathinfo($imgPerfil_original, PATHINFO_EXTENSION));
+      
+      // $time = getTime();
+      
+      // $imgName = $time. "." .$fileExtension;
+      // $imgPerfil_final = $path . $imgName;
+      
+      // ====================================================
+      
+      $imgPerfil = getImg('imgPerfil');
+      $imgAnuncioP = getImg('imgAnuncioP');
+      $imgAnuncioG = getImg('imgAnuncioG');
+
+      
+      $result = $conexao -> prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
+      
+      $result->bindValue(":nome", $nome);
+      $result->bindValue(':idPlano', $idPlano);
+      $result->bindValue(":descricao", $descricao);
+      $result->bindValue(":imgPerfil", $imgPerfil);
+      $result->bindValue(":imgAnuncioP", $imgAnuncioP);
+      $result->bindValue(":imgAnuncioG", $imgAnuncioG);
+      $result->execute();
+      
+    }
+    ?>
+    <?php
+      include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
+    ?>
 </body>
 </html>
