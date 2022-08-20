@@ -57,7 +57,7 @@
           // echo '<pre>'; print_r($anuncios); echo '</pre>';
 
           // Faz o SELECT no BD e executa
-          $destaquesQuery = $conexao -> prepare("SELECT * FROM anuncio WHERE idPlano = 2 OR idPlano = 3");
+          $destaquesQuery = $conexao -> prepare("SELECT nome, imgAnuncioG FROM anunciante WHERE idPlano = 3");
           $destaquesQuery -> execute() ;
           
           
@@ -77,7 +77,7 @@
 
             <div class='destaques__grid-item'>
               <a href='/p/anunciante.php?anunciante=<?= $destaquesArray[$x]["nome"]; ?>' class='link-wrapper'>
-                <img src='/assets/img/img-anunciante/<?= $destaquesArray[$x]["imagem"]; ?>'
+                <img src='/assets/img/img-anunciante/<?= $destaquesArray[$x]["imgAnuncioG"]; ?>'
                      alt='<?= $destaquesArray[$x]["nome"]; ?>'
                      title='<?= $destaquesArray[$x]["nome"]; ?>'
                      draggable="false"
@@ -109,7 +109,7 @@
           // echo '<pre>'; print_r($anuncios); echo '</pre>';
 
           // Faz o SELECT no BD e executa
-          $mediosQuery = $conexao->prepare("SELECT * FROM anuncio WHERE idPlano = 1 OR idPlano = 3");
+          $mediosQuery = $conexao->prepare("SELECT nome, imgAnuncioP FROM anunciante WHERE idPlano >= 2");
           $mediosQuery->execute();
 
           // Looping para adicionar cada anuncio a um só array
@@ -128,7 +128,7 @@
             <div class='scroller__item'>
               <a href='/p/anunciante.php?anunciante=<?= $mediosArray[$x]["nome"]; ?>' class='link-wrapper'>
                <div class="scroller__img-container">
-                <img src='assets/img/img-anunciante/<?php echo $mediosArray[$x]["imagemP"]; ?>'
+                <img src='assets/img/img-anunciante/<?php echo $mediosArray[$x]["imgAnuncioP"]; ?>'
                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'
                      title='<?php echo $mediosArray[$x]["nome"]; ?>'
                      class='scroller__img'
