@@ -184,6 +184,7 @@ header .nav__backdrop {
   z-index: 9;
   background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 250ms ease-in;
+  overflow: hidden;
 }
 header .nav__item {
   position: relative;
@@ -323,7 +324,6 @@ header .nav .menu-toggler i {
   width: 100%;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 }
 @media all and (max-width: 650px) {
   .search__form {
@@ -334,10 +334,11 @@ header .nav .menu-toggler i {
   display: block;
   width: 100%;
   padding: 1rem;
+  padding-right: 2rem;
   font-size: 1rem;
   border: 0;
   outline: 0;
-  border-radius: 3px;
+  border-radius: 10px;
   color: rgb(82, 82, 82);
   background-color: rgb(255, 255, 255);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
@@ -353,6 +354,18 @@ header .nav .menu-toggler i {
 }
 .search .btn {
   padding: 1rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+@media all and (min-width: 650px) {
+  .search .btn {
+    margin-top: 0;
+    margin-left: -1rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
 }
 @media all and (max-width: 650px) {
   .search .btn {
@@ -518,13 +531,6 @@ footer {
   right: -15px;
 }
 
-.planos {
-  display: grid;
-  place-items: center;
-  padding: 3rem 0;
-  margin: calc(0.5rem + 0.5vw) auto;
-}
-
 .cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -536,6 +542,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  background-color: hsl(0deg, 0%, 97%);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   padding: 2rem;
@@ -630,7 +637,7 @@ footer {
 }
 
 .subheading {
-  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-size: clamp(1rem, 3vw, 1.15rem);
   margin-bottom: 2.5rem;
   font-style: italic;
   font-weight: 300;
@@ -654,4 +661,15 @@ footer {
   .sobre {
     padding: 3rem 2rem;
   }
+}
+
+.planos {
+  display: grid;
+  place-items: center;
+  padding: 3rem 0;
+  margin: calc(0.5rem + 0.5vw) auto;
+  background-image: linear-gradient(hsla(195deg, 53%, 79%, 0.2), hsla(195deg, 53%, 79%, 0.2));
+  background-size: 100% 200px;
+  background-position: center;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=main.css.map */

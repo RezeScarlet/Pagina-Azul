@@ -1,6 +1,12 @@
 
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
+  session_start();
+  // if (isset($_SESSION['email'])) {
+  //   echo $_SESSION['email'];
+  // } else {
+  //   echo "BURRO";
+  // }
 ?>
 
 <!DOCTYPE html>
@@ -10,15 +16,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Favicon -->
+    <title>Página Azul | HOME</title>
+    <!-- FAVICON -->
     <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
     <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/d80615c6de.js" crossorigin="anonymous"></script>
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <!-- JavaScript -->
-    <script src="../assets/js/main.js" defer></script>
-    <title>Página Azul | HOME</title>
+    <script src="/assets/js/main.js" defer></script>
   </head>
   
   <body id="home">
@@ -101,7 +107,7 @@
           <h1 class="section-title">Scroll Horizontal</h1>
           <div class="slider">
             <button type="button" class="scroller__btn left rounded" data-control="left">
-              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              <i class="fa-solid fa-arrow-left"></i>
             </button>
             <div class="scroller" data-slide>
 
@@ -145,7 +151,7 @@
             </div>
 
             <button type="button" class="scroller__btn right rounded" data-control="right">
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
@@ -157,7 +163,7 @@
           <h1 class="section-title text-center">Categorias</h1>
           <div class="slider">
             <button type="button" class="scroller__btn left rounded" data-control="left">
-              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              <i class="fa-solid fa-arrow-left"></i>
             </button>
 
             <div class="scroller scroller--sm" data-slide>
@@ -178,7 +184,7 @@
             </div> 
 
             <button type="button" class="scroller__btn right rounded" data-control="right">
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              <i class="fa-solid fa-arrow-right"></i>
             </button>
           </div>
         </div>
@@ -186,7 +192,7 @@
     </main>
 
     <a href="#" class="back-to-top rounded">
-      <i class="fa fa-arrow-up" aria-hidden="true"></i>
+      <i class="fa-solid fa-arrow-up"></i>
     </a>
 
 

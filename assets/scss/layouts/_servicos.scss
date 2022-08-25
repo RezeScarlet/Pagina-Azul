@@ -1,0 +1,14 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
+.planos {
+  display: grid;
+  place-items: center;
+  padding: 3rem 0;
+  margin: calc(0.5rem + 0.5vw) auto;
+  background-image: linear-gradient(hsl(195, 53%, 79%, 0.2), hsl(195, 53%, 79%, 0.2));
+  background-size: 100% 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+}

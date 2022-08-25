@@ -5,22 +5,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Azul | SignIn</title>
-  <!-- Favicon -->
+  <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/d80615c6de.js" crossorigin="anonymous"></script>
   <!-- CSS -->
-  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
   <!-- JavaScript -->
-  <script src="../assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
 </head>
 <body>
-
+  
   <?php
     require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
   ?>
-  
+
+<!-- ============================================== -->
+
+  <form action="signin.php" method="post" enctype="multipart/form-data">
+
+    Email:
+    <input type="email" name="email"><br>
+
+    Senha:
+    <input type="password" name="senha"><br>
+
+    <input type="submit" value="Registrar" name="registrar">
+    <input type="reset" value="Cancelar">
+
+  </form>
+
+<!-- ============================================ -->
+  <br><hr><br> 
+
   <form action="signin.php" method="post" enctype="multipart/form-data">
     
     Nome:
@@ -31,7 +49,7 @@
     <select name="plano">
       <option value="-1" disabled selected>Planos</option>
       <?php
-      
+      // Opções do select
       $planosQuery = $conexao -> prepare('SELECT idPlano, nome FROM planos');
       $planosQuery -> execute();
       while($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
@@ -64,12 +82,12 @@
     <select name="categoria">
       <option value="-1" disabled selected>Categoria</option>
     <?php
-      
+      // Opções do select
       $categoriasQuery = $conexao -> prepare('SELECT * FROM categorias');
       $categoriasQuery -> execute();
       while($categoria = $categoriasQuery->fetch(PDO::FETCH_ASSOC)) {
         ?> 
-        <option value="<?= $categoria['idcategoria'] ?>"><?= $categoria['nome'] ?></option>
+        <option value="<?=$categoria['idCategoria']?>"><?= $categoria['nome'] ?></option>
         <?php
       }   
       ?>
@@ -77,28 +95,30 @@
     </select>
     <br>
 
-    <input type="submit" value="Registrar" name="registrar">
+    <input type="submit" value="Registrar" name="registrar2">
     <input type="reset" value="Cancelar">
   </form>
 
 
+
   
-  <?php      
-      function getImg($img){
+  <?php
+  
+  function getImg($img){
 
-        $img_tmp = $_FILES[$img]["tmp_name"];
-        $img_original = $_FILES[$img]["name"];
-        
-        $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
+    $img_tmp = $_FILES[$img]["tmp_name"];
+    $img_original = $_FILES[$img]["name"];
 
-        $fileExtension = strtolower(pathinfo($img_original, PATHINFO_EXTENSION));
+    $path = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/img-anunciante/";
+
+    $fileExtension = strtolower(pathinfo($img_original, PATHINFO_EXTENSION));
         
         if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
           echo "Imagem invalida";
         } else {
           
           // echo "Imagem $img_original é válida";
-
+          // Nomeia o arquivo de imagem com a data e hora
           date_default_timezone_set("America/Sao_Paulo");
           $time = date("Ymd")."_".date("His");
 
@@ -112,37 +132,22 @@
           
         }
       }
-    if (isset($_POST['registrar'])) {
+    if (isset($_POST['registrar2'])) {
       $nome = $_POST['nome'];
       $descricao = $_POST['descricao'];
-      $categoria = $_POST['categoria'];
+      $idCategoria = $_POST['categoria'];
       $idPlano = $_POST['plano'];
-      
-      // ===========================
-      
-      // $path = $_SERVER['DOCUMENT_ROOT']."/assets/img/img-anunciante/";
-      
-      // $imgPerfil_tmp = $_FILES["imgPerfil"]["tmp_name"];
-      // $imgPerfil_original = $_FILES["imgPerfil"]["name"];
-      
-      // $fileExtension = strtolower(pathinfo($imgPerfil_original, PATHINFO_EXTENSION));
-      
-      // $time = getTime();
-      
-      // $imgName = $time. "." .$fileExtension;
-      // $imgPerfil_final = $path . $imgName;
-      
-      // ====================================================
       
       $imgPerfil = getImg('imgPerfil');
       $imgAnuncioP = getImg('imgAnuncioP');
       $imgAnuncioG = getImg('imgAnuncioG');
 
       
-      $result = $conexao -> prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
+      $result = $conexao -> prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :idCategoria, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
       
       $result->bindValue(":nome", $nome);
       $result->bindValue(':idPlano', $idPlano);
+      $result->bindValue(":idCategoria", $idCategoria);
       $result->bindValue(":descricao", $descricao);
       $result->bindValue(":imgPerfil", $imgPerfil);
       $result->bindValue(":imgAnuncioP", $imgAnuncioP);
@@ -150,6 +155,19 @@
       $result->execute();
       
     }
+
+  if (isset($_POST['registrar'])) {
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $login = $conexao -> prepare("INSERT INTO `login` VALUES (null, :email, :senha)");
+
+    $login -> bindValue(":email", $email);
+    $login -> bindvalue(":senha", md5($senha));
+    $login -> execute();
+
+  }
     ?>
     <?php
       include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';

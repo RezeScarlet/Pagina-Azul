@@ -1,4 +1,7 @@
 
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
 .hero {
   display: grid;
   place-items: center;
@@ -8,7 +11,7 @@
 }
   
 .subheading{
-  font-size: clamp(1rem, 3vw, 1.25rem);
+  font-size: clamp(1rem, 3vw, 1.15rem);
   margin-bottom: 2.5rem;
   font-style: italic;
   font-weight: 300;

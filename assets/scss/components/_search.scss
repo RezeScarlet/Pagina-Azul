@@ -22,7 +22,6 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
 
     @media all and (max-width: 650px) {
       flex-direction: column;
@@ -33,10 +32,11 @@
     display: block;
     width: 100%;
     padding: 1rem;
+    padding-right: 2rem;
     font-size: 1rem;
     border: 0;
     outline: 0;
-    border-radius: 3px;
+    border-radius: 10px;
     color: rgb(82, 82, 82);
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 5px rgb(0, 0, 0, 0.4);
@@ -48,6 +48,17 @@
   
   .btn {
     padding: 1rem;
+    font-size: 1rem;
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.4);
+    border-radius: 10px;
+    margin-top: 1rem;
+    
+    @media all and (min-width: 650px) {
+      margin-top: 0;
+      margin-left: -1rem;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
 
     @media all and (max-width: 650px) {
       width: 100%;

@@ -1,30 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | LOGIN</title>
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="../assets/img/logos/logo.png" type="image/x-icon">
+  <title>Página Azul | SignIn</title>
+  <!-- FAVICON -->
+  <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://kit.fontawesome.com/d80615c6de.js" crossorigin="anonymous"></script>
   <!-- CSS -->
-  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
   <!-- JavaScript -->
-  <script src="../assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
 </head>
 <body>
-
+  
   <?php
-    include_once '../assets/include/header.html';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
   ?>
 
-  <br><br><br><br><br><br><br><br><br><br>
+<!-- ============================================== -->
 
+  <form action="login.php" method="post" enctype="multipart/form-data">
+
+    Email:
+    <input type="email" name="email"><br>
+
+    Senha:
+    <input type="password" name="senha"><br>
+
+    <input type="submit" value="Entrar" name="login">
+    <input type="reset" value="Cancelar">
+
+  </form>
+
+<!-- ============================================ -->
+  
   <?php
-    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
-  ?>
+      
+  if (isset($_POST['login'])) {
 
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $login = $conexao -> prepare("SELECT * FROM login WHERE email = :email AND senha = :senha");
+
+    $login -> bindValue(":email", $email);
+    $login -> bindvalue(":senha", md5($senha));
+    $login -> execute();
+
+    $login = $login -> fetch(PDO::FETCH_ASSOC);
+
+    if ($login) {
+      session_start();
+      $_SESSION['email'] = $login['email'];
+      echo $_SESSION['email'];
+    } else { 
+      echo "errouuuuuuu!";
+    }
+
+  }
+    ?>
+    <?php
+      include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
+    ?>
 </body>
 </html>

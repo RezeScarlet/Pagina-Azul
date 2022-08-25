@@ -84,6 +84,7 @@ header {
       z-index: 9;
       background-color: rgba(0, 0, 0, 0.5);
       transition: opacity 250ms ease-in;
+      overflow: hidden;
     }
 
     &__item {
