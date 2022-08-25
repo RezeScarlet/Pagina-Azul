@@ -11,17 +11,17 @@
   color: c.$fc-secondary;
   text-align: center;
   outline: none;
+  transition: 100ms ease-in;
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: c.$fc-secondary;
-    background-color: c.$clr-secondary-200;
+    background-color: c.$clr-secondary-100;
   }
 
   &--secondary {
     border: 1px solid c.$fc-secondary;
     border-radius: 5px;
-    transition: background-color 100ms ease-in,
-                color 100ms ease-in;
 
     &:hover,
     &:focus {

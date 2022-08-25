@@ -4,6 +4,7 @@
 
 
 header {
+  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
@@ -14,10 +15,10 @@ header {
   font-size: 0.9rem;
 
   .nav {
-    width: calc(100% - 2rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: calc(100% - 2rem);
     padding: 0.75rem 0;
     gap: 1rem;
     max-width: 1200px;
@@ -26,10 +27,30 @@ header {
       padding: 0.5rem 0;
     }
 
+
+    // --------------------
+    // NAV HEADER
+    // --------------------
+
     &__header {
       display: flex;
       align-items: center;
       gap: 1rem;
+
+      .menu-toggler {
+        display: none;
+  
+        @media all and (max-width: 800px) {
+          display: inline-block;
+        }
+  
+        i {
+          display: block !important;
+          min-width: 100% !important;
+          min-height: 100% !important;
+          font-size: 1.5rem;
+        }
+      }
     }
 
     &__brand {
@@ -38,18 +59,23 @@ header {
     }
 
 
+    // --------------------
+    // NAV LIST
+    // --------------------
 
     &__list {
       display: flex;
       align-items: center;
       margin: 0;
+      margin-left: 5.25rem;
       column-gap: 2rem;
       row-gap: 1.5rem;
       list-style: none;
 
-      @media all and (max-width: 700px) {
+      @media all and (max-width: 800px) {
         transform: translateX(-120%);
         position: fixed;
+        margin-left: 0;
         top: 0;
         left: 0;
         width: 55vw;
@@ -69,6 +95,7 @@ header {
           & ~ .nav__backdrop {
             opacity: 1;
             pointer-events: all;
+            visibility: visible;
           }
         }
       }
@@ -77,13 +104,15 @@ header {
     &__backdrop {
       opacity: 0;
       pointer-events: none;
+      visibility: hidden;
+      display: block;
       position: fixed;
       inset: 0;
       width: 100vw;
       min-height: 100vh;
       z-index: 9;
       background-color: rgba(0, 0, 0, 0.5);
-      transition: opacity 250ms ease-in;
+      transition: 250ms ease-in;
       overflow: hidden;
     }
 
@@ -96,7 +125,7 @@ header {
       text-transform: uppercase;
       font-size: 1rem;
 
-      @media all and (max-width: 700px) {
+      @media all and (max-width: 800px) {
         font-size: 0.9rem;
       }
 
@@ -126,13 +155,15 @@ header {
       right: 1.5rem;
       cursor: pointer;
 
-      @media all and (max-width: 700px) {
+      @media all and (max-width: 800px) {
         display: inline-block;
       }
     }
 
 
-
+    // --------------------
+    // NAV BUTTONS E ICONS
+    // --------------------
 
     &__btns {
       display: flex;
@@ -145,9 +176,9 @@ header {
       border: 0;
       color: c.$fc-secondary;
       outline: none;
+      font-size: 1.5rem;
       cursor: pointer;
       transition: color 100ms ease-in;
-      font-size: 1.5rem;
 
       &:hover,
       &:focus {
@@ -155,47 +186,47 @@ header {
       }
     }
 
-    &__search-wrapper {
-      position: relative;
+
+    // --------------------
+    // NAV SEARCH
+    // --------------------
+
+    &__search-form {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background-color: c.$clr-primary;
+      transform: translateY(-100%);
+      transition: transform 150ms ease-in;
+
+      &.active {
+        transform: translateY(0);
+      }
+      
+      button[type="submit"] {
+        color: c.$clr-secondary-200;
+      }
+
+      #close-nav-search-btn {
+        color: black;
+      }
     }
     
-    &__search {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-      padding: 0.5rem 0.5rem;
-      background-color: c.$clr-primary;
+    &__search-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    &__search-bar {
+      width: 100%;
+      padding: 0.25em 0.25em 0.2em 0;
       border: 0;
-      border-radius: 1px;
-      box-shadow: 1px 1px 5px white;
-      transition: 200ms ease-in;
-    }
-
-    #search_btn:focus ~ &__search,
-    &__search:focus {
-      opacity: 1;
-      pointer-events: all;
-      transform: translateX(-120%);
+      font-size: 1rem;
+      background-color: c.$clr-primary;
+      border-bottom: 1px solid hsl(0, 0%, 70%);
       outline: none;
-
-      @media all and (max-width: 330px) {
-        transform: translateX(-95%);
-      }
-    }
-
-    .menu-toggler {
-      display: none;
-
-      @media all and (max-width: 700px) {
-        display: inline-block;
-      }
-
-      i {
-        display: block !important;
-        min-width: 100% !important;
-        min-height: 100% !important;
-        font-size: 1.5rem;
-      }
     }
   }
 }

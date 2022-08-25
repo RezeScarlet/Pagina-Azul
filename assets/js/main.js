@@ -57,12 +57,6 @@ window.addEventListener("click", (e) => {
 })
 
 
-const navSearchBar = select(".nav__search");
-const navSearchBtn = select("#search-btn");
-
-navSearchBtn.addEventListener("click", () => navSearchBar.focus())
-
-
 
 // --------------------
 // TORNAR LINKS DA NAVBAR ATIVOS
@@ -78,6 +72,25 @@ navLinks.forEach((link) => {
        toggleActive(link);
     }
 })
+
+
+
+// --------------------
+// ATIVAR BARRA DE PESQUISA DA NAV
+// --------------------
+
+const navSearch = select(".nav__search-form");
+const navSearchBar = select(".nav__search-bar");
+
+const openNavSearchBtn = select("#open-nav-search-btn");
+const closeNavSearchBtn = select("#close-nav-search-btn");
+
+openNavSearchBtn.addEventListener("click", () => {
+    toggleActive(navSearch);
+    navSearchBar.focus();
+})
+
+closeNavSearchBtn.addEventListener("click", () => notActive(navSearch))
 
 
 
@@ -126,8 +139,6 @@ if (sliders) {
         })
     
         scroller.addEventListener("mousemove", (e) => {
-            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) return;
-
             if (!isDown) return;
     
             e.preventDefault();

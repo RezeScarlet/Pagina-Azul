@@ -21,11 +21,21 @@
     <div class="nav__backdrop"></div>
 
     <div class="nav__btns">
-      <form action="#" method="post" class="nav__search-wrapper">
-        <button class="nav__icon" type="button" id="search-btn" aria-hidden="true">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <input type="search" name="search_bar" class="nav__search" placeholder="Pesquisar">
+      <button class="nav__icon" type="button" id="open-nav-search-btn" aria-hidden="true">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+      <form action="#" method="post" class="nav__search-form">
+          <div class="container">
+            <div class="nav__search-wrapper">
+              <input type="search" name="search-bar" class="nav__search-bar" placeholder="Pesquisar por serviços e empresas">
+              <button type="submit" class="nav__icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <button type="button" class="nav__icon" id="close-nav-search-btn">
+                <i class="fa-solid fa-chevron-up"></i>
+              </button>
+            </div>
+          </div>
       </form>
       <a href="#" class="btn btn--secondary">Login</a>
     </div>

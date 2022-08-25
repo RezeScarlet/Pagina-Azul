@@ -17,8 +17,8 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 100%;
-  font-family: "Poppins", sans-serif;
   line-height: 1.6;
+  font-family: "Poppins", sans-serif;
   background-color: hsl(0deg, 0%, 97%);
   color: hsl(0deg, 0%, 16%);
 }
@@ -52,9 +52,29 @@ img {
 }
 
 button,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+button,
 input[type=submit],
 input[type=reset] {
   cursor: pointer;
+}
+
+::-moz-placeholder {
+  color: hsl(0deg, 0%, 75%);
+  font-style: italic;
+}
+
+:-ms-input-placeholder {
+  color: hsl(0deg, 0%, 75%);
+  font-style: italic;
+}
+
+::placeholder {
+  color: hsl(0deg, 0%, 75%);
+  font-style: italic;
 }
 
 ::-moz-selection {
@@ -108,6 +128,7 @@ section:not(.hero) {
 }
 
 header {
+  position: relative;
   display: grid;
   place-items: center;
   width: 100%;
@@ -118,10 +139,10 @@ header {
   font-size: 0.9rem;
 }
 header .nav {
-  width: calc(100% - 2rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: calc(100% - 2rem);
   padding: 0.75rem 0;
   gap: 1rem;
   max-width: 1200px;
@@ -136,6 +157,20 @@ header .nav__header {
   align-items: center;
   gap: 1rem;
 }
+header .nav__header .menu-toggler {
+  display: none;
+}
+@media all and (max-width: 800px) {
+  header .nav__header .menu-toggler {
+    display: inline-block;
+  }
+}
+header .nav__header .menu-toggler i {
+  display: block !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  font-size: 1.5rem;
+}
 header .nav__brand {
   width: 25px;
   margin-bottom: -0.5rem;
@@ -144,15 +179,17 @@ header .nav__list {
   display: flex;
   align-items: center;
   margin: 0;
+  margin-left: 5.25rem;
   -moz-column-gap: 2rem;
        column-gap: 2rem;
   row-gap: 1.5rem;
   list-style: none;
 }
-@media all and (max-width: 700px) {
+@media all and (max-width: 800px) {
   header .nav__list {
     transform: translateX(-120%);
     position: fixed;
+    margin-left: 0;
     top: 0;
     left: 0;
     width: 55vw;
@@ -172,18 +209,21 @@ header .nav__list {
   header .nav__list.active ~ .nav__backdrop {
     opacity: 1;
     pointer-events: all;
+    visibility: visible;
   }
 }
 header .nav__backdrop {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
+  display: block;
   position: fixed;
   inset: 0;
   width: 100vw;
   min-height: 100vh;
   z-index: 9;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 250ms ease-in;
+  transition: 250ms ease-in;
   overflow: hidden;
 }
 header .nav__item {
@@ -194,7 +234,7 @@ header .nav__link {
   text-transform: uppercase;
   font-size: 1rem;
 }
-@media all and (max-width: 700px) {
+@media all and (max-width: 800px) {
   header .nav__link {
     font-size: 0.9rem;
   }
@@ -220,7 +260,7 @@ header .nav__close-btn {
   right: 1.5rem;
   cursor: pointer;
 }
-@media all and (max-width: 700px) {
+@media all and (max-width: 800px) {
   header .nav__close-btn {
     display: inline-block;
   }
@@ -235,51 +275,44 @@ header .nav__icon {
   border: 0;
   color: hsl(0deg, 0%, 94%);
   outline: none;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: color 100ms ease-in;
-  font-size: 1.5rem;
 }
 header .nav__icon:hover, header .nav__icon:focus {
   color: rgb(205, 205, 205);
 }
-header .nav__search-wrapper {
-  position: relative;
-}
-header .nav__search {
+header .nav__search-form {
   position: absolute;
-  opacity: 0;
-  pointer-events: none;
-  padding: 0.5rem 0.5rem;
+  inset: 0;
+  display: grid;
+  place-items: center;
   background-color: hsl(0deg, 0%, 97%);
+  transform: translateY(-100%);
+  transition: transform 150ms ease-in;
+}
+header .nav__search-form.active {
+  transform: translateY(0);
+}
+header .nav__search-form button[type=submit] {
+  color: hsl(237deg, 57%, 22%);
+}
+header .nav__search-form #close-nav-search-btn {
+  color: black;
+}
+header .nav__search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+header .nav__search-bar {
+  width: 100%;
+  padding: 0.25em 0.25em 0.2em 0;
   border: 0;
-  border-radius: 1px;
-  box-shadow: 1px 1px 5px white;
-  transition: 200ms ease-in;
-}
-#search_btn:focus ~ header .nav__search, header .nav__search:focus {
-  opacity: 1;
-  pointer-events: all;
-  transform: translateX(-120%);
+  font-size: 1rem;
+  background-color: hsl(0deg, 0%, 97%);
+  border-bottom: 1px solid hsl(0deg, 0%, 70%);
   outline: none;
-}
-@media all and (max-width: 330px) {
-  #search_btn:focus ~ header .nav__search, header .nav__search:focus {
-    transform: translateX(-95%);
-  }
-}
-header .nav .menu-toggler {
-  display: none;
-}
-@media all and (max-width: 700px) {
-  header .nav .menu-toggler {
-    display: inline-block;
-  }
-}
-header .nav .menu-toggler i {
-  display: block !important;
-  min-width: 100% !important;
-  min-height: 100% !important;
-  font-size: 1.5rem;
 }
 
 .btn {
@@ -291,15 +324,15 @@ header .nav .menu-toggler i {
   color: hsl(0deg, 0%, 94%);
   text-align: center;
   outline: none;
+  transition: 100ms ease-in;
 }
-.btn:hover {
+.btn:hover, .btn:focus {
   color: hsl(0deg, 0%, 94%);
-  background-color: hsl(237deg, 57%, 22%);
+  background-color: hsl(237deg, 57%, 31%);
 }
 .btn--secondary {
   border: 1px solid hsl(0deg, 0%, 94%);
   border-radius: 5px;
-  transition: background-color 100ms ease-in, color 100ms ease-in;
 }
 .btn--secondary:hover, .btn--secondary:focus {
   background-color: hsl(0deg, 0%, 97%);
@@ -331,33 +364,26 @@ header .nav .menu-toggler i {
   }
 }
 .search__bar {
+  position: relative;
   display: block;
   width: 100%;
   padding: 1rem;
   padding-right: 2rem;
-  font-size: 1rem;
+  font-size: 0.925rem;
   border: 0;
   outline: 0;
-  border-radius: 10px;
+  border-radius: 8px;
   color: rgb(82, 82, 82);
   background-color: rgb(255, 255, 255);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-}
-.search__bar::-moz-placeholder {
-  color: rgb(116, 116, 116);
-}
-.search__bar:-ms-input-placeholder {
-  color: rgb(116, 116, 116);
-}
-.search__bar::placeholder {
-  color: rgb(116, 116, 116);
+  box-shadow: 0 3px 13px rgba(0, 0, 0, 0.3);
 }
 .search .btn {
   padding: 1rem;
-  font-size: 1rem;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
+  font-size: 0.925rem;
+  box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   margin-top: 1rem;
+  z-index: 3;
 }
 @media all and (min-width: 650px) {
   .search .btn {
@@ -639,9 +665,8 @@ footer {
 .subheading {
   font-size: clamp(1rem, 3vw, 1.15rem);
   margin-bottom: 2.5rem;
-  font-style: italic;
   font-weight: 300;
-  color: rgb(126, 125, 125);
+  color: hsl(0deg, 0%, 50%);
 }
 
 .logo {

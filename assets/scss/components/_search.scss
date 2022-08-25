@@ -29,29 +29,27 @@
   }
   
   &__bar {
+    position: relative;
     display: block;
     width: 100%;
     padding: 1rem;
     padding-right: 2rem;
-    font-size: 1rem;
+    font-size: 0.925rem;
     border: 0;
     outline: 0;
-    border-radius: 10px;
+    border-radius: 8px;
     color: rgb(82, 82, 82);
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.4);
-
-    &::placeholder {
-      color: rgb(116, 116, 116);
-    }
+    box-shadow: 0 3px 13px rgb(0, 0, 0, 0.3);
   }
   
   .btn {
     padding: 1rem;
-    font-size: 1rem;
-    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.4);
-    border-radius: 10px;
+    font-size: 0.925rem;
+    box-shadow: 3px 3px 13px rgb(0, 0, 0, 0.3);
+    border-radius: 8px;
     margin-top: 1rem;
+    z-index: 3;
     
     @media all and (min-width: 650px) {
       margin-top: 0;

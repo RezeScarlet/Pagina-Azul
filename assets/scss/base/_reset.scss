@@ -20,8 +20,8 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 100%;
-  font-family: t.$ff-primary;
   line-height: 1.6;
+  font-family: t.$ff-primary;
   background-color: c.$clr-primary;
   color: c.$fc-primary;
 
@@ -57,9 +57,19 @@ img {
 }
 
 button,
+input {
+  font-family: t.$ff-primary;
+}
+
+button,
 input[type="submit"],
 input[type="reset"] {
   cursor: pointer;
+}
+
+::placeholder {
+  color: hsl(0, 0%, 75%);
+  font-style: italic;
 }
 
 ::selection {
