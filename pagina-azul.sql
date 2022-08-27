@@ -57,9 +57,7 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`, `idCategoria`, `des
 (7, 'Ryan Keller Pharmacy', 3, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'ryankellerpharmacyP.png', 'ryankellerpharmacyP.png', 'ryankellerpharmacy.png'),
 (8, 'The Atomic Club', 3, 5, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'theatomicclubP.png', 'theatomicclubP.png', 'theatomicclub.png'),
 (9, 'Uncle Louies Pizeri', 3, 9, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'unclelouiespizzeriaP.png', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png'),
-(10, 'Yurt', 3, 2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'yurtP.png', 'yurtP.png', 'yurt.png'),
-(41, 'Thiago Fukuyama Marcili', 3, 7, 'gostosa', '20220820_201502.jpg', '20220820_201503.png', '20220820_201503.png'),
-(42, 'Gato', 3, 8, 'Gato salsicha brabissimo', '20220824_083858.jpg', '20220824_083858.jpg', '20220824_083858.jpg');
+(10, 'Yurt', 3, 2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'yurtP.png', 'yurtP.png', 'yurt.png');
 
 -- --------------------------------------------------------
 

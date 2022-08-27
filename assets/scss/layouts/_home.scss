@@ -2,6 +2,11 @@
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
 
+
+body {
+  background-color: c.$clr-faded;
+} 
+
 .hero {
   display: grid;
   place-items: center;
@@ -18,7 +23,7 @@
 }
 
 .logo {
-  max-width: 470px;
+  max-width: 450px;
   width: calc(100% - 1rem);
   margin-bottom: 1rem;
 }

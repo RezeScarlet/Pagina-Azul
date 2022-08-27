@@ -1,6 +1,7 @@
 .slider {
-    position: relative;
-  }
+  position: relative;
+}
+
   
 .scroller {
   $scrollbar-color: rgb(180, 180, 180);
@@ -12,6 +13,7 @@
   gap: 0.75rem;
   padding-bottom: 0.25rem;
   overflow: auto;
+  scroll-behavior: smooth;
   scroll-snap-type: inline mandatory;
 
   @media only screen and (max-width: 1000px) {
@@ -27,8 +29,9 @@
     padding-inline: 0;
   }
 
-  & > .scroller__item {
+  &__item {
     scroll-snap-align: start;
+    border-radius: 5px;
     
     @media only screen and (max-width: 550px) {
       scroll-snap-align: center; 
@@ -41,21 +44,17 @@
   }
 
   &::-webkit-scrollbar { height: 7px; }
-  
+
   &::-webkit-scrollbar-track { background: transparent; }
-  
+
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: $scrollbar-color;
   }
 
-  .scroller__item {
-    overflow: hidden;
+  &__img {
     border-radius: 5px;
-  }
-
-  .scroller__img {
-    border-radius: 5px;
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
     -moz-user-select: none; 
     -webkit-user-select: none;
     -ms-user-select: none; 

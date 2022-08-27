@@ -87,7 +87,7 @@ const closeNavSearchBtn = select("#close-nav-search-btn");
 
 openNavSearchBtn.addEventListener("click", () => {
     toggleActive(navSearch);
-    navSearchBar.focus();
+    setTimeout(() => navSearchBar.focus(), 50);
 })
 
 closeNavSearchBtn.addEventListener("click", () => notActive(navSearch))
@@ -107,10 +107,9 @@ if (sliders) {
 
         let scroller = slider.querySelector("[data-slide]");
         let controls = slider.querySelectorAll("[data-control]");
-
         
         controls.forEach((btn) => {
-            let scroll = btn.dataset.control === "left" ? -200 : 200;
+            let scroll = btn.dataset.control === "right" ? 200 : -200;
 
             btn.addEventListener("click", () => { 
                 scroller.scrollLeft += scroll;
@@ -124,27 +123,27 @@ if (sliders) {
         let scrollLeft;
     
         scroller.addEventListener("mousedown", (e) => {
+            e.preventDefault();
+            
             isDown = true;
-    
             startX = e.pageX - scroller.offsetLeft;
             scrollLeft = scroller.scrollLeft;
         })
     
-        scroller.addEventListener("mouseleave", () => {
+        scroller.addEventListener("mouseleave", (e) => {
             isDown = false;
         })
     
-        scroller.addEventListener("mouseup", () => {
+        scroller.addEventListener("mouseup", (e) => {
             isDown = false;
         })
     
         scroller.addEventListener("mousemove", (e) => {
             if (!isDown) return;
-    
             e.preventDefault();
+
             const x = e.pageX - scroller.offsetLeft;
             const movimento = x - startX;
-    
             scroller.scrollLeft = scrollLeft - movimento;
         })
     })
