@@ -6,3 +6,9 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule (.+) /pages/$1 [NC,L]
+
+<Files ~ "^.*\.([Hh][Th][Aa])">
+    Order allow,deny
+    Deny from all
+    Satisfy all
+</Files>

@@ -46,7 +46,7 @@
               <p class="subheading">Tudo ao seu alcance, em um só lugar</p>
               <form action="#" method="post" class="search__form">
                 <input class="search__bar" type="search" name="searchbar" id="searchbar" placeholder="Encontre o que precisa" />
-                <input class="btn" type="submit" value="Pesquisar" />
+                <input class="search__btn btn--dark" type="submit" value="Pesquisar" />
               </form>
             </div>
           </div>

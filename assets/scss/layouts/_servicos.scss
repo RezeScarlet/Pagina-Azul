@@ -5,6 +5,7 @@
 .planos {
   display: grid;
   place-items: center;
+  min-height: 80vh;
   padding: 3rem 0;
   margin: calc(0.5rem + 0.5vw) auto;
   background-image: linear-gradient(c.$clr-faded, c.$clr-faded);

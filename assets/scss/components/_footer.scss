@@ -2,8 +2,94 @@
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
 
-footer {
-  // align-self: flex-end;
+.footer {
   margin-top: auto;
   background-color: c.$clr-secondary-200;
+  color: c.$fc-secondary;
+  font-size: 0.9rem;
+  
+  &__wrapper {
+    display: grid;
+    gap: 3rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
+    @media only screen and (min-width: 470px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    @media only screen and (min-width: 800px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__logo {
+    width: 150px;
+  }
+
+  &__nav-list {
+    list-style: none;
+    display: grid;    
+    gap: 0.25rem;
+    margin-top: 1rem;
+  }
+
+  &__link {
+    font-size: 0.85rem;
+    text-decoration: underline;
+  }
+
+  &__btns {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    div:first-of-type {
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  &__contato {
+    width: min(400px, 100%);
+
+    @media only screen and (min-width: 470px) and (max-width: 800px) {
+      grid-column: span 2;
+      justify-self: center;
+    }
+  }
+  
+  &__form {
+    display: grid;
+    gap: 0.5rem;
+    
+
+    input, 
+    textarea {
+      padding: 0.25em 0.5em;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      border: 0;
+      font-family: t.$ff-primary;
+      font-size: 0.85rem;
+    }
+    
+    textarea {
+      min-height: 80px;
+      resize: none;
+    }
+  }
 }
+
+.copyright {
+  text-align: center;
+  font-size: 0.9rem;
+  padding: 1rem;
+  border-top: 1px solid hsl(0, 0%, 77%);
+  color: hsl(0, 0%, 77%);
+}
+
