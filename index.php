@@ -46,7 +46,7 @@
               <p class="subheading">Tudo ao seu alcance, em um só lugar</p>
               <form action="#" method="post" class="search__form">
                 <input class="search__bar" type="search" name="searchbar" id="searchbar" placeholder="Encontre o que precisa" />
-                <input class="btn" type="submit" value="Pesquisar" />
+                <input class="search__btn btn--dark" type="submit" value="Pesquisar" />
               </form>
             </div>
           </div>
@@ -83,7 +83,7 @@
             ?>
 
               <div class='destaques__grid-item'>
-                <a href='/p/anunciante.php?anunciante=<?= $destaquesArray[$x]["nome"]; ?>' class='link-wrapper'>
+                <a href='/anunciante?anunciante=<?= $destaquesArray[$x]["nome"]; ?>' class='link-wrapper'>
                   <img src='/assets/img/img-anunciante/<?= $destaquesArray[$x]["imgAnuncioG"]; ?>'
                       alt='<?= $destaquesArray[$x]["nome"]; ?>'
                       title='<?= $destaquesArray[$x]["nome"]; ?>'
@@ -133,7 +133,7 @@
             for ($x = 0; $x < 7; $x++) { 
             ?>
               <div class='scroller__item'>
-                <a href='/p/anunciante.php?anunciante=<?= $mediosArray[$x]["nome"]; ?>' class='link-wrapper'>
+                <a href='/anunciante?anunciante=<?= $mediosArray[$x]["nome"]; ?>' class='link-wrapper'>
                 <div class="scroller__img-container">
                   <img src='assets/img/img-anunciante/<?php echo $mediosArray[$x]["imgAnuncioP"]; ?>'
                       alt='<?php echo $mediosArray[$x]["nome"]; ?>'
@@ -172,7 +172,7 @@
             for ($x=0; $x<30; $x++) {
               ?>
 
-              <div class="scroller__item rounded">
+              <div class="scroller__item">
                 <a href="#" class="link__wrapper">
                   <img src="https://picsum.photos/150/150?random=<?php echo $x; ?>" alt="" class="rounded" draggable="false" />
                 </a>

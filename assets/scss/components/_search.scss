@@ -40,10 +40,10 @@
     border-radius: 8px;
     color: rgb(82, 82, 82);
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 3px 13px rgb(0, 0, 0, 0.3);
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
   }
   
-  .btn {
+  &__btn {
     padding: 1rem;
     font-size: 0.925rem;
     box-shadow: 3px 3px 13px rgb(0, 0, 0, 0.3);

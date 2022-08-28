@@ -7,21 +7,41 @@
   border: 0;
   border-radius: 3px;
   font-weight: 600;
-  background-color: c.$clr-secondary-200;
-  color: c.$fc-secondary;
   text-align: center;
   outline: none;
   transition: 100ms ease-in;
-
-  &:hover,
-  &:focus {
+  
+  &--dark {   
+    @extend .btn;
+    background-color: c.$clr-secondary-200;
     color: c.$fc-secondary;
-    background-color: c.$clr-secondary-100;
+
+    &:hover,
+    &:focus {
+      color: c.$fc-secondary;
+      background-color: c.$clr-secondary-100;
+    }
   }
 
-  &--secondary {
-    border: 1px solid c.$fc-secondary;
-    border-radius: 5px;
+
+  &--light {
+    @extend .btn;
+    background-color: c.$clr-primary;
+    color: c.$fc-primary;
+  
+    &:hover,
+    &:focus {
+      color: c.$fc-secondary;
+      background-color: c.$clr-secondary-200;
+      box-shadow: 0 0 0 1px c.$fc-primary;
+    }
+  }
+
+  &--outline-light {
+    @extend .btn;
+    background-color: transparent;
+    color: c.$fc-secondary;
+    box-shadow: 0 0 0 1px c.$clr-primary;
 
     &:hover,
     &:focus {
@@ -30,5 +50,7 @@
     }
   }
 }
+
+
   
 

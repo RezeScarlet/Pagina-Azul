@@ -8,12 +8,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
 }
 
 html, body {
   height: 100%;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
+  // overflow-x: hidden;
 }
 
 body {
@@ -70,6 +70,7 @@ input[type="reset"] {
 ::placeholder {
   color: hsl(0, 0%, 75%);
   font-style: italic;
+  font-weight: 400;
 }
 
 ::selection {
