@@ -21,7 +21,7 @@
   ?>
 
   <main>
-    <section class="planos">
+    <section class="planos full-size">
       <div class="container">
         <h1 class="section-title text-center">Nossos planos</h1>
 

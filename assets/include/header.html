@@ -1,26 +1,29 @@
 
 <header>
   <nav class="nav">
-    <div class="nav__header">
-      <span class="nav__icon menu-toggler" aria-hidden="true"><i class="fa-solid fa-bars"></i></span>
+    <div class="nav__section">
+      <span class="menu-toggler nav__icon" aria-hidden="true"><i class="fa-solid fa-bars"></i></span>
       <a href="/"><img src="/assets/img/logos/logo-alt.png" alt="" class="nav__brand" title="Página Azul"></a>
+      <ul class="nav__list">
+        <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="/categorias" class="nav__link">Categorias</a></li>
+        <li class="nav__item"><a href="/servicos" class="nav__link">Serviços</a></li>
+        <li class="nav__item"><a href="/suporte" class="nav__link">Suporte</a></li>
+        <li class="nav__item"><a href="/sobre" class="nav__link">Sobre</a></li>
+        <li class="nav__item mobile-only">
+          <a href="/login" class="btn--outline-light btn--sm">Entrar</a>
+          <a href="/signin" class="btn--light btn--sm">Registrar</a>
+        </li>
+        <li class="nav__close-btn">
+          <button type="button" class="nav__icon">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </li>
+      </ul>
+      <div class="nav__backdrop"></div>
     </div>
 
-    <ul class="nav__list">
-      <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
-      <li class="nav__item"><a href="/categorias" class="nav__link">Categorias</a></li>
-      <li class="nav__item"><a href="/servicos" class="nav__link">Serviços</a></li>
-      <li class="nav__item"><a href="/suporte" class="nav__link">Suporte</a></li>
-      <li class="nav__item"><a href="/sobre" class="nav__link">Sobre</a></li>
-      <li class="nav__close-btn">
-        <button type="button" class="nav__icon">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </li>
-    </ul>
-    <div class="nav__backdrop"></div>
-
-    <div class="nav__btns">
+    <div class="nav__section">
       <button class="nav__icon" type="button" id="open-nav-search-btn" aria-hidden="true">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
@@ -37,7 +40,8 @@
             </div>
           </div>
       </form>
-      <a href="/login" class="btn--outline-light">Entrar</a>
+      <a href="/login" class="btn--outline-light desktop-only">Entrar</a>
+      <a href="/signin" class="btn--light">Registrar</a>
     </div>
   </nav>
 </header>

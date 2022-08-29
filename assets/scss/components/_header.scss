@@ -40,24 +40,24 @@ header {
     // NAV HEADER
     // --------------------
 
-    &__header {
+    &__section {
       display: flex;
       align-items: center;
       gap: 1rem;
+    }
+    
+    .menu-toggler {
+      display: none;
 
-      .menu-toggler {
-        display: none;
-  
-        @media all and (max-width: 800px) {
-          display: inline-block;
-        }
-  
-        i {
-          display: block !important;
-          min-width: 100% !important;
-          min-height: 100% !important;
-          font-size: 1.5rem;
-        }
+      @media all and (max-width: 800px) {
+        display: inline-block;
+      }
+
+      i {
+        display: block !important;
+        min-width: 100% !important;
+        min-height: 100% !important;
+        font-size: 1.5rem;
       }
     }
 
@@ -75,7 +75,7 @@ header {
       display: flex;
       align-items: center;
       margin: 0;
-      margin-left: 5.25rem;
+      margin-left: 1rem;
       column-gap: 2rem;
       row-gap: 1.5rem;
       list-style: none;
@@ -83,11 +83,11 @@ header {
       @media all and (max-width: 800px) {
         transform: translateX(-120%);
         visibility: hidden;
-        position: fixed;
+        position: absolute;
         margin-left: 0;
         top: 0;
         left: 0;
-        width: 55vw;
+        width: 250px;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -128,11 +128,21 @@ header {
 
     &__item {
       position: relative;
+
+      &.mobile-only {
+        display: flex;
+        gap: 0.75rem;
+
+        @media all and (min-width: 800px) {
+          display: none;
+        }
+      }
     }
     
     &__link {
+      position: relative;
       outline: none;
-      text-transform: uppercase;
+      text-transform: capitalize;
       font-size: 1rem;
 
       @media all and (max-width: 800px) {
@@ -142,7 +152,7 @@ header {
       &::before {
         content: "";
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         left: 0;
         width: 100%;
         height: 1px;
@@ -175,10 +185,11 @@ header {
     // NAV BUTTONS E ICONS
     // --------------------
 
-    &__btns {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
+
+    .desktop-only {
+      @media all and (max-width: 800px) {
+        display: none;;
+      }
     }
 
     &__icon {
@@ -222,8 +233,14 @@ header {
         color: c.$clr-secondary-200;
       }
 
+      #open-nav-search-btn {
+        font-size: 10rem;
+        color: red;
+      }
+
       #close-nav-search-btn {
         color: c.$fc-primary;
+        font-size: 1rem;
       }
     }
     

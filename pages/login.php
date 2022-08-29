@@ -17,54 +17,66 @@
 <body>
   
   <?php
-    require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
+
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
+
+    require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
+    
   ?>
 
 <!-- ============================================== -->
 
-  <form action="login.php" method="post" enctype="multipart/form-data">
-
-    Email:
-    <input type="email" name="email"><br>
-
-    Senha:
-    <input type="password" name="senha"><br>
-
-    <input type="submit" value="Entrar" name="login">
-    <input type="reset" value="Cancelar">
-
-  </form>
+  <main>
+    <div class="container">
+      <section class="login full-size">
+        <img src="/assets/img/logos/Logo.png" class="login__logo">
+        <p class="subtitle">Login na Página Azul</p>
+        <form class="login__form" action="login.php" method="post" enctype="multipart/form-data">
+          <div class="login__group">
+            <span><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <input type="email" class="login__input" name="email" id="email" placeholder="E-mail">
+          </div>
+          <div class="login__group">
+            <span><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
+            <input type="password" class="login__input" name="senha" id="senha" placeholder="Senha">
+          </div>
+          <input type="submit" class="btn--block btn--dark" value="Entrar" name="login">
+        </form>
+      </section>
+    </div>
+  </main>
 
 <!-- ============================================ -->
   
   <?php
       
-  if (isset($_POST['login'])) {
+    if (isset($_POST['login'])) {
 
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+      $email = $_POST['email'];
+      $senha = $_POST['senha'];
 
-    $login = $conexao -> prepare("SELECT * FROM login WHERE email = :email AND senha = :senha");
+      $login = $conexao -> prepare("SELECT * FROM login WHERE email = :email AND senha = :senha");
 
-    $login -> bindValue(":email", $email);
-    $login -> bindvalue(":senha", md5($senha));
-    $login -> execute();
+      $login -> bindValue(":email", $email);
+      $login -> bindvalue(":senha", md5($senha));
+      $login -> execute();
 
-    $login = $login -> fetch(PDO::FETCH_ASSOC);
+      $login = $login -> fetch(PDO::FETCH_ASSOC);
 
-    if ($login) {
-      session_start();
-      $_SESSION['email'] = $login['email'];
-      echo $_SESSION['email'];
-    } else { 
-      echo "errouuuuuuu!";
+      if ($login) {
+        session_start();
+        $_SESSION['email'] = $login['email'];
+        echo $_SESSION['email'];
+      } else { 
+        echo "errouuuuuuu!";
+      }
+
     }
+  ?>
 
-  }
-    ?>
-    <?php
-      include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
-    ?>
+  <?php
+    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
+  ?>
+
 </body>
 </html>

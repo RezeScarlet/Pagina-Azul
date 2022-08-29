@@ -43,7 +43,7 @@
               <a href="index.php">
                 <img src="/assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
               </a>
-              <p class="subheading">Tudo ao seu alcance, em um só lugar</p>
+              <p class="subtitle">Tudo ao seu alcance, em um só lugar</p>
               <form action="#" method="post" class="search__form">
                 <input class="search__bar" type="search" name="searchbar" id="searchbar" placeholder="Encontre o que precisa" />
                 <input class="search__btn btn--dark" type="submit" value="Pesquisar" />

@@ -33,6 +33,19 @@ section {
   margin-bottom: 1.5rem;
 } 
 
+.subtitle {
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  color: hsl(0, 0%, 50%);
+}
+
 .link-wrapper {
   display: block;
+}
+
+.full-size {
+  min-height: 80vh;
+  padding: 3rem 0;
+  margin: calc(0.5rem + 0.5vw) auto;
 }

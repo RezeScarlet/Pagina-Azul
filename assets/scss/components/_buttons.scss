@@ -10,6 +10,7 @@
   text-align: center;
   outline: none;
   transition: 100ms ease-in;
+  font-size: inherit;
   
   &--dark {   
     @extend .btn;
@@ -23,6 +24,18 @@
     }
   }
 
+  &--outline-dark {   
+    @extend .btn;
+    background-color: transparent;
+    color: c.$fc-primary;
+    box-shadow: 0 0 0 1px c.$clr-secondary-100;
+
+    &:hover,
+    &:focus {
+      color: c.$fc-secondary;
+      background-color: c.$clr-secondary-100;
+    }
+  }
 
   &--light {
     @extend .btn;
@@ -48,6 +61,17 @@
       background-color: c.$clr-primary;
       color: c.$fc-primary;
     }
+  }
+
+  &--sm {
+    @extend .btn;
+    padding: 0.5em;
+    font-size: 0.85rem;
+  }
+
+  &--block {
+    width: 100%;
+    padding: 0.75em;
   }
 }
 

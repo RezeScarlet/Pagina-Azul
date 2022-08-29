@@ -1,0 +1,61 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
+
+.login {
+    $input-font-size: 0.9rem;
+    // $input-border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    &__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: c.$clr-light;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+        gap: 1.25rem;
+        padding: 1.5rem;
+        border-radius: 5px;
+        width: min(350px, 100%);
+    }
+
+    &__logo {
+        width: 50px;
+        margin-bottom: 1.5rem;
+    }
+
+    &__group {
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+
+
+        span {
+            padding: 0.45em 0.75em;
+            border-right: 2px solid lightgrey;
+            color: c.$clr-secondary-100;
+            // border-top-left-radius: $input-border-radius;
+            // border-bottom-left-radius: $input-border-radius;
+            font-size: $input-font-size;
+        }
+    }
+    
+    &__input {
+        width: 100%;
+        padding: 0.5em 0.75em;
+        border: 0;
+        outline: none;
+        // border-top-right-radius: $input-border-radius;
+        // border-bottom-right-radius: $input-border-radius;
+        font-size: $input-font-size;
+
+        &::placeholder {
+            color: hsl(0, 0%, 63%);
+        }
+    }
+}
