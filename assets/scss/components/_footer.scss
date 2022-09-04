@@ -14,7 +14,7 @@
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
 
-    @media only screen and (min-width: 470px) {
+    @media only screen and (min-width: 470px) and (max-width: 800px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       justify-items: center;

@@ -20,7 +20,7 @@ body {
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
   background-color: hsl(0deg, 0%, 97%);
-  color: hsl(0deg, 0%, 26%);
+  color: hsl(0deg, 0%, 36%);
 }
 body.mobile-nav-active {
   overflow-y: hidden;
@@ -62,20 +62,46 @@ input[type=reset] {
   cursor: pointer;
 }
 
+textarea,
+select {
+  font-family: inherit;
+}
+
+input[type=file] {
+  cursor: pointer;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  background-color: hsl(0deg, 0%, 83%);
+  border: 1px none;
+  cursor: pointer;
+}
+
+::file-selector-button {
+  font: inherit;
+  background-color: hsl(0deg, 0%, 83%);
+  border: 1px none;
+  cursor: pointer;
+}
+
 ::-moz-placeholder {
   color: hsl(0deg, 0%, 75%);
+  opacity: 0.9;
   font-style: italic;
   font-weight: 400;
 }
 
 :-ms-input-placeholder {
   color: hsl(0deg, 0%, 75%);
+  opacity: 0.9;
   font-style: italic;
   font-weight: 400;
 }
 
 ::placeholder {
   color: hsl(0deg, 0%, 75%);
+  opacity: 0.9;
   font-style: italic;
   font-weight: 400;
 }
@@ -102,7 +128,7 @@ section:not(.hero) {
   }
 }
 
-.container {
+.container, .container--sm {
   width: calc(100% - 2rem);
   margin: 0 auto;
   max-width: 1200px;
@@ -116,7 +142,7 @@ section:not(.hero) {
   font-weight: 700;
   font-family: "Nunito", sans-serif;
   color: hsl(240deg, 97%, 20%);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .subtitle {
@@ -131,9 +157,8 @@ section:not(.hero) {
 }
 
 .full-size {
-  min-height: 80vh;
+  min-height: 90vh;
   padding: 3rem 0;
-  margin: calc(0.5rem + 0.5vw) auto;
 }
 
 .text-center {
@@ -301,6 +326,10 @@ header .nav__close-btn {
     display: inline-block;
   }
 }
+header .nav #open-nav-search-btn {
+  transform: scale(1.1);
+  margin-right: 0.5rem;
+}
 @media all and (max-width: 800px) {
   header .nav .desktop-only {
     display: none;
@@ -337,12 +366,8 @@ header .nav__search-form.active {
 header .nav__search-form button[type=submit] {
   color: hsl(237deg, 57%, 22%);
 }
-header .nav__search-form #open-nav-search-btn {
-  font-size: 10rem;
-  color: red;
-}
 header .nav__search-form #close-nav-search-btn {
-  color: hsl(0deg, 0%, 26%);
+  color: hsl(0deg, 0%, 36%);
   font-size: 1rem;
 }
 header .nav__search-wrapper {
@@ -380,7 +405,7 @@ header .nav__search-bar {
 }
 .btn--outline-dark {
   background-color: transparent;
-  color: hsl(0deg, 0%, 26%);
+  color: hsl(0deg, 0%, 36%);
   box-shadow: 0 0 0 1px hsl(237deg, 57%, 31%);
 }
 .btn--outline-dark:hover, .btn--outline-dark:focus {
@@ -389,12 +414,12 @@ header .nav__search-bar {
 }
 .btn--light {
   background-color: hsl(0deg, 0%, 97%);
-  color: hsl(0deg, 0%, 26%);
+  color: hsl(0deg, 0%, 36%);
 }
 .btn--light:hover, .btn--light:focus {
   color: hsl(0deg, 0%, 94%);
   background-color: hsl(237deg, 57%, 22%);
-  box-shadow: 0 0 0 1px hsl(0deg, 0%, 26%);
+  box-shadow: 0 0 0 1px hsl(0deg, 0%, 36%);
 }
 .btn--outline-light {
   background-color: transparent;
@@ -403,7 +428,7 @@ header .nav__search-bar {
 }
 .btn--outline-light:hover, .btn--outline-light:focus {
   background-color: hsl(0deg, 0%, 97%);
-  color: hsl(0deg, 0%, 26%);
+  color: hsl(0deg, 0%, 36%);
 }
 .btn--sm {
   padding: 0.5em;
@@ -486,7 +511,7 @@ header .nav__search-bar {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
-@media only screen and (min-width: 470px) {
+@media only screen and (min-width: 470px) and (max-width: 800px) {
   .footer__wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -822,7 +847,58 @@ header .nav__search-bar {
 }
 
 .form {
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.25rem;
+  background-color: hsl(0deg, 0%, 100%);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.form label {
+  font-weight: 600;
+}
+.form__cols {
+  display: flex;
+  gap: 1rem;
+}
+@media only screen and (max-width: 800px) {
+  .form__cols {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+.form__cols * {
+  flex: 1;
+  width: 100%;
+}
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.form__input {
+  outline: none;
+  border: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  padding: 0.25em 0.5em;
+  font-size: 0.95rem;
+  background-color: hsl(0deg, 0%, 100%);
+  transition: 100ms ease-in;
+}
+.form__input:focus {
+  box-shadow: 0 0 0 4px hsla(195deg, 53%, 75%, 0.7), 0 0 0 1px hsl(195deg, 53%, 55%);
+}
+.form__submit {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  gap: 0.75rem;
+}
+.form textarea {
+  resize: vertical;
+  min-height: 150px;
 }
 
 body {

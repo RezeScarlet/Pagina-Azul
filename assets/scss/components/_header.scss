@@ -180,6 +180,11 @@ header {
       }
     }
 
+    #open-nav-search-btn {
+      transform: scale(1.1);
+      margin-right: 0.5rem;
+    }
+
 
     // --------------------
     // NAV BUTTONS E ICONS
@@ -231,11 +236,6 @@ header {
       
       button[type="submit"] {
         color: c.$clr-secondary-200;
-      }
-
-      #open-nav-search-btn {
-        font-size: 10rem;
-        color: red;
       }
 
       #close-nav-search-btn {

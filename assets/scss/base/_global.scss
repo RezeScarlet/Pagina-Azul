@@ -21,6 +21,7 @@ section {
   max-width: 1200px;
 
   &--sm {
+    @extend .container;
     max-width: 900px;
   }
 }
@@ -30,7 +31,7 @@ section {
   font-weight: 700;
   font-family: t.$ff-accent;
   color: hsl(240, 97%, 20%);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 } 
 
 .subtitle {
@@ -45,7 +46,6 @@ section {
 }
 
 .full-size {
-  min-height: 80vh;
+  min-height: 90vh;
   padding: 3rem 0;
-  margin: calc(0.5rem + 0.5vw) auto;
 }

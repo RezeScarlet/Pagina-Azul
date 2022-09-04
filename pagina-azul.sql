@@ -87,7 +87,7 @@ INSERT INTO `categorias` (`idCategoria`, `nome`, `icone`) VALUES
 (8, 'Pet', 'pet.svg'),
 (9, 'Turismo', 'turismo.svg'),
 (10, 'Perfumaria', 'perfumaria.svg'),
-(11, 'Esportes', 'esportes.svg'),
+(11, 'Esporte', 'esportes.svg'),
 (12, 'Floricultura', 'floricultura.svg');
 
 -- --------------------------------------------------------

@@ -67,8 +67,32 @@ input[type="reset"] {
   cursor: pointer;
 }
 
+textarea,
+select {
+  font-family: inherit;
+}
+
+input[type="file"] {
+  cursor: pointer;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  background-color: hsl(0, 0%, 83%);
+  border: 1px none;
+  cursor: pointer;
+}
+
+::file-selector-button {
+  font: inherit;
+  background-color: hsl(0, 0%, 83%);
+  border: 1px none;
+  cursor: pointer;
+}
+
 ::placeholder {
   color: hsl(0, 0%, 75%);
+  opacity: 0.9;
   font-style: italic;
   font-weight: 400;
 }

@@ -21,7 +21,7 @@
   ?>
 
   <main>
-    <div class="container container--sm">
+    <div class="container container--sm full-size">
       <section class="sobre text-center">
         <h1 class="section-title">Sobre nós</h1>
         <p>
