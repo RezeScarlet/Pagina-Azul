@@ -44,8 +44,8 @@
                 <img src="/assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
               </a>
               <p class="subtitle">Tudo ao seu alcance, em um só lugar</p>
-              <form action="#" method="post" class="search__form">
-                <input class="search__bar" type="search" name="searchbar" id="searchbar" placeholder="Encontre o que precisa" />
+              <form action="/pesquisa" method="post" class="search__form">
+                <input class="search__bar" type="search" name="search" id="searchbar" placeholder="Encontre o que precisa" />
                 <input class="search__btn btn--dark" type="submit" value="Pesquisar" />
               </form>
             </div>
@@ -69,24 +69,24 @@
             
             
             // Looping para adicionar cada anuncio a um só array
-            while ($array = $destaquesQuery->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $destaquesQuery->fetch(PDO::FETCH_ASSOC)) {
               
-              $destaquesArray[] = $array;
+              $destaquesrow[] = $row;
               
             }
 
             // Função que reorganiza o array de forma aleatória
-            shuffle($destaquesArray);
+            shuffle($destaquesrow);
 
             // Gera as imagens de destaque
             for ($x = 0; $x < 4; $x++) {
             ?>
 
               <div class='destaques__grid-item'>
-                <a href='/anunciante?anunciante=<?= $destaquesArray[$x]["nome"]; ?>' class='link-wrapper'>
-                  <img src='/assets/img/img-anunciante/<?= $destaquesArray[$x]["imgAnuncioG"]; ?>'
-                      alt='<?= $destaquesArray[$x]["nome"]; ?>'
-                      title='<?= $destaquesArray[$x]["nome"]; ?>'
+                <a href='/anunciante?anunciante=<?= $destaquesrow[$x]["nome"]; ?>' class='link-wrapper'>
+                  <img src='/assets/img/img-anunciante/<?= $destaquesrow[$x]["imgAnuncioG"]; ?>'
+                      alt='<?= $destaquesrow[$x]["nome"]; ?>'
+                      title='<?= $destaquesrow[$x]["nome"]; ?>'
                       draggable="false"
                       class='destaques__img'
                   />
@@ -120,24 +120,24 @@
             $mediosQuery->execute();
 
             // Looping para adicionar cada anuncio a um só array
-            while ($array = $mediosQuery->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $mediosQuery->fetch(PDO::FETCH_ASSOC)) {
               
-              $mediosArray[] = $array;
+              $mediosrow[] = $row;
 
             }
 
             // Função que reorganiza o array de forma aleatória
-            shuffle($mediosArray);
+            shuffle($mediosrow);
 
             // Mostra o item do scroll horizontal
             for ($x = 0; $x < 7; $x++) { 
             ?>
               <div class='scroller__item'>
-                <a href='/anunciante?anunciante=<?= $mediosArray[$x]["nome"]; ?>' class='link-wrapper'>
+                <a href='/anunciante?anunciante=<?= $mediosrow[$x]["nome"]; ?>' class='link-wrapper'>
                 <div class="scroller__img-container">
-                  <img src='assets/img/img-anunciante/<?php echo $mediosArray[$x]["imgAnuncioP"]; ?>'
-                      alt='<?php echo $mediosArray[$x]["nome"]; ?>'
-                      title='<?php echo $mediosArray[$x]["nome"]; ?>'
+                  <img src='assets/img/img-anunciante/<?php echo $mediosrow[$x]["imgAnuncioP"]; ?>'
+                      alt='<?php echo $mediosrow[$x]["nome"]; ?>'
+                      title='<?php echo $mediosrow[$x]["nome"]; ?>'
                       class='scroller__img'
                       draggable="false"
                   />
@@ -167,14 +167,27 @@
             </button>
 
             <div class="scroller scroller--sm" data-slide>
+
             <?php
             // Looping para gerar as imagens da seção categorias 
-            for ($x=0; $x<30; $x++) {
+
+            $categoriasQuery = $conexao -> prepare("SELECT * FROM categorias");
+            $categoriasQuery->execute();
+
+            while ($row = $categoriasQuery -> fetch(PDO::FETCH_ASSOC)){
               ?>
+
+              <!-- <div class="scroller__item">
+                <a href="#" class="link__wrapper">
+                  <img src="https://picsum.photos/150/150?random=<?php echo $x; ?>" alt="" class="rounded" draggable="false" />
+                </a>
+              </div> -->
 
               <div class="scroller__item">
                 <a href="#" class="link__wrapper">
-                  <img src="https://picsum.photos/150/150?random=<?php echo $x; ?>" alt="" class="rounded" draggable="false" />
+                  <div class="scroller__img-container rounded">
+                    <img src="/assets/img/icones-categorias/<?= $row['icone'] ?>" alt="<?= $row['nome'] ?>" title="<?= $row['nome'] ?>" draggable="false" />
+                  </div>
                 </a>
               </div>
 
@@ -189,6 +202,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <a href="#" class="back-to-top rounded">

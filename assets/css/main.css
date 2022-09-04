@@ -609,7 +609,7 @@ header .nav__search-bar {
   position: relative;
 }
 
-.scroller {
+.scroller, .scroller--sm {
   position: relative;
   display: grid;
   grid-auto-flow: column;
@@ -622,17 +622,17 @@ header .nav__search-bar {
       scroll-snap-type: inline mandatory;
 }
 @media only screen and (max-width: 1000px) {
-  .scroller {
+  .scroller, .scroller--sm {
     grid-auto-columns: 29%;
   }
 }
 @media only screen and (max-width: 700px) {
-  .scroller {
+  .scroller, .scroller--sm {
     grid-auto-columns: 36%;
   }
 }
 @media only screen and (max-width: 550px) {
-  .scroller {
+  .scroller, .scroller--sm {
     grid-auto-columns: 72%;
     padding-inline: 0;
   }
@@ -647,18 +647,18 @@ header .nav__search-bar {
   }
 }
 @supports (scrollbar-width: thin) {
-  .scroller {
+  .scroller, .scroller--sm {
     scrollbar-width: thin;
     scrollbar-color: rgb(180, 180, 180) transparent;
   }
 }
-.scroller::-webkit-scrollbar {
+.scroller::-webkit-scrollbar, .scroller--sm::-webkit-scrollbar {
   height: 7px;
 }
-.scroller::-webkit-scrollbar-track {
+.scroller::-webkit-scrollbar-track, .scroller--sm::-webkit-scrollbar-track {
   background: transparent;
 }
-.scroller::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar-thumb, .scroller--sm::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgb(180, 180, 180);
 }
@@ -687,8 +687,21 @@ header .nav__search-bar {
 }
 @media only screen and (max-width: 630px) {
   .scroller--sm {
-    grid-auto-columns: 22%;
+    grid-auto-columns: 24%;
   }
+}
+.scroller--sm .scroller__img-container {
+  background-color: hsl(237deg, 57%, 31%);
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+.scroller--sm .scroller__img-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .scroller__btn {

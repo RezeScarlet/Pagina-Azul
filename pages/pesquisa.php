@@ -1,5 +1,9 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/conexao.php";
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,15 +20,32 @@
 </head>
 <body id="pesquisa">
 
-  <?php
-    include_once '../assets/include/header.html';
-  ?>
+  <main>
+    <section class="full-size">
+      <div class="container">
+        
+        <?php
+          include_once '../assets/include/header.html';
+          $search = $_POST['search'];
+          
+          $resultQuery = $conexao->prepare("SELECT nome, imgPerfil FROM anunciante WHERE nome LIKE '%$search%'");
+          $resultQuery -> execute();
 
-  <br><br><br><br><br><br><br><br><br><br>
+          while ($row = $resultQuery -> fetch(PDO::FETCH_ASSOC)) {
 
-  <?php
+            echo $row['nome'].'<br>';
+            
+          }
+          ?>
+      </div>
+    </section>
+  </main>
+
+    
+
+    <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
-  ?>
+    ?>
 
 </body>
 </html>

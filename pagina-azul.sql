@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 24-Ago-2022 às 12:28
+-- Generation Time: 31-Ago-2022 às 17:41
 -- Versão do servidor: 5.6.34
 -- PHP Version: 5.6.32
 
@@ -68,25 +68,27 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `idPlano`, `idCategoria`, `des
 DROP TABLE IF EXISTS `categorias`;
 CREATE TABLE `categorias` (
   `idCategoria` int(11) NOT NULL,
-  `nome` varchar(30) NOT NULL
+  `nome` varchar(30) NOT NULL,
+  `icone` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `categorias`
 --
 
-INSERT INTO `categorias` (`idCategoria`, `nome`) VALUES
-(1, 'Alimentacao'),
-(6, 'Automotivo'),
-(4, 'Construcao'),
-(2, 'Educacao'),
-(11, 'Esportes'),
-(5, 'Imobiliaria'),
-(7, 'Moda'),
-(10, 'Perfumaria'),
-(8, 'Pet'),
-(3, 'Saude'),
-(9, 'Turismo');
+INSERT INTO `categorias` (`idCategoria`, `nome`, `icone`) VALUES
+(1, 'Alimentacao', 'alimentacao.svg'),
+(2, 'Educacao', 'educacao.svg'),
+(3, 'Saude', 'saude.svg'),
+(4, 'Construcao', 'construcao.svg'),
+(5, 'Imobiliaria', 'imobiliaria.svg'),
+(6, 'Automotivo', 'automotivo.svg'),
+(7, 'Moda', 'moda.svg'),
+(8, 'Pet', 'pet.svg'),
+(9, 'Turismo', 'turismo.svg'),
+(10, 'Perfumaria', 'perfumaria.svg'),
+(11, 'Esportes', 'esportes.svg'),
+(12, 'Floricultura', 'floricultura.svg');
 
 -- --------------------------------------------------------
 
@@ -173,7 +175,13 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT for table `anunciante`
 --
 ALTER TABLE `anunciante`
-  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `login`

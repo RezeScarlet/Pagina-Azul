@@ -1,8 +1,12 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
+
 .slider {
   position: relative;
 }
 
-  
 .scroller {
   $scrollbar-color: rgb(180, 180, 180);
   
@@ -63,6 +67,7 @@
   }
 
   &--sm {
+    @extend .scroller;
     grid-auto-columns: 9%;
     padding-bottom: 1rem;
 
@@ -75,7 +80,20 @@
     }
       
     @media only screen and (max-width: 630px) {
-      grid-auto-columns: 22%; 
+      grid-auto-columns: 24%; 
+    }
+
+    .scroller__img-container {
+      background-color: c.$clr-secondary-100;
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
     }
   }
 }
