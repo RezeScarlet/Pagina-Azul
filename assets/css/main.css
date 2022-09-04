@@ -328,7 +328,7 @@ header .nav__close-btn {
 }
 header .nav #open-nav-search-btn {
   transform: scale(1.1);
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
 }
 @media all and (max-width: 800px) {
   header .nav .desktop-only {
