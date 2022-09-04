@@ -47,23 +47,23 @@
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
             <div class="form__group">
-              <label for="email">Email</label>
+              <label class="form__label" for="email">Email</label>
               <input class="form__input" type="email" name="email" id="email" placeholder="Insira seu e-mail">
             </div>
             <div class="form__group">
-              <label for="senha">Senha</label>
+              <label class="form__label" for="senha">Senha</label>
               <input class="form__input" type="password" name="senha" id="senha" placeholder="Defina sua senha">
             </div>
           </div>
 
           <div class="form__group">
-            <label for="nome">Nome</label>            
+            <label class="form__label" for="nome">Nome</label>            
             <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do seu negócio">
           </div>
           
           <div class="form__cols">
             <div class="form__group">
-              <label for="plano">Plano</label>
+              <label class="form__label" for="plano">Plano</label>
               <select class="form__input" name="plano" id="plano">
                 <option value="-1" disabled selected>Selecione o plano</option>
                 <?php
@@ -80,7 +80,7 @@
             </div>
 
             <div class="form__group">
-              <label for="categoria">Categoria</label>
+              <label class="form__label" for="categoria">Categoria</label>
               <select class="form__input" name="categoria" id="categoria">
                 <option value="-1" disabled selected>Selecione a categoria do seu negócio</option>
                 <?php
@@ -98,24 +98,24 @@
           </div>
           
           <div class="form__group">
-            <label for="descricao">Descrição</label>
+            <label class="form__label" for="descricao">Descrição</label>
             <textarea class="form__input" type="text" name="descricao" id="descricao" placeholder="Insira a descrição do seu negócio"></textarea>
           </div>
           
 
           <div class="form__cols">
             <div class="form__group">
-              <label for="imgPerfil">Imagem de perfil</label>
+              <label class="form__label" for="imgPerfil">Imagem de perfil</label>
               <input class="form__input"type="file" name="imgPerfil" id="imgPerfil">
             </div>
             
             <div class="form__group">
-              <label for="imgAnuncioP">Imagem de anúncio pequeno</label>
+              <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
               <input class="form__input"type="file" name="imgAnuncioP" id="imgAnuncioP">
             </div>
             
             <div class="form__group">
-              <label for="imgAnuncioG">Imagem de anúncio grande</label>
+              <label class="form__label" for="imgAnuncioG">Imagem de anúncio grande</label>
               <input class="form__input"type="file" name="imgAnuncioG" id="imgAnuncioG">
             </div>
           </div>

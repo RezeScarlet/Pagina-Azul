@@ -856,9 +856,6 @@ header .nav__search-bar {
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-.form label {
-  font-weight: 600;
-}
 .form__cols {
   display: flex;
   gap: 1rem;
@@ -877,6 +874,10 @@ header .nav__search-bar {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+}
+.form__label {
+  color: hsl(237deg, 57%, 31%);
+  font-weight: 500;
 }
 .form__input {
   outline: none;
