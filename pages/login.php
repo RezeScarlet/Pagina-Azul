@@ -64,9 +64,10 @@
       $login = $login -> fetch(PDO::FETCH_ASSOC);
 
       if ($login) {
-        session_start();
         $_SESSION['email'] = $login['email'];
+        $_SESSION['ID'] = $login['idLogin'];
         echo $_SESSION['email'];
+        header('location: editar.php');
       } else { 
         echo "errouuuuuuu!";
       }

@@ -1,4 +1,5 @@
 <?php
+  session_start();
 
   $servidor = "localhost:3000";
   $usuario = "root";

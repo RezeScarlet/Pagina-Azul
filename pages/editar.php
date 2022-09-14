@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | Sign Up</title>
+  <title>Página Azul | Editar</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -25,7 +25,7 @@
   <main>
     <section id="signup" class="full-size">
       <div class="container">
-        <h1 class="section-title">Registrar-se</h1>
+        <h1 class="section-title">Editar Informações</h1>
 
         <!-- <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__group">
@@ -44,26 +44,36 @@
           </div>
         </form> -->
         
+        <?php 
+        
+          $userQuery = $conexao -> prepare('SELECT * FROM login WHERE idLogin = '.$_SESSION["ID"]);
+          $userQuery -> execute();
+          $user = $userQuery->fetch(PDO::FETCH_ASSOC);
+
+          $AnuncioQuery = $conexao -> prepare('SELECT * FROM anunciante WHERE idLogin = '.$_SESSION["ID"]);
+          $AnuncioQuery -> execute();
+          $anuncio = $AnuncioQuery->fetch(PDO::FETCH_ASSOC);
+
+        ?>
+
+
+
+        
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
             <div class="form__group">
               <label class="form__label" for="email">Email</label>
-              <input class="form__input" type="email" name="email" id="email" placeholder="Insira seu e-mail">
+              <input class="form__input" type="email" name="email" id="email" Value="<?= $user["email"] ?>">
             </div>
             <div class="form__group">
               <label class="form__label" for="senha">Senha</label>
-              <input class="form__input" type="password" name="senha" id="senha" placeholder="Defina sua senha">
+              <input class="form__input" type="password" name="senha" id="senha" placeholder="Redefina sua senha">
             </div>
           </div>
 
           <div class="form__group">
             <label class="form__label" for="nome">Nome</label>            
-            <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do seu negócio">
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="CNPJ">CNPJ</label>            
-            <input class="form__input" type="text" name="CNPJ" id="CNPJ" placeholder="Insira o CNPJ do seu negócio">
+            <input class="form__input" type="text" name="nome" id="nome" Value="<?= $anuncio["nome"] ?>">
           </div>
           
           <div class="form__cols">
@@ -77,7 +87,7 @@
                   $planosQuery -> execute();
                   while($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                <option value="<?= $plano['idPlano'] ?>"><?= $plano['nome'] ?></option>
+                <option value="<?= $plano['idPlano'] ?>" <?php if ($plano['idPlano'] == $anuncio['idPlano']) {echo "selected";} ?> ><?= $plano['nome'] ?></option>
                 <?php
                   }
                 ?>
@@ -94,7 +104,7 @@
                   $categoriasQuery -> execute();
                   while($categoria = $categoriasQuery->fetch(PDO::FETCH_ASSOC)) {
                     ?>
-                    <option value="<?=$categoria['idCategoria']?>"><?= $categoria['nome'] ?></option>
+                    <option value="<?=$categoria['idCategoria']?>" <?php if ($categoria['idCategoria'] == $anuncio['idCategoria']) {echo "selected";} ?>> <?= $categoria['nome'] ?> </option>
                     <?php
                   }
                 ?>
@@ -104,85 +114,27 @@
           
           <div class="form__group">
             <label class="form__label" for="descricao">Descrição</label>
-            <textarea class="form__input" type="text" name="descricao" id="descricao" placeholder="Insira a descrição do seu negócio"></textarea>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="Whatsapp">Whatsapp</label>            
-            <input class="form__input" type="text" name="Whatsapp" id="Whatsapp" placeholder="Insira o Whatsapp do seu negócio">
+            <textarea class="form__input" type="text" name="descricao" id="descricao"><?= $anuncio['descricao'] ?></textarea>
           </div>
           
-          <div class="form__cols">
-            <div class="form__group">
-              <label class="form__label" for="Facebook">Facebook</label>
-              <input class="form__input" type="text" name="Facebook" id="Facebook" placeholder="Insira o Facebook do seu negócio">
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="Instagram">Instagram</label>
-              <input class="form__input" type="text" name="Instagram" id="Instagram" placeholder="Insira o Instagram do seu negócio">
-            </div>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="telefone">Telefone</label>            
-            <input class="form__input" type="text" name="telefone" id="telefone" placeholder="Insira o telefone do seu negócio">
-          </div>
-
-          <div class="form__group">
-              <label class="form__label" for="cidade">Cidade</label>
-              <select class="form__input" name="cidade" id="cidade">
-                <option value="-1" disabled selected>Selecione a cidade</option>
-                <option value="Mococa">Mococa</option>
-                <option value="Arceburgo">Arceburgo</option>
-                <option value="Tapiratiba">Tapiratiba</option>
-              </select>
-            </div>
-
-          <div class="form__group">
-              <label class="form__label" for="cidade">Cidade</label>
-              <select class="form__input" name="cidade" id="cidade">
-                <option value="-1" disabled selected>Selecione a cidade</option>
-                <option value="Mococa">Mococa</option>
-                <option value="Arceburgo">Arceburgo</option>
-                <option value="Tapiratiba">Tapiratiba</option>
-              </select>
-            </div>
-          
-
-          <div class="form__group">
-            <label class="form__label" for="CEP">CEP</label>            
-            <input class="form__input" type="text" name="CEP" id="CEP" placeholder="Insira o CEP do seu negócio">
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="bairro">bairro</label>            
-            <input class="form__input" type="text" name="bairro" id="bairro" placeholder="Insira o bairro do seu negócio">
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="rua">Rua</label>            
-            <input class="form__input" type="text" name="rua" id="rua" placeholder="Insira o rua do seu negócio">
-          </div>
-          
-          <div class="form__group">
-            <label class="form__label" for="numero">Número</label>            
-            <input class="form__input" type="text" name="numero" id="numero" placeholder="Insira o número do seu negócio">
-          </div>
 
           <div class="form__cols">
             <div class="form__group">
               <label class="form__label" for="imgPerfil">Imagem de perfil</label>
               <input class="form__input"type="file" name="imgPerfil" id="imgPerfil">
+              <img src="/assets/img/img-anunciante/<?= $anuncio['imgPerfil'] ?>" alt="">
             </div>
             
             <div class="form__group">
               <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
               <input class="form__input"type="file" name="imgAnuncioP" id="imgAnuncioP">
+              <img src="/assets/img/img-anunciante/<?= $anuncio['imgAnuncioP'] ?>" alt="">
             </div>
             
             <div class="form__group">
               <label class="form__label" for="imgAnuncioG">Imagem de anúncio grande</label>
               <input class="form__input"type="file" name="imgAnuncioG" id="imgAnuncioG">
+              <img src="/assets/img/img-anunciante/<?= $anuncio['imgAnuncioG'] ?>" alt="">
             </div>
           </div>
           
