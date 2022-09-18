@@ -22,6 +22,10 @@
 
   <br><br><br><br><br><br><br><br><br><br>
 
+  <a href="#" class="back-to-top">
+      <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
   <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
   ?>

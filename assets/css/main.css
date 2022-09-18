@@ -20,7 +20,7 @@ body {
   line-height: 1.6;
   font-family: "Poppins", sans-serif;
   background-color: hsl(0deg, 0%, 97%);
-  color: hsl(0deg, 0%, 36%);
+  color: hsl(0deg, 0%, 29%);
 }
 body.mobile-nav-active {
   overflow-y: hidden;
@@ -228,7 +228,7 @@ header .nav__list {
   display: flex;
   align-items: center;
   margin: 0;
-  margin-left: 1rem;
+  margin-left: 1.75rem;
   -moz-column-gap: 2rem;
        column-gap: 2rem;
   row-gap: 1.5rem;
@@ -367,7 +367,7 @@ header .nav__search-form button[type=submit] {
   color: hsl(237deg, 57%, 22%);
 }
 header .nav__search-form #close-nav-search-btn {
-  color: hsl(0deg, 0%, 36%);
+  color: hsl(0deg, 0%, 29%);
   font-size: 1rem;
 }
 header .nav__search-wrapper {
@@ -405,7 +405,7 @@ header .nav__search-bar {
 }
 .btn--outline-dark {
   background-color: transparent;
-  color: hsl(0deg, 0%, 36%);
+  color: hsl(0deg, 0%, 29%);
   box-shadow: 0 0 0 1px hsl(237deg, 57%, 31%);
 }
 .btn--outline-dark:hover, .btn--outline-dark:focus {
@@ -414,12 +414,12 @@ header .nav__search-bar {
 }
 .btn--light {
   background-color: hsl(0deg, 0%, 97%);
-  color: hsl(0deg, 0%, 36%);
+  color: hsl(0deg, 0%, 29%);
 }
 .btn--light:hover, .btn--light:focus {
   color: hsl(0deg, 0%, 94%);
   background-color: hsl(237deg, 57%, 22%);
-  box-shadow: 0 0 0 1px hsl(0deg, 0%, 36%);
+  box-shadow: 0 0 0 1px hsl(0deg, 0%, 29%);
 }
 .btn--outline-light {
   background-color: transparent;
@@ -428,7 +428,7 @@ header .nav__search-bar {
 }
 .btn--outline-light:hover, .btn--outline-light:focus {
   background-color: hsl(0deg, 0%, 97%);
-  color: hsl(0deg, 0%, 36%);
+  color: hsl(0deg, 0%, 29%);
 }
 .btn--sm {
   padding: 0.5em;
@@ -453,14 +453,13 @@ header .nav__search-bar {
   max-width: 800px;
 }
 .search__form {
-  display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 }
-@media all and (max-width: 650px) {
+@media all and (min-width: 650px) {
   .search__form {
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .search__bar {
@@ -584,11 +583,11 @@ header .nav__search-bar {
 
 .back-to-top {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  bottom: 10px;
+  right: 10px;
   display: grid;
   place-items: center;
-  z-index: 996;
+  z-index: 8;
   width: 40px;
   height: 40px;
   border: 0;
@@ -596,12 +595,13 @@ header .nav__search-bar {
   background-color: #2F41AB;
   color: white;
   box-shadow: 0 0 3px black;
+  border-radius: 50%;
   opacity: 0;
   pointer-events: none;
   transition: 200ms;
 }
 .back-to-top.active {
-  opacity: 1;
+  opacity: 0.8;
   pointer-events: all;
   color: white;
 }
@@ -915,7 +915,7 @@ body {
 }
 
 .logo {
-  max-width: 450px;
+  max-width: 400px;
   width: calc(100% - 1rem);
   margin-bottom: 1rem;
 }
@@ -940,6 +940,72 @@ body {
   background-size: 100% 200px;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@media all and (max-width: 650px) {
+  #pesquisa .search {
+    display: none;
+  }
+}
+
+@media all and (min-width: 650px) {
+  .resultados {
+    margin-top: 3rem;
+  }
+}
+.resultados__wrapper {
+  display: grid;
+  gap: 1rem;
+}
+.resultados .resultado-card {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  background-color: hsla(195deg, 53%, 79%, 0.2);
+}
+@media only screen and (min-width: 540px) {
+  .resultados .resultado-card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.resultados .resultado-card__title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: hsl(240deg, 97%, 20%);
+}
+.resultados .resultado-card__title a:hover,
+.resultados .resultado-card__title a:focus-within {
+  text-decoration: underline;
+}
+.resultados .resultado-card__address p:nth-child(1) {
+  font-weight: bold;
+}
+.resultados .resultado-card__address p:nth-child(2) {
+  font-size: 0.9rem;
+}
+@media only screen and (min-width: 540px) {
+  .resultados .resultado-card__phone {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+.resultados .resultado-card__phone, .resultados .resultado-card__time {
+  font-size: 0.9rem;
+}
+@media only screen and (min-width: 540px) {
+  .resultados .resultado-card__phone, .resultados .resultado-card__time {
+    justify-self: end;
+    align-self: end;
+    font-size: 1rem;
+  }
+}
+.resultados .resultado-card i {
+  color: hsl(240deg, 97%, 20%);
+  margin-right: 0.3rem;
+}
+.resultados .resultado-card p {
+  margin: 0;
 }
 
 .login {

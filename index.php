@@ -40,12 +40,12 @@
         <section class="hero">
           <div class="search">
             <div class="search__wrapper">
-              <a href="index.php">
+              <a href="/">
                 <img src="/assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
               </a>
               <p class="subtitle">Tudo ao seu alcance, em um só lugar</p>
-              <form action="/pesquisa" method="post" class="search__form">
-                <input class="search__bar" type="search" name="search" id="searchbar" placeholder="Encontre o que precisa" />
+              <form action="/pesquisa" method="get" class="search__form">
+                <input class="search__bar" type="search" name="q" id="q" placeholder="Encontre o que precisa" />
                 <button class="search__btn btn--dark" type="submit">Pesquisar</button>
               </form>
             </div>
@@ -177,12 +177,6 @@
             while ($row = $categoriasQuery -> fetch(PDO::FETCH_ASSOC)){
               ?>
 
-              <!-- <div class="scroller__item">
-                <a href="#" class="link__wrapper">
-                  <img src="https://picsum.photos/150/150?random=<?php echo $x; ?>" alt="" class="rounded" draggable="false" />
-                </a>
-              </div> -->
-
               <div class="scroller__item">
                 <a href="#" class="link__wrapper">
                   <div class="scroller__img-container rounded">
@@ -205,7 +199,7 @@
 
     </main>
 
-    <a href="#" class="back-to-top rounded">
+    <a href="#" class="back-to-top">
       <i class="fa-solid fa-arrow-up"></i>
     </a>
 

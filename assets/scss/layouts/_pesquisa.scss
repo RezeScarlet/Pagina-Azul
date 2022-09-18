@@ -1,0 +1,85 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
+#pesquisa {
+    .search {
+        @media all and (max-width: 650px) {
+            display: none;
+        }
+    }
+}
+
+.resultados {
+    
+    @media all and (min-width: 650px) {
+        margin-top: 3rem;
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .resultado-card {
+        display: grid;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem; 
+        border-radius: 10px;
+        background-color: c.$clr-faded;
+        
+        @media only screen and (min-width: 540px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: c.$fc-accent;
+
+            a:hover,
+            a:focus-within {
+                text-decoration: underline;
+            } 
+        }
+
+        &__address {
+            p:nth-child(1) {
+                font-weight: bold;
+            }
+
+            p:nth-child(2) {
+                font-size: 0.9rem;
+            }
+        }
+
+        &__phone {
+            @media only screen and (min-width: 540px) {
+                grid-column: 2;
+                grid-row: 2;
+            }
+        }
+
+        &__phone,
+        &__time {
+            font-size: 0.9rem;
+
+            @media only screen and (min-width: 540px) {
+                justify-self: end;
+                align-self: end;
+                font-size: 1rem;
+            }
+        }
+
+        i {
+            color: c.$fc-accent;
+            margin-right: 0.3rem;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+}
+

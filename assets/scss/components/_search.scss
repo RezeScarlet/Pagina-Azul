@@ -18,13 +18,12 @@
   
   
   &__form {
-    display: flex;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-
-    @media all and (max-width: 650px) {
-      flex-direction: column;
+    
+    @media all and (min-width: 650px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
   

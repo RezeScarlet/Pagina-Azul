@@ -155,18 +155,18 @@ if (sliders) {
 // BOTÃO DE VOLTA AO TOPO
 // --------------------
 
-// const backToTopBtn = select(".back-to-top");
+const backToTopBtn = select(".back-to-top");
 
-// if (backToTopBtn) {
-//     const toggleBackToTopButton = () => {
-//         if (document.body.scrollY > 50) {
-//            toggleActive(backToTopBtn);
-//         } else {
-//             notActive(backToTopBtn);
-//         }
-//     }
+if (backToTopBtn) {
+    const toggleBackToTopButton = () => {
+        if (window.scrollY > 50) {
+           backToTopBtn.classList.add("active");
+        } else {
+            notActive(backToTopBtn);
+        }
+    }
 
-//     document.body.addEventListener("scroll", toggleBackToTopButton);
-//     document.body.addEventListener("load", toggleBackToTopButton);
-// }
+    window.addEventListener("scroll", toggleBackToTopButton);
+    window.addEventListener("load", toggleBackToTopButton);
+}
 

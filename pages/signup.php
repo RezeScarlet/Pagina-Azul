@@ -26,24 +26,6 @@
     <section id="signup" class="full-size">
       <div class="container">
         <h1 class="section-title">Registrar-se</h1>
-
-        <!-- <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
-          <div class="form__group">
-            <label for="email">Email</label>
-            <input class="form__input" type="email" name="email" id="email">
-          </div>
-
-          <div class="form__group">
-            <label for="senha">Senha</label>
-            <input class="form__input" type="password" name="senha" id="senha">
-          </div>
-
-          <div class="form__group">
-            <input type="submit" value="Registrar" name="registrar">
-            <input type="reset" value="Cancelar">
-          </div>
-        </form> -->
-        
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
             <div class="form__group">
@@ -136,18 +118,7 @@
                 <option value="Arceburgo">Arceburgo</option>
                 <option value="Tapiratiba">Tapiratiba</option>
               </select>
-            </div>
-
-          <div class="form__group">
-              <label class="form__label" for="cidade">Cidade</label>
-              <select class="form__input" name="cidade" id="cidade">
-                <option value="-1" disabled selected>Selecione a cidade</option>
-                <option value="Mococa">Mococa</option>
-                <option value="Arceburgo">Arceburgo</option>
-                <option value="Tapiratiba">Tapiratiba</option>
-              </select>
-            </div>
-          
+          </div>
 
           <div class="form__group">
             <label class="form__label" for="CEP">CEP</label>            
@@ -155,18 +126,20 @@
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="bairro">bairro</label>            
+            <label class="form__label" for="bairro">Bairro</label>            
             <input class="form__input" type="text" name="bairro" id="bairro" placeholder="Insira o bairro do seu negócio">
           </div>
 
-          <div class="form__group">
-            <label class="form__label" for="rua">Rua</label>            
-            <input class="form__input" type="text" name="rua" id="rua" placeholder="Insira o rua do seu negócio">
-          </div>
-          
-          <div class="form__group">
-            <label class="form__label" for="numero">Número</label>            
-            <input class="form__input" type="text" name="numero" id="numero" placeholder="Insira o número do seu negócio">
+          <div class="form__cols">
+            <div class="form__group">
+              <label class="form__label" for="rua">Rua</label>
+              <input class="form__input" type="text" name="rua" id="rua" placeholder="Insira o rua do seu negócio">
+            </div>
+            
+            <div class="form__group">
+              <label class="form__label" for="numero">Número</label>
+              <input class="form__input" type="text" name="numero" id="numero" placeholder="Insira o número do seu negócio">
+            </div>
           </div>
 
           <div class="form__cols">
@@ -267,6 +240,9 @@
       }
     ?>
 
+    <a href="#" class="back-to-top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
 
     <?php
       include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';

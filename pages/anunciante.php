@@ -39,7 +39,7 @@
   ?>
 
   <main>
-    <section>
+    <section class="full-size">
       <div class="container">
 
         <h1 class="section-title"><?= $paginaInfo['nome'] ?></h1>
@@ -50,6 +50,10 @@
       </div>
     </section>
   </main>
+
+  <a href="#" class="back-to-top">
+      <i class="fa-solid fa-arrow-up"></i>
+  </a>
   
 
   <?php
