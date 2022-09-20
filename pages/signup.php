@@ -160,7 +160,7 @@
           </div>
           
           <div class="form__submit">
-            <input class="btn--dark" type="submit" value="Registrar" name="registrar2">
+            <input class="btn--dark" type="submit" value="Registrar" name="registrar">
             <input class="btn--outline-dark" type="reset" value="Limpar">
           </div>
         </form>
@@ -202,7 +202,7 @@
         }
       }
 
-      if (isset($_POST['registrar2'])) {
+      if (isset($_POST['registrar'])) {
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
         $idCategoria = $_POST['categoria'];

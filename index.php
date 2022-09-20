@@ -45,7 +45,7 @@
               </a>
               <p class="subtitle">Tudo ao seu alcance, em um só lugar</p>
               <form action="/pesquisa" method="get" class="search__form">
-                <input class="search__bar" type="search" name="q" id="q" placeholder="Encontre o que precisa" />
+                <input class="search__bar" type="search" name="pesquisa" id="pesquisa" placeholder="Encontre o que precisa" />
                 <button class="search__btn btn--dark" type="submit">Pesquisar</button>
               </form>
             </div>

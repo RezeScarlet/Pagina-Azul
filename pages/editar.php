@@ -46,13 +46,9 @@
         
         <?php 
         
-          $userQuery = $conexao -> prepare('SELECT * FROM login WHERE idLogin = '.$_SESSION["ID"]);
+          $userQuery = $conexao -> prepare('SELECT * FROM anunciante WHERE idAnunciante = '.$_SESSION["ID"]);
           $userQuery -> execute();
           $user = $userQuery->fetch(PDO::FETCH_ASSOC);
-
-          $AnuncioQuery = $conexao -> prepare('SELECT * FROM anunciante WHERE idLogin = '.$_SESSION["ID"]);
-          $AnuncioQuery -> execute();
-          $anuncio = $AnuncioQuery->fetch(PDO::FETCH_ASSOC);
 
         ?>
 
@@ -73,7 +69,7 @@
 
           <div class="form__group">
             <label class="form__label" for="nome">Nome</label>            
-            <input class="form__input" type="text" name="nome" id="nome" Value="<?= $anuncio["nome"] ?>">
+            <input class="form__input" type="text" name="nome" id="nome" Value="<?= $user["nome"] ?>">
           </div>
           
           <div class="form__cols">
@@ -87,7 +83,7 @@
                   $planosQuery -> execute();
                   while($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                <option value="<?= $plano['idPlano'] ?>" <?php if ($plano['idPlano'] == $anuncio['idPlano']) {echo "selected";} ?> ><?= $plano['nome'] ?></option>
+                <option value="<?= $plano['idPlano'] ?>" <?php if ($plano['idPlano'] == $user['idPlano']) {echo "selected";} ?> ><?= $plano['nome'] ?></option>
                 <?php
                   }
                 ?>
@@ -104,7 +100,7 @@
                   $categoriasQuery -> execute();
                   while($categoria = $categoriasQuery->fetch(PDO::FETCH_ASSOC)) {
                     ?>
-                    <option value="<?=$categoria['idCategoria']?>" <?php if ($categoria['idCategoria'] == $anuncio['idCategoria']) {echo "selected";} ?>> <?= $categoria['nome'] ?> </option>
+                    <option value="<?=$categoria['idCategoria']?>" <?php if ($categoria['idCategoria'] == $user['idCategoria']) {echo "selected";} ?>> <?= $categoria['nome'] ?> </option>
                     <?php
                   }
                 ?>
@@ -114,7 +110,7 @@
           
           <div class="form__group">
             <label class="form__label" for="descricao">Descrição</label>
-            <textarea class="form__input" type="text" name="descricao" id="descricao"><?= $anuncio['descricao'] ?></textarea>
+            <textarea class="form__input" type="text" name="descricao" id="descricao"><?= $user['descricao'] ?></textarea>
           </div>
           
 
@@ -122,19 +118,19 @@
             <div class="form__group">
               <label class="form__label" for="imgPerfil">Imagem de perfil</label>
               <input class="form__input"type="file" name="imgPerfil" id="imgPerfil">
-              <img src="/assets/img/img-anunciante/<?= $anuncio['imgPerfil'] ?>" alt="">
+              <img src="/assets/img/img-anunciante/<?= $user['imgPerfil'] ?>" alt="">
             </div>
             
             <div class="form__group">
               <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
               <input class="form__input"type="file" name="imgAnuncioP" id="imgAnuncioP">
-              <img src="/assets/img/img-anunciante/<?= $anuncio['imgAnuncioP'] ?>" alt="">
+              <img src="/assets/img/img-anunciante/<?= $user['imgAnuncioP'] ?>" alt="">
             </div>
             
             <div class="form__group">
               <label class="form__label" for="imgAnuncioG">Imagem de anúncio grande</label>
               <input class="form__input"type="file" name="imgAnuncioG" id="imgAnuncioG">
-              <img src="/assets/img/img-anunciante/<?= $anuncio['imgAnuncioG'] ?>" alt="">
+              <img src="/assets/img/img-anunciante/<?= $user['imgAnuncioG'] ?>" alt="">
             </div>
           </div>
           

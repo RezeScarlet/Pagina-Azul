@@ -55,17 +55,17 @@
       $email = $_POST['email'];
       $senha = $_POST['senha'];
 
-      $login = $conexao -> prepare("SELECT * FROM login WHERE email = :email AND senha = :senha");
+      $login = $conexao -> prepare("SELECT * FROM anunciante WHERE email = :email AND senha = :senha");
 
       $login -> bindValue(":email", $email);
       $login -> bindvalue(":senha", md5($senha));
-      $login -> execute();
+      $login -> execute(); 
 
       $login = $login -> fetch(PDO::FETCH_ASSOC);
 
       if ($login) {
         $_SESSION['email'] = $login['email'];
-        $_SESSION['ID'] = $login['idLogin'];
+        $_SESSION['ID'] = $login['idAnunciante'];
         echo $_SESSION['email'];
         header('location: editar.php');
       } else { 
