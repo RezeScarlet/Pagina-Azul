@@ -139,7 +139,7 @@ section:not(.hero) {
 
 .section-title {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
-  font-weight: 700;
+  font-weight: bold;
   font-family: "Nunito", sans-serif;
   color: hsl(240deg, 97%, 20%);
   margin-bottom: 2rem;
@@ -279,15 +279,6 @@ header .nav__backdrop {
 }
 header .nav__item {
   position: relative;
-}
-header .nav__item.mobile-only {
-  display: flex;
-  gap: 0.75rem;
-}
-@media all and (min-width: 800px) {
-  header .nav__item.mobile-only {
-    display: none;
-  }
 }
 header .nav__link {
   position: relative;
@@ -454,13 +445,9 @@ header .nav__search-bar {
 }
 .search__form {
   width: 100%;
-}
-@media all and (min-width: 650px) {
-  .search__form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .search__bar {
   position: relative;
@@ -477,25 +464,19 @@ header .nav__search-bar {
   box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
 }
 .search__btn {
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   font-size: 0.925rem;
   box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   margin-top: 1rem;
   z-index: 3;
+  margin-top: 0;
+  margin-left: -1rem;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
-@media all and (min-width: 650px) {
-  .search__btn {
-    margin-top: 0;
-    margin-left: -1rem;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-}
-@media all and (max-width: 650px) {
-  .search__btn {
-    width: 100%;
-  }
+.search__btn i {
+  transform: scale(1.25);
 }
 
 .footer {
@@ -918,6 +899,7 @@ body {
   max-width: 400px;
   width: calc(100% - 1rem);
   margin-bottom: 1rem;
+  filter: brightness(90%);
 }
 
 .sobre {
@@ -942,10 +924,8 @@ body {
   background-repeat: no-repeat;
 }
 
-@media all and (max-width: 650px) {
-  #pesquisa .search {
-    display: none;
-  }
+#pesquisa .search {
+  margin-bottom: 3rem;
 }
 
 @media all and (min-width: 650px) {
@@ -953,11 +933,12 @@ body {
     margin-top: 3rem;
   }
 }
-.resultados__wrapper {
+
+.resultados-wrapper {
   display: grid;
   gap: 1rem;
 }
-.resultados .resultado-card {
+.resultados-wrapper .resultado {
   display: grid;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
@@ -965,46 +946,66 @@ body {
   background-color: hsla(195deg, 53%, 79%, 0.2);
 }
 @media only screen and (min-width: 540px) {
-  .resultados .resultado-card {
+  .resultados-wrapper .resultado {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-.resultados .resultado-card__title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: hsl(240deg, 97%, 20%);
+.resultados-wrapper .resultado__header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
-.resultados .resultado-card__title a:hover,
-.resultados .resultado-card__title a:focus-within {
+.resultados-wrapper .resultado__header:hover, .resultados-wrapper .resultado__header:focus-within {
   text-decoration: underline;
 }
-.resultados .resultado-card__address p:nth-child(1) {
-  font-weight: bold;
+.resultados-wrapper .resultado__img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
 }
-.resultados .resultado-card__address p:nth-child(2) {
+.resultados-wrapper .resultado__title {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: hsl(240deg, 97%, 20%);
+}
+.resultados-wrapper .resultado__address {
+  line-height: 1.3;
+  margin-top: 0.25rem;
+}
+.resultados-wrapper .resultado__address p:nth-child(1) {
+  font-weight: 600;
+}
+.resultados-wrapper .resultado__address p:nth-child(2) {
+  font-size: 0.9rem;
+}
+.resultados-wrapper .resultado__phone {
   font-size: 0.9rem;
 }
 @media only screen and (min-width: 540px) {
-  .resultados .resultado-card__phone {
+  .resultados-wrapper .resultado__phone {
     grid-column: 2;
     grid-row: 2;
-  }
-}
-.resultados .resultado-card__phone, .resultados .resultado-card__time {
-  font-size: 0.9rem;
-}
-@media only screen and (min-width: 540px) {
-  .resultados .resultado-card__phone, .resultados .resultado-card__time {
     justify-self: end;
     align-self: end;
     font-size: 1rem;
   }
 }
-.resultados .resultado-card i {
+.resultados-wrapper .resultado__time {
+  font-size: 0.9rem;
+}
+@media only screen and (min-width: 540px) {
+  .resultados-wrapper .resultado__time {
+    justify-self: end;
+    align-self: start;
+    font-size: 1rem;
+  }
+}
+.resultados-wrapper .resultado i {
   color: hsl(240deg, 97%, 20%);
   margin-right: 0.3rem;
 }
-.resultados .resultado-card p {
+.resultados-wrapper .resultado p {
   margin: 0;
 }
 

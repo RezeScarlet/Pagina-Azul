@@ -128,15 +128,6 @@ header {
 
     &__item {
       position: relative;
-
-      &.mobile-only {
-        display: flex;
-        gap: 0.75rem;
-
-        @media all and (min-width: 800px) {
-          display: none;
-        }
-      }
     }
     
     &__link {

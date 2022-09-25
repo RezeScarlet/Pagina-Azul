@@ -19,12 +19,9 @@
   
   &__form {
     width: 100%;
-    
-    @media all and (min-width: 650px) {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   &__bar {
@@ -43,22 +40,22 @@
   }
   
   &__btn {
-    padding: 1rem;
+    padding: 1rem 1.25rem;
     font-size: 0.925rem;
     box-shadow: 3px 3px 13px rgb(0, 0, 0, 0.3);
     border-radius: 8px;
     margin-top: 1rem;
     z-index: 3;
-    
-    @media all and (min-width: 650px) {
-      margin-top: 0;
-      margin-left: -1rem;
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
-    }
+    margin-top: 0;
+    margin-left: -1rem;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    // @media all and (max-width: 650px) {
+    //   width: 100%;
+    // }
 
-    @media all and (max-width: 650px) {
-      width: 100%;
+    i {
+      transform: scale(1.25);
     }
   }
 }

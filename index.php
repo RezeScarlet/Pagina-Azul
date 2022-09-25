@@ -44,9 +44,9 @@
                 <img src="/assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
               </a>
               <p class="subtitle">Tudo ao seu alcance, em um só lugar</p>
-              <form action="/pesquisa" method="get" class="search__form">
-                <input class="search__bar" type="search" name="pesquisa" id="pesquisa" placeholder="Encontre o que precisa" />
-                <button class="search__btn btn--dark" type="submit">Pesquisar</button>
+              <form action="/busca" method="get" class="search__form">
+                <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Encontre o que precisa" />
+                <button class="search__btn btn--dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </form>
             </div>
           </div>
