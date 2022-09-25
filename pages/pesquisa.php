@@ -1,10 +1,34 @@
 <?php
+  require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/unaccent.php";
   require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/conexao.php";
 
   $search = $_GET['pesquisa'];
-          
-  $resultQuery = $conexao->prepare("SELECT nome, imgPerfil FROM anunciante WHERE nome LIKE '%$search%'");
-  $resultQuery -> execute();
+  $resultArray = FALSE;
+
+  $categoriaQuery = $conexao -> prepare("SELECT idCategoria, nome FROM categorias");
+  $categoriaQuery -> execute();
+  $categoriaArray = $categoriaQuery -> fetchAll(PDO::FETCH_ASSOC);
+  
+  foreach ($categoriaArray as $x) {
+    if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
+      $resultQuery = $conexao -> prepare("SELECT * FROM anunciante where idCategoria = ".$x['idCategoria']);
+      $resultQuery -> execute();
+      $resultArray = $resultQuery -> fetchAll(PDO::FETCH_ASSOC);
+    }
+  }
+
+  if (!$resultArray) {
+    $resultQuery = $conexao->prepare("SELECT nome, imgPerfil FROM anunciante WHERE descricao LIKE '%$search%'");
+    $resultQuery -> execute();
+    $resultArray = $resultQuery -> fetchAll(PDO::FETCH_ASSOC);
+  }
+
+
+  if (!$resultArray){
+    $resultQuery = $conexao->prepare("SELECT nome, imgPerfil FROM anunciante WHERE nome LIKE '%$search%'");
+    $resultQuery -> execute();
+    $resultArray = $resultQuery -> fetchAll(PDO::FETCH_ASSOC);
+  }
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +72,14 @@
 
           <div class="resultados__wrapper">
             <?php
-              while ($row = $resultQuery -> fetch(PDO::FETCH_ASSOC)) {
-
+              if ($resultArray) {
+                foreach ($resultArray as $x) {
+              
             ?>
 
               <div class="resultado-card">
 
-                <p class="resultado-card__title"><a href='/anunciante?anunciante=<?= $row['nome']; ?>'><?= $row['nome'] ?></a></p>
+                <p class="resultado-card__title"><a href='/anunciante?anunciante=<?= $x['nome']; ?>'><?= $x['nome'] ?></a></p>
 
                 <p class="resultado-card__time"><i class="fa-regular fa-clock"></i> 7:00 - 18:00</p>
                 <p class="resultado-card__phone"><a href='#' title="Ligar"><i class="fa-solid fa-phone"></i> (19) 99785-4572</a></p>
@@ -67,7 +92,7 @@
               </div>
 
             <?php
-              }
+              }} else {echo "Nenhum resultado encontrado";}
             ?>
           </div>
 

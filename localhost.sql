@@ -37,7 +37,6 @@ CREATE TABLE `anunciante` (
   `nome` varchar(30) NOT NULL,
   `CNPJ` char(18) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `senha` varchar(32) NOT NULL,
   `idPlano` int(11) NOT NULL,
   `idCategoria` int(11) NOT NULL,
   `descricao` varchar(100) DEFAULT NULL,
@@ -61,17 +60,17 @@ CREATE TABLE `anunciante` (
 --
 
 INSERT INTO `anunciante` 
-(`idAnunciante`, `nome`, `CNPJ`, `email`, `senha`, `idPlano`, `idCategoria`, `descricao`, `imgPerfil`, `imgAnuncioP`, `imgAnuncioG`, `whatsapp`, `facebook`, `instagram`, `telefone`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `CEP`) VALUES
-(1, 'DJ BOOMKITTY', '01.778.130/1000-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 2, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'djboomkittyP.png', 'djboomkittyP.png', 'djboomkitty.png', 'whatsapp.com/DJBOOMKITTY', 'facebook.com/DJBOOMKITTY', 'intagram.com/DJBOOMKITTY', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(2, 'Fire Design', '02.778.130/2000-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 2, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'firedesignP.png', 'firedesignP.png', 'firedesign.png', 'whatsapp.com/firedesign', 'facebook.com/firedesign', 'intagram.com/firedesign', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(3, 'Ghost Dash', '03.778.130/3000-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b',3, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'ghostdashP.png', 'ghostdashP.png', 'ghostdash.png', 'whatsapp.com/ghostdash', 'facebook.com/ghostdash', 'intagram.com/ghostdash', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(4, 'Hill Top Co-op', '04.778.130/0001-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 3, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'hilltopcoopP.png', 'hilltopcoopP.png', 'hilltopcoop.png', 'whatsapp.com/hilltopcoop', 'facebook.com/hilltopcoop', 'intagram.com/hilltopcoop', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(5, 'Museum', '05.778.130/0001-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 3, 2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'museumP.png', 'museumP.png', 'museum.png', 'whatsapp.com/museum', 'facebook.com/museum', 'intagram.com/museum', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(6, 'Orland Groves', '06.778.130/0001-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 3, 6, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'orlandgrovesP.png', 'orlandgrovesP.png', 'orlandgroves.png', 'whatsapp.com/orlandgroves', 'facebook.com/orlandgroves', 'intagram.com/orlandgroves', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(7, 'Ryan Keller Pharmacy', '07.778.130/0001-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 3, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'ryankellerpharmacyP.png', 'ryankellerpharmacyP.png', 'ryankellerpharmacy.png', 'whatsapp.com/ryankellerpharmacy', 'facebook.com/ryankellerpharmacy', 'intagram.com/ryankellerpharmacy', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(8, 'The Atomic Club', '08.778.130/0001-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 3, 5, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'theatomicclubP.png', 'theatomicclubP.png', 'theatomicclub.png', 'whatsapp.com/theatomicclub', 'facebook.com/theatomicclub', 'intagram.com/theatomicclub', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(9, 'Uncle Louies Pizeri', '09.778.130/0001-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 3, 9, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'unclelouiespizzeriaP.png', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png', 'whatsapp.com/unclelouiespizzeria', 'facebook.com/unclelouiespizzeria', 'intagram.com/unclelouiespizzeria', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
-(10, 'Yurt', '10.778.130/0001-48', 'a@a', 'c4ca4238a0b923820dcc509a6f75849b', 3, 2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'yurtP.png', 'yurtP.png', 'yurt.png', 'whatsapp.com/yurt', 'facebook.com/yurt', 'intagram.com/yurt', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635');
+(`idAnunciante`, `nome`, `CNPJ`, `email`, `idPlano`, `idCategoria`, `descricao`, `imgPerfil`, `imgAnuncioP`, `imgAnuncioG`, `whatsapp`, `facebook`, `instagram`, `telefone`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `CEP`) VALUES
+(1, 'DJ BOOMKITTY', '01.778.130/1000-48', 'a@a',  2, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'djboomkittyP.png', 'djboomkittyP.png', 'djboomkitty.png', 'whatsapp.com/DJBOOMKITTY', 'facebook.com/DJBOOMKITTY', 'intagram.com/DJBOOMKITTY', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(2, 'Fire Design', '02.778.130/2000-48', 'a@a',  2, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'firedesignP.png', 'firedesignP.png', 'firedesign.png', 'whatsapp.com/firedesign', 'facebook.com/firedesign', 'intagram.com/firedesign', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(3, 'Ghost Dash', '03.778.130/3000-48', 'a@a', 3, 1, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'ghostdashP.png', 'ghostdashP.png', 'ghostdash.png', 'whatsapp.com/ghostdash', 'facebook.com/ghostdash', 'intagram.com/ghostdash', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(4, 'Hill Top Co-op', '04.778.130/0001-48', 'a@a',  3, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'hilltopcoopP.png', 'hilltopcoopP.png', 'hilltopcoop.png', 'whatsapp.com/hilltopcoop', 'facebook.com/hilltopcoop', 'intagram.com/hilltopcoop', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(5, 'Museum', '05.778.130/0001-48', 'a@a',  3, 2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'museumP.png', 'museumP.png', 'museum.png', 'whatsapp.com/museum', 'facebook.com/museum', 'intagram.com/museum', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(6, 'Orland Groves', '06.778.130/0001-48', 'a@a',  3, 6, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'orlandgrovesP.png', 'orlandgrovesP.png', 'orlandgroves.png', 'whatsapp.com/orlandgroves', 'facebook.com/orlandgroves', 'intagram.com/orlandgroves', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(7, 'Ryan Keller Pharmacy', '07.778.130/0001-48', 'a@a',  3, 3, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'ryankellerpharmacyP.png', 'ryankellerpharmacyP.png', 'ryankellerpharmacy.png', 'whatsapp.com/ryankellerpharmacy', 'facebook.com/ryankellerpharmacy', 'intagram.com/ryankellerpharmacy', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(8, 'The Atomic Club', '08.778.130/0001-48', 'a@a',  3, 5, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'theatomicclubP.png', 'theatomicclubP.png', 'theatomicclub.png', 'whatsapp.com/theatomicclub', 'facebook.com/theatomicclub', 'intagram.com/theatomicclub', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(9, 'Uncle Louies Pizeri', '09.778.130/0001-48', 'a@a',  3, 9, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'unclelouiespizzeriaP.png', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png', 'whatsapp.com/unclelouiespizzeria', 'facebook.com/unclelouiespizzeria', 'intagram.com/unclelouiespizzeria', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
+(10, 'Yurt', '10.778.130/0001-48', 'a@a',  3, 2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'yurtP.png', 'yurtP.png', 'yurt.png', 'whatsapp.com/yurt', 'facebook.com/yurt', 'intagram.com/yurt', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635');
 
 -- --------------------------------------------------------
 
@@ -86,6 +85,17 @@ CREATE TABLE `categorias` (
   `icone` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+DROP TABLE IF EXISTS `administradores`;
+CREATE TABLE `administradores` (
+  `idAdmin` int(11) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `senha` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `administradores` (`idAdmin`, `nome`, `senha`) VALUES
+(1, 'guilherme', '$2y$10$bdXjw14Xjx/rJiFhsHd06uwRU3wM0hW5oKWrYsvm22an0UrpoQqIe'),
+(2, 'thiago', '$2y$10$bdXjw14Xjx/rJiFhsHd06uwRU3wM0hW5oKWrYsvm22an0UrpoQqIe');
 --
 -- Extraindo dados da tabela `categorias`
 --
@@ -133,6 +143,7 @@ INSERT INTO `planos` (`idPlano`, `nome`, `descricao`) VALUES
 --
 -- Indexes for table `anunciante`
 --
+
 ALTER TABLE `anunciante`
   ADD PRIMARY KEY (`idAnunciante`),
   ADD UNIQUE KEY `nome` (`nome`),

@@ -30,11 +30,11 @@
     <div class="container">
       <section class="login full-size">
         <img src="/assets/img/logos/Logo.png" class="login__logo">
-        <p class="subtitle">Login na Página Azul</p>
+        <p class="subtitle">Administração</p>
         <form class="login__form" action="login.php" method="post" enctype="multipart/form-data">
           <div class="login__group">
             <span><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
-            <input type="email" class="login__input" name="email" id="email" placeholder="E-mail">
+            <input type="text" class="login__input" name="nome" id="nome" placeholder="Nome">
           </div>
           <div class="login__group">
             <span><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
@@ -52,24 +52,27 @@
       
     if (isset($_POST['login'])) {
 
-      $email = $_POST['email'];
+      $nome = $_POST['nome'];
       $senha = $_POST['senha'];
 
-      $login = $conexao -> prepare("SELECT * FROM anunciante WHERE email = :email AND senha = :senha");
-
-      $login -> bindValue(":email", $email);
-      $login -> bindvalue(":senha", md5($senha));
-      $login -> execute(); 
-
+      $login = $conexao -> prepare("SELECT * FROM administradores WHERE nome = :nome");
+      $login -> bindValue(":nome", $nome);
+      // $login -> bindvalue(":senha", password_hash($senha, PASSWORD_DEFAULT));
+      $login -> execute();
       $login = $login -> fetch(PDO::FETCH_ASSOC);
 
+
       if ($login) {
-        $_SESSION['email'] = $login['email'];
-        $_SESSION['ID'] = $login['idAnunciante'];
-        echo $_SESSION['email'];
-        header('location: editar.php');
+        if (password_verify($senha, $login['senha'])) {
+          $_SESSION['nome'] = $login['nome'];
+          $_SESSION['ID'] = $login['idAdmin'];
+          echo $_SESSION['nome'];
+          header('location: editar.php');
+      } else {
+        echo "Senha inválida";
+      }
       } else { 
-        echo "errouuuuuuu!";
+        echo "Usuário Inválido!";
       }
 
     }
