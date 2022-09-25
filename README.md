@@ -3,7 +3,7 @@
 
 ### Integrantes do grupo:
 - Guilherme de Souza Dionisio Rosseti
-- Guilherme Flávio da Silva
+- Guilherme Flavio da Silva
 - Matheus Henrique Leoncio Brando
 - Thiago Fukuyama Marcilli
 
