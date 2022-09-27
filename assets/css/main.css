@@ -928,6 +928,9 @@ body {
   margin-bottom: 3rem;
 }
 
+.resultados {
+  word-wrap: break-word;
+}
 @media all and (min-width: 650px) {
   .resultados {
     margin-top: 3rem;

@@ -2,7 +2,7 @@
   require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/unaccent.php";
   require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/conexao.php";
 
-  $search = $_GET['q'];
+  $search = $_GET['pesquisa'];
   $resultArray = FALSE;
 
   $categoriaQuery = $conexao -> prepare("SELECT idCategoria, nome FROM categorias");
@@ -18,7 +18,7 @@
   }
 
   if (!$resultArray) {
-    $resultQuery = $conexao->prepare("SELECT nome, imgAnuncioP FROM anunciante WHERE descricao LIKE '%$search%'");
+    $resultQuery = $conexao->prepare("SELECT nome, imgAnuncioP FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%'");
     $resultQuery -> execute();
     $resultArray = $resultQuery -> fetchAll(PDO::FETCH_ASSOC);
   }
@@ -30,7 +30,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | Busca</title>
+  <title>Página Azul | Busca por "<?= $search ?>"</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -79,7 +79,7 @@
                 </a>
 
                 <p class="resultado__time"><i class="fa-regular fa-clock"></i> 7:00 - 18:00</p>
-                <p class="resultado__phone"><a href='#' title="Ligar"><i class="fa-solid fa-phone"></i> (19) 99785-4572</a></p>
+                <p class="resultado__phone"><a href='tel: +5519989183856' title="Ligar"><i class="fa-solid fa-phone"></i> (19) 99785-4572</a></p>
 
                 <div class="resultado__address">
                   <p>Mococa, SP</p>

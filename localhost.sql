@@ -71,6 +71,7 @@ INSERT INTO `anunciante`
 (8, 'The Atomic Club', '08.778.130/0001-48', 'a@a',  3, 5, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'theatomicclubP.png', 'theatomicclubP.png', 'theatomicclub.png', 'whatsapp.com/theatomicclub', 'facebook.com/theatomicclub', 'intagram.com/theatomicclub', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
 (9, 'Uncle Louies Pizeri', '09.778.130/0001-48', 'a@a',  3, 9, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'unclelouiespizzeriaP.png', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png', 'whatsapp.com/unclelouiespizzeria', 'facebook.com/unclelouiespizzeria', 'intagram.com/unclelouiespizzeria', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635'),
 (10, 'Yurt', '10.778.130/0001-48', 'a@a',  3, 2, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'yurtP.png', 'yurtP.png', 'yurt.png', 'whatsapp.com/yurt', 'facebook.com/yurt', 'intagram.com/yurt', '19 99229-8435', 'Nicolau Paione', '403', 'Descanço', 'Mococa', 'SP', '6789-635');
+(1, 'Ponto Barato', '10.778.130/0001-48', 'a@a', 3, 7, 'Loja do Rafael', 'pontobarato.')
 
 -- --------------------------------------------------------
 
