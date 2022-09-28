@@ -899,7 +899,6 @@ body {
   max-width: 400px;
   width: calc(100% - 1rem);
   margin-bottom: 1rem;
-  filter: brightness(90%);
 }
 
 .sobre {

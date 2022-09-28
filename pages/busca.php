@@ -1,31 +1,11 @@
 <?php
-  require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/unaccent.php";
-  require_once $_SERVER['DOCUMENT_ROOT']."/assets/php/conexao.php";
-
-  $search = $_GET['pesquisa'];
-  $resultArray = FALSE;
-
-  $categoriaQuery = $conexao -> prepare("SELECT idCategoria, nome FROM categorias");
-  $categoriaQuery -> execute();
-  $categoriaArray = $categoriaQuery -> fetchAll(PDO::FETCH_ASSOC);
-  
-  foreach ($categoriaArray as $x) {
-    if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
-      $resultQuery = $conexao -> prepare("SELECT * FROM anunciante WHERE idCategoria = ".$x['idCategoria']);
-      $resultQuery -> execute();
-      $resultArray = $resultQuery -> fetchAll(PDO::FETCH_ASSOC);
-    }
-  }
-
-  if (!$resultArray) {
-    $resultQuery = $conexao->prepare("SELECT nome, imgAnuncioP FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%'");
-    $resultQuery -> execute();
-    $resultArray = $resultQuery -> fetchAll(PDO::FETCH_ASSOC);
-  }
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,11 +20,12 @@
   <!-- JavaScript -->
   <script src="/assets/js/main.js" defer></script>
 </head>
-<body id="pesquisa">
 
+<body id="pesquisa">
   <?php
-    include_once '../assets/include/header.html';
+  include_once '../assets/include/header.html';
   ?>
+
 
   <main>
     <section class="full-size">
@@ -58,43 +39,82 @@
             </form>
           </div>
         </div>
+        <?php
+        if (isset($_GET['q']))  {
+          $search = $_GET['q'];
+          if ($search != '') {
+          $resultArray = FALSE;
 
-        <div class="resultados" id="resultados">
-          <h1 class="section-title">Resultados para <em>"<?= $search ?>"</em></h1>
+          $categoriaQuery = $conexao->prepare("SELECT idCategoria, nome FROM categorias");
+          $categoriaQuery->execute();
+          $categoriaArray = $categoriaQuery->fetchAll(PDO::FETCH_ASSOC);
 
+          foreach ($categoriaArray as $x) {
+            if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
+              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria']. " ORDER BY idPlano DESC");
+              $resultQuery->execute();
+              $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+            }
+          }
 
-          <div class="resultados-wrapper">
-            <?php
+          if (!$resultArray) {
+            $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
+            $resultQuery->execute();
+            $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+          }
+        ?>
+
+              <?php
               if ($resultArray) {
-                foreach ($resultArray as $x) {
-              
-            ?>
+                
+                ?>
+          <div class="resultados" id="resultados">
+            <h1 class="section-title">Resultados para <em><?= $search ?></em></h1>
+            
+            <?php foreach ($resultArray as $x) { ?>
+            <div class="resultados-wrapper">
 
-              <div class="resultado">
-                <a href='/anunciante?anunciante=<?= $x['nome']; ?>'>
-                  <div class="resultado__header">
-                    <img class="resultado__img" src="/assets/img/img-anunciante/<?= $x['imgAnuncioP'] ?>" alt="aaaa">
-                    <p class="resultado__title"><?= $x['nome']; ?></p>
+
+                  <div class="resultado">
+                    <a href='/anunciante?anunciante=<?= $x['nome']; ?>'>
+                      <div class="resultado__header">
+                        <img class="resultado__img" src="/assets/img/img-anunciante/<?= $x['imgAnuncioP'] ?>" alt="aaaa">
+                        <p class="resultado__title"><?= $x['nome']; ?></p>
+                      </div>
+                    </a>
+
+                    <p class="resultado__time"><i class="fa-regular fa-clock"></i> 7:00 - 18:00</p>
+                    <p class="resultado__phone"><a href='tel: +55<?= $x['telefone'] ?>' title="Ligar"><i class="fa-solid fa-phone"></i><?= $x['telefone'] ?></a></p>
+
+                    <div class="resultado__address">
+                      <p><?= $x['cidade'] ?>, <?= $x['estado'] ?></p>
+                      <p><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
+                    </div>
                   </div>
-                </a>
 
-                <p class="resultado__time"><i class="fa-regular fa-clock"></i> 7:00 - 18:00</p>
-                <p class="resultado__phone"><a href='tel: +5519989183856' title="Ligar"><i class="fa-solid fa-phone"></i> (19) 99785-4572</a></p>
+              <?php
+                }
+              } else {
+                echo "Nenhum resultado encontrado";
+              }
+              ?>
+            </div>
 
-                <div class="resultado__address">
-                  <p>Mococa, SP</p>
-                  <p>Rua Batista Figueiredo, 504</p>
-                </div>
-              </div>
-
-            <?php
-              }} else {echo "Nenhum resultado encontrado";}
-            ?>
           </div>
+    </section>
 
+    </div>
+  <?php } } else { ?>
 
-        </div>
+    <!-- MEDIOS -->
+    <section class="medios" id="medios">
+      <div class="container">
+        <h1 class="section-title">Recomendados </h1>
 
+        <?php
+          include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
+        ?>
+      <?php } ?>
       </div>
     </section>
   </main>
@@ -104,8 +124,9 @@
   </a>
 
   <?php
-    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/footer.html';
   ?>
 
 </body>
+
 </html>
