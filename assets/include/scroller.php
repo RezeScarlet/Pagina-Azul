@@ -5,8 +5,6 @@
           <div class="scroller" data-slide>
 
             <?php
-            // Usar para visualizar um array:
-            // echo '<pre>'; print_r($anuncios); echo '</pre>';
 
             // Faz o SELECT no BD e executa
             $mediosQuery = $conexao->prepare("SELECT nome, imgAnuncioP FROM anunciante WHERE idPlano >= 2");

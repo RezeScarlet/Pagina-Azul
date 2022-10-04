@@ -49,3 +49,12 @@ section {
   min-height: 90vh;
   padding: 3rem 0;
 }
+
+.info {
+  position: relative;
+
+  i {
+    color: c.$fc-accent;
+    margin-right: 0.5rem;
+  }
+}

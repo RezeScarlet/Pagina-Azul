@@ -161,6 +161,14 @@ section:not(.hero) {
   padding: 3rem 0;
 }
 
+.info {
+  position: relative;
+}
+.info i {
+  color: hsl(240deg, 97%, 20%);
+  margin-right: 0.5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -890,15 +898,19 @@ body {
 .hero {
   display: grid;
   place-items: center;
-  min-height: calc(65vh - (3rem + 10vmin));
   padding: 2.5rem 0;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
 .logo {
-  max-width: 400px;
-  width: calc(100% - 1rem);
+  width: 400px;
   margin-bottom: 1rem;
+}
+@media only screen and (max-width: 500px) {
+  .logo {
+    width: 300px;
+  }
 }
 
 .sobre {
@@ -1002,10 +1014,6 @@ body {
     align-self: start;
     font-size: 1rem;
   }
-}
-.resultados-wrapper .resultado i {
-  color: hsl(240deg, 97%, 20%);
-  margin-right: 0.3rem;
 }
 .resultados-wrapper .resultado p {
   margin: 0;

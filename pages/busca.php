@@ -1,6 +1,13 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
+
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
+
+  if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '')  {
+    $searchConditions = TRUE;
+  } else {
+    $searchConditions = FALSE;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +17,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | Busca por "<?= $search ?>"</title>
+  <title>Página Azul | Busca <?php if ($searchConditions) echo "por ". $_GET["q"] ?></title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -40,9 +47,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
           </div>
         </div>
         <?php
-        if (isset($_GET['q']))  {
+        if ($searchConditions)  {
           $search = $_GET['q'];
-          if ($search != '') {
           $resultArray = FALSE;
 
           $categoriaQuery = $conexao->prepare("SELECT idCategoria, nome FROM categorias");
@@ -71,9 +77,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
           <div class="resultados" id="resultados">
             <h1 class="section-title">Resultados para <em><?= $search ?></em></h1>
             
-            <?php foreach ($resultArray as $x) { ?>
             <div class="resultados-wrapper">
-
+              
+              <?php foreach ($resultArray as $x) { ?>
 
                   <div class="resultado">
                     <a href='/anunciante?anunciante=<?= $x['nome']; ?>'>
@@ -83,8 +89,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
                       </div>
                     </a>
 
-                    <p class="resultado__time"><i class="fa-regular fa-clock"></i> 7:00 - 18:00</p>
-                    <p class="resultado__phone"><a href='tel: +55<?= $x['telefone'] ?>' title="Ligar"><i class="fa-solid fa-phone"></i><?= $x['telefone'] ?></a></p>
+                    <p class="resultado__time">
+                      <span class="info"><i class="fa-regular fa-clock"></i> 7:00 - 18:00</span>
+                    </p>
+                    <p class="resultado__phone">
+                      <span class="info"><a href='tel: +55<?= $x['telefone'] ?>' title="Ligar"><i class="fa-solid fa-phone"></i><?= $x['telefone'] ?></a></span>
+                    </p>
 
                     <div class="resultado__address">
                       <p><?= $x['cidade'] ?>, <?= $x['estado'] ?></p>
@@ -104,7 +114,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
     </section>
 
     </div>
-  <?php } } else { ?>
+  <?php  } else { ?>
 
     <!-- MEDIOS -->
     <section class="medios" id="medios">

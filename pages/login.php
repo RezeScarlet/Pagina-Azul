@@ -33,7 +33,7 @@
         <p class="subtitle">Administração</p>
         <form class="login__form" action="login.php" method="post" enctype="multipart/form-data">
           <div class="login__group">
-            <span><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
+            <span><i class="fa-solid fa-user" aria-hidden="true"></i></span>
             <input type="text" class="login__input" name="nome" id="nome" placeholder="Nome">
           </div>
           <div class="login__group">
@@ -44,6 +44,13 @@
         </form>
       </section>
     </div>
+
+    <div class="info"><i class="fa-solid fa-phone"></i>(19) 98918-3856</div>
+    <div class="info"><i class="fa-solid fa-phone"></i>Chevrolet</div>
+    <div class="info"><i class="fa-solid fa-xmark"></i>Chevrolet</div>
+    <div class="info"><i class="fa-solid fa-dog"></i>Chevrolet</div>
+    <div class="info"><i class="fa-solid fa-cat"></i>Chevrolet</div>
+
   </main>
 
 <!-- ============================================ -->
