@@ -124,7 +124,7 @@ INSERT INTO `categorias` (`idCategoria`, `nome`, `icone`) VALUES
 (10, 'Perfumaria', 'perfumaria.svg'),
 (11, 'Esportes', 'esporte.svg'),
 (12, 'Floricultura', 'floricultura.svg'),
-(13, 'ONG', '');
+(13, 'ONG', 'ong.svg');
 
 -- --------------------------------------------------------
 

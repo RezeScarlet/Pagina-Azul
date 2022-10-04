@@ -21,14 +21,14 @@
   ?>
 
   <main>
-    <div class="container container--sm full-size">
+    <div class="container--sm full-size">
       <section class="sobre text-center">
         <h1 class="section-title">Sobre nós</h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga iusto exercitationem unde saepe magni facere officiis nostrum ut, quaerat at quis, ipsum a placeat ducimus deleniti alias dolor distinctio nesciunt sunt? 
+          A <em>Página Azul</em> tem como objetivo trazer visibilidade e espaço online para empreendedores da região. Listamos os estabelecimentos e prestadores de serviço locais por um preço em conta, recomendando-os para possíveis clientes próximos.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, soluta in dolores porro sit repudiandae laboriosam assumenda voluptas nisi id. Adipisci earum cum impedit praesentium soluta tenetur, tempora odit quibusdam.
+          Além disso, nosso sistema de pesquisa é construído para devolver com precisão o resultado de acordo com o tipo ou nome do serviço pesquisado pelo usuário. Todo esse processo resulta em maior presença do negócio e menor perda de clientes.
         </p>
       </section>
     </div>

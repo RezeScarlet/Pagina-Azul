@@ -353,13 +353,11 @@ header .nav__search-form {
   place-items: center;
   background-color: hsl(0deg, 0%, 97%);
   transform: translateY(-100%);
-  opacity: 0;
   visibility: hidden;
-  transition: all 150ms ease-in;
+  transition: all 100ms ease-in;
 }
 header .nav__search-form.active {
   transform: translateY(0);
-  opacity: 1;
   visibility: visible;
 }
 header .nav__search-form button[type=submit] {
@@ -385,22 +383,22 @@ header .nav__search-bar {
 }
 
 .btn, .btn--sm, .btn--outline-light, .btn--light, .btn--outline-dark, .btn--dark {
+  display: inline-block;
   padding: 0.5em 0.75em;
   border: 0;
   border-radius: 3px;
   font-weight: 600;
   text-align: center;
-  outline: none;
   transition: 100ms ease-in;
   font-size: inherit;
 }
 .btn--dark {
-  background-color: hsl(237deg, 57%, 22%);
+  background-color: hsl(237deg, 57%, 31%);
   color: hsl(0deg, 0%, 94%);
 }
 .btn--dark:hover, .btn--dark:focus {
   color: hsl(0deg, 0%, 94%);
-  background-color: hsl(237deg, 57%, 31%);
+  background-color: hsl(237deg, 57%, 22%);
 }
 .btn--outline-dark {
   background-color: transparent;
@@ -416,9 +414,8 @@ header .nav__search-bar {
   color: hsl(0deg, 0%, 29%);
 }
 .btn--light:hover, .btn--light:focus {
-  color: hsl(0deg, 0%, 94%);
-  background-color: hsl(237deg, 57%, 22%);
-  box-shadow: 0 0 0 1px hsl(0deg, 0%, 29%);
+  background-color: #d6d6d6;
+  color: #575757;
 }
 .btn--outline-light {
   background-color: transparent;
@@ -469,12 +466,12 @@ header .nav__search-bar {
   border-radius: 8px;
   color: rgb(82, 82, 82);
   background-color: hsl(0deg, 0%, 100%);
-  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 .search__btn {
   padding: 1rem 1.25rem;
   font-size: 0.925rem;
-  box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.3);
+  box-shadow: 3px 3px 13px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   margin-top: 1rem;
   z-index: 3;
@@ -725,9 +722,14 @@ header .nav__search-bar {
   width: 40px;
   height: 40px;
   font-size: 1.25rem;
-  background-color: rgba(128, 128, 128, 0.7);
-  color: rgba(255, 255, 255, 0.8);
+  background-color: rgb(128, 128, 128);
+  opacity: 0.8;
+  color: rgb(255, 255, 255);
   border: 0;
+  transition: 150ms;
+}
+.scroller__btn:hover, .scroller__btn:focus {
+  opacity: 0.9;
 }
 .scroller__btn.left {
   left: -15px;
@@ -958,6 +960,7 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 10px;
   background-color: hsla(195deg, 53%, 79%, 0.2);
+  box-shadow: inset 0 0 4px hsla(195deg, 53%, 79%, 0.2), inset 0 0 8px hsla(195deg, 53%, 79%, 0.2), inset 0 0 12px hsla(195deg, 53%, 79%, 0.2);
 }
 @media only screen and (min-width: 540px) {
   .resultados-wrapper .resultado {

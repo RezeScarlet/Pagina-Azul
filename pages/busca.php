@@ -109,24 +109,19 @@
               }
               ?>
             </div>
-
           </div>
+
+          <?php  } else { ?>
+        
+            <h1 class="section-title">Recomendados </h1>
+    
+            <?php
+              include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
+            ?>
+            
+          <?php } ?>
     </section>
 
-    </div>
-  <?php  } else { ?>
-
-    <!-- MEDIOS -->
-    <section class="medios" id="medios">
-      <div class="container">
-        <h1 class="section-title">Recomendados </h1>
-
-        <?php
-          include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
-        ?>
-      <?php } ?>
-      </div>
-    </section>
   </main>
 
   <a href="#" class="back-to-top">

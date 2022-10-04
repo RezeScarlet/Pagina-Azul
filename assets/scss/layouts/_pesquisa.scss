@@ -26,6 +26,9 @@
         padding: 0.75rem 1rem; 
         border-radius: 10px;
         background-color: c.$clr-faded;
+        box-shadow: inset 0 0 4px c.$clr-faded,
+                    inset 0 0 8px c.$clr-faded,
+                    inset 0 0 12px c.$clr-faded;
         
         @media only screen and (min-width: 540px) {
             grid-template-columns: repeat(2, 1fr);

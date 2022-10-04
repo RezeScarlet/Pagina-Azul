@@ -36,13 +36,13 @@
     border-radius: 8px;
     color: rgb(82, 82, 82);
     background-color: c.$clr-light;
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
   }
   
   &__btn {
     padding: 1rem 1.25rem;
     font-size: 0.925rem;
-    box-shadow: 3px 3px 13px rgb(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 13px rgb(0, 0, 0, 0.2);
     border-radius: 8px;
     margin-top: 1rem;
     z-index: 3;
@@ -50,9 +50,6 @@
     margin-left: -1rem;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    // @media all and (max-width: 650px) {
-    //   width: 100%;
-    // }
 
     i {
       transform: scale(1.25);

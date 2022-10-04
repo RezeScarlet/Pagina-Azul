@@ -3,24 +3,24 @@
 @use "../abstracts/typography" as t;
 
 .btn {
+  display: inline-block;
   padding: 0.5em 0.75em;
   border: 0;
   border-radius: 3px;
   font-weight: 600;
   text-align: center;
-  outline: none;
   transition: 100ms ease-in;
   font-size: inherit;
   
   &--dark {   
     @extend .btn;
-    background-color: c.$clr-secondary-200;
+    background-color: c.$clr-secondary-100;
     color: c.$fc-secondary;
 
     &:hover,
     &:focus {
       color: c.$fc-secondary;
-      background-color: c.$clr-secondary-100;
+      background-color: c.$clr-secondary-200;
     }
   }
 
@@ -44,9 +44,8 @@
   
     &:hover,
     &:focus {
-      color: c.$fc-secondary;
-      background-color: c.$clr-secondary-200;
-      box-shadow: 0 0 0 1px c.$fc-primary;
+      background-color: darken(c.$clr-primary, 13%);
+      color: lighten(c.$fc-primary, 5%);
     }
   }
 

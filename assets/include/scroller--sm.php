@@ -15,7 +15,7 @@
     ?>
 
       <div class="scroller__item">
-        <a href="#" class="link__wrapper">
+        <a href="/busca?q=<?= $row['nome'] ?>" class="link__wrapper">
           <div class="scroller__img-container rounded">
             <img src="/assets/img/icones-categorias/<?= $row['icone'] ?>" alt="<?= $row['nome'] ?>" title="<?= $row['nome'] ?>" draggable="false" />
           </div>
