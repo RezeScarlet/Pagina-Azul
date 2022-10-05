@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
     <!-- MEDIOS -->
     <section class="medios" id="medios">
       <div class="container">
-        <h1 class="section-title">Scroll Horizontal</h1>
+        <h1 class="section-title">Veja Também</h1>
         
           <?php 
             include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
@@ -77,7 +77,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
         <h1 class="section-title text-center">Categorias</h1>
         
           <?php 
-            include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller--sm.php';
+            include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller-categorias.php';
           ?>
           
       </div>

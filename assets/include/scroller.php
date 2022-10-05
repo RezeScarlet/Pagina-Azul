@@ -1,5 +1,5 @@
 <div class="slider">
-          <button type="button" class="scroller__btn left rounded" data-control="left">
+          <button type="button" class="scroller__btn--left rounded" data-control="left">
             <i class="fa-solid fa-arrow-left"></i>
           </button>
           <div class="scroller" data-slide>
@@ -35,7 +35,7 @@
             ?>
           </div>
 
-          <button type="button" class="scroller__btn right rounded" data-control="right">
+          <button type="button" class="scroller__btn--right rounded" data-control="right">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>

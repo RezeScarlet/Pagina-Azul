@@ -116,11 +116,13 @@
     opacity: 0.9;
   }
 
-  &.left {
+  &--left {
+    @extend .scroller__btn;
     left: -15px;
   }
 
-  &.right {
+  &--right {
+    @extend .scroller__btn;
     right: -15px;
   }
 }

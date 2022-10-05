@@ -8,6 +8,11 @@
   } else {
     $searchConditions = FALSE;
   }
+
+  // function searchIsValid() {
+  //   return isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '';
+  // }
+
 ?>
 
 <!DOCTYPE html>
@@ -105,7 +110,12 @@
               <?php
                 }
               } else {
-                echo "Nenhum resultado encontrado";
+
+              ?>
+              
+                <h1 class="section-title text-center">Nenhum resultado encontrado</h1>
+
+              <?php
               }
               ?>
             </div>

@@ -1,5 +1,10 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +19,11 @@
   <!-- JavaScript -->
   <script src="/assets/js/main.js" defer></script>
 </head>
+
 <body>
-  
+
   <?php
-    require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/header.html';
   ?>
 
 
@@ -39,29 +44,29 @@
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="nome">Nome</label>            
+            <label class="form__label" for="nome">Nome</label>
             <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do seu negócio">
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="CNPJ">CNPJ</label>            
+            <label class="form__label" for="CNPJ">CNPJ</label>
             <input class="form__input" type="text" name="CNPJ" id="CNPJ" placeholder="Insira o CNPJ do seu negócio">
           </div>
-          
+
           <div class="form__cols">
             <div class="form__group">
               <label class="form__label" for="plano">Plano</label>
               <select class="form__input" name="plano" id="plano">
                 <option value="-1" disabled selected>Selecione o plano</option>
                 <?php
-                  // Opções do select
-                  $planosQuery = $conexao -> prepare('SELECT idPlano, nome FROM planos');
-                  $planosQuery -> execute();
-                  while($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
+                // Opções do select
+                $planosQuery = $conexao->prepare('SELECT idPlano, nome FROM planos');
+                $planosQuery->execute();
+                while ($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                <option value="<?= $plano['idPlano'] ?>"><?= $plano['nome'] ?></option>
+                  <option value="<?= $plano['idPlano'] ?>"><?= $plano['nome'] ?></option>
                 <?php
-                  }
+                }
                 ?>
               </select>
             </div>
@@ -71,29 +76,29 @@
               <select class="form__input" name="categoria" id="categoria">
                 <option value="-1" disabled selected>Selecione a categoria do seu negócio</option>
                 <?php
-                  // Opções do select
-                  $categoriasQuery = $conexao -> prepare('SELECT * FROM categorias');
-                  $categoriasQuery -> execute();
-                  while($categoria = $categoriasQuery->fetch(PDO::FETCH_ASSOC)) {
-                    ?>
-                    <option value="<?=$categoria['idCategoria']?>"><?= $categoria['nome'] ?></option>
-                    <?php
-                  }
+                // Opções do select
+                $categoriasQuery = $conexao->prepare('SELECT * FROM categorias');
+                $categoriasQuery->execute();
+                while ($categoria = $categoriasQuery->fetch(PDO::FETCH_ASSOC)) {
+                ?>
+                  <option value="<?= $categoria['idCategoria'] ?>"><?= $categoria['nome'] ?></option>
+                <?php
+                }
                 ?>
               </select>
             </div>
           </div>
-          
+
           <div class="form__group">
             <label class="form__label" for="descricao">Descrição</label>
             <textarea class="form__input" type="text" name="descricao" id="descricao" placeholder="Insira a descrição do seu negócio"></textarea>
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="Whatsapp">Whatsapp</label>            
+            <label class="form__label" for="Whatsapp">Whatsapp</label>
             <input class="form__input" type="text" name="Whatsapp" id="Whatsapp" placeholder="Insira o Whatsapp do seu negócio">
           </div>
-          
+
           <div class="form__cols">
             <div class="form__group">
               <label class="form__label" for="Facebook">Facebook</label>
@@ -106,27 +111,27 @@
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="telefone">Telefone</label>            
+            <label class="form__label" for="telefone">Telefone</label>
             <input class="form__input" type="text" name="telefone" id="telefone" placeholder="Insira o telefone do seu negócio">
           </div>
 
           <div class="form__group">
-              <label class="form__label" for="cidade">Cidade</label>
-              <select class="form__input" name="cidade" id="cidade">
-                <option value="-1" disabled selected>Selecione a cidade</option>
-                <option value="Mococa">Mococa</option>
-                <option value="Arceburgo">Arceburgo</option>
-                <option value="Tapiratiba">Tapiratiba</option>
-              </select>
+            <label class="form__label" for="cidade">Cidade</label>
+            <select class="form__input" name="cidade" id="cidade">
+              <option value="-1" disabled selected>Selecione a cidade</option>
+              <option value="Mococa">Mococa</option>
+              <option value="Arceburgo">Arceburgo</option>
+              <option value="Tapiratiba">Tapiratiba</option>
+            </select>
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="CEP">CEP</label>            
+            <label class="form__label" for="CEP">CEP</label>
             <input class="form__input" type="text" name="CEP" id="CEP" placeholder="Insira o CEP do seu negócio">
           </div>
 
           <div class="form__group">
-            <label class="form__label" for="bairro">Bairro</label>            
+            <label class="form__label" for="bairro">Bairro</label>
             <input class="form__input" type="text" name="bairro" id="bairro" placeholder="Insira o bairro do seu negócio">
           </div>
 
@@ -135,7 +140,7 @@
               <label class="form__label" for="rua">Rua</label>
               <input class="form__input" type="text" name="rua" id="rua" placeholder="Insira o rua do seu negócio">
             </div>
-            
+
             <div class="form__group">
               <label class="form__label" for="numero">Número</label>
               <input class="form__input" type="text" name="numero" id="numero" placeholder="Insira o número do seu negócio">
@@ -143,24 +148,24 @@
           </div>
 
 
-          
+
           <div class="form__cols">
             <div class="form__group">
               <label class="form__label" for="imgPerfil">Imagem de perfil</label>
-              <input class="form__input"type="file" name="imgPerfil" id="imgPerfil">
+              <input class="form__input" type="file" name="imgPerfil" id="imgPerfil">
             </div>
-            
+
             <div class="form__group">
               <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
-              <input class="form__input"type="file" name="imgAnuncioP" id="imgAnuncioP">
+              <input class="form__input" type="file" name="imgAnuncioP" id="imgAnuncioP">
             </div>
-            
+
             <div class="form__group">
               <label class="form__label" for="imgAnuncioG">Imagem de anúncio grande</label>
-              <input class="form__input"type="file" name="imgAnuncioG" id="imgAnuncioG">
+              <input class="form__input" type="file" name="imgAnuncioG" id="imgAnuncioG">
             </div>
           </div>
-          
+
           <div class="form__submit">
             <input class="btn--dark" type="submit" value="Registrar" name="registrar">
             <input class="btn--outline-dark" type="reset" value="Limpar">
@@ -172,10 +177,11 @@
 
 
 
-  
+
   <?php
-  
-  function getImg($img){
+
+  function getImg($img)
+  {
 
     $img_tmp = $_FILES[$img]["tmp_name"];
     $img_original = $_FILES[$img]["name"];
@@ -183,71 +189,69 @@
     $path = $_SERVER['DOCUMENT_ROOT'] . "/assets/img/img-anunciante/";
 
     $fileExtension = strtolower(pathinfo($img_original, PATHINFO_EXTENSION));
-        
-        if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
-          echo "Imagem invalida";
-        } else {
-          
 
-          date_default_timezone_set("America/Sao_Paulo");
-          $time = date("Ymd")."_".date("His");
-
-          $imgName = $time. "." .$fileExtension;
-          $img_final = $path . $imgName;
-          
-          
-          move_uploaded_file($img_tmp, $img_final);        
-          
-          return $imgName;
-          
-        }
-      }
+    if (($fileExtension != "jpg") && ($fileExtension != "jpeg") && ($fileExtension != "png")) {
+      echo "Imagem invalida";
+    } else {
 
 
-      if (isset($_POST['registrar'])) {
-        $nome = $_POST['nome'];
-        $descricao = $_POST['descricao'];
-        $idPlano = $_POST['plano'];
-        
-        $imgPerfil = getImg('imgPerfil');
-        $imgAnuncioP = getImg('imgAnuncioP');
-        $imgAnuncioG = getImg('imgAnuncioG');
+      date_default_timezone_set("America/Sao_Paulo");
+      $time = date("Ymd") . "_" . date("His");
 
-        
-        $result = $conexao -> prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :idCategoria, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
-        
-        $result->bindValue(":nome", $nome);
-        $result->bindValue(':idPlano', $idPlano);
-        $result->bindValue(":idCategoria", $idCategoria);
-        $result->bindValue(":descricao", $descricao);
-        $result->bindValue(":imgPerfil", $imgPerfil);
-        $result->bindValue(":imgAnuncioP", $imgAnuncioP);
-        $result->bindValue(":imgAnuncioG", $imgAnuncioG);
-        $result->execute();
-        
-      }
+      $imgName = $time . "." . $fileExtension;
+      $img_final = $path . $imgName;
 
-      if (isset($_POST['registrar'])) {
 
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
+      move_uploaded_file($img_tmp, $img_final);
 
-        $login = $conexao -> prepare("INSERT INTO `login` VALUES (null, :email, :senha)");
+      return $imgName;
+    }
+  }
 
-        $login -> bindValue(":email", $email);
-        $login -> bindvalue(":senha", md5($senha));
-        $login -> execute();
 
-      }
-    ?>
+  if (isset($_POST['registrar'])) {
+    $nome = $_POST['nome'];
+    $descricao = $_POST['descricao'];
+    $idPlano = $_POST['plano'];
 
-    <a href="#" class="back-to-top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </a>
+    $imgPerfil = getImg('imgPerfil');
+    $imgAnuncioP = getImg('imgAnuncioP');
+    $imgAnuncioG = getImg('imgAnuncioG');
 
-    <?php
-      include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/footer.html';
-    ?>
-    
+
+    $result = $conexao->prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :idCategoria, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
+
+    $result->bindValue(":nome", $nome);
+    $result->bindValue(':idPlano', $idPlano);
+    $result->bindValue(":idCategoria", $idCategoria);
+    $result->bindValue(":descricao", $descricao);
+    $result->bindValue(":imgPerfil", $imgPerfil);
+    $result->bindValue(":imgAnuncioP", $imgAnuncioP);
+    $result->bindValue(":imgAnuncioG", $imgAnuncioG);
+    $result->execute();
+  }
+
+  if (isset($_POST['registrar'])) {
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $login = $conexao->prepare("INSERT INTO `login` VALUES (null, :email, :senha)");
+
+    $login->bindValue(":email", $email);
+    $login->bindvalue(":senha", md5($senha));
+    $login->execute();
+  }
+  ?>
+
+  <a href="#" class="back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <?php
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/footer.html';
+  ?>
+
 </body>
+
 </html>

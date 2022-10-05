@@ -181,13 +181,6 @@ header {
     // NAV BUTTONS E ICONS
     // --------------------
 
-
-    .desktop-only {
-      @media all and (max-width: 800px) {
-        display: none;;
-      }
-    }
-
     &__icon {
       background-color: transparent;
       border: 0;

@@ -14,7 +14,7 @@
         flex-direction: column;
         gap: 2rem;
         background-color: c.$clr-primary;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
         padding: 2rem;
         width: min(300px, 100%);
@@ -22,22 +22,25 @@
 
         @media (hover: hover) {
             &:hover {
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
                 transform: scale(102%);
             } 
         }
 
-        &.gratuito {
+        &--gratuito {
+            @extend .card;
             --card-color: hsl(237, 57%, 31%);
             order: 1;
         }
 
-        &.medio {
+        &--medio {
+            @extend .card;
             --card-color: hsl(120, 50%, 53%);
             order: 3;
         }
 
-        &.destaque {
+        &--destaque {
+            @extend .card;
             --card-color: hsl(35, 69%, 58%);
             order: 3;
             

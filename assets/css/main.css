@@ -329,11 +329,6 @@ header .nav #open-nav-search-btn {
   transform: scale(1.1);
   margin-right: 0.25rem;
 }
-@media all and (max-width: 800px) {
-  header .nav .desktop-only {
-    display: none;
-  }
-}
 header .nav__icon {
   background-color: transparent;
   border: 0;
@@ -509,7 +504,7 @@ header .nav__search-bar {
   }
 }
 .footer__logo {
-  width: 150px;
+  width: 200px;
 }
 .footer__nav-list {
   list-style: none;
@@ -715,7 +710,7 @@ header .nav__search-bar {
      object-position: center;
 }
 
-.scroller__btn {
+.scroller__btn, .scroller__btn--right, .scroller__btn--left {
   position: absolute;
   top: 40%;
   z-index: 6;
@@ -728,13 +723,13 @@ header .nav__search-bar {
   border: 0;
   transition: 150ms;
 }
-.scroller__btn:hover, .scroller__btn:focus {
+.scroller__btn:hover, .scroller__btn--right:hover, .scroller__btn--left:hover, .scroller__btn:focus, .scroller__btn--right:focus, .scroller__btn--left:focus {
   opacity: 0.9;
 }
-.scroller__btn.left {
+.scroller__btn--left {
   left: -15px;
 }
-.scroller__btn.right {
+.scroller__btn--right {
   right: -15px;
 }
 
@@ -745,41 +740,41 @@ header .nav__search-bar {
   gap: 2.5rem;
   margin-top: 4rem;
 }
-.cards-container .card {
+.cards-container .card, .cards-container .card--destaque, .cards-container .card--medio, .cards-container .card--gratuito {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   background-color: hsl(0deg, 0%, 97%);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 2rem;
   width: min(300px, 100%);
   transition: 150ms ease-in;
 }
 @media (hover: hover) {
-  .cards-container .card:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  .cards-container .card:hover, .cards-container .card--destaque:hover, .cards-container .card--medio:hover, .cards-container .card--gratuito:hover {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.1);
     transform: scale(102%);
   }
 }
-.cards-container .card.gratuito {
+.cards-container .card--gratuito {
   --card-color: hsl(237, 57%, 31%);
   order: 1;
 }
-.cards-container .card.medio {
+.cards-container .card--medio {
   --card-color: hsl(120, 50%, 53%);
   order: 3;
 }
-.cards-container .card.destaque {
+.cards-container .card--destaque {
   --card-color: hsl(35, 69%, 58%);
   order: 3;
 }
 @media only screen and (min-width: 1027px) {
-  .cards-container .card.destaque {
+  .cards-container .card--destaque {
     order: 2;
     transform: scale(105%);
   }
-  .cards-container .card.destaque:hover {
+  .cards-container .card--destaque:hover {
     transform: scale(108%);
   }
 }
@@ -825,14 +820,14 @@ header .nav__search-bar {
   flex-grow: 1;
   font-size: 0.9rem;
 }
-.cards-container .card .btn-purchase {
+.cards-container .card .btn-purchase, .cards-container .card--gratuito .btn-purchase, .cards-container .card--medio .btn-purchase, .cards-container .card--destaque .btn-purchase {
   background-color: var(--card-color);
   color: hsl(0deg, 0%, 94%);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   transition: 100ms ease-in;
 }
-.cards-container .card .btn-purchase:hover {
+.cards-container .card .btn-purchase:hover, .cards-container .card--gratuito .btn-purchase:hover, .cards-container .card--medio .btn-purchase:hover, .cards-container .card--destaque .btn-purchase:hover {
   transform: scale(102%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
@@ -960,11 +955,18 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 10px;
   background-color: hsla(195deg, 53%, 79%, 0.2);
+  transition: 150ms;
   box-shadow: inset 0 0 4px hsla(195deg, 53%, 79%, 0.2), inset 0 0 8px hsla(195deg, 53%, 79%, 0.2), inset 0 0 12px hsla(195deg, 53%, 79%, 0.2);
 }
 @media only screen and (min-width: 540px) {
   .resultados-wrapper .resultado {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (hover: hover) {
+  .resultados-wrapper .resultado:hover {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), inset 0 0 4px hsla(195deg, 53%, 79%, 0.2), inset 0 0 8px hsla(195deg, 53%, 79%, 0.2), inset 0 0 12px hsla(195deg, 53%, 79%, 0.2);
+    transform: scale(102%);
   }
 }
 .resultados-wrapper .resultado__header {

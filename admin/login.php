@@ -45,12 +45,6 @@
       </section>
     </div>
 
-    <div class="info"><i class="fa-solid fa-phone"></i>(19) 98918-3856</div>
-    <div class="info"><i class="fa-solid fa-phone"></i>Chevrolet</div>
-    <div class="info"><i class="fa-solid fa-xmark"></i>Chevrolet</div>
-    <div class="info"><i class="fa-solid fa-dog"></i>Chevrolet</div>
-    <div class="info"><i class="fa-solid fa-cat"></i>Chevrolet</div>
-
   </main>
 
 <!-- ============================================ -->
@@ -72,9 +66,8 @@
       if ($login) {
         if (password_verify($senha, $login['senha'])) {
           $_SESSION['nome'] = $login['nome'];
-          $_SESSION['ID'] = $login['idAdmin'];
           echo $_SESSION['nome'];
-          header('location: editar.php');
+          header('location: index.php');
       } else {
         echo "Senha inválida";
       }

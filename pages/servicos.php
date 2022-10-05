@@ -26,7 +26,7 @@
         <h1 class="section-title text-center">Nossos planos</h1>
 
         <div class="cards-container">
-          <div class="card gratuito">
+          <div class="card--gratuito">
             <h2 class="card__title">Gratuito</h2>
             
             <div class="card__price">
@@ -57,7 +57,7 @@
           </div>
 
 
-          <div class="card medio">
+          <div class="card--medio">
             <h2 class="card__title">Médio</h2>
 
             <div class="card__price">
@@ -88,7 +88,7 @@
           </div>
 
 
-          <div class="card destaque">
+          <div class="card--destaque">
             <h2 class="card__title">Destaque</h2>
 
             <div class="card__price">
