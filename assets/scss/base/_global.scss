@@ -34,6 +34,14 @@ section {
   margin-bottom: 2rem;
 } 
 
+h2 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: bold;
+  font-family: t.$ff-accent;
+  color: c.$fc-accent;
+  margin-bottom: 1.15rem;
+}
+
 .subtitle {
   font-size: clamp(1rem, 3vw, 1.15rem);
   margin-bottom: 2.5rem;
@@ -53,8 +61,12 @@ section {
 .info {
   position: relative;
 
-  i {
+  & > *:nth-child(1) {
     color: c.$fc-accent;
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
+  }
+
+  & > *:nth-child(2) {
+    position: relative;
   }
 }

@@ -82,19 +82,6 @@
     @media only screen and (max-width: 630px) {
       grid-auto-columns: 24%; 
     }
-
-    .scroller__img-container {
-      background-color: c.$clr-secondary-100;
-      display: grid;
-      place-items: center;
-      padding: 1.25rem;
-
-      img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-    }
   }
 }
 
