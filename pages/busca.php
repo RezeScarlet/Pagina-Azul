@@ -103,7 +103,7 @@
                     <div class="resultado__phone">
                       <span class="info">
                         <i class="info__icon fa-solid fa-phone"></i>
-                        <a class="info__content" href='tel: +55<?= $x['telefone'] ?>' title="Ligar"><?= $x['telefone'] ?></a>
+                        <a class="info__content" href='tel: +55<?= $x['celular'] ?>' title="Ligar" data-format="mobile-phone"><?= $x['celular'] ?></a>
                       </span>
                     </div>
 
