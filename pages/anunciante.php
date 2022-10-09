@@ -22,7 +22,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><?= $paginaInfo['nome'] ?> - Página Azul</title>
+  <title><?= $paginaInfo['nome'] ?> | Página Azul</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -52,58 +52,70 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
           </div>
 
           <div class="anunciante__wrapper">
-            <div class="anunciante__section">
+            <div>
               <img class="anunciante__img" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
               <div class="info text-center">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> 
-                <strong>Website: </strong>
-                <a href="#" target="_blank">placeholdersite.com.br</a>
+                <i class="info__icon fa-solid fa-arrow-up-right-from-square"></i> 
+                <span class="info__title">Website: </span>
+                <a class="info__content" href="#" target="_blank">placeholdersite.com.br</a>
               </div>
             </div>
-            <div class="anunciante__section">
+            
+            <div class="anunciante__contact">
               <h2>Contato</h2>
-              <div class="anunciante__contato">
-                <div class="info">
-                  <i class="fa-solid fa-phone"></i>
-                  <strong>Telefone: </strong>
-                  <a href="tel: +55<?= $paginaInfo['telefone'] ?>" title="Ligar"><?= $paginaInfo['telefone'] ?></a>
-                </div>
-                <div class="info">
-                  <i class="fa-solid fa-mobile-screen"></i>
-                  <strong>Celular: </strong>
-                  <a href="tel: +55<?= $paginaInfo['celular'] ?>" title="Ligar"><?= $paginaInfo['celular'] ?></a>
-                </div>
-                <div class="info">
-                  <i class="fa-solid fa-envelope"></i>
-                  <strong>E-mail: </strong>
-                  <a href="mailto: <?= $paginaInfo['email'] ?>" title="Enviar e-mail"><?= $paginaInfo['email'] ?></a>
-                </div>
-              </div>
-
-              <h2>Redes Sociais</h2>
-              <div class="anunciante__social">
-                <a class="icon-wrapper--sm icon-wrapper--facebook" href="https://<?= $paginaInfo['facebook'] ?>" target="_blank">
-                  <img src="/assets/img/icones-social/facebook-f.svg" alt="Facebook">
-                </a>
-                <a class="icon-wrapper--sm icon-wrapper--instagram" href="https://<?= $paginaInfo['instagram'] ?>" target="_blank">
-                  <img src="/assets/img/icones-social/instagram.svg" alt="Instagram">
-                </a>
-                <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Converse%20com%20<?=$paginaInfo['nome']?>%20no%20WhatsApp" target="_blank">
-                  <img src="/assets/img/icones-social/whatsapp.svg" alt="Whatsapp">
-                </a>
-              </div>
+              <ul class="anunciante__contact-wrapper list-unstyled">
+                  <li class="info">
+                    <i class="info__icon fa-solid fa-phone"></i>
+                    <span class="info__title">Telefone: </span>
+                    <a class="info__content" href="tel: +55<?= $paginaInfo['telefone'] ?>" title="Ligar">(19) 3666-6666</a>
+                  </li>
+                  <li class="info">
+                    <i class="info__icon fa-solid fa-mobile-screen"></i>
+                    <span class="info__title">Celular: </span>
+                    <a class="info__content" href="tel: +55<?= $paginaInfo['celular'] ?>" title="Ligar" data-format="mobile-phone"><?= $paginaInfo['celular'] ?></a>
+                  </li>
+                  <li class="info">
+                    <i class="info__icon fa-solid fa-envelope"></i>
+                    <span class="info__title">E-mail: </span>
+                    <a class="info__content" href="mailto: <?= $paginaInfo['email'] ?>" title="Enviar e-mail"><?= $paginaInfo['email'] ?></a>
+                  </li>
+                </ul>
             </div>
 
-            <div class="anunciante__section">
-              <h2>Descrição</h2>
+            <div class="anunciante__social">
+              <h2>Redes Sociais</h2>
+              <ul class="anunciante__social-wrapper list-unstyled">
+                <li>
+                  <a class="icon-wrapper--sm icon-wrapper--facebook" href="https://<?= $paginaInfo['facebook'] ?>" target="_blank">
+                    <img src="/assets/img/icones-social/facebook-f.svg" alt="Facebook">
+                  </a>
+                </li>
+                <li>
+                  <a class="icon-wrapper--sm icon-wrapper--instagram" href="https://<?= $paginaInfo['instagram'] ?>" target="_blank">
+                    <img src="/assets/img/icones-social/instagram.svg" alt="Instagram">
+                  </a>
+                </li>
+                <li>
+                  <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Converse%20com%20<?=$paginaInfo['nome']?>%20no%20WhatsApp" target="_blank">
+                    <img src="/assets/img/icones-social/whatsapp.svg" alt="Whatsapp">
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="anunciante__description">
+              <h2>Sobre a empresa</h2>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod eius debitis velit veniam vitae eligendi animi veritatis facilis libero officia dolorem facere minus aut exercitationem error quisquam, ipsam itaque ducimus consequatur est dolor tenetur quas ab saepe! Placeat, reprehenderit distinctio.</p>
             </div>
 
-            <div class="anunciante__section">
+            <div class="anunciante__address">
               <h2>Endereço</h2>
-              <p><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></p>
-              <p><?= $paginaInfo['bairro'] ?></p>
-              <p><?= $paginaInfo['cidade'] ?> - <?=  $paginaInfo['estado'] ?></p>
+              <div class="anunciante__address-wrapper">
+                <i class="info__icon fa-solid fa-location-dot"></i>
+                <span>Rua Nicolau Guedes, 235</span>
+                <p>Vale das Oliveiras</p>
+                <p>Tapiratiba - SP</p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,23 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+
+
+.info {
+    position: relative;
+
+    &__icon {
+        color: c.$fc-accent;
+        margin-right: 0.3rem;
+    }
+
+    &__title {
+        color: c.$fc-accent;
+        font-weight: 500;
+        margin-right: 0.25rem;
+    }    
+
+    &__content {
+        position: relative;
+    }
+}
