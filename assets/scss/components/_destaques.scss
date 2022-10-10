@@ -1,4 +1,7 @@
 
+@use "../abstracts/radius" as r;
+
+
 .destaques {
 
   &__grid {
@@ -13,17 +16,7 @@
 
   &__grid-item {
     position: relative;
-    border-radius: 5px;
-  }
-
-  &__img {
-    border-radius: 5px;
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
-    -moz-user-select: none; 
-    -webkit-user-select: none;
-    -ms-user-select: none; 
-    user-select: none; 
-    -webkit-user-drag: none; 
+    border-radius: r.$radius-1;
   }
 }
 

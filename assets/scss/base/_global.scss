@@ -1,6 +1,7 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
 
 
 section {
@@ -56,4 +57,9 @@ h2 {
 .full-size {
   min-height: 90vh;
   padding: 3rem 0;
+}
+
+.display-img {
+  box-shadow: -2px 3px 8px rgba(0, 0, 0, 0.25);   
+  border-radius: r.$radius-1;
 }

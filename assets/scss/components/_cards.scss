@@ -1,6 +1,8 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
+
 
 .cards-container {
     display: flex;
@@ -10,12 +12,9 @@
     margin-top: 4rem;
 
     .card {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
         background-color: c.$clr-primary;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
+        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+        border-radius: r.$radius-2;
         padding: 2rem;
         width: min(300px, 100%);
         transition: 150ms ease-in;
@@ -54,14 +53,12 @@
             }
         }
 
-        &__title {
-            text-align: center;
-        }
-
         &__price {
             position: relative;
             max-width: max-content;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
+            transform: translateX(10%);
             color: var(--card-color);
 
             .currency {
@@ -114,6 +111,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
             transition: 100ms ease-in;
+            width: 100%;
 
             &:hover {
                 transform: scale(102%);

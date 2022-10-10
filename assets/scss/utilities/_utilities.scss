@@ -3,10 +3,26 @@
   text-align: center;
 }
   
-.rounded {
-  border-radius: 50%;
-}
-
 .list-unstyled {
   list-style: none;
+}
+
+.no-select {
+  user-select: none; 
+  -moz-user-select: none; 
+  -webkit-user-select: none;
+  -ms-user-select: none; 
+  -webkit-user-drag: none; 
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
 }

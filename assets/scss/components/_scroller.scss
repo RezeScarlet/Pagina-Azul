@@ -1,6 +1,7 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
 
 
 .slider {
@@ -35,7 +36,7 @@
 
   &__item {
     scroll-snap-align: start;
-    border-radius: 5px;
+    border-radius: r.$radius-1;
     
     @media only screen and (max-width: 550px) {
       scroll-snap-align: center; 
@@ -52,18 +53,8 @@
   &::-webkit-scrollbar-track { background: transparent; }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: r.$radius-2;
     background-color: $scrollbar-color;
-  }
-
-  &__img {
-    border-radius: 5px;
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
-    -moz-user-select: none; 
-    -webkit-user-select: none;
-    -ms-user-select: none; 
-    user-select: none; 
-    -webkit-user-drag: none; 
   }
 
   &--sm {
@@ -96,6 +87,7 @@
   opacity: 0.8;
   color: rgb(255, 255, 255);
   border: 0;
+  border-radius: r.$radius-circle;
   transition: 150ms;
 
   &:hover,

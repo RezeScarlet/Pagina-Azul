@@ -44,7 +44,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
       <div class="container--sm">
 
         <div class="anunciante">
-          <div class="anunciante__header">
+          <div class="anunciante__header mb-3">
             <h1 class="section-title"><?= $paginaInfo['nome'] ?></h1>
             <a href="busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
               <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
@@ -53,7 +53,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
           <div class="anunciante__wrapper">
             <div>
-              <img class="anunciante__img" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
+              <img class="display-img mb-1" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
               <div class="info text-center">
                 <i class="info__icon fa-solid fa-arrow-up-right-from-square"></i> 
                 <span class="info__title">Website: </span>
@@ -63,13 +63,13 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
             
             <div class="anunciante__contact">
               <h2>Contato</h2>
-              <ul class="anunciante__contact-wrapper list-unstyled">
-                  <li class="info">
+              <ul class="list-unstyled">
+                  <li class="info mb-1">
                     <i class="info__icon fa-solid fa-phone"></i>
                     <span class="info__title">Telefone: </span>
                     <a class="info__content" href="tel: +55<?= $paginaInfo['telefone'] ?>" title="Ligar">(19) 3666-6666</a>
                   </li>
-                  <li class="info">
+                  <li class="info mb-1">
                     <i class="info__icon fa-solid fa-mobile-screen"></i>
                     <span class="info__title">Celular: </span>
                     <a class="info__content" href="tel: +55<?= $paginaInfo['celular'] ?>" title="Ligar" data-format="mobile-phone"><?= $paginaInfo['celular'] ?></a>

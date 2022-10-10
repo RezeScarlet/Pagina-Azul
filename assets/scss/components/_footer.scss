@@ -1,6 +1,7 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
 
 .footer {
   margin-top: auto;
@@ -73,7 +74,7 @@
     textarea {
       padding: 0.25em 0.5em;
       font-size: 0.9rem;
-      border-radius: 3px;
+      border-radius: r.$radius-1;
       border: 0;
       font-family: t.$ff-primary;
       font-size: 0.85rem;

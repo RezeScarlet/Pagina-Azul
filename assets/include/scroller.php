@@ -1,5 +1,5 @@
 <div class="slider">
-          <button type="button" class="scroller__btn--left rounded" data-control="left">
+          <button type="button" class="scroller__btn--left" data-control="left">
             <i class="fa-solid fa-arrow-left"></i>
           </button>
           <div class="scroller" data-slide>
@@ -25,7 +25,7 @@
               <div class='scroller__item'>
                 <a href='/anunciante?anunciante=<?= $mediosrow[$x]["nome"]; ?>' class='link-wrapper'>
                   <div class="scroller__img-container">
-                    <img src='assets/img/img-anunciante/<?php echo $mediosrow[$x]["imgAnuncioP"]; ?>' alt='<?php echo $mediosrow[$x]["nome"]; ?>' title='<?php echo $mediosrow[$x]["nome"]; ?>' class='scroller__img' draggable="false" />
+                    <img src='assets/img/img-anunciante/<?php echo $mediosrow[$x]["imgAnuncioP"]; ?>' alt='<?php echo $mediosrow[$x]["nome"]; ?>' title='<?php echo $mediosrow[$x]["nome"]; ?>' class='display-img no-select' draggable="false" />
                   </div>
                 </a>
               </div>
@@ -35,7 +35,7 @@
             ?>
           </div>
 
-          <button type="button" class="scroller__btn--right rounded" data-control="right">
+          <button type="button" class="scroller__btn--right" data-control="right">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>

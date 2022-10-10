@@ -1,6 +1,7 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
 
 
 .icon-wrapper {
@@ -9,7 +10,7 @@
     display: grid;
     place-items: center;
     padding: 1.25rem;
-    border-radius: 50%;
+    border-radius: r.$radius-circle;
     transition: 200ms ease-in;
   
     & > * {

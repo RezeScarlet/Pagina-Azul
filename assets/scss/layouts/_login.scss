@@ -1,11 +1,11 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
 
 
 .login {
     $input-font-size: 0.9rem;
-    // $input-border-radius: 10px;
 
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
         box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
         gap: 1.25rem;
         padding: 1.5rem;
-        border-radius: 5px;
+        border-radius: r.$radius-1;
         width: min(350px, 100%);
     }
 
@@ -39,8 +39,6 @@
             padding: 0.45em 0.75em;
             border-right: 2px solid lightgrey;
             color: c.$clr-secondary-100;
-            // border-top-left-radius: $input-border-radius;
-            // border-bottom-left-radius: $input-border-radius;
             font-size: $input-font-size;
         }
     }
@@ -50,8 +48,6 @@
         padding: 0.5em 0.75em;
         border: 0;
         outline: none;
-        // border-top-right-radius: $input-border-radius;
-        // border-bottom-right-radius: $input-border-radius;
         font-size: $input-font-size;
 
         &::placeholder {
