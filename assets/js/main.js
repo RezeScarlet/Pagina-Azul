@@ -4,7 +4,6 @@
 // --------------------
 
 // Função para selecionar elementos
-
 const select = (element, all = false) => {
     if (all) {
         return Array.from(document.querySelectorAll(element));
@@ -15,7 +14,6 @@ const select = (element, all = false) => {
 
 
 // Funções para colocar e tirar classe .active
-
 const toggleActive = (element) => {
     element.classList.toggle("active");
 };
@@ -26,7 +24,6 @@ const notActive = (element) => {
 
 
 // Tornar Nav mobile ativa
-
 const toggleMobileNav = () => {
    toggleActive(navList);
    document.body.classList.toggle("mobile-nav-active");
@@ -104,7 +101,6 @@ if (sliders) {
     sliders.forEach((slider) => {
    
         // BOTÕES DE CONTROLE
-
         let scroller = slider.querySelector("[data-slide]");
         let controls = slider.querySelectorAll("[data-control]");
         
@@ -117,7 +113,6 @@ if (sliders) {
         })
 
         // MOVER AO DESLIZAR
-
         let isDown = false;
         let startX;
         let scrollLeft;
@@ -168,5 +163,42 @@ if (backToTopBtn) {
 
     window.addEventListener("scroll", toggleBackToTopButton);
     window.addEventListener("load", toggleBackToTopButton);
+}
+
+
+
+// --------------------
+// FORMATAR STRINGS
+// --------------------
+
+// Função para formatar strings
+const formatString = (string, format) => {
+    const cleaned = ('' + string).replace(/\D/g, '');
+    let stringFormat = format;
+    let regex;
+
+    if (stringFormat === "mobile-phone") {
+        regex = /^(\d{2})(\d{5})(\d{4})$/
+    } else { 
+        return string;
+    }
+
+    match = cleaned.match(regex);
+
+    if (match) {
+        return '(' + match[1] + ') ' + match[2] + '-' + match[3]
+    }
+
+    return string;
+}
+
+
+const elementsToFormat = select("[data-format]", true);
+
+if (elementsToFormat) {
+    elementsToFormat.forEach((element) => {
+        let formatTo = element.dataset.format;
+        element.innerText = formatString(element.innerText, formatTo);
+    })
 }
 

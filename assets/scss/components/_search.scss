@@ -1,6 +1,7 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
 
 .search {
   display: flex;
@@ -33,7 +34,7 @@
     font-size: 0.925rem;
     border: 0;
     outline: 0;
-    border-radius: 8px;
+    border-radius: r.$radius-2;
     color: rgb(82, 82, 82);
     background-color: c.$clr-light;
     box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
@@ -43,7 +44,7 @@
     padding: 1rem 1.25rem;
     font-size: 0.925rem;
     box-shadow: 3px 3px 13px rgb(0, 0, 0, 0.2);
-    border-radius: 8px;
+    border-radius: r.$radius-2;
     margin-top: 1rem;
     z-index: 3;
     margin-top: 0;

@@ -1,6 +1,7 @@
 
 @use "../abstracts/colors" as c;
 @use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
 
 
 section {
@@ -34,6 +35,14 @@ section {
   margin-bottom: 2rem;
 } 
 
+h2 {
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: bold;
+  font-family: t.$ff-accent;
+  color: c.$fc-accent;
+  margin-bottom: 1.15rem;
+}
+
 .subtitle {
   font-size: clamp(1rem, 3vw, 1.15rem);
   margin-bottom: 2.5rem;
@@ -50,11 +59,7 @@ section {
   padding: 3rem 0;
 }
 
-.info {
-  position: relative;
-
-  i {
-    color: c.$fc-accent;
-    margin-right: 0.5rem;
-  }
+.display-img {
+  box-shadow: -2px 3px 8px rgba(0, 0, 0, 0.25);   
+  border-radius: r.$radius-1;
 }

@@ -1,4 +1,6 @@
 
+@use "../abstracts/radius" as r;
+
 .back-to-top {
   position: fixed;
   bottom: 10px;
@@ -13,7 +15,7 @@
   background-color: #2F41AB;
   color: white;
   box-shadow: 0 0 3px black;
-  border-radius: 50%;
+  border-radius: r.$radius-circle;
   opacity: 0;
   pointer-events: none;
   transition: 200ms;

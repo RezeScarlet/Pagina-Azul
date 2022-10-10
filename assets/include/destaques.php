@@ -27,7 +27,7 @@
                       alt='<?= $destaquesrow[$x]["nome"]; ?>'
                       title='<?= $destaquesrow[$x]["nome"]; ?>'
                       draggable="false"
-                      class='destaques__img'
+                      class='display-img no-select'
                   />
                 </a>
               </div>

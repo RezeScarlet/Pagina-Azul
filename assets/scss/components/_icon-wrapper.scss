@@ -1,0 +1,56 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
+
+
+.icon-wrapper {
+    background-color: c.$clr-secondary-100;
+    color: c.$fc-secondary;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+    border-radius: r.$radius-circle;
+    transition: 200ms ease-in;
+  
+    & > * {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    &--sm {
+      @extend .icon-wrapper;
+      padding: 0.5rem;
+    }
+
+    &--facebook {
+      @extend .icon-wrapper;
+      background-color: hsl(220, 46%, 48%);
+
+      &:hover,
+      &:focus {
+        background-color: darken(hsl(220, 46%, 48%), 10%);
+      }
+    }
+
+    &--instagram {
+      @extend .icon-wrapper;
+      background-color: hsl(44, 99%, 57%);
+
+      &:hover,
+      &:focus {
+        background-color: darken(hsl(44, 99%, 57%), 10%);
+      }
+    }
+
+    &--whatsapp {
+      @extend .icon-wrapper;
+      background-color: hsl(142, 70%, 43%);
+
+      &:hover,
+      &:focus {
+        background-color: darken(hsl(142, 70%, 43%), 10%);
+      }
+    }
+  }

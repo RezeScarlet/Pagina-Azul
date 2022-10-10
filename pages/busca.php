@@ -94,15 +94,21 @@
                       </div>
                     </a>
 
-                    <p class="resultado__time">
-                      <span class="info"><i class="fa-regular fa-clock"></i> 7:00 - 18:00</span>
-                    </p>
-                    <p class="resultado__phone">
-                      <span class="info"><a href='tel: +55<?= $x['telefone'] ?>' title="Ligar"><i class="fa-solid fa-phone"></i><?= $x['telefone'] ?></a></span>
-                    </p>
+                    <div class="resultado__time">
+                      <span class="info">
+                        <i class="info__icon fa-regular fa-clock"></i>
+                        <span class="info__content">7:00 - 18:00</span> 
+                      </span>
+                    </div>
+                    <div class="resultado__phone">
+                      <span class="info">
+                        <i class="info__icon fa-solid fa-phone"></i>
+                        <a class="info__content" href='tel: +55<?= $x['celular'] ?>' title="Ligar" data-format="mobile-phone"><?= $x['celular'] ?></a>
+                      </span>
+                    </div>
 
                     <div class="resultado__address">
-                      <p><?= $x['cidade'] ?>, <?= $x['estado'] ?></p>
+                      <p><?= $x['cidade'] ?> - <?= $x['estado'] ?></p>
                       <p><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
                     </div>
                   </div>
