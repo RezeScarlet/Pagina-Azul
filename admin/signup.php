@@ -34,25 +34,29 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
             <div class="form__group">
-              <label class="form__label" for="email">Email</label>
-              <input class="form__input" type="email" name="email" id="email" placeholder="Insira seu e-mail">
+              <label class="form__label" for="nome">Nome</label>
+              <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do negócio">
             </div>
             <div class="form__group">
-              <label class="form__label" for="senha">Senha</label>
-              <input class="form__input" type="password" name="senha" id="senha" placeholder="Defina sua senha">
+              <label class="form__label" for="CNPJ">CNPJ</label>
+              <input class="form__input" type="text" name="CNPJ" id="CNPJ" placeholder="Insira o CNPJ do negócio">
             </div>
           </div>
 
-          <div class="form__group">
-            <label class="form__label" for="nome">Nome</label>
-            <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do seu negócio">
-          </div>
 
-          <div class="form__group">
-            <label class="form__label" for="CNPJ">CNPJ</label>
-            <input class="form__input" type="text" name="CNPJ" id="CNPJ" placeholder="Insira o CNPJ do seu negócio">
-          </div>
+          <div class="form__cols">
 
+            <div class="form__group">
+              <label class="form__label" for="email">Email</label>
+              <input class="form__input" type="email" name="email" id="email" placeholder="Insira e-mail">
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="website">website</label>
+              <input class="form__input" type="website" name="website" id="website" placeholder="Insira o website do negócio">
+            </div>
+
+          </div>
           <div class="form__cols">
             <div class="form__group">
               <label class="form__label" for="plano">Plano</label>
@@ -74,7 +78,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
             <div class="form__group">
               <label class="form__label" for="categoria">Categoria</label>
               <select class="form__input" name="categoria" id="categoria">
-                <option value="-1" disabled selected>Selecione a categoria do seu negócio</option>
+                <option value="-1" disabled selected>Selecione a categoria do negócio</option>
                 <?php
                 // Opções do select
                 $categoriasQuery = $conexao->prepare('SELECT * FROM categorias');
@@ -91,69 +95,86 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
 
           <div class="form__group">
             <label class="form__label" for="descricao">Descrição</label>
-            <textarea class="form__input" type="text" name="descricao" id="descricao" placeholder="Insira a descrição do seu negócio"></textarea>
+            <textarea class="form__input" type="text" name="descricao" id="descricao" placeholder="Insira a descrição do negócio"></textarea>
           </div>
 
-          <div class="form__group">
-            <label class="form__label" for="Whatsapp">Whatsapp</label>
-            <input class="form__input" type="text" name="Whatsapp" id="Whatsapp" placeholder="Insira o Whatsapp do seu negócio">
-          </div>
+          <hr>
 
           <div class="form__cols">
             <div class="form__group">
               <label class="form__label" for="Facebook">Facebook</label>
-              <input class="form__input" type="text" name="Facebook" id="Facebook" placeholder="Insira o Facebook do seu negócio">
+              <input class="form__input" type="text" name="Facebook" id="Facebook" placeholder="Insira o Facebook do negócio">
             </div>
             <div class="form__group">
               <label class="form__label" for="Instagram">Instagram</label>
-              <input class="form__input" type="text" name="Instagram" id="Instagram" placeholder="Insira o Instagram do seu negócio">
+              <input class="form__input" type="text" name="Instagram" id="Instagram" placeholder="Insira o Instagram do negócio">
             </div>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="telefone">Telefone</label>
-            <input class="form__input" type="text" name="telefone" id="telefone" placeholder="Insira o telefone do seu negócio">
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="cidade">Cidade</label>
-            <select class="form__input" name="cidade" id="cidade">
-              <option value="-1" disabled selected>Selecione a cidade</option>
-              <option value="Mococa">Mococa</option>
-              <option value="Arceburgo">Arceburgo</option>
-              <option value="Tapiratiba">Tapiratiba</option>
-            </select>
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="CEP">CEP</label>
-            <input class="form__input" type="text" name="CEP" id="CEP" placeholder="Insira o CEP do seu negócio">
-          </div>
-
-          <div class="form__group">
-            <label class="form__label" for="bairro">Bairro</label>
-            <input class="form__input" type="text" name="bairro" id="bairro" placeholder="Insira o bairro do seu negócio">
           </div>
 
           <div class="form__cols">
             <div class="form__group">
+              <label class="form__label" for="telefone">Telefone</label>
+              <input class="form__input" type="text" name="telefone" id="telefone" placeholder="Insira o telefone do negócio">
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="celular">Celular</label>
+              <input class="form__input" type="text" name="celular" id="celular" placeholder="Insira o celular do negócio">
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="telefone">Whatsapp</label>
+              <input class="form__input" type="text" name="telefone" id="telefone" placeholder="Insira o telefone do negócio">
+            </div>
+          </div>
+          <hr>
+          <div class="form__cols">
+            <div class="form__group">
+              <label class="form__label" for="estado">Estado</label>
+              <select class="form__input" name="estado" id="estado">
+                <option value="-1" disabled selected>Selecione o estado</option>
+                <option value="Mococa">SP</option>
+                <option value="Arceburgo">MG</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="cidade">Cidade</label>
+              <select class="form__input" name="cidade" id="cidade">
+                <option value="-1" disabled selected>Selecione a cidade</option>
+                <option value="Mococa">Mococa</option>
+                <option value="Arceburgo">Arceburgo</option>
+                <option value="Tapiratiba">Tapiratiba</option>
+              </select>
+            </div>
+          </div>
+          <div class="form__cols">
+
+            <div class="form__group">
+              <label class="form__label" for="CEP">CEP</label>
+              <input class="form__input" type="text" name="CEP" id="CEP" placeholder="Insira o CEP do negócio">
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="bairro">Bairro</label>
+              <input class="form__input" type="text" name="bairro" id="bairro" placeholder="Insira o bairro do negócio">
+            </div>
+
+          </div>
+          <div class="form__cols">
+            <div class="form__group">
               <label class="form__label" for="rua">Rua</label>
-              <input class="form__input" type="text" name="rua" id="rua" placeholder="Insira o rua do seu negócio">
+              <input class="form__input" type="text" name="rua" id="rua" placeholder="Insira o rua do negócio">
             </div>
 
             <div class="form__group">
               <label class="form__label" for="numero">Número</label>
-              <input class="form__input" type="text" name="numero" id="numero" placeholder="Insira o número do seu negócio">
+              <input class="form__input" type="text" name="numero" id="numero" placeholder="Insira o número do negócio">
             </div>
           </div>
 
 
-
+          <hr>
           <div class="form__cols">
-            <div class="form__group">
-              <label class="form__label" for="imgPerfil">Imagem de perfil</label>
-              <input class="form__input" type="file" name="imgPerfil" id="imgPerfil">
-            </div>
 
             <div class="form__group">
               <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
@@ -210,22 +231,38 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
 
 
   if (isset($_POST['registrar'])) {
+
     $nome = $_POST['nome'];
+    $CNPJ = $_POST['CNPJ'];
+    $email = $_POST['email'];
+    $website = $_POST['website'];
     $descricao = $_POST['descricao'];
     $idPlano = $_POST['plano'];
+    $idCategoria = $_POST['categoria'];
 
-    $imgPerfil = getImg('imgPerfil');
+    $facebook = $_POST['facebook'];
+    $instagram = $_POST['instagram'];
+    $telefone = $_POST['telefone'];
+    $celular = $_POST['celular'];
+    $whatsapp = $_POST['whatsapp'];
+
+    $estado = $_POST['estado'];
+    $cidade = $_POST['cidade'];
+    $CEP = $_POST['CEP'];
+    $bairro = $_POST['bairro'];
+    $rua = $_POST['rua'];
+    $numero = $_POST['numero'];
+
     $imgAnuncioP = getImg('imgAnuncioP');
     $imgAnuncioG = getImg('imgAnuncioG');
 
 
-    $result = $conexao->prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :idCategoria, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
+    $result = $conexao->prepare("INSERT INTO `anunciante` values (null, :nome, :CNPJ, :email, :website, :descricao, :idPlano, :idCategoria,  :imgAnuncioP, :imgAnuncioG, )");
 
     $result->bindValue(":nome", $nome);
     $result->bindValue(':idPlano', $idPlano);
     $result->bindValue(":idCategoria", $idCategoria);
     $result->bindValue(":descricao", $descricao);
-    $result->bindValue(":imgPerfil", $imgPerfil);
     $result->bindValue(":imgAnuncioP", $imgAnuncioP);
     $result->bindValue(":imgAnuncioG", $imgAnuncioG);
     $result->execute();
