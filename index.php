@@ -37,9 +37,10 @@
               <img src="/assets/img/logos/logomarca.png" alt="Página Azul" class="logo" />
             </a>
             <p class="subtitle">Tudo ao seu alcance, em um só lugar</p>
-            <form action="/busca" method="get" class="search__form">
+            <form action="/busca" method="get" class="search__form" id="search-form">
+              <button class="search__btn--left" type="button" title="Filtrar busca" data-modal-target="#filters"><i class="fa-solid fa-location-dot"></i></button>
               <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Encontre o que precisa" />
-              <button class="search__btn btn--dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <button class="search__btn--right" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
           </div>
         </div>
@@ -83,12 +84,45 @@
       </div>
     </section>
 
+    <div class="modal" id="filters">
+      <div class="modal__content">
+        <div class="modal__header">
+          <h2 class="modal__title">Filtrar busca</h2>
+          <button type="button" class="modal__close-btn" data-modal-close><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="modal__body">
+          <p><b>Por cidade</b></p>
+          <ul class="list-unstyled">
+            <li class="mb-1">
+              <input form="search-form" type="radio" value="" name="cidade" id="todas">
+              <label for="todas">Todas</label>
+            </li>
+            <li class="mb-1">
+              <input form="search-form" type="radio" value="mococa" name="cidade" id="mococa">
+              <label for="mococa">Mococa</label>
+            </li>
+            <li class="mb-1">
+              <input form="search-form" type="radio" value="tapiratiba" name="cidade" id="tapiratiba">
+              <label for="tapiratiba">Tapiratiba</label>
+            </li>
+            <li class="mb-1">
+              <input form="search-form" type="radio" value="arceburgo" name="cidade" id="arceburgo">
+              <label for="arceburgo">Arceburgo</label>
+            </li>
+          </ul>
+        </div>
+        <div class="modal__footer">
+          <button class="btn--dark" data-modal-close>Concluir</button>
+        </div>
+      </div>
+    </div>
+    
   </main>
+
 
   <a href="#" class="back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
   </a>
-
 
   <?php
   include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/footer.html';
