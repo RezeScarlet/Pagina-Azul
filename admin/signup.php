@@ -33,9 +33,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
         <h1 class="section-title">Registrar-se</h1>
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
+            
             <div class="form__group">
-              <label class="form__label" for="nome">Nome</label>
-              <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do negócio">
+              <label class="form__label" for="nome">Nome*</label>
+              <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do negócio" required>
             </div>
             <div class="form__group">
               <label class="form__label" for="CNPJ">CNPJ</label>
@@ -47,8 +48,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
           <div class="form__cols">
 
             <div class="form__group">
-              <label class="form__label" for="email">Email</label>
-              <input class="form__input" type="email" name="email" id="email" placeholder="Insira e-mail">
+              <label class="form__label" for="email">Email*</label>
+              <input class="form__input" type="email" name="email" id="email" placeholder="Insira e-mail" required>
             </div>
 
             <div class="form__group">
@@ -59,8 +60,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
           </div>
           <div class="form__cols">
             <div class="form__group">
-              <label class="form__label" for="plano">Plano</label>
-              <select class="form__input" name="plano" id="plano">
+              <label class="form__label" for="plano">Plano*</label>
+              <select class="form__input" name="plano" id="plano" required>
                 <option value="-1" disabled selected>Selecione o plano</option>
                 <?php
                 // Opções do select
@@ -76,8 +77,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
             </div>
 
             <div class="form__group">
-              <label class="form__label" for="categoria">Categoria</label>
-              <select class="form__input" name="categoria" id="categoria">
+              <label class="form__label" for="categoria">Categoria*</label>
+              <select class="form__input" name="categoria" id="categoria" required>
                 <option value="-1" disabled selected>Selecione a categoria do negócio</option>
                 <?php
                 // Opções do select
@@ -102,16 +103,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
 
           <div class="form__cols">
             <div class="form__group">
-              <label class="form__label" for="Facebook">Facebook</label>
-              <input class="form__input" type="text" name="Facebook" id="Facebook" placeholder="Insira o Facebook do negócio">
+              <label class="form__label" for="facebook">Facebook</label>
+              <input class="form__input" type="text" name="facebook" id="facebook" placeholder="Insira o Facebook do negócio">
             </div>
             <div class="form__group">
-              <label class="form__label" for="Instagram">Instagram</label>
-              <input class="form__input" type="text" name="Instagram" id="Instagram" placeholder="Insira o Instagram do negócio">
+              <label class="form__label" for="instagram">Instagram</label>
+              <input class="form__input" type="text" name="instagram" id="instagram" placeholder="Insira o Instagram do negócio">
             </div>
           </div>
 
           <div class="form__cols">
+            <div class="form__group">
+              <label class="form__label" for="whatsapp">Whatsapp</label>
+              <input class="form__input" type="text" name="whatsapp" id="whatsapp" placeholder="Insira o telefone do negócio">
+            </div>
             <div class="form__group">
               <label class="form__label" for="telefone">Telefone</label>
               <input class="form__input" type="text" name="telefone" id="telefone" placeholder="Insira o telefone do negócio">
@@ -122,10 +127,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
               <input class="form__input" type="text" name="celular" id="celular" placeholder="Insira o celular do negócio">
             </div>
 
-            <div class="form__group">
-              <label class="form__label" for="telefone">Whatsapp</label>
-              <input class="form__input" type="text" name="telefone" id="telefone" placeholder="Insira o telefone do negócio">
-            </div>
           </div>
           <hr>
           <div class="form__cols">
@@ -177,8 +178,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
           <div class="form__cols">
 
             <div class="form__group">
-              <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
-              <input class="form__input" type="file" name="imgAnuncioP" id="imgAnuncioP">
+              <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno*</label>
+              <input class="form__input" type="file" name="imgAnuncioP" id="imgAnuncioP" required>
             </div>
 
             <div class="form__group">
@@ -236,15 +237,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $CNPJ = $_POST['CNPJ'];
     $email = $_POST['email'];
     $website = $_POST['website'];
-    $descricao = $_POST['descricao'];
     $idPlano = $_POST['plano'];
     $idCategoria = $_POST['categoria'];
+    $descricao = $_POST['descricao'];
 
     $facebook = $_POST['facebook'];
     $instagram = $_POST['instagram'];
+    $whatsapp = $_POST['whatsapp'];
     $telefone = $_POST['telefone'];
     $celular = $_POST['celular'];
-    $whatsapp = $_POST['whatsapp'];
 
     $estado = $_POST['estado'];
     $cidade = $_POST['cidade'];
@@ -257,28 +258,31 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $imgAnuncioG = getImg('imgAnuncioG');
 
 
-    $result = $conexao->prepare("INSERT INTO `anunciante` values (null, :nome, :CNPJ, :email, :website, :descricao, :idPlano, :idCategoria,  :imgAnuncioP, :imgAnuncioG, )");
+    $result = $conexao->prepare("INSERT INTO anunciante values (null, :nome, :CNPJ, :email, :website, :idPlano, :idCategoria, :descricao, :facebook, :instagram, :whatsapp, :telefone, :celular, :estado, :cidade, :CEP, :bairro, :rua, :numero, :imgAnuncioP, :imgAnuncioG)");
 
     $result->bindValue(":nome", $nome);
+    $result->bindValue(":CNPJ", $CNPJ);
+    $result->bindValue(":email", $email);
+    $result->bindValue(":website", $website);
     $result->bindValue(':idPlano', $idPlano);
     $result->bindValue(":idCategoria", $idCategoria);
     $result->bindValue(":descricao", $descricao);
+    $result->bindValue(":facebook", $facebook);
+    $result->bindValue(":instagram", $instagram);
+    $result->bindValue(":whatsapp", $whatsapp);
+    $result->bindValue(":telefone", $telefone);
+    $result->bindValue(":celular", $celular);
+    $result->bindValue(":estado", $estado);
+    $result->bindValue(":cidade", $cidade);
+    $result->bindValue(":CEP", $CEP);
+    $result->bindValue(":bairro", $bairro);
+    $result->bindValue(":rua", $rua);
+    $result->bindValue(":numero", $numero);
     $result->bindValue(":imgAnuncioP", $imgAnuncioP);
     $result->bindValue(":imgAnuncioG", $imgAnuncioG);
     $result->execute();
   }
 
-  if (isset($_POST['registrar'])) {
-
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    $login = $conexao->prepare("INSERT INTO `login` VALUES (null, :email, :senha)");
-
-    $login->bindValue(":email", $email);
-    $login->bindvalue(":senha", md5($senha));
-    $login->execute();
-  }
   ?>
 
   <a href="#" class="back-to-top">
