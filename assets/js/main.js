@@ -14,8 +14,8 @@ const select = (element, all = false) => {
 
 
 // Funções para colocar e tirar classe .active
-const toggleActive = (element) => {
-    element.classList.toggle("active");
+const active = (element) => {
+    element.classList.add("active");
 };
 
 const notActive = (element) => {
@@ -25,7 +25,7 @@ const notActive = (element) => {
 
 // Tornar Nav mobile ativa
 const toggleMobileNav = () => {
-   toggleActive(navList);
+   active(navList);
    document.body.classList.toggle("mobile-nav-opened");
 }
 
@@ -66,7 +66,7 @@ navLinks.forEach((link) => {
     if (!pageId) return;
 
     if (link.innerText.toLowerCase() === pageId) {
-       toggleActive(link);
+       active(link);
     }
 })
 
@@ -83,12 +83,41 @@ const openNavSearchBtn = select("#open-nav-search-btn");
 const closeNavSearchBtn = select("#close-nav-search-btn");
 
 openNavSearchBtn.addEventListener("click", () => {
-    toggleActive(navSearch);
+    active(navSearch);
     setTimeout(() => navSearchBar.focus(), 50);
 })
 
 closeNavSearchBtn.addEventListener("click", () => notActive(navSearch))
 
+
+
+// --------------------
+// SELECT
+// --------------------
+
+const selectElements = select("[data-select]", true) 
+
+if (selectElements) {
+    selectElements.forEach((selectEl) => {
+        selectEl.addEventListener("click", () => {
+            selectEl.classList.toggle("active");
+        })
+
+        const options = selectEl.querySelectorAll("[data-select-option]");
+        const input = selectEl.querySelector("input");
+
+        options.forEach((option) => {
+            const value = option.dataset.selectOption;
+
+            option.addEventListener("click", () => {
+                input.value = value;    
+
+                options.forEach((option) => { notActive(option); })
+                active(option);
+            })
+        })
+    })
+}
 
 
 // --------------------
@@ -175,30 +204,33 @@ if (backToTopBtn) {
 const modalOpenButtons = select("[data-modal-target]", true);
 const modalCloseButtons = select("[data-modal-close]", true);
 
-modalOpenButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const target = select(button.dataset.modalTarget);
-        toggleActive(target);
-        document.body.classList.toggle("modal-opened");
+if (modalOpenButtons && modalCloseButtons) {
+    modalOpenButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const target = select(button.dataset.modalTarget);
+            active(target);
+            document.body.classList.toggle("modal-opened");
+        })
     })
-})
-
-modalCloseButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const target = button.closest(".modal");
-        toggleActive(target);
-        document.body.classList.remove("modal-opened");
+    
+    modalCloseButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            const target = button.closest(".modal");
+            notActive(target);
+            document.body.classList.remove("modal-opened");
+        })
     })
-})
+    
+    window.addEventListener("click", (e) => {
+        let target = e.target;
+    
+        if (target.classList.contains("modal")) {
+            notActive(target);
+            document.body.classList.remove("modal-opened");
+        }
+    })
+}
 
-window.addEventListener("click", (e) => {
-    let target = e.target;
-
-    if (target.classList.contains("modal")) {
-        notActive(target);
-        document.body.classList.remove("modal-opened");
-    }
-})
 
 
 // --------------------

@@ -9,9 +9,10 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 2.5rem;
-    margin-top: 4rem;
 
     .card {
+        display: grid;
+        gap: 1.5rem;
         background-color: c.$clr-primary;
         box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
         border-radius: r.$radius-2;

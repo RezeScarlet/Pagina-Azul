@@ -11,8 +11,9 @@
 
     &__header {
         display: flex;
-        gap: 1.5rem;
+        gap: 1rem;
         align-items: center;
+        margin-bottom: 1.5rem;
         h1 {
             margin: 0;
         }
@@ -78,16 +79,15 @@
     &__address-wrapper { 
         display: grid;
         grid-template-columns: 1fr 100%;
+        gap: 0.25rem;
         i {
-            margin-right: 0.5rem;
-            margin-top: 0.15rem;
-            grid-row: span 3;
+            grid-row: span 4;
         }
         & > :nth-child(2) {
             line-height: 1.2;
             font-weight: 600;
         }
-        & > :last-child {
+        & > :nth-child(4) {
             font-size: 0.9rem;
         }
     }

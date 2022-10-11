@@ -42,15 +42,33 @@
   <main>
     <section class="full-size">
       <div class="container--sm">
-
-        <div class="search">
+        <div class="search mb-7">
           <div class="search__wrapper">
             <form action="/busca" method="get" class="search__form" id="search-form">
-              <div class="select">
-                <input type="text" readonly placeholder="Selecione sua cidade">
+              <div class="select" data-select tabindex=0>
+                <div class="select__display">
+                  <i class="mr-1 fa-solid fa-location-dot"></i>
+                  <input type="text" readonly name="cidade" placeholder="Selecione sua cidade">
+                </div>
+                <div class="select__options-container">
+                  <div class="select__option" data-select-option="" tabindex=0>
+                    Todas
+                  </div>
+                  <div class="select__option" data-select-option="Mococa - SP" tabindex=0>
+                    Mococa - SP
+                  </div>
+                  <div class="select__option" data-select-option="Tapiratiba - SP" tabindex=0>
+                    Tapiratiba - SP
+                  </div>
+                  <div class="select__option" data-select-option="Arceburgo - MG" tabindex=0>
+                    Arceburgo - MG
+                  </div>
+                </div>
               </div>
-              <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Encontre o que precisa" />
-              <button class="search__btn btn--dark" type="submit">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
+              <div class="search__bar-wrapper">
+                <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Digite o que precisa">
+                <button class="search__btn btn--dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
             </form>
           </div>
         </div>

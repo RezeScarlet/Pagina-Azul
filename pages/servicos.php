@@ -25,16 +25,16 @@
       <div class="container">
         <h1 class="section-title text-center">Nossos Planos</h1>
 
-        <div class="cards-container">
+        <div class="cards-container mt-10">
           <div class="card--gratuito">
-            <h2 class="text-center">Gratuito</h2>
+            <h2 class="card__title text-center">Gratuito</h2>
             
-            <div class="card__price mb-3">
+            <div class="card__price">
               <span class="currency">R$</span>
               <span class="real">00</span><span class="cents">,00</span>
             </div>
 
-            <ul class="card__list mb-3">
+            <ul class="card__list">
               <li class="card__list-item positive">
                 <span>Lorem, ipsum.</span>
                 <i class="fa-solid fa-check"></i>
@@ -58,14 +58,14 @@
 
 
           <div class="card--medio">
-            <h2 class="text-center">Médio</h2>
+            <h2 class="card__title text-center">Médio</h2>
 
-            <div class="card__price mb-3">
+            <div class="card__price">
               <span class="currency">R$</span>
               <span class="real">50</span><span class="cents">,00</span>
             </div>
 
-            <ul class="card__list mb-3">
+            <ul class="card__list">
               <li class="card__list-item positive">
                 <span>Lorem, ipsum.</span>
                 <i class="fa-solid fa-check"></i>
@@ -89,14 +89,14 @@
 
 
           <div class="card--destaque">
-            <h2 class="text-center">Destaque</h2>
+            <h2 class="card__title text-center">Destaque</h2>
 
-            <div class="card__price mb-3">
+            <div class="card__price">
               <span class="currency">R$</span>
               <span class="real">100</span><span class="cents">,00</span>
             </div>
 
-            <ul class="card__list mb-3">
+            <ul class="card__list">
               <li class="card__list-item positive">
                 <span>Lorem, ipsum.</span>
                 <i class="fa-solid fa-check"></i>

@@ -14,55 +14,63 @@
     display: grid;
     place-items: center;
     width: 100%;
-    max-width: 800px;
   }
-  
   
   &__form {
     width: 100%;
     display: flex;
     gap: 1rem;
-    justify-content: center;
-    align-items: center;
 
-    & > *:first-child {
-      width: 30%;
+    @media only screen and (max-width: 660px) {
+      flex-direction: column-reverse;
+    }
+
+    & > *:nth-child(1) {
+      width: 100%;
+      @media only screen and (min-width: 660px) {
+        width: 47%; 
+      }
+    }
+
+    & > *:nth-child(2) {
+      width: 100%;
+
+      @media only screen and (min-width: 660px) {
+        width: 53%;
+      }
     }
   }
   
+  &__bar-wrapper {
+    display: flex;
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
+    border-radius: r.$radius-2;
+  }
   
   &__bar {
     position: relative;
     display: block;
-    flex: 2;
-    padding: 0.925rem;
-    font-size: 1rem;
+    width: 100%;
+    padding: 0.925rem 1rem;
     border: 0;
     outline: 0;
+    border-radius: r.$radius-2;
     background-color: c.$clr-light;
     color: rgb(82, 82, 82);
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
-    border-radius: r.$radius-2;
   }
   
   &__btn {
     position: relative;
-    padding: 0.925rem;
-    font-size: 1rem;
+    padding: 0.925rem 1.25rem;
+    border-radius: r.$radius-2;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
     border: 0;
+    margin-left: -1rem;
     transition: 100ms ease-in;
 
     i {
-      position: absolute;
-      transform: scale(2) rotate(0) translateX(100%);
-      opacity: 0.2;
-      transition: 150ms ease-in;
-    }
-
-    &:hover i,
-    &:focus i {
-      transform: scale(2.4) rotate(-10deg) translateX(-100%);
-      opacity: 0.4;
+      transform: scale(1.25);
     }
   }
 }

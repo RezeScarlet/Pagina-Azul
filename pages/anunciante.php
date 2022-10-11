@@ -48,29 +48,29 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
         <div class="anunciante">
           <div class="anunciante__header mb-3">
-            <h1 class="section-title"><?= $paginaInfo['nome'] ?></h1>
             <a href="busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
               <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
             </a>
+            <h1 class="section-title"><?= $paginaInfo['nome'] ?></h1>
           </div>
 
           <div class="anunciante__wrapper">
             <div>
-              <img class="display-img mb-1" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
+              <img class="display-img" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
 
               <?php
               if ($paginaInfo['website']) {
               ?>
-                <div class="info text-center">
+                <div class="info text-center mt-2">
                   <i class="info__icon fa-solid fa-arrow-up-right-from-square"></i>
                   <span class="info__title">Website: </span>
-                  <a class="info__content" href="#" target="_blank"><?= $paginaInfo['website']  ?></a>
+                  <a class="info__content" href="https://<?= $paginaInfo['website']  ?>" target="_blank"><?= $paginaInfo['website']  ?></a>
                 </div>
               <?php } ?>
             </div>
 
             <div class="anunciante__contact">
-              <h2>Contato</h2>
+              <h2 class="subsection-title">Contato</h2>
               <ul class="list-unstyled">
 
                 <?php
@@ -107,26 +107,44 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
             if ($paginaInfo['facebook'] || $paginaInfo['instagram'] || $paginaInfo['whatsapp']) {
             ?>
               <div class="anunciante__social">
-                <h2>Redes Sociais</h2>
+                <h2 class="subsection-title">Redes Sociais</h2>
                 <ul class="anunciante__social-wrapper list-unstyled">
 
-                  <li>
-                    <a class="icon-wrapper--sm icon-wrapper--facebook" href="https://<?= $paginaInfo['facebook'] ?>" target="_blank">
-                      <img src="/assets/img/icones-social/facebook-f.svg" alt="Facebook">
-                    </a>
-                  </li>
+                  <?php
+                    if ($paginaInfo['facebook']) {
+                  ?>
+                    <li>
+                      <a class="icon-wrapper--sm icon-wrapper--facebook" href="https://<?= $paginaInfo['facebook'] ?>" title="Facebook" target="_blank">
+                        <img src="/assets/img/icones-social/facebook-f.svg" alt="Facebook">
+                      </a>
+                    </li>
+                  <?php
+                    }
+                  ?>
 
-                  <li>
-                    <a class="icon-wrapper--sm icon-wrapper--instagram" href="https://<?= $paginaInfo['instagram'] ?>" target="_blank">
-                      <img src="/assets/img/icones-social/instagram.svg" alt="Instagram">
-                    </a>
-                  </li>
+                  <?php
+                    if ($paginaInfo['instagram']) {
+                  ?>
+                    <li>
+                      <a class="icon-wrapper--sm icon-wrapper--instagram" href="https://<?= $paginaInfo['instagram'] ?>" title="Instagram" target="_blank">
+                        <img src="/assets/img/icones-social/instagram.svg" alt="Instagram">
+                      </a>
+                    </li>
+                  <?php
+                    }
+                  ?>
 
+                  <?php
+                    if ($paginaInfo['whatsapp']) {
+                  ?>
                   <li>
-                    <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Converse%20com%20<?= $paginaInfo['nome'] ?>%20no%20WhatsApp" target="_blank">
+                    <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Converse%20com%20<?= $paginaInfo['nome'] ?>%20no%20WhatsApp" title="Whatsapp" target="_blank">
                       <img src="/assets/img/icones-social/whatsapp.svg" alt="Whatsapp">
                     </a>
                   </li>
+                  <?php
+                    }
+                  ?>
 
                 </ul>
               </div>
@@ -136,7 +154,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
             if ($descricao && $descricao != ' ') {
             ?>
               <div class="anunciante__description">
-                <h2>Sobre a empresa</h2>
+                <h2 class="subsection-title">Sobre a empresa</h2>
                 <p><?= $descricao ?></p>
               </div>
             <?php } ?>
@@ -144,12 +162,12 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
             if ($paginaInfo['cidade'] || $paginaInfo['estado']) {
             ?>
               <div class="anunciante__address">
-                <h2>Endereço</h2>
+                <h2 class="subsection-title">Endereço</h2>
                 <div class="anunciante__address-wrapper">
-                  <i class="info__icon fa-solid fa-location-dot"></i>
+                  <i class="info__icon mt-1 fa-solid fa-location-dot"></i>
 
                   <?php
-                  if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero']) {
+                  if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
                   ?>
                     <span><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></span>
                     <p><?= $paginaInfo['bairro'] ?></p>
@@ -164,20 +182,14 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
 
-        <?php
-        if ($paginaInfo['idPlano'] < 3) {
-        ?>
-          <div class="medios" id="medios">
-            <h1 class="section-title">Veja também</h1>
-            <?php
+        <div class="medios" id="medios">
+          <h1 class="section-title">Veja também</h1>
+          <?php
 
-            include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
+          include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
 
-            ?>
-          </div>
-        <?php
-        }
-        ?>
+          ?>
+        </div>
 
       </div>
     </section>
