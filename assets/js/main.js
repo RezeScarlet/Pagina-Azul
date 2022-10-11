@@ -26,7 +26,7 @@ const notActive = (element) => {
 // Tornar Nav mobile ativa
 const toggleMobileNav = () => {
    toggleActive(navList);
-   document.body.classList.toggle("mobile-nav-active");
+   document.body.classList.toggle("mobile-nav-opened");
 }
 
 
@@ -49,7 +49,7 @@ window.addEventListener("click", (e) => {
 
     if (e.target !== navList) {
         notActive(navList)
-        document.body.classList.remove("mobile-nav-active");
+        document.body.classList.remove("mobile-nav-opened");
     }
 })
 
@@ -165,6 +165,40 @@ if (backToTopBtn) {
     window.addEventListener("load", toggleBackToTopButton);
 }
 
+
+
+
+// --------------------
+// ABRIR E FECHAR MODALS
+// --------------------
+
+const modalOpenButtons = select("[data-modal-target]", true);
+const modalCloseButtons = select("[data-modal-close]", true);
+
+modalOpenButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const target = select(button.dataset.modalTarget);
+        toggleActive(target);
+        document.body.classList.toggle("modal-opened");
+    })
+})
+
+modalCloseButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const target = button.closest(".modal");
+        toggleActive(target);
+        document.body.classList.remove("modal-opened");
+    })
+})
+
+window.addEventListener("click", (e) => {
+    let target = e.target;
+
+    if (target.classList.contains("modal")) {
+        notActive(target);
+        document.body.classList.remove("modal-opened");
+    }
+})
 
 
 // --------------------

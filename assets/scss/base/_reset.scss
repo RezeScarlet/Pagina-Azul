@@ -14,7 +14,6 @@
 html, body {
   height: 100%;
   scroll-behavior: smooth;
-  // overflow-x: hidden;
 }
 
 body {
@@ -26,7 +25,8 @@ body {
   background-color: c.$clr-primary;
   color: c.$fc-primary;
 
-  &.mobile-nav-active {
+  &.mobile-nav-opened,
+  &.modal-opened {
     overflow-y: hidden;
   }
 }
@@ -93,7 +93,7 @@ input[type="file"] {
 }
 
 ::placeholder {
-  color: hsl(0, 0%, 75%);
+  color: hsl(0, 0%, 69%);
   opacity: 0.9;
   font-style: italic;
   font-weight: 400;
