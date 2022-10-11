@@ -33,6 +33,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
         <h1 class="section-title">Registrar-se</h1>
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
+            
             <div class="form__group">
               <label class="form__label" for="nome">Nome*</label>
               <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do negócio" required>

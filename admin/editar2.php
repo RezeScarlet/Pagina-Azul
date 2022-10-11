@@ -27,29 +27,29 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
   ?>
 
 
+
+  <?php
+  $ID = $_POST['ID'];
+  $anuncianteQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idAnunciante = $ID");
+  $anuncianteQuery->execute();
+  $anunciante = $anuncianteQuery->fetch(PDO::FETCH_ASSOC);
+
+  ?>
+
   <main>
-    <section id="editar" class="full-size">
+    <section id="signup" class="full-size">
       <div class="container">
         <h1 class="section-title">Editar Informações</h1>
-
-        <?php
-        $ID = $_POST['ID'];
-        $anuncianteQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idAnunciante = $ID");
-        $anuncianteQuery->execute();
-        $anunciante = $anuncianteQuery->fetchAll(PDO::FETCH_ASSOC);
-        echo print_r($anunciante);
-
-        ?>
-
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
-          <div class="form__group">
+
+            <div class="form__group">
               <label class="form__label" for="nome">Nome*</label>
               <input class="form__input" type="text" name="nome" id="nome" required value="<?= $anunciante['nome'] ?>">
             </div>
             <div class="form__group">
               <label class="form__label" for="CNPJ">CNPJ</label>
-              <input class="form__input" type="text" name="CNPJ" id="CNPJ" placeholder="Insira o CNPJ do negócio">
+              <input class="form__input" type="text" name="CNPJ" id="CNPJ" value="<?= $anunciante['CNPJ'] ?>">
             </div>
           </div>
 
@@ -58,13 +58,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
 
             <div class="form__group">
               <label class="form__label" for="email">Email*</label>
-              <input class="form__input" type="email" name="email" id="email"  required>
+              <input class="form__input" type="email" name="email" id="email" value="<?= $anunciante['email'] ?>" required>
             </div>
 
             <div class="form__group">
               <label class="form__label" for="website">website</label>
-              <input class="form__input" type="website" name="website" id="website">
+              <input class="form__input" type="website" name="website" id="website" value="<?= $anunciante['website'] ?>">
             </div>
+          </div>
 
           <div class="form__cols">
             <div class="form__group">
@@ -97,8 +98,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
                 while ($categoria = $categoriasQuery->fetch(PDO::FETCH_ASSOC)) {
                 ?>
                   <option value="<?= $categoria['idCategoria'] ?>" <?php if ($categoria['idCategoria'] == $anunciante['idCategoria']) {
-                                                                    echo "selected";
-                                                                  } ?>> <?= $categoria['nome'] ?> </option>
+                                                                      echo "selected";
+                                                                    } ?>> <?= $categoria['nome'] ?> </option>
                 <?php
                 }
                 ?>
@@ -111,13 +112,84 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
             <textarea class="form__input" type="text" name="descricao" id="descricao"><?= $anunciante['descricao'] ?></textarea>
           </div>
 
+          <hr>
 
           <div class="form__cols">
             <div class="form__group">
-              <label class="form__label" for="imgPerfil">Imagem de perfil</label>
-              <input class="form__input" type="file" name="imgPerfil" id="imgPerfil">
-              <img src="/assets/img/img-anunciante/<?= $anunciante['imgPerfil'] ?>" alt="">
+              <label class="form__label" for="facebook">Facebook</label>
+              <input class="form__input" type="text" name="facebook" id="facebook" value="<?= $anunciante['facebook'] ?>">
             </div>
+            <div class="form__group">
+              <label class="form__label" for="instagram">Instagram</label>
+              <input class="form__input" type="text" name="instagram" id="instagram" value="<?= $anunciante['instagram'] ?>">
+            </div>
+          </div>
+
+          <div class="form__cols">
+            <div class="form__group">
+              <label class="form__label" for="whatsapp">Whatsapp</label>
+              <input class="form__input" type="text" name="whatsapp" id="whatsapp" value="<?= $anunciante['whatsapp'] ?>">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="telefone">Telefone</label>
+              <input class="form__input" type="text" name="telefone" id="telefone" value="<?= $anunciante['telefone'] ?>">
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="celular">Celular</label>
+              <input class="form__input" type="text" name="celular" id="celular" value="<?= $anunciante['celular'] ?>">
+            </div>
+
+          </div>
+          <hr>
+          <div class="form__cols">
+            <div class="form__group">
+              <label class="form__label" for="estado">Estado</label>
+              <select class="form__input" name="estado" id="estado">
+                <option value="-1" disabled selected>Selecione o estado</option>
+                <option value="Mococa">SP</option>
+                <option value="Arceburgo">MG</option>
+              </select>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="cidade">Cidade</label>
+              <select class="form__input" name="cidade" id="cidade">
+                <option value="-1" disabled selected>Selecione a cidade</option>
+                <option value="Mococa">Mococa</option>
+                <option value="Arceburgo">Arceburgo</option>
+                <option value="Tapiratiba">Tapiratiba</option>
+              </select>
+            </div>
+          </div>
+          <div class="form__cols">
+
+            <div class="form__group">
+              <label class="form__label" for="CEP">CEP</label>
+              <input class="form__input" type="text" name="CEP" id="CEP" value="<?= $anunciante['CEP'] ?>">
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="bairro">Bairro</label>
+              <input class="form__input" type="text" name="bairro" id="bairro" value="<?= $anunciante['bairro'] ?>">
+            </div>
+
+          </div>
+          <div class="form__cols">
+            <div class="form__group">
+              <label class="form__label" for="rua">Rua</label>
+              <input class="form__input" type="text" name="rua" id="rua" value="<?= $anunciante['rua'] ?>">
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="numero">Número</label>
+              <input class="form__input" type="text" name="numero" id="numero" value="<?= $anunciante['numero'] ?>">
+            </div>
+          </div>
+
+
+          <hr>
+
+          <div class="form__cols">
 
             <div class="form__group">
               <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
@@ -133,8 +205,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
           </div>
 
           <div class="form__submit">
-            <input class="btn--dark" type="submit" value="Registrar" name="registrar2">
-            <input class="btn--outline-dark" type="reset" value="Limpar">
+            <input class="btn--dark" type="submit" value="Editar" name="editar">
           </div>
         </form>
       </div>
@@ -186,7 +257,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $imgAnuncioG = getImg('imgAnuncioG');
 
 
-    $result = $conexao->prepare("INSERT INTO `anunciante` values (null, :nome, :idPlano, :idCategoria, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
+    $result = $conexao->prepare("INSERT INTO `anunciante` value (null, :nome, :idPlano, :idCategoria, :descricao, :imgPerfil, :imgAnuncioP, :imgAnuncioG)");
 
     $result->bindValue(":nome", $nome);
     $result->bindValue(':idPlano', $idPlano);
@@ -203,7 +274,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $login = $conexao->prepare("INSERT INTO `login` VALUES (null, :email, :senha)");
+    $login = $conexao->prepare("INSERT INTO `login` VALUE (null, :email, :senha)");
 
     $login->bindValue(":email", $email);
     $login->bindvalue(":senha", md5($senha));
