@@ -28,58 +28,43 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
 
 
   <main>
-    <section id="signup" class="full-size">
+    <section id="editar" class="full-size">
       <div class="container">
         <h1 class="section-title">Editar Informações</h1>
 
         <?php
-        $anunciante = $_POST['anunciante'];
-        $userQuery = $conexao->prepare('SELECT * FROM anunciante WHERE idAnunciante = ' . $anunciante);
-        $userQuery->execute();
-        $user = $userQuery->fetchAll(PDO::FETCH_ASSOC);
+        $ID = $_POST['ID'];
+        $anuncianteQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idAnunciante = $ID");
+        $anuncianteQuery->execute();
+        $anunciante = $anuncianteQuery->fetchAll(PDO::FETCH_ASSOC);
+        echo print_r($anunciante);
 
         ?>
-        <table class="">
-          <tr>
-            <th class="">ID Anunciante</th>
-            <th class="">Nome</th>
-            <th class="">CNPJ</th>
-            <th class="">Email</th>
-            <th class="">ID Plano</th>
-          </tr>
-          <?php
-          foreach ($user as $linha) {
-          ?>
-            <tr>
-              <td><?php echo $linha["idAnunciante"] ?></td>
-              <td><?php echo $linha["nome"] ?></td>
-              <td><?php echo $linha["CNPJ"] ?></td>
-              <td><?php echo $linha["email"] ?></td>
-              <td><?php echo $linha["idPlano"] ?></td>
-            <?php }
-            ?>
-            </tr>
-        </table>
-
-
-
 
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
-            <div class="form__group">
-              <label class="form__label" for="email">Email</label>
-              <input class="form__input" type="email" name="email" id="email" Value="<?= $user["email"] ?>">
+          <div class="form__group">
+              <label class="form__label" for="nome">Nome*</label>
+              <input class="form__input" type="text" name="nome" id="nome" required value="<?= $anunciante['nome'] ?>">
             </div>
             <div class="form__group">
-              <label class="form__label" for="senha">Senha</label>
-              <input class="form__input" type="password" name="senha" id="senha" placeholder="Redefina sua senha">
+              <label class="form__label" for="CNPJ">CNPJ</label>
+              <input class="form__input" type="text" name="CNPJ" id="CNPJ" placeholder="Insira o CNPJ do negócio">
             </div>
           </div>
 
-          <div class="form__group">
-            <label class="form__label" for="nome">Nome</label>
-            <input class="form__input" type="text" name="nome" id="nome" Value="<?= $user["nome"] ?>">
-          </div>
+
+          <div class="form__cols">
+
+            <div class="form__group">
+              <label class="form__label" for="email">Email*</label>
+              <input class="form__input" type="email" name="email" id="email"  required>
+            </div>
+
+            <div class="form__group">
+              <label class="form__label" for="website">website</label>
+              <input class="form__input" type="website" name="website" id="website">
+            </div>
 
           <div class="form__cols">
             <div class="form__group">
@@ -92,7 +77,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
                 $planosQuery->execute();
                 while ($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                  <option value="<?= $plano['idPlano'] ?>" <?php if ($plano['idPlano'] == $user['idPlano']) {
+                  <option value="<?= $plano['idPlano'] ?>" <?php if ($plano['idPlano'] == $anunciante['idPlano']) {
                                                               echo "selected";
                                                             } ?>><?= $plano['nome'] ?></option>
                 <?php
@@ -111,7 +96,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
                 $categoriasQuery->execute();
                 while ($categoria = $categoriasQuery->fetch(PDO::FETCH_ASSOC)) {
                 ?>
-                  <option value="<?= $categoria['idCategoria'] ?>" <?php if ($categoria['idCategoria'] == $user['idCategoria']) {
+                  <option value="<?= $categoria['idCategoria'] ?>" <?php if ($categoria['idCategoria'] == $anunciante['idCategoria']) {
                                                                     echo "selected";
                                                                   } ?>> <?= $categoria['nome'] ?> </option>
                 <?php
@@ -123,7 +108,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
 
           <div class="form__group">
             <label class="form__label" for="descricao">Descrição</label>
-            <textarea class="form__input" type="text" name="descricao" id="descricao"><?= $user['descricao'] ?></textarea>
+            <textarea class="form__input" type="text" name="descricao" id="descricao"><?= $anunciante['descricao'] ?></textarea>
           </div>
 
 
@@ -131,19 +116,19 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
             <div class="form__group">
               <label class="form__label" for="imgPerfil">Imagem de perfil</label>
               <input class="form__input" type="file" name="imgPerfil" id="imgPerfil">
-              <img src="/assets/img/img-anunciante/<?= $user['imgPerfil'] ?>" alt="">
+              <img src="/assets/img/img-anunciante/<?= $anunciante['imgPerfil'] ?>" alt="">
             </div>
 
             <div class="form__group">
               <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno</label>
               <input class="form__input" type="file" name="imgAnuncioP" id="imgAnuncioP">
-              <img src="/assets/img/img-anunciante/<?= $user['imgAnuncioP'] ?>" alt="">
+              <img src="/assets/img/img-anunciante/<?= $anunciante['imgAnuncioP'] ?>" alt="">
             </div>
 
             <div class="form__group">
               <label class="form__label" for="imgAnuncioG">Imagem de anúncio grande</label>
               <input class="form__input" type="file" name="imgAnuncioG" id="imgAnuncioG">
-              <img src="/assets/img/img-anunciante/<?= $user['imgAnuncioG'] ?>" alt="">
+              <img src="/assets/img/img-anunciante/<?= $anunciante['imgAnuncioG'] ?>" alt="">
             </div>
           </div>
 
