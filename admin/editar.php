@@ -61,11 +61,11 @@
 
 
         
-        <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
+        <form class="form" action="editar2.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
             <div class="form__group">
-              <label class="form__label" for="email">Email</label>
-              <input class="form__input" type="email" name="email" id="email" Value="<?= $user["email"] ?>">
+              <label class="form__label" for="ID">ID do anunciante</label>
+              <input class="form__input" type="ID" name="ID" id="ID" placeholder="ID">
             </div>
            
           </div>
