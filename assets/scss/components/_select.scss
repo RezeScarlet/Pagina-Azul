@@ -1,0 +1,16 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
+
+
+.select {
+    padding: 0.925rem;
+    font-size: 1rem;
+    border: 0;
+    outline: 0;
+    background-color: c.$clr-light;
+    color: rgb(82, 82, 82);
+    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.2);
+    border-radius: r.$radius-2;
+}

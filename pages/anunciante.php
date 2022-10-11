@@ -53,8 +53,8 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
           <div class="anunciante__wrapper">
             <div>
-              <img class="display-img mb-1" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
-              <div class="info text-center">
+              <img class="display-img" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
+              <div class="info text-center mt-2">
                 <i class="info__icon fa-solid fa-arrow-up-right-from-square"></i> 
                 <span class="info__title">Website: </span>
                 <a class="info__content" href="#" target="_blank">placeholdersite.com.br</a>
@@ -86,17 +86,17 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
               <h2>Redes Sociais</h2>
               <ul class="anunciante__social-wrapper list-unstyled">
                 <li>
-                  <a class="icon-wrapper--sm icon-wrapper--facebook" href="https://<?= $paginaInfo['facebook'] ?>" target="_blank">
+                  <a class="icon-wrapper--sm icon-wrapper--facebook" href="https://<?= $paginaInfo['facebook'] ?>" title="Facebook" target="_blank">
                     <img src="/assets/img/icones-social/facebook-f.svg" alt="Facebook">
                   </a>
                 </li>
                 <li>
-                  <a class="icon-wrapper--sm icon-wrapper--instagram" href="https://<?= $paginaInfo['instagram'] ?>" target="_blank">
+                  <a class="icon-wrapper--sm icon-wrapper--instagram" href="https://<?= $paginaInfo['instagram'] ?>" title="Instagram" target="_blank">
                     <img src="/assets/img/icones-social/instagram.svg" alt="Instagram">
                   </a>
                 </li>
                 <li>
-                  <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Converse%20com%20<?=$paginaInfo['nome']?>%20no%20WhatsApp" target="_blank">
+                  <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Converse%20com%20<?=$paginaInfo['nome']?>%20no%20WhatsApp" title="Whatsapp" target="_blank">
                     <img src="/assets/img/icones-social/whatsapp.svg" alt="Whatsapp">
                   </a>
                 </li>

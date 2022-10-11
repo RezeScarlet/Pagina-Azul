@@ -45,13 +45,16 @@
 
         <div class="search">
           <div class="search__wrapper">
-          <form action="/busca" method="get" class="search__form" id="search-form">
-              <button type="button" class="search__btn--left" title="Filtrar por cidade" data-modal-target="#filters"><i class="fa-solid fa-location-dot"></i></button>
+            <form action="/busca" method="get" class="search__form" id="search-form">
+              <div class="select">
+                <input type="text" readonly placeholder="Selecione sua cidade">
+              </div>
               <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Encontre o que precisa" />
-              <button class="search__btn--right" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <button class="search__btn btn--dark" type="submit">Buscar <i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
           </div>
         </div>
+
         <?php
         if ($searchConditions)  {
           $search = $_GET['q'];
@@ -138,40 +141,6 @@
             
           <?php } ?>
     </section>
-    
-    <div class="modal" id="filters">
-      <div class="modal__content">
-        <div class="modal__header">
-          <h2 class="modal__title">Filtrar busca</h2>
-          <button type="button" class="modal__close-btn" data-modal-close><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="modal__body">
-          <p><b>Por cidade</b></p>
-          <ul class="list-unstyled">
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="" name="cidade" id="todas">
-              <label for="todas">Todas</label>
-            </li>
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="mococa" name="cidade" id="mococa">
-              <label for="mococa">Mococa</label>
-            </li>
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="tapiratiba" name="cidade" id="tapiratiba">
-              <label for="tapiratiba">Tapiratiba</label>
-            </li>
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="arceburgo" name="cidade" id="arceburgo">
-              <label for="arceburgo">Arceburgo</label>
-            </li>
-          </ul>
-        </div>
-        <div class="modal__footer">
-          <button class="btn--dark" data-modal-close>Concluir</button>
-        </div>
-      </div>
-    </div>
-
   </main>
 
   <a href="#" class="back-to-top">

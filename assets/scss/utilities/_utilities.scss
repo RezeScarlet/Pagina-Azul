@@ -15,14 +15,25 @@
   -webkit-user-drag: none; 
 }
 
-.mb-1 {
-  margin-bottom: 0.5rem;
-}
+$space-sizes: (
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1.5rem,
+  5: 2rem
+);
 
-.mb-2 {
-  margin-bottom: 1rem;
-}
+$sides: (
+  t: top,
+  r: right,
+  l: left,
+  b: bottom 
+);
 
-.mb-3 {
-  margin-bottom: 1.5rem;
+@each $size, $value in $space-sizes {
+  @each $infix, $side in $sides {
+    .m#{$infix}-#{$size} {
+      margin-#{$side}: $value;
+    }
+  }
 }

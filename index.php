@@ -83,40 +83,6 @@
           
       </div>
     </section>
-
-    <div class="modal" id="filters">
-      <div class="modal__content">
-        <div class="modal__header">
-          <h2 class="modal__title">Filtrar busca</h2>
-          <button type="button" class="modal__close-btn" data-modal-close><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="modal__body">
-          <p><b>Por cidade</b></p>
-          <ul class="list-unstyled">
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="" name="cidade" id="todas">
-              <label for="todas">Todas</label>
-            </li>
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="mococa" name="cidade" id="mococa">
-              <label for="mococa">Mococa</label>
-            </li>
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="tapiratiba" name="cidade" id="tapiratiba">
-              <label for="tapiratiba">Tapiratiba</label>
-            </li>
-            <li class="mb-1">
-              <input form="search-form" type="radio" value="arceburgo" name="cidade" id="arceburgo">
-              <label for="arceburgo">Arceburgo</label>
-            </li>
-          </ul>
-        </div>
-        <div class="modal__footer">
-          <button class="btn--dark" data-modal-close>Concluir</button>
-        </div>
-      </div>
-    </div>
-    
   </main>
 
 
