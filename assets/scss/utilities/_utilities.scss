@@ -7,6 +7,14 @@
   list-style: none;
 }
 
+.text-sm {
+  font-size: 0.9rem;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
 .no-select {
   user-select: none; 
   -moz-user-select: none; 

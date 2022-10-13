@@ -1,0 +1,35 @@
+
+@use "../abstracts/colors" as c;
+@use "../abstracts/typography" as t;
+@use "../abstracts/radius" as r;
+
+
+.contact {
+    position: relative;
+
+    &__infos {
+        display: grid;
+        padding: 1.25rem;
+        background-color: c.$clr-faded;
+        border-radius: r.$radius-1;
+    }
+    
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-transform: uppercase;
+        word-break: break-all;
+
+        & > *:first-child {
+            opacity: 0.7;
+            fill: c.$clr-secondary-100;
+        }
+
+        &:not(:last-child) {
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid lightgrey;
+        }
+    }
+}

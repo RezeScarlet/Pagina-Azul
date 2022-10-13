@@ -44,23 +44,35 @@
       <div class="container--sm">
         <div class="search mb-7">
           <div class="search__wrapper">
-            <form action="/busca" method="get" class="search__form" id="search-form">
+          <form action="/busca" method="get" class="search__form" id="search-form">
               <div class="select" data-select tabindex=0>
                 <div class="select__display">
                   <i class="mr-1 fa-solid fa-location-dot"></i>
-                  <input type="text" readonly name="cidade" placeholder="Selecione sua cidade">
+                  <div class="select__text" data-select-text>
+                    <?php
+
+                      if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+                        echo $_GET["cidade"];
+                      } else {
+                        echo "Selecione sua cidade";
+                      }
+
+
+                    ?>
+                  </div>
+                  <input type="text" readonly name="cidade" value="<?php if (isset($_GET["cidade"])) { echo $_GET["cidade"]; } ?>">
                 </div>
                 <div class="select__options-container">
                   <div class="select__option" data-select-option="" tabindex=0>
                     Todas
                   </div>
-                  <div class="select__option" data-select-option="Mococa - SP" tabindex=0>
+                  <div class="select__option" data-select-option="Mococa" tabindex=0>
                     Mococa - SP
                   </div>
-                  <div class="select__option" data-select-option="Tapiratiba - SP" tabindex=0>
+                  <div class="select__option" data-select-option="Tapiratiba" tabindex=0>
                     Tapiratiba - SP
                   </div>
-                  <div class="select__option" data-select-option="Arceburgo - MG" tabindex=0>
+                  <div class="select__option" data-select-option="Arceburgo" tabindex=0>
                     Arceburgo - MG
                   </div>
                 </div>
@@ -130,8 +142,8 @@
                     </div>
 
                     <div class="resultado__address">
-                      <p><?= $x['cidade'] ?> - <?= $x['estado'] ?></p>
-                      <p><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
+                      <p class="text-bold"><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
+                      <p class="text-sm"><?= $x['cidade'] ?> - <?= $x['estado'] ?></p>
                     </div>
                   </div>
 

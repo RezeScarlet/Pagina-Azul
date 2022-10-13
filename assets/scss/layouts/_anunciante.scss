@@ -77,19 +77,8 @@
     }
 
     &__address-wrapper { 
-        display: grid;
-        grid-template-columns: 1fr 100%;
+        display: flex;
         gap: 0.25rem;
-        i {
-            grid-row: span 4;
-        }
-        & > :nth-child(2) {
-            line-height: 1.2;
-            font-weight: 600;
-        }
-        & > :nth-child(4) {
-            font-size: 0.9rem;
-        }
     }
 
     div:first-child { grid-area: first; }

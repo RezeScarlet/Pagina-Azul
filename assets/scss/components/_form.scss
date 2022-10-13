@@ -8,11 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 2rem;
-    padding: 1.25rem;
-    background-color: c.$clr-light;
-    border-radius: r.$radius-2;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    gap: 1.5rem;
 
     &__cols {
         display: flex;
@@ -32,21 +28,34 @@
     &__group {
         display: flex;
         flex-direction: column;
-        gap: 0.25rem;
+        gap: 0.5rem;
     }
 
     &__label {
+        position: relative;
         color: c.$clr-secondary-100;
         font-weight: 500;
+
+        &--required {
+            @extend .form__label;
+            
+            &::after {
+                content: "*";
+                color: hsla(0, 100%, 40%, 0.7);
+                margin-left: 0.25rem;
+                font-size: 0.9rem;
+            }
+        }
     }
     
     &__input {
         outline: none;
         border: 0;
         box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-        padding: 0.25em 0.5em;
+        padding: 0.5rem 0.75rem;
         font-size: 0.95rem;
         background-color: c.$clr-light;
+        border-radius: r.$radius-1;
         transition: 100ms ease-in;
         
         &:focus {
@@ -58,7 +67,6 @@
     &__submit {
         display: flex;
         flex-direction: row;
-        margin-top: 1rem;
         gap: 0.75rem;
     }
 

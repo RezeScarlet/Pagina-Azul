@@ -104,6 +104,7 @@ if (selectElements) {
         })
 
         const options = selectEl.querySelectorAll("[data-select-option]");
+        const text = selectEl.querySelector("[data-select-text]");
         const input = selectEl.querySelector("input");
 
         options.forEach((option) => {
@@ -111,6 +112,7 @@ if (selectElements) {
 
             option.addEventListener("click", () => {
                 input.value = value;    
+                text.textContent = option.textContent;
 
                 options.forEach((option) => { notActive(option); })
                 active(option);

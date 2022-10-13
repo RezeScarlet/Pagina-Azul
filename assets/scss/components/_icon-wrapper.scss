@@ -5,16 +5,18 @@
 
 
 .icon-wrapper {
+    max-width: 100%;
     background-color: c.$clr-secondary-100;
     color: c.$fc-secondary;
     display: grid;
     place-items: center;
     padding: 1.25rem;
     border-radius: r.$radius-circle;
+    aspect-ratio: 1 /1;
     transition: 200ms ease-in;
   
     & > * {
-      width: 100%;
+      max-width: 100%;
       object-fit: cover;
       object-position: center;
     }

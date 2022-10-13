@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | Editar</title>
+  <title>Página Azul | Admin</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -34,7 +34,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
         <p><a href="/assets/php/logout.php">Sair</a></p>
 
         <ul>
-          <li><a href="signup.php">Cadastro de Empresa</a></li>
+          <li><a href="cadastro.php">Cadastro de Empresa</a></li>
           <li><a href="editar.php">Atualizar Registro</a></li>
           <li><a href="">Apagar Registro</a></li>
         </ul>

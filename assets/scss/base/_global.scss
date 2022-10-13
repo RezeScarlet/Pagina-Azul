@@ -27,19 +27,20 @@ section {
   }
 }
 
-.section-title {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+.section-title,
+.subsection-title {
   font-weight: bold;
   font-family: t.$ff-accent;
   color: c.$fc-accent;
-  margin-bottom: 2rem;
 } 
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  margin-bottom: 2rem;
+}
 
 .subsection-title {
   font-size: clamp(1.35rem, 3vw, 1.75rem);
-  font-weight: bold;
-  font-family: t.$ff-accent;
-  color: c.$fc-accent;
   margin-bottom: 1.15rem;
 }
 
@@ -62,4 +63,56 @@ section {
 .display-img {
   box-shadow: -2px 3px 8px rgba(0, 0, 0, 0.25);   
   border-radius: r.$radius-1;
+}
+
+
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  &--even {
+    @extend .columns;
+    @media only screen and (min-width: 800px) {
+      flex-direction: row;
+
+      & > * {
+        width: 50%;
+      }
+    }
+  }
+
+  &--2-1 {
+    @extend .columns;
+    @media only screen and (min-width: 850px) {
+      flex-direction: row;
+
+      & > *:first-child {
+        width: 60%;
+      }
+      & > *:last-child {
+        width: 40%;
+      }
+    }
+  }
+
+}
+
+.two-to-one-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  @media only screen and (min-width: 800px) {
+    flex-direction: row;
+
+    & > *:first-child {
+      width: 70%;
+    }
+
+    & > *:last-child {
+      width: 30%;
+    }
+  }
 }

@@ -164,16 +164,17 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
               <div class="anunciante__address">
                 <h2 class="subsection-title">Endereço</h2>
                 <div class="anunciante__address-wrapper">
-                  <i class="info__icon mt-1 fa-solid fa-location-dot"></i>
+                  <i class="info__icon mt-2 fa-solid fa-location-dot"></i>
 
-                  <?php
-                  if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
-                  ?>
-                    <span><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></span>
-                    <p><?= $paginaInfo['bairro'] ?></p>
-                  <?php } ?>
-
-                  <p><?= $paginaInfo['cidade'] ?> - <?= $paginaInfo['estado'] ?></p>
+                  <div>
+                    <?php
+                    if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
+                    ?>
+                      <span class="text-bold"><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></span>
+                      <p><?= $paginaInfo['bairro'] ?></p>
+                    <?php } ?> 
+                    <p class="text-sm"><?= $paginaInfo['cidade'] ?> - <?= $paginaInfo['estado'] ?></p>
+                    </div>
                 </div>
               </div>
             <?php } ?>
