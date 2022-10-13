@@ -29,19 +29,20 @@ section {
 
 .section-title,
 .subsection-title {
-  font-weight: bold;
   font-family: t.$ff-accent;
   color: c.$fc-accent;
 } 
 
 .section-title {
+  font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .subsection-title {
+  font-weight: 600;
   font-size: clamp(1.35rem, 3vw, 1.75rem);
-  margin-bottom: 1.15rem;
+  margin-bottom: 1rem;
 }
 
 .subtitle {
@@ -51,21 +52,43 @@ section {
   color: hsl(0, 0%, 50%);
 }
 
+.link {
+  color: c.$clr-secondary-100;
+  text-decoration: underline;
+
+  &:hover {
+    color: c.$clr-secondary-200;
+  }
+
+  &--light {
+    @extend .link;
+    color: c.$fc-secondary;
+
+    &:hover {
+      color: c.$fc-secondary;
+    }
+  }
+}
+
 .link-wrapper {
   display: block;
 }
 
 .full-size {
   min-height: 90vh;
-  padding: 3rem 0;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  
+  @media only screen and (min-width: 800px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 .display-img {
   box-shadow: -2px 3px 8px rgba(0, 0, 0, 0.25);   
   border-radius: r.$radius-1;
 }
-
-
 
 .columns {
   display: flex;
@@ -97,22 +120,4 @@ section {
     }
   }
 
-}
-
-.two-to-one-columns {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-
-  @media only screen and (min-width: 800px) {
-    flex-direction: row;
-
-    & > *:first-child {
-      width: 70%;
-    }
-
-    & > *:last-child {
-      width: 30%;
-    }
-  }
 }

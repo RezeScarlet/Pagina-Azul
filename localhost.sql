@@ -149,9 +149,9 @@ CREATE TABLE `planos` (
 --
 
 INSERT INTO `planos` (`idPlano`, `nome`, `descricao`) VALUES
-(1, 'Gratuito', 'Plano padrão.'),
-(2, 'Pago 1', 'Pago que da acesso ás imagens '),
-(3, 'Pago 2', 'Pago que da acesso ás imagens ');
+(1, 'Gratuito', 'Plano padrão'),
+(2, 'Médio', 'Pago que da acesso ás imagens'),
+(3, 'Destaque', 'Pago que da acesso ás imagens');
 
 --
 -- Indexes for dumped tables

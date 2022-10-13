@@ -24,7 +24,7 @@
 
     &__wrapper {
         display: grid;
-        gap: 1.75rem;
+        gap: 2rem;
         grid-template-areas: "first"
                              "contact"
                              "social"
@@ -35,6 +35,12 @@
                                  "first social"
                                  "description address";
             grid-template-columns: 1fr 230px;
+            gap: 1.75rem;
+        }
+
+        div:first-child { 
+            grid-area: first; 
+            word-break: break-word;
         }
     }
 
@@ -81,8 +87,6 @@
         gap: 0.25rem;
     }
 
-    div:first-child { grid-area: first; }
-
     &__description { grid-area: description; }
 
     &__img {
@@ -92,7 +96,7 @@
     h2 {
         position: relative;
         max-width: max-content;
-        font-weight: 600;
+
         &::before {
             content: "";
             position: absolute;

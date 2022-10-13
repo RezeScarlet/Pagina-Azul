@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | Serviços</title>
+  <title>Serviços | Página Azul</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -23,9 +23,9 @@
   <main>
     <section class="planos full-size">
       <div class="container">
-        <h1 class="section-title text-center">Nossos Planos</h1>
+        <h1 class="section-title text-center mb-9">Nossos Planos</h1>
 
-        <div class="cards-container mt-10">
+        <div class="cards-container">
           <div class="card--gratuito">
             <h2 class="card__title text-center">Gratuito</h2>
             
@@ -36,24 +36,28 @@
 
             <ul class="card__list">
               <li class="card__list-item positive">
-                <span>Lorem, ipsum.</span>
+                <span>Registro no site</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item positive">
-                <span>Lorem ipsum dolor.</span>
+                <span>Página própria</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item negative">
-                <span>Lorem ipsum dolor sit amet.</span>
+                <span>Prioridade em resultados de buscas</span>
                 <i class="fa-solid fa-xmark"></i>
               </li>
               <li class="card__list-item negative">
-                <span>Lorem ipsum dolor sit amet consectetur.</span>
+                <span>Presença no carrossel de imagens</span>
+                <i class="fa-solid fa-xmark"></i>
+              </li>
+              <li class="card__list-item negative">
+                <span>Presença na página inicial</span>
                 <i class="fa-solid fa-xmark"></i>
               </li>
             </ul>
 
-            <a href="#" class="btn btn-purchase">Adquirir</a>
+            <a href="/contato?plano=gratuito" class="btn btn-purchase">Adquirir</a>
           </div>
 
 
@@ -67,24 +71,28 @@
 
             <ul class="card__list">
               <li class="card__list-item positive">
-                <span>Lorem, ipsum.</span>
+                <span>Registro no site</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item positive">
-                <span>Lorem ipsum dolor.</span>
+                <span>Página própria</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item positive">
-                <span>Lorem ipsum dolor sit amet.</span>
+                <span>Prioridade em resultados de buscas</span>
+                <i class="fa-solid fa-check"></i>
+              </li>
+              <li class="card__list-item positive">
+                <span>Presença no carrossel de imagens</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item negative">
-                <span>Lorem ipsum dolor sit amet consectetur.</span>
+                <span>Presença na página inicial</span>
                 <i class="fa-solid fa-xmark"></i>
               </li>
             </ul>
 
-            <a href="#" class="btn btn-purchase">Adquirir</a>
+            <a href="/contato?plano=medio" class="btn btn-purchase">Adquirir</a>
           </div>
 
 
@@ -98,24 +106,28 @@
 
             <ul class="card__list">
               <li class="card__list-item positive">
-                <span>Lorem, ipsum.</span>
+                <span>Registro no site</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item positive">
-                <span>Lorem ipsum dolor.</span>
+                <span>Página própria</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item positive">
-                <span>Lorem ipsum dolor sit amet.</span>
+                <span>Prioridade em resultados de buscas</span>
                 <i class="fa-solid fa-check"></i>
               </li>
               <li class="card__list-item positive">
-                <span>Lorem ipsum dolor sit amet consectetur.</span>
+                <span>Presença no carrossel de imagens</span>
+                <i class="fa-solid fa-check"></i>
+              </li>
+              <li class="card__list-item positive">
+                <span>Presença na página inicial</span>
                 <i class="fa-solid fa-check"></i>
               </li>
             </ul>
             
-            <a href="#" class="btn btn-purchase">Adquirir</a>
+            <a href="/contato?plano=destaque" class="btn btn-purchase">Adquirir</a>
           </div>
         </div>
       </div>

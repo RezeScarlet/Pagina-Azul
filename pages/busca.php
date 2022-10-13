@@ -22,7 +22,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | Busca <?php if ($searchConditions) echo "por ". $_GET["q"] ?></title>
+  <title>Busca <?php if ($searchConditions) echo "por ". $_GET["q"] ?> | Página Azul</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -114,7 +114,7 @@
                 
                 ?>
           <div class="resultados" id="resultados">
-            <h1 class="section-title">Resultados para <em><?= $search ?></em></h1>
+            <h1 class="section-title mb-5">Resultados para <em><?= $search ?></em></h1>
             
             <div class="resultados-wrapper">
               
@@ -163,7 +163,7 @@
 
           <?php  } else { ?>
         
-            <h1 class="section-title">Recomendados </h1>
+            <h1 class="section-title mb-4">Recomendados </h1>
     
             <?php
               include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';

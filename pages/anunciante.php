@@ -47,7 +47,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
       <div class="container--sm">
 
         <div class="anunciante">
-          <div class="anunciante__header mb-3">
+          <div class="anunciante__header">
             <a href="busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
               <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
             </a>
@@ -170,8 +170,8 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                     <?php
                     if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
                     ?>
-                      <span class="text-bold"><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></span>
-                      <p><?= $paginaInfo['bairro'] ?></p>
+                      <p class="text-bold"><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></p>
+                      <p class="mb-1"><?= $paginaInfo['bairro'] ?></p>
                     <?php } ?> 
                     <p class="text-sm"><?= $paginaInfo['cidade'] ?> - <?= $paginaInfo['estado'] ?></p>
                     </div>
@@ -184,7 +184,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
         </div>
 
         <div class="medios" id="medios">
-          <h1 class="section-title">Veja também</h1>
+          <h1 class="section-title mb-4">Veja também</h1>
           <?php
 
           include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';

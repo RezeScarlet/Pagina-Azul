@@ -38,14 +38,11 @@ h4,
 h5,
 h6 {
   line-height: 1.1;
+  margin: 0;
 }
 
 p {
-  margin-bottom: 0.25rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  margin: 0;
 }
 
 a, a:hover {
@@ -70,9 +67,11 @@ input[type="reset"] {
   cursor: pointer;
 }
 
+input,
 textarea,
 select {
   font-family: inherit;
+  width: 100%;
 }
 
 input[type="file"] {

@@ -33,13 +33,11 @@ h4,
 h5,
 h6 {
   line-height: 1.1;
+  margin: 0;
 }
 
 p {
-  margin-bottom: 0.25rem;
-}
-p:last-child {
-  margin-bottom: 0;
+  margin: 0;
 }
 
 a, a:hover {
@@ -64,9 +62,11 @@ input[type=reset] {
   cursor: pointer;
 }
 
+input,
 textarea,
 select {
   font-family: inherit;
+  width: 100%;
 }
 
 input[type=file] {
@@ -141,19 +141,20 @@ section:not(.hero) {
 
 .section-title,
 .subsection-title {
-  font-weight: bold;
   font-family: "Nunito", sans-serif;
   color: hsl(240deg, 97%, 20%);
 }
 
 .section-title {
+  font-weight: 700;
   font-size: clamp(1.75rem, 4vw, 2.25rem);
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .subsection-title {
+  font-weight: 600;
   font-size: clamp(1.35rem, 3vw, 1.75rem);
-  margin-bottom: 1.15rem;
+  margin-bottom: 1rem;
 }
 
 .subtitle {
@@ -163,13 +164,34 @@ section:not(.hero) {
   color: hsl(0deg, 0%, 50%);
 }
 
+.link, .link--light {
+  color: hsl(237deg, 57%, 31%);
+  text-decoration: underline;
+}
+.link:hover, .link--light:hover {
+  color: hsl(237deg, 57%, 22%);
+}
+.link--light {
+  color: hsl(0deg, 0%, 94%);
+}
+.link--light:hover {
+  color: hsl(0deg, 0%, 94%);
+}
+
 .link-wrapper {
   display: block;
 }
 
 .full-size {
   min-height: 90vh;
-  padding: 3rem 0;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+@media only screen and (min-width: 800px) {
+  .full-size {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 .display-img {
@@ -199,23 +221,6 @@ section:not(.hero) {
   }
   .columns--2-1 > *:last-child {
     width: 40%;
-  }
-}
-
-.two-to-one-columns {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-}
-@media only screen and (min-width: 800px) {
-  .two-to-one-columns {
-    flex-direction: row;
-  }
-  .two-to-one-columns > *:first-child {
-    width: 70%;
-  }
-  .two-to-one-columns > *:last-child {
-    width: 30%;
   }
 }
 
@@ -536,11 +541,6 @@ header .nav__link {
   text-transform: capitalize;
   font-size: 1rem;
 }
-@media all and (max-width: 800px) {
-  header .nav__link {
-    font-size: 0.9rem;
-  }
-}
 header .nav__link::before {
   content: "";
   position: absolute;
@@ -720,6 +720,7 @@ header .nav__search-bar {
   display: block;
   width: 100%;
   padding: 0.925rem 1rem;
+  padding-right: 1.75rem;
   border: 0;
   outline: 0;
   border-radius: 10px;
@@ -772,10 +773,6 @@ header .nav__search-bar {
   display: grid;
   gap: 0.25rem;
   margin-top: 1rem;
-}
-.footer__link {
-  font-size: 0.85rem;
-  text-decoration: underline;
 }
 .footer__btns {
   display: flex;
@@ -1031,7 +1028,7 @@ header .nav__search-bar {
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   padding: 2rem;
-  width: min(300px, 100%);
+  width: min(320px, 100%);
   transition: 150ms ease-in;
 }
 @media (hover: hover) {
@@ -1086,11 +1083,11 @@ header .nav__search-bar {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 .cards-container .card__list-item {
   display: flex;
-  gap: 1rem;
+  gap: 1.15rem;
 }
 .cards-container .card__list-item.positive i {
   color: hsl(204deg, 56%, 47%);
@@ -1103,6 +1100,8 @@ header .nav__search-bar {
   font-size: 0.9rem;
 }
 .cards-container .card .btn-purchase, .cards-container .card--gratuito .btn-purchase, .cards-container .card--medio .btn-purchase, .cards-container .card--destaque .btn-purchase {
+  display: grid;
+  place-items: center;
   background-color: var(--card-color);
   color: hsl(0deg, 0%, 94%);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
@@ -1514,14 +1513,19 @@ body {
 }
 .anunciante__wrapper {
   display: grid;
-  gap: 1.75rem;
+  gap: 2rem;
   grid-template-areas: "first" "contact" "social" "description" "address";
 }
 @media only screen and (min-width: 700px) {
   .anunciante__wrapper {
     grid-template-areas: "first contact" "first social" "description address";
     grid-template-columns: 1fr 230px;
+    gap: 1.75rem;
   }
+}
+.anunciante__wrapper div:first-child {
+  grid-area: first;
+  word-break: break-word;
 }
 .anunciante__contact {
   grid-area: contact;
@@ -1562,9 +1566,6 @@ body {
   display: flex;
   gap: 0.25rem;
 }
-.anunciante div:first-child {
-  grid-area: first;
-}
 .anunciante__description {
   grid-area: description;
 }
@@ -1576,7 +1577,6 @@ body {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
-  font-weight: 600;
 }
 .anunciante h2::before {
   content: "";

@@ -83,7 +83,7 @@
     <!-- DESTAQUES -->
     <section class="destaques" id="destaques">
       <div class="container">
-        <h1 class="section-title">Nossos Destaques</h1>
+        <h1 class="section-title mb-4">Nossos Destaques</h1>
 
         <?php
         include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/destaques.php';
@@ -96,7 +96,7 @@
     <!-- MEDIOS -->
     <section class="medios" id="medios">
       <div class="container">
-        <h1 class="section-title">Veja Também</h1>
+        <h1 class="section-title mb-4">Veja Também</h1>
         
           <?php 
             include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
@@ -108,7 +108,7 @@
     <!-- CATEGORIAS -->
     <section class="categorias" id="categorias">
       <div class="container">
-        <h1 class="section-title text-center">Categorias</h1>
+        <h1 class="section-title text-center mb-5">Categorias</h1>
         
           <?php 
             include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller-categorias.php';

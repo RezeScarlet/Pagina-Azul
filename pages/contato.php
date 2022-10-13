@@ -1,6 +1,7 @@
 
 <?php
   require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +10,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Azul | Contato</title>
+  <title>Contato | Página Azul</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -28,8 +29,8 @@
   <main>
     <section class="contact full-size">
       <div class="container">
-        <div class="section-title">Fale conosco!</div>
-        <p class="subtitle">Interessado em um de nossos planos ou deseja fazer uma sujestão? Entre em contato a partir de um dos meios abaixo.</p>
+        <h1 class="section-title">Fale conosco!</h1>
+        <p class="subtitle">Interessado em um de <a href="/servicos" class="link">nossos planos</a> ou deseja fazer uma sujestão? Entre em contato a partir de um dos meios abaixo.</p>
 
         <div class="columns--2-1">
           <form class="form">
@@ -50,9 +51,12 @@
                   $planosQuery->execute();
                   while ($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
                   ?>
-                    <option value="<?= $plano['idPlano'] ?>"><?= $plano['nome'] ?></option>
-                  <?php
-                }
+                    <option value="<?= $plano['idPlano'] ?>"
+                     <?php if (isset($_GET["plano"])) { if ($_GET["plano"] == strtolower(unaccent($plano['nome']))) { echo "selected"; } }  ?>>
+                     <?= $plano['nome'] ?>
+                    </option>
+                <?php
+                  }
                 ?>
               </select>
             </div>
