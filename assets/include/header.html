@@ -2,9 +2,16 @@
 <header>
   <div class="container">
     <nav class="nav">
+
       <div class="nav__section">
+
+        <!-- MENU TOGGLER -->
         <span class="menu-toggler nav__icon" aria-hidden="true"><i class="fa-solid fa-bars"></i></span>
+
+        <!-- LOGO -->
         <a href="/"><img src="/assets/img/logos/logo-alt.png" alt="" class="nav__brand" title="Página Azul"></a>
+
+        <!-- NAV LIST -->
         <ul class="nav__list">
           <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
           <li class="nav__item"><a href="/servicos" class="nav__link">Serviços</a></li>
@@ -17,13 +24,19 @@
             </button>
           </li>
         </ul>
+
+        <!-- BACKDROP -->
         <div class="nav__backdrop"></div>
       </div>
       
       <div class="nav__section">
+
+        <!-- OPEN NAV SEARCH -->
         <button class="nav__icon" type="button" id="open-nav-search-btn" aria-hidden="true">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
+
+        <!-- NAV SEARCH -->
         <form action="/busca" method="get" class="nav__search-form">
             <div class="container">
               <div class="nav__search-wrapper">
@@ -37,7 +50,9 @@
               </div>
             </div>
         </form>
-        <a href="/signup" class="btn--light">Anunciar</a>
+
+        <!-- BOTÃO -->
+        <a href="/servicos" class="btn--light">Anunciar</a>
       </div>
     </nav>
   </div>

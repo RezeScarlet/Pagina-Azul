@@ -47,17 +47,23 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
       <div class="container--sm">
 
         <div class="anunciante">
+
           <div class="anunciante__header">
+            <!-- CATEGORIA DO ANUNCIANTE -->
             <a href="busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
               <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
             </a>
+
+            <!-- NOME DO ANUNCIANTE -->
             <h1 class="section-title"><?= $paginaInfo['nome'] ?></h1>
           </div>
 
           <div class="anunciante__wrapper">
             <div>
+              <!-- IMAGEM DO ANUNCIANTE -->
               <img class="display-img" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
 
+              <!-- WEBSITE -->
               <?php
               if ($paginaInfo['website']) {
               ?>
@@ -69,10 +75,12 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
               <?php } ?>
             </div>
 
+            <!-- CONTATO -->
             <div class="anunciante__contact">
-              <h2 class="subsection-title">Contato</h2>
+              <h2 class="subsection-title underlined">Contato</h2>
               <ul class="list-unstyled">
 
+                <!-- TELEFONE -->
                 <?php
                 if ($paginaInfo['telefone']) {
                 ?>
@@ -83,6 +91,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                   </li>
                 <?php } ?>
 
+                <!-- CELULAR -->
                 <?php
                 if ($paginaInfo['celular']) {
                 ?>
@@ -93,7 +102,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                   </li>
                 <?php } ?>
 
-
+                <!-- E-MAIL -->
                 <li class="info">
                   <i class="info__icon fa-solid fa-envelope"></i>
                   <span class="info__title">E-mail: </span>
@@ -102,14 +111,15 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
               </ul>
             </div>
 
-
+            <!-- REDES SOCIAIS -->
             <?php
             if ($paginaInfo['facebook'] || $paginaInfo['instagram'] || $paginaInfo['whatsapp']) {
             ?>
               <div class="anunciante__social">
-                <h2 class="subsection-title">Redes Sociais</h2>
+                <h2 class="subsection-title underlined">Redes Sociais</h2>
                 <ul class="anunciante__social-wrapper list-unstyled">
 
+                  <!-- FACEBOOK -->
                   <?php
                     if ($paginaInfo['facebook']) {
                   ?>
@@ -122,6 +132,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                     }
                   ?>
 
+                  <!-- INSTAGRAM -->
                   <?php
                     if ($paginaInfo['instagram']) {
                   ?>
@@ -134,11 +145,12 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                     }
                   ?>
 
+                  <!-- WHATSAPP -->
                   <?php
                     if ($paginaInfo['whatsapp']) {
                   ?>
                   <li>
-                    <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Converse%20com%20<?= $paginaInfo['nome'] ?>%20no%20WhatsApp" title="Whatsapp" target="_blank">
+                    <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Olá!%20Tenho%20interesse%20em%20seus%20serviços" title="Whatsapp" target="_blank">
                       <img src="/assets/img/icones-social/whatsapp.svg" alt="Whatsapp">
                     </a>
                   </li>
@@ -150,29 +162,38 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
               </div>
             <?php } ?>
 
+            <!-- DESCRIÇÃO -->
             <?php
             if ($descricao && $descricao != ' ') {
             ?>
               <div class="anunciante__description">
-                <h2 class="subsection-title">Sobre a empresa</h2>
+                <h2 class="subsection-title underlined">Sobre a empresa</h2>
                 <p><?= $descricao ?></p>
               </div>
             <?php } ?>
+
+            <!-- ENDEREÇO -->
             <?php
             if ($paginaInfo['cidade'] || $paginaInfo['estado']) {
             ?>
               <div class="anunciante__address">
-                <h2 class="subsection-title">Endereço</h2>
+                <h2 class="subsection-title underlined">Endereço</h2>
                 <div class="anunciante__address-wrapper">
                   <i class="info__icon mt-2 fa-solid fa-location-dot"></i>
 
                   <div>
+
                     <?php
-                    if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
+                      if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
                     ?>
+                      <!-- RUA E NÚMERO -->
                       <p class="text-bold"><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></p>
+
+                      <!-- BAIRRO -->
                       <p class="mb-1"><?= $paginaInfo['bairro'] ?></p>
                     <?php } ?> 
+
+                    <!-- CIDADE -->
                     <p class="text-sm"><?= $paginaInfo['cidade'] ?> - <?= $paginaInfo['estado'] ?></p>
                     </div>
                 </div>
@@ -183,6 +204,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
 
+        <!-- SCROLLER -->
         <div class="medios" id="medios">
           <h1 class="section-title mb-4">Veja também</h1>
           <?php

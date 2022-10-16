@@ -31,6 +31,8 @@
     <!-- HERO -->
     <div class="container--sm">
       <section class="hero">
+
+        <!-- PESQUISA -->
         <div class="search">
           <div class="search__wrapper">
             <a href="/">
@@ -38,6 +40,8 @@
             </a>
             <p class="subtitle">Tudo ao seu alcance, em um só lugar</p>
             <form action="/busca" method="get" class="search__form" id="search-form">
+            
+              <!-- SELECT -->
               <div class="select" data-select tabindex=0>
                 <div class="select__display">
                   <i class="mr-1 fa-solid fa-location-dot"></i>
@@ -47,7 +51,7 @@
                       if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
                         echo $_GET["cidade"];
                       } else {
-                        echo "Selecione sua cidade";
+                        echo "Selecione a cidade";
                       }
 
 
@@ -55,6 +59,8 @@
                   </div>
                   <input type="text" readonly name="cidade" value="<?php if (isset($_GET["cidade"])) { echo $_GET["cidade"]; } ?>">
                 </div>
+
+                <!-- OPTIONS -->
                 <div class="select__options-container">
                   <div class="select__option" data-select-option="" tabindex=0>
                     Todas
@@ -70,6 +76,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- SEARCH BAR -->
               <div class="search__bar-wrapper">
                 <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Digite o que precisa">
                 <button class="search__btn btn--dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>

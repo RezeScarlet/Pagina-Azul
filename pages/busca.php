@@ -42,9 +42,13 @@
   <main>
     <section class="full-size">
       <div class="container--sm">
+
+        <!-- PESQUISA -->
         <div class="search mb-7">
           <div class="search__wrapper">
           <form action="/busca" method="get" class="search__form" id="search-form">
+            
+              <!-- SELECT -->
               <div class="select" data-select tabindex=0>
                 <div class="select__display">
                   <i class="mr-1 fa-solid fa-location-dot"></i>
@@ -54,7 +58,7 @@
                       if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
                         echo $_GET["cidade"];
                       } else {
-                        echo "Selecione sua cidade";
+                        echo "Selecione a cidade";
                       }
 
 
@@ -62,6 +66,8 @@
                   </div>
                   <input type="text" readonly name="cidade" value="<?php if (isset($_GET["cidade"])) { echo $_GET["cidade"]; } ?>">
                 </div>
+
+                <!-- OPTIONS -->
                 <div class="select__options-container">
                   <div class="select__option" data-select-option="" tabindex=0>
                     Todas
@@ -77,6 +83,8 @@
                   </div>
                 </div>
               </div>
+
+              <!-- SEARCH BAR -->
               <div class="search__bar-wrapper">
                 <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Digite o que precisa">
                 <button class="search__btn btn--dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -109,10 +117,11 @@
           }
         ?>
 
-              <?php
-              if ($resultArray) {
-                
-                ?>
+          <?php
+            if ($resultArray) {      
+          ?>
+
+          <!-- RESULTADOS -->
           <div class="resultados" id="resultados">
             <h1 class="section-title mb-5">Resultados para <em><?= $search ?></em></h1>
             
@@ -121,6 +130,8 @@
               <?php foreach ($resultArray as $x) { ?>
 
                   <div class="resultado">
+
+                    <!-- LINK, IMAGEM E NOME -->
                     <a href='/anunciante?anunciante=<?= $x['nome']; ?>'>
                       <div class="resultado__header">
                         <img class="resultado__img" src="/assets/img/img-anunciante/<?= $x['imgAnuncioP'] ?>" alt="aaaa">
@@ -128,12 +139,15 @@
                       </div>
                     </a>
 
+                    <!-- ??? -->
                     <div class="resultado__time">
                       <span class="info">
                         <i class="info__icon fa-regular fa-clock"></i>
                         <span class="info__content">7:00 - 18:00</span> 
                       </span>
                     </div>
+
+                    <!-- CELULAR -->
                     <div class="resultado__phone">
                       <span class="info">
                         <i class="info__icon fa-solid fa-phone"></i>
@@ -141,6 +155,7 @@
                       </span>
                     </div>
 
+                    <!-- ENDEREÇO -->
                     <div class="resultado__address">
                       <p class="text-bold"><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
                       <p class="text-sm"><?= $x['cidade'] ?> - <?= $x['estado'] ?></p>
@@ -163,6 +178,7 @@
 
           <?php  } else { ?>
         
+            <!-- SCROLLER -->
             <h1 class="section-title mb-4">Recomendados </h1>
     
             <?php

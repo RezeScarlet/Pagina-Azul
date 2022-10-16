@@ -96,7 +96,7 @@ header {
         background-color: rgb(0, 0, 36);
         box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         z-index: 15;
-        transition: all 250ms ease-in;
+        transition: all 500ms ease-in-out;
 
         &.active {
           transform: translateX(0);
@@ -122,7 +122,7 @@ header {
       min-height: 100vh;
       z-index: 9;
       background-color: rgba(0, 0, 0, 0.5);
-      transition: 250ms ease-in;
+      transition: 500ms ease-in;
       overflow: hidden;
     }
 

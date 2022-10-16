@@ -52,6 +52,22 @@ section {
   color: hsl(0, 0%, 50%);
 }
 
+.underlined {
+  position: relative;
+  max-width: max-content;
+
+  &::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: c.$fc-accent; 
+      opacity: 0.5;
+  }
+}
+
 .link {
   color: c.$clr-secondary-100;
   text-decoration: underline;
@@ -119,5 +135,4 @@ section {
       }
     }
   }
-
 }

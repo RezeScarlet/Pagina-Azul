@@ -43,7 +43,7 @@
   
   &__bar-wrapper {
     display: flex;
-    box-shadow: -3px 3px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px 1px rgba(64,60,67,.24);
     border-radius: r.$radius-2;
   }
   
@@ -62,7 +62,7 @@
   
   &__btn {
     position: relative;
-    padding: 0.925rem 1.25rem;
+    padding: 0.925rem 1rem;
     border-radius: r.$radius-2;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;

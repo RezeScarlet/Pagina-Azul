@@ -21,17 +21,20 @@
   ?>
 
   <main>
-    <div class="container--sm full-size">
-      <section class="sobre text-center">
-        <h1 class="section-title">Sobre nós</h1>
-        <p>
+    <section class="sobre full-size">
+      <div class="sobre__box text-center">
+        <h1 class="section-title underlined mb-4">Sobre nós</h1>
+        <p class="subtitle mb-6">Uma realização de <em>marketing</em> e oportunidade para pequenos, médios e grandes empreendedores</p>
+        <p class="mb-4">
           A <em>Página Azul</em> tem como objetivo trazer visibilidade e espaço online para empreendedores da região. Listamos os estabelecimentos e prestadores de serviço locais por um preço em conta, recomendando-os para possíveis clientes próximos.
+          Nosso sistema de pesquisa é construído para devolver com precisão o resultado de acordo com o tipo ou nome do serviço pesquisado pelo usuário.
         </p>
-        <p>
-          Além disso, nosso sistema de pesquisa é construído para devolver com precisão o resultado de acordo com o tipo ou nome do serviço pesquisado pelo usuário. Todo esse processo resulta em maior presença do negócio e menor perda de clientes.
+        <p class="mb-7 text-bold">
+          Todo esse processo resulta em maior presença do negócio e menor perda de clientes.
         </p>
-      </section>
-    </div>
+      </div>
+      <img aria-hidden="true" src="/assets/img/logos/Logo.png">
+    </section>
   </main>
 
   <a href="#" class="back-to-top">

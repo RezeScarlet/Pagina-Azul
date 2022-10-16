@@ -88,24 +88,4 @@
     }
 
     &__description { grid-area: description; }
-
-    &__img {
-        margin-bottom: 0.5rem;   
-    }
-
-    h2 {
-        position: relative;
-        max-width: max-content;
-
-        &::before {
-            content: "";
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: c.$fc-accent; 
-            opacity: 0.5;
-        }
-    }
 }
