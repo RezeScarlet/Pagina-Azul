@@ -22,7 +22,7 @@
 
   <main>
     <section class="sobre full-size">
-      <div class="sobre__box text-center">
+      <div class="sobre__box">
         <h1 class="section-title underlined mb-4">Sobre nós</h1>
         <p class="subtitle mb-6">Uma realização de <em>marketing</em> e oportunidade para pequenos, médios e grandes empreendedores</p>
         <p class="mb-4">

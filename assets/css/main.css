@@ -1473,27 +1473,31 @@ body {
 
 .sobre {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
 }
-.sobre h1 {
-  margin-left: auto;
-  margin-right: auto;
+@media only screen and (min-width: 650px) {
+  .sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .sobre__box {
   max-width: 650px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 0 1.5rem;
   border-radius: 10px;
 }
 @media only screen and (min-width: 650px) {
   .sobre__box {
     background-color: hsl(0deg, 0%, 100%);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding: 3rem;
+    text-align: center;
+  }
+  .sobre__box h1 {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .sobre img {
@@ -1502,10 +1506,12 @@ body {
   top: 0;
   left: -40%;
   transform: rotate(20deg);
-  opacity: 0.1;
+  opacity: 0;
+  display: none;
 }
 @media only screen and (min-width: 650px) {
   .sobre img {
+    display: block;
     opacity: 0.4;
     z-index: -1;
     left: 0;
