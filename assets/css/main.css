@@ -1256,6 +1256,11 @@ header .nav__search-bar {
   -ms-user-select: none;
   -webkit-user-drag: none;
 }
+@media only screen and (max-width: 365px) {
+  .select__text {
+    max-width: 200px;
+  }
+}
 .select__options-container {
   position: absolute;
   opacity: 0;
