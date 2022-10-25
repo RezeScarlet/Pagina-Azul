@@ -71,6 +71,10 @@
         -webkit-user-select: none;
         -ms-user-select: none; 
         -webkit-user-drag: none; 
+
+        @media only screen and (max-width: 365px) {
+            max-width: 200px;
+        }
     }
 
     &__options-container {
