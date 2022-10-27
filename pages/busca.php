@@ -1,17 +1,13 @@
 <?php
 
-  require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
-  require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
 
-  if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '')  {
-    $searchConditions = TRUE;
-  } else {
-    $searchConditions = FALSE;
-  }
-
-  // function searchIsValid() {
-  //   return isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '';
-  // }
+if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
+  $searchConditions = TRUE;
+} else {
+  $searchConditions = FALSE;
+}
 
 ?>
 
@@ -22,7 +18,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Busca <?php if ($searchConditions) echo "por ". $_GET["q"] ?> | Página Azul</title>
+  <title>Busca <?php if ($searchConditions) echo "por " . $_GET["q"] ?> | Página Azul</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -46,43 +42,11 @@
         <!-- PESQUISA -->
         <div class="search mb-7">
           <div class="search__wrapper">
-          <form action="/busca" method="get" class="search__form" id="search-form">
-            
-              <!-- SELECT -->
-              <div class="select" data-select tabindex=0>
-                <div class="select__display">
-                  <i class="mr-1 fa-solid fa-location-dot"></i>
-                  <div class="select__text" data-select-text>
-                    <?php
+            <form action="/busca" method="get" class="search__form" id="search-form">
 
-                      if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
-                        echo $_GET["cidade"];
-                      } else {
-                        echo "Selecione a cidade";
-                      }
-
-
-                    ?>
-                  </div>
-                  <input type="text" readonly name="cidade" value="<?php if (isset($_GET["cidade"])) { echo $_GET["cidade"]; } ?>">
-                </div>
-
-                <!-- OPTIONS -->
-                <div class="select__options-container">
-                  <div class="select__option" data-select-option="" tabindex=0>
-                    Todas
-                  </div>
-                  <div class="select__option" data-select-option="Mococa" tabindex=0>
-                    Mococa - SP
-                  </div>
-                  <div class="select__option" data-select-option="Tapiratiba" tabindex=0>
-                    Tapiratiba - SP
-                  </div>
-                  <div class="select__option" data-select-option="Arceburgo" tabindex=0>
-                    Arceburgo - MG
-                  </div>
-                </div>
-              </div>
+              <?php
+              include_once $_SERVER['DOCUMENT_ROOT'] . "/assets/include/select.php";
+              ?>
 
               <!-- SEARCH BAR -->
               <div class="search__bar-wrapper">
@@ -94,7 +58,7 @@
         </div>
 
         <?php
-        if ($searchConditions)  {
+        if ($searchConditions) {
           $search = $_GET['q'];
           $resultArray = FALSE;
 
@@ -104,30 +68,51 @@
 
           foreach ($categoriaArray as $x) {
             if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
-              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria']. " ORDER BY idPlano DESC");
+              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " ORDER BY idPlano DESC");
               $resultQuery->execute();
               $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
             }
           }
 
           if (!$resultArray) {
-            $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
-            $resultQuery->execute();
-            $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+            if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+              
+              $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = '" . $_GET['cidade'] . "'");
+              $cidadeQuery->execute();
+              $cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
+
+              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
+              $resultQuery->execute();
+              $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+
+            } else {
+              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
+              $resultQuery->execute();
+              $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+            }
           }
+          $numResultados = count($resultArray);
         ?>
 
           <?php
-            if ($resultArray) {      
+          if ($resultArray) {
           ?>
 
-          <!-- RESULTADOS -->
-          <div class="resultados" id="resultados">
-            <h1 class="section-title mb-5">Resultados para <em><?= $search ?></em></h1>
+            <!-- RESULTADOS -->
+            <div class="resultados" id="resultados">
+              <?php 
+              if (isset($numResultados)){
+                ?>
+                  <h1 class="section-title mb-5"><?= $numResultados ?> resultados para <em><?= $search ?></em></h1>
+              <?php } ?>
+
             
-            <div class="resultados-wrapper">
-              
-              <?php foreach ($resultArray as $x) { ?>
+              <div class="resultados-wrapper">
+
+                <?php foreach ($resultArray as $x) {
+                  $cidadeAnuncianteQuery = $conexao->prepare("SELECT nome, estado FROM cidades WHERE idCidade = '" . $x['idCidade'] . "'");
+                  $cidadeAnuncianteQuery->execute();
+                  $cidadeAnuncianteArray = $cidadeAnuncianteQuery->fetch(PDO::FETCH_ASSOC); ?>
 
                   <div class="resultado">
 
@@ -143,7 +128,7 @@
                     <div class="resultado__time">
                       <span class="info">
                         <i class="info__icon fa-regular fa-clock"></i>
-                        <span class="info__content">7:00 - 18:00</span> 
+                        <span class="info__content">7:00 - 18:00</span>
                       </span>
                     </div>
 
@@ -158,33 +143,33 @@
                     <!-- ENDEREÇO -->
                     <div class="resultado__address">
                       <p class="text-bold"><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
-                      <p class="text-sm"><?= $x['cidade'] ?> - <?= $x['estado'] ?></p>
+                      <p class="text-sm"><?= $cidadeAnuncianteArray['nome'] ?> - <?= $cidadeAnuncianteArray['estado'] ?></p>
                     </div>
                   </div>
 
-              <?php
+                <?php
                 }
               } else {
 
-              ?>
-              
+                ?>
+
                 <h1 class="section-title text-center">Nenhum resultado encontrado</h1>
 
               <?php
               }
               ?>
+              </div>
             </div>
-          </div>
 
           <?php  } else { ?>
-        
+
             <!-- SCROLLER -->
             <h1 class="section-title mb-4">Recomendados </h1>
-    
+
             <?php
-              include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
+            include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';
             ?>
-            
+
           <?php } ?>
     </section>
   </main>

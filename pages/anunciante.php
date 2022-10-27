@@ -12,7 +12,13 @@ if (strpos($paginaInfo['descricao'], "§")) {
 } else {
   $descricao = $paginaInfo['descricao'];
 }
-$categoriaQuery = $conexao->prepare("SELECT nome, icone FROM categorias WHERE idCategoria = '$paginaInfo[idCategoria]'");
+
+if ($paginaInfo['idCidade']){
+$cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE idCidade = ". $paginaInfo['idCidade']);
+$cidadeQuery -> execute();
+$cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
+}
+$categoriaQuery = $conexao->prepare("SELECT nome, icone FROM categorias WHERE idCategoria = ". $paginaInfo['idCategoria']);
 $categoriaQuery->execute();
 $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
@@ -121,7 +127,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
                   <!-- FACEBOOK -->
                   <?php
-                    if ($paginaInfo['facebook']) {
+                  if ($paginaInfo['facebook']) {
                   ?>
                     <li>
                       <a class="icon-wrapper--sm icon-wrapper--facebook" href="https://<?= $paginaInfo['facebook'] ?>" title="Facebook" target="_blank">
@@ -129,12 +135,12 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                       </a>
                     </li>
                   <?php
-                    }
+                  }
                   ?>
 
                   <!-- INSTAGRAM -->
                   <?php
-                    if ($paginaInfo['instagram']) {
+                  if ($paginaInfo['instagram']) {
                   ?>
                     <li>
                       <a class="icon-wrapper--sm icon-wrapper--instagram" href="https://<?= $paginaInfo['instagram'] ?>" title="Instagram" target="_blank">
@@ -142,20 +148,20 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                       </a>
                     </li>
                   <?php
-                    }
+                  }
                   ?>
 
                   <!-- WHATSAPP -->
                   <?php
-                    if ($paginaInfo['whatsapp']) {
+                  if ($paginaInfo['whatsapp']) {
                   ?>
-                  <li>
-                    <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Olá!%20Tenho%20interesse%20em%20seus%20serviços" title="Whatsapp" target="_blank">
-                      <img src="/assets/img/icones-social/whatsapp.svg" alt="Whatsapp">
-                    </a>
-                  </li>
+                    <li>
+                      <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Olá!%20Tenho%20interesse%20em%20seus%20serviços" title="Whatsapp" target="_blank">
+                        <img src="/assets/img/icones-social/whatsapp.svg" alt="Whatsapp">
+                      </a>
+                    </li>
                   <?php
-                    }
+                  }
                   ?>
 
                 </ul>
@@ -174,7 +180,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
             <!-- ENDEREÇO -->
             <?php
-            if ($paginaInfo['cidade'] || $paginaInfo['estado']) {
+            if ($paginaInfo['idCidade']) {
             ?>
               <div class="anunciante__address">
                 <h2 class="subsection-title underlined">Endereço</h2>
@@ -184,18 +190,18 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                   <div>
 
                     <?php
-                      if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
+                    if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
                     ?>
                       <!-- RUA E NÚMERO -->
                       <p class="text-bold"><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></p>
 
                       <!-- BAIRRO -->
                       <p class="mb-1"><?= $paginaInfo['bairro'] ?></p>
-                    <?php } ?> 
+                    <?php } ?>
 
                     <!-- CIDADE -->
-                    <p class="text-sm"><?= $paginaInfo['cidade'] ?> - <?= $paginaInfo['estado'] ?></p>
-                    </div>
+                    <p class="text-sm"><?= $cidadeArray['nome'] ?> - <?= $cidadeArray['estado'] ?></p>
+                  </div>
                 </div>
               </div>
             <?php } ?>

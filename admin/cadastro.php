@@ -30,12 +30,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
   <main>
     <section id="signup" class="full-size">
       <div class="container">
+        <p><a href="index.php">Voltar</a></p>
         <h1 class="section-title">Cadastrar empresa</h1>
-        <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
+        <form class="form" action="cadastro.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
-            
+
             <div class="form__group">
-              <label class="form__label" for="nome">Nome*</label>
+              <label class="form__label--required" for="nome">Nome</label>
               <input class="form__input" type="text" name="nome" id="nome" placeholder="Insira o nome do negócio" required>
             </div>
             <div class="form__group">
@@ -48,24 +49,24 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
           <div class="form__cols">
 
             <div class="form__group">
-              <label class="form__label" for="email">Email*</label>
+              <label class="form__label--required" for="email">Email</label>
               <input class="form__input" type="email" name="email" id="email" placeholder="Insira e-mail" required>
             </div>
 
             <div class="form__group">
-              <label class="form__label" for="website">website</label>
+              <label class="form__label" for="website">Website</label>
               <input class="form__input" type="website" name="website" id="website" placeholder="Insira o website do negócio">
             </div>
 
           </div>
           <div class="form__cols">
             <div class="form__group">
-              <label class="form__label" for="plano">Plano*</label>
+              <label class="form__label--required" for="plano">Plano</label>
               <select class="form__input" name="plano" id="plano" required>
                 <option value="-1" disabled selected>Selecione o plano</option>
                 <?php
                 // Opções do select
-                $planosQuery = $conexao->prepare('SELECT idPlano, nome FROM planos');
+                $planosQuery = $conexao->prepare('SELECT * FROM planos');
                 $planosQuery->execute();
                 while ($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
                 ?>
@@ -77,7 +78,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
             </div>
 
             <div class="form__group">
-              <label class="form__label" for="categoria">Categoria*</label>
+              <label class="form__label--required" for="categoria">Categoria</label>
               <select class="form__input" name="categoria" id="categoria" required>
                 <option value="-1" disabled selected>Selecione a categoria do negócio</option>
                 <?php
@@ -129,25 +130,23 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
 
           </div>
           <hr>
-          <div class="form__cols">
-            <div class="form__group">
-              <label class="form__label" for="estado">Estado</label>
-              <select class="form__input" name="estado" id="estado">
-                <option value="-1" disabled selected>Selecione o estado</option>
-                <option value="Mococa">SP</option>
-                <option value="Arceburgo">MG</option>
-              </select>
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="cidade">Cidade</label>
-              <select class="form__input" name="cidade" id="cidade">
-                <option value="-1" disabled selected>Selecione a cidade</option>
-                <option value="Mococa">Mococa</option>
-                <option value="Arceburgo">Arceburgo</option>
-                <option value="Tapiratiba">Tapiratiba</option>
-              </select>
-            </div>
+          <div class="form__group">
+            <label class="form__label" for="cidade">Cidade</label>
+            <select class="form__input" name="cidade" id="cidade">
+              <option value="-1" disabled selected>Selecione a cidade</option>
+              <?php
+              // Opções do select
+              $cidadesQuery = $conexao->prepare('SELECT * FROM cidades');
+              $cidadesQuery->execute();
+              while ($cidade = $cidadesQuery->fetch(PDO::FETCH_ASSOC)) {
+              ?>
+                <option value="<?= $cidade['idCidade'] ?>"><?= $cidade['nome'] ?> - <?= $cidade['estado'] ?></option>
+              <?php
+              }
+              ?>
+            </select>
           </div>
+
           <div class="form__cols">
 
             <div class="form__group">
@@ -178,13 +177,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
           <div class="form__cols">
 
             <div class="form__group">
-              <label class="form__label" for="imgAnuncioP">Imagem de anúncio pequeno*</label>
+              <label class="form__label--required" for="imgAnuncioP">Imagem de anúncio pequeno</label>
               <input class="form__input" type="file" name="imgAnuncioP" id="imgAnuncioP" required>
             </div>
 
             <div class="form__group">
-              <label class="form__label" for="imgAnuncioG">Imagem de anúncio grande</label>
-              <input class="form__input" type="file" name="imgAnuncioG" id="imgAnuncioG">
+              <label class="form__label--required" for="imgAnuncioG">Imagem de anúncio grande</label>
+              <input class="form__input" type="file" name="imgAnuncioG" id="imgAnuncioG" required>
             </div>
           </div>
 
@@ -237,7 +236,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $CNPJ = $_POST['CNPJ'];
     $email = $_POST['email'];
     $website = $_POST['website'];
-    $idPlano = $_POST['plano'];
+    $idPlano = $_REQUEST['plano'];
     $idCategoria = $_POST['categoria'];
     $descricao = $_POST['descricao'];
 
@@ -247,8 +246,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $telefone = $_POST['telefone'];
     $celular = $_POST['celular'];
 
-    $estado = $_POST['estado'];
-    $cidade = $_POST['cidade'];
+    if (isset($_POST['cidade'])) {
+      $idCidade = $_POST['cidade'];
+    }
+
     $CEP = $_POST['CEP'];
     $bairro = $_POST['bairro'];
     $rua = $_POST['rua'];
@@ -258,22 +259,25 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $imgAnuncioG = getImg('imgAnuncioG');
 
 
-    $result = $conexao->prepare("INSERT INTO anunciante values (null, :nome, :CNPJ, :email, :website, :idPlano, :idCategoria, :descricao, :facebook, :instagram, :whatsapp, :telefone, :celular, :estado, :cidade, :CEP, :bairro, :rua, :numero, :imgAnuncioP, :imgAnuncioG)");
+    $result = $conexao->prepare("INSERT INTO anunciante values (null, :nome, :CNPJ, :email, :website, :descricao,:idPlano, :idCategoria,  :facebook, :instagram,  :telefone, :celular, :whatsapp, :idCidade, :CEP, :bairro, :rua, :numero, :imgAnuncioP, :imgAnuncioG)");
 
     $result->bindValue(":nome", $nome);
     $result->bindValue(":CNPJ", $CNPJ);
     $result->bindValue(":email", $email);
     $result->bindValue(":website", $website);
+    $result->bindValue(":descricao", $descricao);
     $result->bindValue(':idPlano', $idPlano);
     $result->bindValue(":idCategoria", $idCategoria);
-    $result->bindValue(":descricao", $descricao);
     $result->bindValue(":facebook", $facebook);
     $result->bindValue(":instagram", $instagram);
-    $result->bindValue(":whatsapp", $whatsapp);
     $result->bindValue(":telefone", $telefone);
     $result->bindValue(":celular", $celular);
-    $result->bindValue(":estado", $estado);
-    $result->bindValue(":cidade", $cidade);
+    $result->bindValue(":whatsapp", $whatsapp);
+    if (isset($_POST['cidade'])) {
+      $result->bindValue(":idCidade", $idCidade);
+    } else {
+      $result->bindValue(":idCidade", NULL);
+    }
     $result->bindValue(":CEP", $CEP);
     $result->bindValue(":bairro", $bairro);
     $result->bindValue(":rua", $rua);
@@ -282,7 +286,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
     $result->bindValue(":imgAnuncioG", $imgAnuncioG);
     $result->execute();
   }
-
+  
   ?>
 
   <a href="#" class="back-to-top">

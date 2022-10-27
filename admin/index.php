@@ -36,7 +36,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
         <ul>
           <li><a href="cadastro.php">Cadastro de Empresa</a></li>
           <li><a href="editar.php">Atualizar Registro</a></li>
-          <li><a href="">Apagar Registro</a></li>
+          <li><a href="apagar.php">Apagar Registro</a></li>
         </ul>
 
       </div>
