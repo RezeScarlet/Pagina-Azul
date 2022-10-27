@@ -1,26 +1,28 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.5
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tempo de Geração: 
--- Versão do Servidor: 5.5.24-log
--- Versão do PHP: 5.4.3
+-- Host: localhost
+-- Generation Time: 27-Out-2022 às 18:26
+-- Versão do servidor: 5.6.34
+-- PHP Version: 5.6.32
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de Dados: `pagina_azul`
+-- Database: `pagina_azul`
 --
-DROP DATABASE if EXISTS `pagina_azul`;
-CREATE DATABASE `pagina_azul` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+DROP DATABASE IF EXISTS `pagina_azul`;
+CREATE DATABASE IF NOT EXISTS `pagina_azul` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `pagina_azul`;
 
 -- --------------------------------------------------------
@@ -29,12 +31,12 @@ USE `pagina_azul`;
 -- Estrutura da tabela `administradores`
 --
 
-CREATE TABLE IF NOT EXISTS `administradores` (
-  `idAdmin` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `administradores`;
+CREATE TABLE `administradores` (
+  `idAdmin` int(11) NOT NULL,
   `nome` varchar(30) NOT NULL,
-  `senha` varchar(100) NOT NULL,
-  PRIMARY KEY (`idAdmin`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `senha` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `administradores`
@@ -51,8 +53,9 @@ INSERT INTO `administradores` (`idAdmin`, `nome`, `senha`) VALUES
 -- Estrutura da tabela `anunciante`
 --
 
-CREATE TABLE IF NOT EXISTS `anunciante` (
-  `idAnunciante` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `anunciante`;
+CREATE TABLE `anunciante` (
+  `idAnunciante` int(11) NOT NULL,
   `nome` varchar(30) NOT NULL,
   `CNPJ` char(18) DEFAULT NULL,
   `email` varchar(30) NOT NULL,
@@ -71,12 +74,8 @@ CREATE TABLE IF NOT EXISTS `anunciante` (
   `rua` varchar(30) DEFAULT NULL,
   `numero` varchar(3) DEFAULT NULL,
   `imgAnuncioP` varchar(50) NOT NULL,
-  `imgAnuncioG` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`idAnunciante`),
-  UNIQUE KEY `nome` (`nome`),
-  KEY `idPlano` (`idPlano`),
-  KEY `idCategoria` (`idCategoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+  `imgAnuncioG` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `anunciante`
@@ -93,7 +92,7 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `CNPJ`, `email`, `website`, `d
 (8, 'The Atomic Club', '08.778.130/0001-48', 'atomicclub@hotmail.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 5, 'facebook.com/theatomicclub', 'instagram.com/theatomicclub', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'theatomicclubP.png', 'theatomicclub.png'),
 (9, 'Uncle Louies Pizzeria', '09.778.130/0001-48', 'unclelouiespizza@gmail.com', NULL, 'Nós da Pizzaria Uncle Louies fazemos as melhores pizzas de Mococa e região. As pizzas são feitas a mão pelos nosso melhores chefes e assadas no forno a lenha. Está com fome? Então venha nos conhecer. § pizza pizzaria restaurante comida alimentação alimento ', 3, 1, 'facebook.com/unclelouiespizzeria', 'instagram.com/unclelouiespizzeria', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png'),
 (10, 'Yurt', '10.778.130/0001-48', 'sac@yurt.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 3, 1, 'facebook.com/yurt', 'instagram.com/yurt', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'yurtP.png', 'yurt.png'),
-(11, 'Ponto Barato', NULL, 'arthurrafaeltcc00@gmail.com', 'http://rafael.projetosfreelancer.com.br', 'O Ponto Barato é um E-Commerce com os preços mais acessíveis possíveis do mercado. Fazemos isso Trabalhando Com Fornecedores Nacionais de Extrema Confiança que trabalham com os melhores materiais usados hoje em dia em Peças de Vestuário, Venha Conhecer nosso Catálogo no Botão abaixo. § moda calçado camisetas camisas ténis jaqueta roupa estilo look ', 3, 7, NULL, NULL, null, '35997733094', '35997733094', NULL, NULL, NULL, NULL, NULL, 'pontobaratoP.png', 'pontobarato.png'),
+(11, 'Ponto Barato', NULL, 'arthurrafaeltcc00@gmail.com', 'http://rafael.projetosfreelancer.com.br', 'O Ponto Barato é um E-Commerce com os preços mais acessíveis possíveis do mercado. Fazemos isso Trabalhando Com Fornecedores Nacionais de Extrema Confiança que trabalham com os melhores materiais usados hoje em dia em Peças de Vestuário, Venha Conhecer nosso Catálogo no Botão abaixo. § moda calçado camisetas camisas ténis jaqueta roupa estilo look ', 3, 7, NULL, NULL, NULL, '35997733094', '35997733094', NULL, NULL, NULL, NULL, NULL, 'pontobaratoP.png', 'pontobarato.png'),
 (12, 'Amigos Caridosos', NULL, 'amigoscaridososs@gmail.com', 'http://amigoscaridosos.projetosetim.com.br', 'A Amigos Caridosos é uma plataforma de doações online, cujo proposito é ajudar pessoas carentes e que necessitam de ajuda por meio de parcerias com instituições filantrópicas, arrecadando recursos para doar de forma prática e eficiente. § ONG caridade doação doar org instituição doações instituições', 3, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'amigoscaridososP.png', 'amigoscaridosos.png'),
 (13, 'Medic On', NULL, 'a@a', NULL, ' § medicina medico saúde terapia ', 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mediconP.png', 'medicon.png'),
 (15, 'Rota 66', NULL, 'a@a', 'http://rota66.projetosetim.com.br', ' § roupa moda camiseta calça loja manto esportiva acessórios bermudas shorts futebol ', 3, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'rota66P.png', 'rota66.png'),
@@ -105,13 +104,12 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `CNPJ`, `email`, `website`, `d
 -- Estrutura da tabela `categorias`
 --
 
-CREATE TABLE IF NOT EXISTS `categorias` (
-  `idCategoria` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `categorias`;
+CREATE TABLE `categorias` (
+  `idCategoria` int(11) NOT NULL,
   `nome` varchar(30) NOT NULL,
-  `icone` varchar(50) NOT NULL,
-  PRIMARY KEY (`idCategoria`),
-  UNIQUE KEY `nome` (`nome`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+  `icone` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `categorias`
@@ -135,15 +133,37 @@ INSERT INTO `categorias` (`idCategoria`, `nome`, `icone`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `cidades`
+--
+
+DROP TABLE IF EXISTS `cidades`;
+CREATE TABLE `cidades` (
+  `idCidade` int(11) NOT NULL,
+  `nome` varchar(60) NOT NULL,
+  `estado` char(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cidades`
+--
+
+INSERT INTO `cidades` (`idCidade`, `nome`, `estado`) VALUES
+(1, 'Mococa', 'SP'),
+(2, 'Tapiratiba', 'SP'),
+(3, 'Arceburgo', 'MG');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `planos`
 --
 
-CREATE TABLE IF NOT EXISTS `planos` (
-  `idPlano` int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `planos`;
+CREATE TABLE `planos` (
+  `idPlano` int(11) NOT NULL,
   `nome` varchar(15) NOT NULL,
-  `descricao` varchar(30) NOT NULL,
-  PRIMARY KEY (`idPlano`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+  `descricao` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `planos`
@@ -155,27 +175,90 @@ INSERT INTO `planos` (`idPlano`, `nome`, `descricao`) VALUES
 (3, 'Destaque', 'Pago que da acesso ás imagens');
 
 --
--- Restrições para as tabelas dumpadas
+-- Indexes for dumped tables
 --
 
-CREATE TABLE `cidades` (
-  `idCidade` int(11) not null AUTO_INCREMENT,
-  `nome` varchar(60) not null,
-  `estado` char(2) not null,
-  PRIMARY KEY (`idCidade`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
-
-INSERT INTO `cidades`(`idCidade`, `nome`, `estado`) VALUES
-(1, 'Mococa', 'SP'),
-(2, 'Tapiratiba', 'SP'),
-(3, 'Arceburgo', 'MG');
 --
--- Restrições para a tabela `anunciante`
+-- Indexes for table `administradores`
+--
+ALTER TABLE `administradores`
+  ADD PRIMARY KEY (`idAdmin`);
+
+--
+-- Indexes for table `anunciante`
+--
+ALTER TABLE `anunciante`
+  ADD PRIMARY KEY (`idAnunciante`),
+  ADD UNIQUE KEY `nome` (`nome`),
+  ADD KEY `idPlano` (`idPlano`),
+  ADD KEY `idCategoria` (`idCategoria`),
+  ADD KEY `idCidade` (`idCidade`);
+
+--
+-- Indexes for table `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`idCategoria`),
+  ADD UNIQUE KEY `nome` (`nome`);
+
+--
+-- Indexes for table `cidades`
+--
+ALTER TABLE `cidades`
+  ADD PRIMARY KEY (`idCidade`);
+
+--
+-- Indexes for table `planos`
+--
+ALTER TABLE `planos`
+  ADD PRIMARY KEY (`idPlano`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `administradores`
+--
+ALTER TABLE `administradores`
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `anunciante`
+--
+ALTER TABLE `anunciante`
+  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- AUTO_INCREMENT for table `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `cidades`
+--
+ALTER TABLE `cidades`
+  MODIFY `idCidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `planos`
+--
+ALTER TABLE `planos`
+  MODIFY `idPlano` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `anunciante`
 --
 ALTER TABLE `anunciante`
   ADD CONSTRAINT `idCategoria` FOREIGN KEY (`idCategoria`) REFERENCES `categorias` (`idCategoria`),
   ADD CONSTRAINT `idCidade` FOREIGN KEY (`idCidade`) REFERENCES `cidades` (`idCidade`),
   ADD CONSTRAINT `idPlano` FOREIGN KEY (`idPlano`) REFERENCES `planos` (`idPlano`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
