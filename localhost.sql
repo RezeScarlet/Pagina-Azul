@@ -82,8 +82,8 @@ CREATE TABLE `anunciante` (
 --
 
 INSERT INTO `anunciante` (`idAnunciante`, `nome`, `CNPJ`, `email`, `website`, `descricao`, `idPlano`, `idCategoria`, `facebook`, `instagram`, `telefone`, `celular`, `whatsapp`, `idCidade`, `CEP`, `bairro`, `rua`, `numero`, `imgAnuncioP`, `imgAnuncioG`) VALUES
-(1, 'DJ BOOMKITTY', '01.778.130/1000-48', 'djboomkitty@gmail.com', NULL, 'DJ BOOMKITTY, o maior e melhor DJ da região. Agendamos festas e eventos. Com mais de 15 anos de trabalho, somos especializados em som e iluminação. Contate-nos para um momento inesquecível. § festa dj música evento ', 3, 1, 'facebook.com/DJBOOMKITTY', 'instagram.com/DJBOOMKITTY', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'djboomkittyP.png', 'djboomkitty.png'),
-(2, 'Fire Design', '02.778.130/2000-48', 'firedesign@contato.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 1, 1, 'facebook.com/firedesign', 'instagram.com/firedesign', '92298435', '19992298435', '19992298435', 2, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'firedesignP.png', 'firedesign.png'),
+(1, 'DJ BOOMKITTY', '01.778.130/1000-48', 'djboomkitty@gmail.com', NULL, 'DJ BOOMKITTY, o maior e melhor DJ da região. Agendamos festas e eventos. Com mais de 15 anos de trabalho, somos especializados em som e iluminação. Contate-nos para um momento inesquecível. § festa dj música evento ', 3, 14, 'facebook.com/DJBOOMKITTY', 'instagram.com/DJBOOMKITTY', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'djboomkittyP.png', 'djboomkitty.png'),
+(2, 'Fire Design', '02.778.130/2000-48', 'firedesign@contato.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 1, 15, 'facebook.com/firedesign', 'instagram.com/firedesign', '92298435', '19992298435', '19992298435', 2, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'firedesignP.png', 'firedesign.png'),
 (3, 'Ghost Dash', '03.778.130/3000-48', 'ghostdash@gmail.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 1, 'facebook.com/ghostdash', 'instagram.com/ghostdash', '92298435', '19992298435', '19992298435', 3, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'ghostdashP.png', 'ghostdash.png'),
 (4, 'Hill Top Co-op', '04.778.130/0001-48', 'hilltopcoop@contato.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 1, 'facebook.com/hilltopcoop', 'instagram.com/hilltopcoop', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'hilltopcoopP.png', 'hilltopcoop.png'),
 (5, 'Museum', '05.778.130/0001-48', 'museum@outlook.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 1, 2, 'facebook.com/museum', 'instagram.com/museum', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'museumP.png', 'museum.png'),
@@ -128,7 +128,9 @@ INSERT INTO `categorias` (`idCategoria`, `nome`, `icone`) VALUES
 (10, 'Perfumaria', 'perfumaria.svg'),
 (11, 'Esportes', 'esporte.svg'),
 (12, 'Floricultura', 'floricultura.svg'),
-(13, 'ONG', 'ong.svg');
+(13, 'ONG', 'ong.svg'),
+(14, 'Entretenimento', 'entretenimento.svg'),
+(15, 'Design', 'design.svg');
 
 -- --------------------------------------------------------
 

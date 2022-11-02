@@ -31,7 +31,7 @@
             
             <div class="card__price">
               <span class="currency">R$</span>
-              <span class="real">00</span><span class="cents">,00</span>
+              <span class="real">00</span>/mês
             </div>
 
             <ul class="card__list">
@@ -66,7 +66,7 @@
 
             <div class="card__price">
               <span class="currency">R$</span>
-              <span class="real">50</span><span class="cents">,00</span>
+              <span class="real">25</span>/mês
             </div>
 
             <ul class="card__list">
@@ -101,7 +101,7 @@
 
             <div class="card__price">
               <span class="currency">R$</span>
-              <span class="real">100</span><span class="cents">,00</span>
+              <span class="real">50</span>/mês
             </div>
 
             <ul class="card__list">

@@ -50,7 +50,7 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
 
               <!-- SEARCH BAR -->
               <div class="search__bar-wrapper">
-                <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Digite o que precisa">
+                <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Digite o que precisa" value="<?php if (isset($_GET["q"])) { echo $_GET["q"]; } ?>">
                 <button class="search__btn btn--dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
             </form>
@@ -107,10 +107,10 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
               <?php
               if (isset($numResultados)) {
               ?>
-                <p class="subtitle mb-5">Encontrados <?= $numResultados ?> resultados para <em><?= $search ?></em><?php
+                <p class="subtitle mb-4">Encontrados <span class="text-bold"><?= $numResultados ?> resultados</span> para <em><?= $search ?></em><?php
                                                                                                                   if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
                                                                                                                   ?>
-                    <span class="text-sm">em <?= $_GET['cidade'] ?></span>
+                    em <span class="text-bold"> <?= $_GET['cidade'] ?> </span>
                   <?php
                                                                                                                   }
                   ?>
@@ -183,6 +183,7 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
                 ?>
 
                 <h1 class="section-title text-center">Nenhum resultado encontrado</h1>
+				<p class="subtitle text-center">Verifique se foi digitado corretamente ou tente novamente</p>
 
               <?php
               }
