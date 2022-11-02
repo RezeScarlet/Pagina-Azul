@@ -1,6 +1,22 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
+
+if (isset($_POST['ID']) && is_numeric($_POST['ID']) && $_POST['ID'] > 0) {
+  $id = $_POST['ID'];
+  $userQuery = $conexao->prepare("SELECT nome, idAnunciante FROM anunciante WHERE idAnunciante = $id");
+  $userQuery->execute();
+  $user = $userQuery->fetch(PDO::FETCH_ASSOC);
+  if (isset($_POST['confirmar'])) {
+    $apagarQuery = $conexao->prepare('DELETE FROM anunciante WHERE idAnunciante = :id');
+    $apagarQuery->bindParam(':id', $id);
+    $apagarQuery->execute();
+    if (!$apagarQuery->rowCount()) {
+      echo "Falha ao apagar registro.";
+  } else {
+    header('location: index.php');
+  }}
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -64,11 +80,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
         <p><a href="index.php">Voltar</a></p>
         <h1 class="section-title">Apagar Informações</h1>
 
-        <form class="form" action="apagar2.php" method="post" enctype="multipart/form-data">
+        <form class="form" action="apagar.php" method="post" enctype="multipart/form-data">
         <div class="form__cols">
           <div class="form__group">
             <label class="form__label" for="ID">ID do anunciante</label>
             <input class="form__input" type="number" name="ID" id="ID" placeholder="ID">
+            <input class="btn--dark" type="submit" name="confirmar" value="Confirmar">
           </div>
       
         </div>

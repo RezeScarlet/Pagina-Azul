@@ -66,9 +66,20 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
           $categoriaQuery->execute();
           $categoriaArray = $categoriaQuery->fetchAll(PDO::FETCH_ASSOC);
 
+          if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+
+            $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = '" . $_GET['cidade'] . "'");
+            $cidadeQuery->execute();
+            $cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
+          }
+
           foreach ($categoriaArray as $x) {
             if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
-              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " ORDER BY idPlano DESC");
+              if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
+              } else {
+                $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " ORDER BY idPlano DESC");
+              }
               $resultQuery->execute();
               $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
             }
@@ -76,20 +87,13 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
 
           if (!$resultArray) {
             if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
-              
-              $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = '" . $_GET['cidade'] . "'");
-              $cidadeQuery->execute();
-              $cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
 
-              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
-              $resultQuery->execute();
-              $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
-
+              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
             } else {
-              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
-              $resultQuery->execute();
-              $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
+              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
             }
+            $resultQuery->execute();
+            $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
           }
           $numResultados = count($resultArray);
         ?>
@@ -100,13 +104,20 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
 
             <!-- RESULTADOS -->
             <div class="resultados" id="resultados">
-              <?php 
-              if (isset($numResultados)){
-                ?>
-                  <h1 class="section-title mb-5"><?= $numResultados ?> resultados para <em><?= $search ?></em></h1>
+              <?php
+              if (isset($numResultados)) {
+              ?>
+                <p class="subtitle mb-5">Encontrados <?= $numResultados ?> resultados para <em><?= $search ?></em><?php
+                                                                                                                  if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+                                                                                                                  ?>
+                    <span class="text-sm">em <?= $_GET['cidade'] ?></span>
+                  <?php
+                                                                                                                  }
+                  ?>
+                </p>
               <?php } ?>
 
-            
+
               <div class="resultados-wrapper">
 
                 <?php foreach ($resultArray as $x) {
@@ -136,15 +147,33 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
                     <div class="resultado__phone">
                       <span class="info">
                         <i class="info__icon fa-solid fa-phone"></i>
-                        <a class="info__content" href='tel: +55<?= $x['celular'] ?>' title="Ligar" data-format="mobile-phone"><?= $x['celular'] ?></a>
+                        <a class="info__content" href='tel: +55<?php
+                                                                if ($x['telefone']) {
+                                                                  echo $x['telefone'];
+                                                                } else {
+                                                                  echo $x['celular'];
+                                                                }
+                                                                ?>' title="Ligar" data-format="mobile-phone"><?= $x['celular'] ?></a>
                       </span>
                     </div>
 
                     <!-- ENDEREÇO -->
-                    <div class="resultado__address">
-                      <p class="text-bold"><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
-                      <p class="text-sm"><?= $cidadeAnuncianteArray['nome'] ?> - <?= $cidadeAnuncianteArray['estado'] ?></p>
-                    </div>
+                    <?php
+                    if ($x['idCidade']) {
+
+
+                    ?>
+                      <div class="resultado__address">
+                        <p class="text-bold"><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
+                        <p class="text-sm"><?= $cidadeAnuncianteArray['nome'] ?> - <?= $cidadeAnuncianteArray['estado'] ?></p>
+                      </div>
+                    <?php
+                    } else {
+                    ?>
+                      <p class="text-bold">Online</p>
+                    <?php
+                    }
+                    ?>
                   </div>
 
                 <?php

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 27-Out-2022 às 18:26
+-- Generation Time: 01-Nov-2022 às 14:50
 -- Versão do servidor: 5.6.34
 -- PHP Version: 5.6.32
 
@@ -66,7 +66,7 @@ CREATE TABLE `anunciante` (
   `facebook` varchar(60) DEFAULT NULL,
   `instagram` varchar(60) DEFAULT NULL,
   `telefone` varchar(15) DEFAULT NULL,
-  `celular` varchar(15) DEFAULT NULL,
+  `celular` varchar(15) NOT NULL,
   `whatsapp` varchar(15) DEFAULT NULL,
   `idCidade` int(11) DEFAULT NULL,
   `CEP` char(9) DEFAULT NULL,
@@ -93,10 +93,10 @@ INSERT INTO `anunciante` (`idAnunciante`, `nome`, `CNPJ`, `email`, `website`, `d
 (9, 'Uncle Louies Pizzeria', '09.778.130/0001-48', 'unclelouiespizza@gmail.com', NULL, 'Nós da Pizzaria Uncle Louies fazemos as melhores pizzas de Mococa e região. As pizzas são feitas a mão pelos nosso melhores chefes e assadas no forno a lenha. Está com fome? Então venha nos conhecer. § pizza pizzaria restaurante comida alimentação alimento ', 3, 1, 'facebook.com/unclelouiespizzeria', 'instagram.com/unclelouiespizzeria', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png'),
 (10, 'Yurt', '10.778.130/0001-48', 'sac@yurt.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 3, 1, 'facebook.com/yurt', 'instagram.com/yurt', '92298435', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'yurtP.png', 'yurt.png'),
 (11, 'Ponto Barato', NULL, 'arthurrafaeltcc00@gmail.com', 'http://rafael.projetosfreelancer.com.br', 'O Ponto Barato é um E-Commerce com os preços mais acessíveis possíveis do mercado. Fazemos isso Trabalhando Com Fornecedores Nacionais de Extrema Confiança que trabalham com os melhores materiais usados hoje em dia em Peças de Vestuário, Venha Conhecer nosso Catálogo no Botão abaixo. § moda calçado camisetas camisas ténis jaqueta roupa estilo look ', 3, 7, NULL, NULL, NULL, '35997733094', '35997733094', NULL, NULL, NULL, NULL, NULL, 'pontobaratoP.png', 'pontobarato.png'),
-(12, 'Amigos Caridosos', NULL, 'amigoscaridososs@gmail.com', 'http://amigoscaridosos.projetosetim.com.br', 'A Amigos Caridosos é uma plataforma de doações online, cujo proposito é ajudar pessoas carentes e que necessitam de ajuda por meio de parcerias com instituições filantrópicas, arrecadando recursos para doar de forma prática e eficiente. § ONG caridade doação doar org instituição doações instituições', 3, 13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'amigoscaridososP.png', 'amigoscaridosos.png'),
-(13, 'Medic On', NULL, 'a@a', NULL, ' § medicina medico saúde terapia ', 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'mediconP.png', 'medicon.png'),
-(15, 'Rota 66', NULL, 'a@a', 'http://rota66.projetosetim.com.br', ' § roupa moda camiseta calça loja manto esportiva acessórios bermudas shorts futebol ', 3, 7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'rota66P.png', 'rota66.png'),
-(17, 'Vetclin PetShop', NULL, 'etecgrupo9tcc@gmail.com', NULL, ' § pet veterinário animal ração cachorro gato petshop pet shop', 3, 8, NULL, NULL, NULL, '19981335387', '19981335387', NULL, NULL, NULL, NULL, NULL, 'vetclinP.png', 'vetclin.png');
+(12, 'Amigos Caridosos', NULL, 'amigoscaridososs@gmail.com', 'http://amigoscaridosos.projetosetim.com.br', 'A Amigos Caridosos é uma plataforma de doações online, cujo proposito é ajudar pessoas carentes e que necessitam de ajuda por meio de parcerias com instituições filantrópicas, arrecadando recursos para doar de forma prática e eficiente. § ONG caridade doação doar org instituição doações instituições', 3, 13, NULL, NULL, NULL, '00000000000', '00000000000', NULL, NULL, NULL, NULL, NULL, 'amigoscaridososP.png', 'amigoscaridosos.png'),
+(13, 'Medic On', NULL, 'a@a', NULL, ' § medicina medico saúde terapia ', 3, 3, NULL, NULL, NULL, '00000000000', '00000000000', NULL, NULL, NULL, NULL, NULL, 'mediconP.png', 'medicon.png'),
+(15, 'Rota 66', NULL, 'a@a', 'http://rota66.projetosetim.com.br', ' § roupa moda camiseta calça loja manto esportiva acessórios bermudas shorts futebol ', 3, 7, NULL, NULL, NULL, '00000000000', '00000000000', NULL, NULL, NULL, NULL, NULL, 'rota66P.png', 'rota66.png'),
+(17, 'Vetclin PetShop', NULL, 'etecgrupo9tcc@gmail.com', NULL, ' § pet veterinário animal ração cachorro gato petshop pet shop', 3, 8, NULL, NULL, NULL, '81335387', '19981335387', NULL, NULL, NULL, NULL, NULL, 'vetclinP.png', 'vetclin.png');
 
 -- --------------------------------------------------------
 
@@ -227,7 +227,7 @@ ALTER TABLE `administradores`
 -- AUTO_INCREMENT for table `anunciante`
 --
 ALTER TABLE `anunciante`
-  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `categorias`

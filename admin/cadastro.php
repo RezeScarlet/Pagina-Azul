@@ -124,8 +124,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
             </div>
 
             <div class="form__group">
-              <label class="form__label" for="celular">Celular</label>
-              <input class="form__input" type="text" name="celular" id="celular" placeholder="Insira o celular do negócio">
+              <label class="form__label--required" for="celular">Celular</label>
+              <input class="form__input" type="text" name="celular" id="celular" placeholder="Insira o celular do negócio" required>
             </div>
 
           </div>

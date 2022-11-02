@@ -76,7 +76,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
                 <div class="info text-center mt-2">
                   <i class="info__icon fa-solid fa-arrow-up-right-from-square"></i>
                   <span class="info__title">Website: </span>
-                  <a class="info__content" href="https://<?= $paginaInfo['website']  ?>" target="_blank"><?= $paginaInfo['website']  ?></a>
+                  <a class="info__content" href="<?= $paginaInfo['website']  ?>" target="_blank"><?= $paginaInfo['website']  ?></a>
                 </div>
               <?php } ?>
             </div>
