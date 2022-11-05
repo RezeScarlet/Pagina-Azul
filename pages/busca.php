@@ -1,13 +1,13 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
+  require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
 
-if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
-  $searchConditions = TRUE;
-} else {
-  $searchConditions = FALSE;
-}
+  if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
+    $searchConditions = TRUE;
+  } else {
+    $searchConditions = FALSE;
+  }
 
 ?>
 
@@ -71,15 +71,22 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
             $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = '" . $_GET['cidade'] . "'");
             $cidadeQuery->execute();
             $cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
+
           }
 
           foreach ($categoriaArray as $x) {
             if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
+
               if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
-              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
+
+              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
+
               } else {
-                $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " ORDER BY idPlano DESC");
+
+                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " ORDER BY idPlano DESC");
+
               }
+
               $resultQuery->execute();
               $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
             }
@@ -88,13 +95,18 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
           if (!$resultArray) {
             if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
 
-              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
+              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
+
             } else {
-              $resultQuery = $conexao->prepare("SELECT nome, rua, numero, celular, telefone, idCidade, imgAnuncioP FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
+
+              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
+
             }
+
             $resultQuery->execute();
             $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
           }
+          
           $numResultados = count($resultArray);
         ?>
 
@@ -104,18 +116,24 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
 
             <!-- RESULTADOS -->
             <div class="resultados" id="resultados">
-              <?php
-              if (isset($numResultados)) {
-              ?>
-                <p class="subtitle mb-4">Encontrados <span class="text-bold"><?= $numResultados ?> resultados</span> para <em><?= $search ?></em><?php
-                                                                                                                  if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
-                                                                                                                  ?>
+
+                <p class="subtitle mb-4">
+                  <?= ($numResultados > 1) ? "Encontrados" : "Encontrado" ?> 
+                  <span class="text-bold">
+                    <?= $numResultados ?>
+                    <?= ($numResultados > 1) ? "resultados" : "resultado" ?>
+                  </span> 
+                  para "<em><?= $search ?></em>"
+
+                  <?php
+                    if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+                  ?>
                     em <span class="text-bold"> <?= $_GET['cidade'] ?> </span>
                   <?php
-                                                                                                                  }
+                    }
                   ?>
                 </p>
-              <?php } ?>
+   
 
 
               <div class="resultados-wrapper">
@@ -128,65 +146,96 @@ if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
                   <div class="resultado">
 
                     <!-- LINK, IMAGEM E NOME -->
-                    <a href='/anunciante?anunciante=<?= $x['nome']; ?>'>
+                    <a href='/a/<?= $x['nome'] ?>'>
                       <div class="resultado__header">
                         <img class="resultado__img" src="/assets/img/img-anunciante/<?= $x['imgAnuncioP'] ?>" alt="aaaa">
-                        <p class="resultado__title"><?= $x['nome']; ?></p>
+                        <p class="resultado__title"><?= $x['nome'] ?></p>
                       </div>
                     </a>
 
-                    <!-- ??? -->
-                    <div class="resultado__time">
+                    <!-- REDES SOCIAIS -->
+                    <div class="resultado__social">
                       <span class="info">
-                        <i class="info__icon fa-regular fa-clock"></i>
-                        <span class="info__content">7:00 - 18:00</span>
+                        <?php
+                          if ($x['whatsapp']) {
+                        ?>
+                          <a href="https://api.whatsapp.com/send?phone=55<?= $x['whatsapp'] ?>&text=Olá!%20Tenho%20interesse%20em%20seus%20serviços" target="_blank" title="Chamar no WhatsApp"><i class="info__icon fa-brands fa-whatsapp"></i></a>
+                        <?php
+                          }
+                        ?>
+
+                        <?php
+                          if ($x['facebook']) {
+                        ?>
+                          <a href="https://<?= $x['facebook'] ?>" target="_blank" title="Facebook"><i class="info__icon fa-brands fa-facebook"></i></a>
+                        <?php
+                          }
+                        ?>
+
+                        <?php
+                          if ($x['instagram']) {
+                        ?>
+                          <a href="https://<?= $x['instagram'] ?>" target="_blank" title="Instagram"><i class="info__icon fa-brands fa-instagram"></i></a>
+                        <?php
+                          }
+                        ?>
                       </span>
                     </div>
 
-                    <!-- CELULAR -->
+                    <!-- NÚMERO -->
+                    
+                    <?php
+                      $numero = (isset($x['telefone'])) ? $x['telefone'] : $x['celular'];
+                      $formato = (isset($x['telefone'])) ? "landline" : "mobile-phone";
+                    ?>
+
                     <div class="resultado__phone">
                       <span class="info">
                         <i class="info__icon fa-solid fa-phone"></i>
-                        <a class="info__content" href='tel: +55<?php
-                                                                if ($x['telefone']) {
-                                                                  echo $x['telefone'];
-                                                                } else {
-                                                                  echo $x['celular'];
-                                                                }
-                                                                ?>' title="Ligar" data-format="mobile-phone"><?= $x['celular'] ?></a>
+                        <a class="info__content" href="tel: +55<?= $numero ?>" title="Ligar" data-format="<?= $formato ?>"><?= $numero ?></a>
                       </span>
                     </div>
 
                     <!-- ENDEREÇO -->
-                    <?php
-                    if ($x['idCidade']) {
+                    <div class="resultado__address">
 
+                      <?php
+                        if ($x['idCidade']) {
+                      ?>
 
-                    ?>
-                      <div class="resultado__address">
                         <p class="text-bold"><?= $x['rua'] ?>, <?= $x['numero'] ?></p>
                         <p class="text-sm"><?= $cidadeAnuncianteArray['nome'] ?> - <?= $cidadeAnuncianteArray['estado'] ?></p>
+
+                      <?php
+                        } else {
+                      ?>
+
+                      <div class="info mb-1">
+                        <a class="link-wrapper" href="<?= $x['website'] ?>" target="_blank">
+                          <i class="info__icon fa-solid fa-arrow-up-right-from-square"></i>
+                          <span class="info__title">Visitar website</span>
+                        </a>
                       </div>
-                    <?php
-                    } else {
-                    ?>
-                      <p class="text-bold">Online</p>
-                    <?php
-                    }
-                    ?>
+                      <p class="text-sm">Online</p>
+
+                      <?php
+                      }
+                      ?>
+                    </div>
                   </div>
 
                 <?php
                 }
+
               } else {
 
                 ?>
 
                 <h1 class="section-title text-center">Nenhum resultado encontrado</h1>
-				<p class="subtitle text-center">Verifique se foi digitado corretamente ou tente novamente</p>
+				        <p class="subtitle text-center">Verifique se foi digitado corretamente ou tente novamente</p>
 
               <?php
-              }
+                }
               ?>
               </div>
             </div>

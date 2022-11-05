@@ -48,7 +48,9 @@ if (isset($_POST['ID']) && is_numeric($_POST['ID']) && $_POST['ID'] > 0) {
   <main>
     <section id="edit" class="full-size">
       <div class="container">
-        <h1 class="section-title">Apagar Informações</h1>
+        <p class="mb-6"><a class="link" href="index.php">Voltar</a></p>
+
+        <h1 class="section-title mb-5">Apagar Informações</h1>
 
         <form class="form" action="apagar2.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">

@@ -21,6 +21,7 @@ body {
   flex-direction: column;
   min-width: 100%;
   line-height: 1.6;
+  font-size: 1rem;
   font-family: t.$ff-primary;
   background-color: c.$clr-primary;
   color: c.$fc-primary;
@@ -37,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  line-height: 1.1;
+  line-height: 1.125;
   margin: 0;
 }
 

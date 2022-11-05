@@ -10,6 +10,10 @@ RewriteRule ^(admin)$ /admin [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^a/([0-9a-zA-Z-_\ ]+) /pages/anunciante?anunciante=$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+) /pages/$1 [NC,L]
 
 <Files ~ "^.*\.([Hh][Th][Aa])">

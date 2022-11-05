@@ -22,7 +22,7 @@
             ?>
 
               <div class='destaques__grid-item'>
-                <a href='/anunciante?anunciante=<?= $destaquesrow[$x]["nome"]; ?>' class='link-wrapper'>
+                <a href='/a/<?= $destaquesrow[$x]["nome"]; ?>' class='link-wrapper'>
                   <img src='/assets/img/img-anunciante/<?= $destaquesrow[$x]["imgAnuncioG"]; ?>'
                       alt='<?= $destaquesrow[$x]["nome"]; ?>'
                       title='<?= $destaquesrow[$x]["nome"]; ?>'

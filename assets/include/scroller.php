@@ -23,9 +23,9 @@
             for ($x = 0; $x < 7; $x++) {
             ?>
               <div class='scroller__item'>
-                <a href='/anunciante?anunciante=<?= $mediosrow[$x]["nome"]; ?>' class='link-wrapper' title='<?php echo $mediosrow[$x]["nome"]; ?>'>
+                <a href='/a/<?= $mediosrow[$x]["nome"]; ?>' class='link-wrapper' title='<?php echo $mediosrow[$x]["nome"]; ?>'>
                   <div class="scroller__img-container">
-                    <img src='assets/img/img-anunciante/<?php echo $mediosrow[$x]["imgAnuncioP"]; ?>' alt='<?php echo $mediosrow[$x]["nome"]; ?>' class='display-img no-select' draggable="false" />
+                    <img src='/assets/img/img-anunciante/<?php echo $mediosrow[$x]["imgAnuncioP"]; ?>' alt='<?php echo $mediosrow[$x]["nome"]; ?>' class='display-img no-select' draggable="false" />
                   </div>
                 </a>
               </div>

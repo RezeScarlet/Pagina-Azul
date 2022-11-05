@@ -236,19 +236,20 @@ if (modalOpenButtons && modalCloseButtons) {
 
 
 // --------------------
-// FORMATAR STRINGS
+// FORMATAR NÚMEROS DE TELEFONE
 // --------------------
 
-// Função para formatar strings
-const formatString = (string, format) => {
-    const cleaned = ('' + string).replace(/\D/g, '');
-    let stringFormat = format;
-    let regex;
-
-    if (stringFormat === "mobile-phone") {
+const formatPhoneNumber = (number, format) => {
+    const cleaned = ('' + number).replace(/\D/g, '');
+    let numberFormat = format;
+    let regex;            
+            
+    if (numberFormat === "mobile-phone") {
         regex = /^(\d{2})(\d{5})(\d{4})$/
-    } else { 
-        return string;
+    } else if (numberFormat === "landline") {
+        regex = /^(\d{2})(\d{4})(\d{4})$/
+    } else {
+        return number;
     }
 
     match = cleaned.match(regex);
@@ -256,17 +257,17 @@ const formatString = (string, format) => {
     if (match) {
         return '(' + match[1] + ') ' + match[2] + '-' + match[3]
     }
-
-    return string;
+    
+    return number;
 }
 
 
-const elementsToFormat = select("[data-format]", true);
+const numbersToFormat = select("[data-format]", true);
 
-if (elementsToFormat) {
-    elementsToFormat.forEach((element) => {
-        let formatTo = element.dataset.format;
-        element.innerText = formatString(element.innerText, formatTo);
+if (numbersToFormat) {
+    numbersToFormat.forEach((number) => {
+        let formatTo = number.dataset.format;
+        number.innerText = formatPhoneNumber(number.innerText, formatTo);
     })
 }
 

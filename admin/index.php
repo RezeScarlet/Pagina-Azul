@@ -29,14 +29,20 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
   <main>
     <section class="full-size">
       <div class="container">
-        <h1 class="section-title">Página de Administradores</h1>
-        <p>Registrado como: <?= $_SESSION['nome'] ?></p>
-        <p><a href="/assets/php/logout.php">Sair</a></p>
+        <div class="mb-7">
+          <h1 class="section-title">Página de Administradores</h1>
+          <div class="info mb-2">
+            <i class="info__icon fa-solid fa-user"></i>
+            <span class="info__title">Registrado como: </span>
+            <span class="info__content"><?= $_SESSION['nome'] ?></span>
+          </div>
+          <a class="link" href="/assets/php/logout.php">Sair</a>
+        </div>
 
-        <ul>
-          <li><a href="cadastro.php">Cadastro de Empresa</a></li>
-          <li><a href="editar.php">Atualizar Registro</a></li>
-          <li><a href="apagar.php">Apagar Registro</a></li>
+        <ul class="list-unstyled">
+          <li class="info mb-4"><i class="info__icon mr-3 fa-solid fa-arrow-right"></i><a class="info__title link" href="cadastro.php">Cadastro de empresa</a></li>
+          <li class="info mb-4"><i class="info__icon mr-3 fa-solid fa-arrow-rotate-left"></i><a class="info__title link" href="editar.php">Atualizar registro</a></li>
+          <li class="info mb-4"><i class="info__icon mr-3 fa-solid fa-trash"></i><a class="info__title link" href="apagar.php">Apagar registro</a></li>
         </ul>
 
       </div>

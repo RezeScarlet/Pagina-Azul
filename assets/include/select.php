@@ -1,17 +1,22 @@
  <!-- SELECT -->
- <div class="select" data-select tabindex=0>
+ <div class="select" data-select>
    <div class="select__display">
      <i class="mr-1 fa-solid fa-location-dot"></i>
      <div class="select__text" data-select-text>
        <?php
 
         if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+
           $cidadeSelectedQuery = $conexao->prepare('SELECT nome, estado FROM cidades WHERE nome = "' . $_GET['cidade'] . '"');
           $cidadeSelectedQuery->execute();
           $cidadeArray = $cidadeSelectedQuery->fetch(PDO::FETCH_ASSOC);
+
           echo $cidadeArray['nome'] . ' - ' . $cidadeArray['estado'];
+
         } else {
+
           echo "Selecione a cidade";
+
         }
 
 
@@ -24,7 +29,7 @@
 
    <!-- OPTIONS -->
    <div class="select__options-container">
-     <div class="select__option" data-select-option="" tabindex=0>
+     <div class="select__option" data-select-option="">
        Todas
      </div>
      <?php
@@ -40,7 +45,7 @@
       }
 
        
-       ?>" data-select-option="<?= $cidade['nome'] ?>" tabindex=0><?= $cidade['nome'] ?> - <?= $cidade['estado'] ?> </div>
+       ?>" data-select-option="<?= $cidade['nome'] ?>"><?= $cidade['nome'] ?> - <?= $cidade['estado'] ?> </div>
      <?php
       }
       ?>

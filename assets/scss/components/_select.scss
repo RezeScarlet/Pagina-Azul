@@ -53,7 +53,7 @@
     }
     
     &__text {        
-        width: 100%;
+        max-width: 80%;
         height: 100%;
         border: 0;
         outline: none;
@@ -66,15 +66,6 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-        user-select: none; 
-        -moz-user-select: none; 
-        -webkit-user-select: none;
-        -ms-user-select: none; 
-        -webkit-user-drag: none; 
-
-        @media only screen and (max-width: 365px) {
-            max-width: 200px;
-        }
     }
 
     &__options-container {
@@ -122,7 +113,10 @@
         }
 
         &:hover,
-        &:focus,
+        &:focus {
+            background-color: c.$clr-faded;
+        }
+
         &.active {
             background-color: c.$clr-secondary-100;
             color: c.$fc-secondary;

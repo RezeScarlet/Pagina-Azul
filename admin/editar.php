@@ -58,9 +58,11 @@ table td {
 <main>
   <section id="edit" class="full-size">
     <div class="container">
-      <h1 class="section-title">Editar Informações</h1>
+      <p class="mb-6"><a class="link" href="index.php">Voltar</a></p>
+
+      <h1 class="section-title mb-5">Editar Informações</h1>
       
-      <form class="form" action="editar2.php" method="post" enctype="multipart/form-data">
+      <form class="form mb-7" action="editar2.php" method="post" enctype="multipart/form-data">
         <div class="form__cols">
           <div class="form__group">
             <label class="form__label" for="ID">ID do anunciante</label>
@@ -69,71 +71,72 @@ table td {
       
         </div>
       </form>
-      </div>
+      <?php
+  
+  
+  $userQuery = $conexao->prepare('SELECT * FROM anunciante');
+  $userQuery->execute();
+  $user = $userQuery->fetchAll(PDO::FETCH_ASSOC);
+  
+  ?>
+        <div style="overflow-x: auto">
+          <table class="">
+            <tr>
+              <th class="">ID Anunciante</th>
+              <th class="">nome</th>
+              <th class="">CNPJ</th>
+              <th class="">email</th>
+              <th class="">website</th>
+              <th class="">idPlano</th>
+              <th class="">idCategoria</th>
+              <th class="">descricao</th>
+              <th class="">facebook</th>
+              <th class="">instagram</th>
+              <th class="">whatsapp</th>
+              <th class="">telefone</th>
+              <th class="">celular</th>
+              <th class="">estado</th>
+              <th class="">cidade</th>
+              <th class="">CEP</th>
+              <th class="">bairro</th>
+              <th class="">rua</th>
+              <th class="">numero</th>
+              <th class="">imgAnuncioP</th>
+              <th class="">imgAnuncioG</th>
+            </tr>
+            <?php
+            foreach ($user as $linha) {
+            ?>
+              <tr>
+                <td><?php echo $linha["idAnunciante"] ?></td>
+                            <td><?php echo $linha["nome"] ?></td>
+                            <td><?php echo $linha["CNPJ"] ?></td>
+                            <td><?php echo $linha["email"] ?></td>
+                            <td><?php echo $linha["website"] ?></td>
+                            <td><?php echo $linha["idPlano"] ?></td>
+                            <td><?php echo $linha["idCategoria"] ?></td>
+                            <td><?php echo $linha["descricao"] ?></td>
+                            <td><?php echo $linha["facebook"] ?></td>
+                            <td><?php echo $linha["instagram"] ?></td>
+                            <td><?php echo $linha["whatsapp"] ?></td>
+                            <td><?php echo $linha["telefone"] ?></td>
+                            <td><?php echo $linha["celular"] ?></td>
+                            <td><?php echo $linha["estado"] ?></td>
+                            <td><?php echo $linha["cidade"] ?></td>
+                            <td><?php echo $linha["CEP"] ?></td>
+                            <td><?php echo $linha["bairro"] ?></td>
+                            <td><?php echo $linha["rua"] ?></td>
+                            <td><?php echo $linha["numero"] ?></td>
+                            <td><?php echo $linha["imgAnuncioP"] ?></td>
+                            <td><?php echo $linha["imgAnuncioG"] ?></td>
+              <?php }
+              ?>
+              </tr>
+          </table>
+        </div>
+    </div>
     </section>
 
-      <?php
-
-
-$userQuery = $conexao->prepare('SELECT * FROM anunciante');
-$userQuery->execute();
-$user = $userQuery->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-        <table class="">
-          <tr>
-            <th class="">ID Anunciante</th>
-            <th class="">nome</th>
-            <th class="">CNPJ</th>
-            <th class="">email</th>
-            <th class="">website</th>
-            <th class="">idPlano</th>
-            <th class="">idCategoria</th>
-            <th class="">descricao</th>
-            <th class="">facebook</th>
-            <th class="">instagram</th>
-            <th class="">whatsapp</th>
-            <th class="">telefone</th>
-            <th class="">celular</th>
-            <th class="">estado</th>
-            <th class="">cidade</th>
-            <th class="">CEP</th>
-            <th class="">bairro</th>
-            <th class="">rua</th>
-            <th class="">numero</th>
-            <th class="">imgAnuncioP</th>
-            <th class="">imgAnuncioG</th>
-          </tr>
-          <?php
-          foreach ($user as $linha) {
-          ?>
-            <tr>
-              <td><?php echo $linha["idAnunciante"] ?></td>
-
-                          <td><?php echo $linha["nome"] ?></td>
-                          <td><?php echo $linha["CNPJ"] ?></td>
-                          <td><?php echo $linha["email"] ?></td>
-                          <td><?php echo $linha["website"] ?></td>
-                          <td><?php echo $linha["idPlano"] ?></td>
-                          <td><?php echo $linha["idCategoria"] ?></td>
-                          <td><?php echo $linha["descricao"] ?></td>
-                          <td><?php echo $linha["facebook"] ?></td>
-                          <td><?php echo $linha["instagram"] ?></td>
-                          <td><?php echo $linha["whatsapp"] ?></td>
-                          <td><?php echo $linha["telefone"] ?></td>
-                          <td><?php echo $linha["celular"] ?></td>
-                          <td><?php echo $linha["estado"] ?></td>
-                          <td><?php echo $linha["cidade"] ?></td>
-                          <td><?php echo $linha["CEP"] ?></td>
-                          <td><?php echo $linha["bairro"] ?></td>
-                          <td><?php echo $linha["rua"] ?></td>
-                          <td><?php echo $linha["numero"] ?></td>
-                          <td><?php echo $linha["imgAnuncioP"] ?></td>
-                          <td><?php echo $linha["imgAnuncioG"] ?></td>
-            <?php }
-            ?>
-            </tr>
-        </table>
 
 
         </main>

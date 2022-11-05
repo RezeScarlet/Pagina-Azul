@@ -35,23 +35,23 @@
             </div>
 
             <ul class="card__list">
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Registro no site</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Página própria</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item negative">
+              <li class="card__list-item--negative">
                 <span>Prioridade em resultados de buscas</span>
                 <i class="fa-solid fa-xmark"></i>
               </li>
-              <li class="card__list-item negative">
+              <li class="card__list-item--negative">
                 <span>Presença no carrossel de imagens</span>
                 <i class="fa-solid fa-xmark"></i>
               </li>
-              <li class="card__list-item negative">
+              <li class="card__list-item--negative">
                 <span>Presença na página inicial</span>
                 <i class="fa-solid fa-xmark"></i>
               </li>
@@ -70,23 +70,23 @@
             </div>
 
             <ul class="card__list">
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Registro no site</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Página própria</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Prioridade em resultados de buscas</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Presença no carrossel de imagens</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item negative">
+              <li class="card__list-item--negative">
                 <span>Presença na página inicial</span>
                 <i class="fa-solid fa-xmark"></i>
               </li>
@@ -105,23 +105,23 @@
             </div>
 
             <ul class="card__list">
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Registro no site</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Página própria</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Prioridade em resultados de buscas</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Presença no carrossel de imagens</span>
                 <i class="fa-solid fa-check"></i>
               </li>
-              <li class="card__list-item positive">
+              <li class="card__list-item--positive">
                 <span>Presença na página inicial</span>
                 <i class="fa-solid fa-check"></i>
               </li>

@@ -39,7 +39,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
   <main>
     <section id="signup" class="full-size">
       <div class="container">
-        <h1 class="section-title">Editar Informações</h1>
+        <p class="mb-6"><a class="link" href="index.php">Voltar</a></p>
+
+        <h1 class="section-title mb-5">Editar Informações</h1>
         <form class="form" action="signup.php" method="post" enctype="multipart/form-data">
           <div class="form__cols">
 

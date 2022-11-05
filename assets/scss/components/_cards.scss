@@ -88,13 +88,21 @@
             display: flex;
             gap: 1.15rem;
 
-            &.positive {
+            i {
+                font-size: 1.1rem;
+            }
+
+            &--positive {
+                @extend .card__list-item;
+
                 i {
                     color: hsl(204, 56%, 47%);
                 }
             }
 
-            &.negative {
+            &--negative {
+                @extend .card__list-item;
+
                 i {
                     color: hsl(0, 82%, 70%);
                 }
