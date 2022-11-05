@@ -29,8 +29,8 @@
 
    <!-- OPTIONS -->
    <div class="select__options-container">
-     <div class="select__option" data-select-option="">
-       Todas
+     <div class="select__option text-sm text-bold" data-select-option="">
+       Todas e Online
      </div>
      <?php
       $cidadesQuery = $conexao->prepare('SELECT * FROM cidades');

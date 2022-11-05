@@ -44,8 +44,9 @@
           <div class="search__wrapper">
             <form action="/busca" method="get" class="search__form" id="search-form">
 
+              <!-- SELECT -->
               <?php
-              include_once $_SERVER['DOCUMENT_ROOT'] . "/assets/include/select.php";
+                include_once $_SERVER['DOCUMENT_ROOT'] . "/assets/include/select.php";
               ?>
 
               <!-- SEARCH BAR -->
@@ -156,6 +157,8 @@
                     <!-- REDES SOCIAIS -->
                     <div class="resultado__social">
                       <span class="info">
+
+                        <!-- WHATSAPP -->
                         <?php
                           if ($x['whatsapp']) {
                         ?>
@@ -164,6 +167,7 @@
                           }
                         ?>
 
+                        <!-- FACEBOOK -->
                         <?php
                           if ($x['facebook']) {
                         ?>
@@ -172,6 +176,7 @@
                           }
                         ?>
 
+                        <!-- INSTAGRAM -->
                         <?php
                           if ($x['instagram']) {
                         ?>
@@ -182,8 +187,7 @@
                       </span>
                     </div>
 
-                    <!-- NÚMERO -->
-                    
+                    <!-- TELEFONE/CELULAR -->
                     <?php
                       $numero = (isset($x['telefone'])) ? $x['telefone'] : $x['celular'];
                       $formato = (isset($x['telefone'])) ? "landline" : "mobile-phone";
@@ -231,6 +235,7 @@
 
                 ?>
 
+                <!-- SEM RESULTADOS -->
                 <h1 class="section-title text-center">Nenhum resultado encontrado</h1>
 				        <p class="subtitle text-center">Verifique se foi digitado corretamente ou tente novamente</p>
 

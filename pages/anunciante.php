@@ -64,7 +64,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
           <div class="anunciante__header">
             <!-- CATEGORIA DO ANUNCIANTE -->
-            <a href="busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
+            <a href="/busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
               <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
             </a>
 
