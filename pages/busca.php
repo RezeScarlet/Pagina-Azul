@@ -80,7 +80,7 @@
 
               if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
 
-              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
+                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
 
               } else {
 
@@ -112,7 +112,7 @@
         ?>
 
           <?php
-          if ($resultArray) {
+            if ($resultArray) {
           ?>
 
             <!-- RESULTADOS -->
