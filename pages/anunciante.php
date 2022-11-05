@@ -193,7 +193,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
             ?>
               <div class="anunciante__address">
                 <h2 class="subsection-title underlined">Endereço</h2>
-                <div class="anunciante__address-wrapper">
+                <div class="anunciante__address-wrapper info">
                   <i class="info__icon mt-2 fa-solid fa-location-dot"></i>
 
                   <div>

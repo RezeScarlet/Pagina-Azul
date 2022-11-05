@@ -149,7 +149,7 @@
                     <!-- LINK, IMAGEM E NOME -->
                     <a href='/a/<?= $x['nome'] ?>'>
                       <div class="resultado__header">
-                        <img class="resultado__img" src="/assets/img/img-anunciante/<?= $x['imgAnuncioP'] ?>" alt="aaaa">
+                        <img class="resultado__img" src="/assets/img/img-anunciante/<?= $x['imgAnuncioP'] ?>">
                         <p class="resultado__title"><?= $x['nome'] ?></p>
                       </div>
                     </a>

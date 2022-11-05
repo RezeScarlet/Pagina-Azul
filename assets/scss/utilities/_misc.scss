@@ -1,0 +1,30 @@
+
+.text-center {
+  text-align: center;
+}
+  
+.text-sm {
+  font-size: 0.9rem;
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.leading-sm {
+  line-height: 1.125;
+}
+
+.list-unstyled {
+  list-style: none;
+}
+
+.no-select {
+  user-select: none; 
+  -moz-user-select: none; 
+  -webkit-user-select: none;
+  -ms-user-select: none; 
+  -webkit-user-drag: none; 
+}
+
+

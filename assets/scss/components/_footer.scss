@@ -7,24 +7,34 @@
   margin-top: auto;
   background-color: c.$clr-secondary-200;
   color: c.$fc-secondary;
-  font-size: 0.9rem;
+  font-size: 0.925rem;
   
+
+  // --------------------
+  // WRAPPER
+  // --------------------
   &__wrapper {
     display: grid;
     gap: 3rem;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
-
-    @media only screen and (min-width: 470px) and (max-width: 800px) {
+    
+    @media only screen and (min-width: 550px) and (max-width: 1000px) {
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       justify-items: center;
     }
-
-    @media only screen and (min-width: 800px) {
-      grid-template-columns: repeat(3, 1fr);
+    
+    @media only screen and (min-width: 1000px) {
+      grid-template-columns: auto 1fr 1fr;
+      justify-content: center;
     }
   }
+  
+  
+  // --------------------
+  // LOGO AND LIST
+  // --------------------
 
   &__logo {
     width: 200px;
@@ -37,26 +47,87 @@
     margin-top: 1rem;
   }
 
-  &__btns {
-    display: flex;
-    flex-direction: column;
+  
+  // --------------------
+  // INFO SECTION
+  // --------------------
+
+  &__infos {
+    display: grid;
     gap: 1rem;
+    align-items: center;
 
-    div:first-of-type {
-      margin-bottom: 0.75rem;
-    }
-
-    p {
-      margin-bottom: 0.75rem;
+    @media only screen and (min-width: 1000px) {
+      justify-content: center;
     }
   }
 
-  &__contato {
-    width: min(400px, 100%);
+  &__info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-transform: uppercase;
+    word-break: break-all;
 
-    @media only screen and (min-width: 470px) and (max-width: 800px) {
+    svg {
+      width: 25px;
+      height: 25px;
+      fill: currentColor;
+    }
+  }
+
+  
+  // --------------------
+  // SOCIAL
+  // --------------------
+
+  &__social {
+    display: flex;
+    flex-wrap: wrap;  
+    justify-content: center;
+    align-self: center;
+    gap: 2rem;
+  }
+
+  &__social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: r.$radius-circle;
+    width: 40px;
+    height: 40px;
+    background-color: c.$clr-primary;
+    transition: 50ms ease-in;
+    
+    svg {
+      fill: c.$clr-primary;
+      object-fit: scale-down;
+      width: 25px;
+      height: 25px;
+      transition: 50ms ease-in;
+      fill: c.$clr-secondary-200;
+    }
+
+    &:hover,
+    a:focus > & {
+      background-color: transparent;
+
+      svg {
+        fill: currentColor;
+      }
+    }
+    
+  }
+  
+
+  // --------------------
+  // CONTACT FORM
+  // --------------------
+
+  &__contact {
+    @media only screen and (min-width: 550px) and (max-width: 1000px) {
       grid-column: span 2;
-      justify-self: center;
+      width: 80%;
     }
   }
   
@@ -64,7 +135,6 @@
     display: grid;
     gap: 0.5rem;
     
-
     input, 
     textarea {
       padding: 0.25em 0.5em;
@@ -80,6 +150,11 @@
   }
 }
 
+
+// --------------------
+// COPYRIGHT
+// --------------------
+
 .copyright {
   text-align: center;
   font-size: 0.9rem;
@@ -87,4 +162,3 @@
   border-top: 1px solid hsl(0, 0%, 77%);
   color: hsl(0, 0%, 77%);
 }
-

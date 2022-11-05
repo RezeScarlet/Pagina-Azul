@@ -4,20 +4,30 @@
 
 
 .info {
+    --info-accent-color: #{c.$fc-accent};
+    --info-content-color: #{c.$fc-primary};
     position: relative;
 
+    &--light {
+        @extend .info;
+        --info-accent-color: #{c.$fc-secondary};
+        --info-content-color: #{c.$fc-secondary};
+    }
+    
     &__icon {
-        color: c.$fc-accent;
+        color: var(--info-accent-color);
         margin-right: 0.3rem;
     }
-
+    
     &__title {
-        color: c.$fc-accent;
+        color: var(--info-accent-color);
         font-weight: 500;
         margin-right: 0.25rem;
     }    
-
+    
     &__content {
         position: relative;
+        color: var(--info-content-color);
     }
+
 }
