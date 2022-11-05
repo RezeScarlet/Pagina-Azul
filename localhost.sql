@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 01-Nov-2022 às 14:50
+-- Generation Time: 05-Nov-2022 às 23:42
 -- Versão do servidor: 5.6.34
 -- PHP Version: 5.6.32
 
@@ -45,7 +45,8 @@ CREATE TABLE `administradores` (
 INSERT INTO `administradores` (`idAdmin`, `nome`, `senha`) VALUES
 (1, 'guilherme', '$2y$10$bdXjw14Xjx/rJiFhsHd06uwRU3wM0hW5oKWrYsvm22an0UrpoQqIe'),
 (2, 'thiago', '$2y$10$bdXjw14Xjx/rJiFhsHd06uwRU3wM0hW5oKWrYsvm22an0UrpoQqIe'),
-(3, 'matheus', '$2y$10$bdXjw14Xjx/rJiFhsHd06uwRU3wM0hW5oKWrYsvm22a...\r\n');
+(3, 'matheus', '$2y$10$bdXjw14Xjx/rJiFhsHd06uwRU3wM0hW5oKWrYsvm22an0UrpoQqIe'),
+(4, 'guif', '$2y$10$bdXjw14Xjx/rJiFhsHd06uwRU3wM0hW5oKWrYsvm22an0UrpoQqIe');
 
 -- --------------------------------------------------------
 
@@ -70,8 +71,8 @@ CREATE TABLE `anunciante` (
   `whatsapp` varchar(15) DEFAULT NULL,
   `idCidade` int(11) DEFAULT NULL,
   `CEP` char(9) DEFAULT NULL,
-  `bairro` varchar(20) DEFAULT NULL,
-  `rua` varchar(30) DEFAULT NULL,
+  `bairro` varchar(1000) DEFAULT NULL,
+  `rua` varchar(1000) DEFAULT NULL,
   `numero` varchar(3) DEFAULT NULL,
   `imgAnuncioP` varchar(50) NOT NULL,
   `imgAnuncioG` varchar(50) NOT NULL
@@ -82,17 +83,17 @@ CREATE TABLE `anunciante` (
 --
 
 INSERT INTO `anunciante` (`idAnunciante`, `nome`, `CNPJ`, `email`, `website`, `descricao`, `idPlano`, `idCategoria`, `facebook`, `instagram`, `telefone`, `celular`, `whatsapp`, `idCidade`, `CEP`, `bairro`, `rua`, `numero`, `imgAnuncioP`, `imgAnuncioG`) VALUES
-(1, 'DJ BOOMKITTY', '01.778.130/1000-48', 'djboomkitty@gmail.com', NULL, 'DJ BOOMKITTY, o maior e melhor DJ da região. Agendamos festas e eventos. Com mais de 15 anos de trabalho, somos especializados em som e iluminação. Contate-nos para um momento inesquecível. § festa dj música evento ', 3, 14, 'facebook.com/DJBOOMKITTY', 'instagram.com/DJBOOMKITTY', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'djboomkittyP.png', 'djboomkitty.png'),
-(2, 'Fire Design', '02.778.130/2000-48', 'contato@firedesign.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 1, 15, 'facebook.com/firedesign', 'instagram.com/firedesign', '1936752857', '19992298435', '19992298435', 2, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'firedesignP.png', 'firedesign.png'),
-(3, 'Ghost Dash', '03.778.130/3000-48', 'ghostdash@gmail.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 1, 'facebook.com/ghostdash', 'instagram.com/ghostdash', '1936752857', '19992298435', '19992298435', 3, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'ghostdashP.png', 'ghostdash.png'),
-(4, 'Hill Top Co-op', '04.778.130/0001-48', 'sac@hilltopcoop.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 1, 'facebook.com/hilltopcoop', 'instagram.com/hilltopcoop', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'hilltopcoopP.png', 'hilltopcoop.png'),
-(5, 'Museum', '05.778.130/0001-48', 'museum@outlook.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 1, 2, 'facebook.com/museum', 'instagram.com/museum', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'museumP.png', 'museum.png'),
-(6, 'Orland Groves', '06.778.130/0001-48', 'orlandgroves@gmail.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 2, 'facebook.com/orlandgroves', 'instagram.com/orlandgroves', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'orlandgrovesP.png', 'orlandgroves.png'),
-(7, 'Ryan Keller Pharmacy', '07.778.130/0001-48', 'sac@ryankeller.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 3, 'facebook.com/ryankellerpharmacy', 'instagram.com/ryankellerpharmacy', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'ryankellerpharmacyP.png', 'ryankellerpharmacy.png'),
-(8, 'The Atomic Club', '08.778.130/0001-48', 'atomiclub@hotmail.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2, 5, 'facebook.com/theatomicclub', 'instagram.com/theatomicclub', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'theatomicclubP.png', 'theatomicclub.png'),
-(9, 'Uncle Louies Pizzeria', '09.778.130/0001-48', 'unclelouiespizza@gmail.com', NULL, 'Nós da Pizzaria Uncle Louies fazemos as melhores pizzas de Mococa e região. As pizzas são feitas a mão pelos nosso melhores chefes e assadas no forno a lenha. Está com fome? Então venha nos conhecer. § pizza pizzaria restaurante comida alimentação alimento ', 3, 1, 'facebook.com/unclelouiespizzeria', 'instagram.com/unclelouiespizzeria', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png'),
-(10, 'Yurt', '10.778.130/0001-48', 'sac@yurt.com', NULL, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 3, 1, 'facebook.com/yurt', 'instagram.com/yurt', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'yurtP.png', 'yurt.png'),
-(11, 'Ponto Barato', NULL, 'arthurrafaeltcc00@gmail.com', 'http://rafael.projetosfreelancer.com.br', 'O Ponto Barato é um E-Commerce com os preços mais acessíveis possíveis do mercado. Fazemos isso trabalhando com fornecedores nacionais de extrema confiança que trabalham com os melhores materiais usados hoje em dia em peças de vestuário. Venha conhecer nosso site! § moda calçado camisetas camisas ténis jaqueta roupa estilo look ', 3, 7, NULL, 'instagram.com/rafael_henriquee2004', NULL, '35997733094', '35997733094', NULL, NULL, NULL, NULL, NULL, 'pontobaratoP.png', 'pontobarato.png'),
+(1, 'DJ BOOMKITTY', '01.778.130/1000-48', 'djboomkitty@gmail.com', 'https://djboomkitty.com.br', 'DJ BOOMKITTY, o maior e melhor DJ da região. Agendamos festas e eventos. Com mais de 15 anos de trabalho, somos especializados em som e iluminação. Contate-nos para um momento inesquecível. § festa dj música evento ', 3, 14, 'facebook.com/DJBOOMKITTY', 'instagram.com/DJBOOMKITTY', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Descanso', 'Rua Nicolau Paione', '403', 'djboomkittyP.png', 'djboomkitty.png'),
+(2, 'Fire Design', '02.778.130/2000-48', 'contato@firedesign.com', 'https://firedesign.com.br', 'Atuamos no mercado a mais de 15 anos. Nosso objetivo é simplificar e tornar acessível o aspecto digital do Marketing através do design. Contate-nos se deseja renovar o visual de sua marca com planos em conta, ou se preferir, aprender mais sobre o mundo do desenho industrial.', 1, 15, 'facebook.com/firedesign', 'instagram.com/firedesign', '1936752857', '19992298435', '19992298435', 2, '6789-635', 'Jardim Renascer', 'Avenida Gerson Pereira de Souza', '34', 'firedesignP.png', 'firedesign.png'),
+(3, 'Ghost Dash', '03.778.130/3000-48', 'ghostdash@gmail.com', NULL, 'Parque temático de terror no centro de Mococa. Apavore-se com atrações de arrepiar os cabelos: mais de 12 brinquedos para viver um outubro como nenhum outro. Entradas a partir de R$40,00. § susto Halloween assustador medo horror', 2, 14, 'facebook.com/ghostdash', 'instagram.com/ghostdash', '1936752857', '19992298435', '19992298435', 3, '6789-635', 'Centro', 'Rua Afonso Pena', '247', 'ghostdashP.png', 'ghostdash.png'),
+(4, 'Hill Top Co-op', '04.778.130/0001-48', 'sac@hilltopcoop.com', 'https://hilltopcoop.com.br', 'A Hill Top Co-op trabalha com alimentos frescos e naturais, sem conservantes e agrotóxicos. Prezamos pela alimentação saudável da população brasileira e atuamos em diversas fazendas da região para garantir a saúde de sua família. § cenoura comida', 2, 1, 'facebook.com/hilltopcoop', 'instagram.com/hilltopcoop', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Jardim São Francisco', 'Rua Adolfo Fernandes Pinheiro', '45', 'hilltopcoopP.png', 'hilltopcoop.png'),
+(5, 'Museum', '05.778.130/0001-48', 'museum@outlook.com', 'http://museum.org.br', 'O novo museu de conservação histórica da cidade de Mococa apresenta exposições sobre a época do café com leite e grandes barões do café. Agende sua visita em nosso site e experiencie uma viagem ao passado. § exposição', 1, 2, 'facebook.com/museum', 'instagram.com/museum', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Centro', 'Rua Alferes Pedrosa', '89', 'museumP.png', 'museum.png'),
+(6, 'Orland Groves', '06.778.130/0001-48', 'orlandgroves@gmail.com', 'https://orlandgroves.net', 'Lanchonete tradicional da cidade, fundada em 1964, tem como principal item do cardápio as deliciosas sobremesas de laranja, mas também sucos e batidas, além de tudo que uma lanchonete tradicional oferece. Venha conhecer e se refrescar com a tradição cítrica de Mococa! § restaurante limonada refresco refrescos suco bebida bebidas comida', 2, 1, 'facebook.com/orlandgroves', 'instagram.com/orlandgroves', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Jardim São Domingos', 'Rua Adalberto S. Figueiredo', '112', 'orlandgrovesP.png', 'orlandgroves.png'),
+(7, 'Ryan Keller Pharmacy', '07.778.130/0001-48', 'sac@ryankeller.com', 'https://ryankellerpharmacy.com.br', 'Rede de farmácias com maior qualidade e melhores preços da cidade. Criada em 2015 por profissionais com experiência em drogarias, com a missão de levar saúde e bem-estar à população, em um ambiente acolhedor e com atendimento profissional. § remédio remédios drogaria farmácia genéricos ', 2, 3, 'facebook.com/ryankellerpharmacy', 'instagram.com/ryankellerpharmacy', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Jardim Riachuelo', 'Rua Agustinho Baptistela', '306', 'ryankellerpharmacyP.png', 'ryankellerpharmacy.png'),
+(8, 'The Atomic Club', '08.778.130/0001-48', 'atomiclub@hotmail.com', 'https://atomiclub.net', 'A The Atomic Club atua no segmento imobiliário, especializada na compra e venda, aluguel, financiamento, loteamentos e lançamentos imobiliários, e ainda, imóveis rurais e lazer. § casa casas terrenos ', 2, 5, 'facebook.com/theatomicclub', 'instagram.com/theatomicclub', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Loteamento Pôr do Sol I', 'Rua Antônio Felippe Nery', '5', 'theatomicclubP.png', 'theatomicclub.png'),
+(9, 'Uncle Louies Pizzeria', '09.778.130/0001-48', 'unclelouiespizza@gmail.com', NULL, 'Nós da Pizzaria Uncle Louies preparamos as melhores pizzas de Mococa e região. As pizzas são feitas a mão pelos nosso melhores chefes e assadas no forno a lenha. Está com fome? Então venha nos conhecer. § pizza pizzaria restaurante comida alimentação alimento ', 3, 1, 'facebook.com/unclelouiespizzeria', 'instagram.com/unclelouiespizzeria', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Conjunto Habitacional Gilberto Rossetti', 'Rua Mariano Niero', '81', 'unclelouiespizzeriaP.png', 'unclelouiespizzeria.png'),
+(10, 'Yurt', '10.778.130/0001-48', 'sac@yurt.com', 'https://yurt.com.br', 'Trabalhamos com laticínios em toda região. Sediados em Mococa, nos destacamos na produção de leite e derivados, mas principalmente nosso delicioso iogurte, vencedor de diversos prêmios nacionais e internacionais. Venha conferir nossos produtos! § danone queijo yogurt yoghurt bebidas láctea comida', 3, 1, 'facebook.com/yurt', 'instagram.com/yurt', '1936752857', '19992298435', '19992298435', 1, '6789-635', 'Distrito Industrial II', 'Rua Algemiro Lopes', '158', 'yurtP.png', 'yurt.png'),
+(11, 'Ponto Barato', NULL, 'arthurrafaeltcc00@gmail.com', 'http://rafael.projetosfreelancer.com.br', 'O Ponto Barato é um E-Commerce com os preços mais acessíveis possíveis do mercado. Fazemos isso trabalhando com fornecedores nacionais de extrema confiança que trabalham com os melhores materiais usados hoje em dia em peças de vestuário. Venha conhecer nosso site! § moda calçado camisetas camisas tênis jaqueta roupa estilo look ', 3, 7, NULL, 'instagram.com/rafael_henriquee2004', NULL, '35997733094', '35997733094', NULL, NULL, NULL, NULL, NULL, 'pontobaratoP.png', 'pontobarato.png'),
 (12, 'Amigos Caridosos', NULL, 'amigoscaridososs@gmail.com', 'http://amigoscaridosos.projetosetim.com.br', 'A Amigos Caridosos é uma plataforma de doações online, cujo proposito é ajudar pessoas carentes e que necessitam de ajuda por meio de parcerias com instituições filantrópicas, arrecadando recursos para doar de forma prática e eficiente. § ONG caridade doação doar org instituição doações instituições', 3, 13, NULL, NULL, '1936560052', '00000000000', '00000000000', NULL, NULL, NULL, NULL, NULL, 'amigoscaridososP.png', 'amigoscaridosos.png'),
 (13, 'Medic On', NULL, 'a@a', NULL, ' § medicina medico saúde terapia ', 3, 3, NULL, NULL, NULL, '00000000000', '00000000000', NULL, NULL, NULL, NULL, NULL, 'mediconP.png', 'medicon.png'),
 (15, 'Rota 66', NULL, 'rota66@teste.com.br', 'http://rota66.projetosetim.com.br', ' § roupa moda camiseta calça loja manto esportiva acessórios bermudas shorts futebol ', 3, 7, NULL, NULL, NULL, '00000000000', '00000000000', NULL, NULL, NULL, NULL, NULL, 'rota66P.png', 'rota66.png'),
@@ -223,19 +224,19 @@ ALTER TABLE `planos`
 -- AUTO_INCREMENT for table `administradores`
 --
 ALTER TABLE `administradores`
-  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idAdmin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `anunciante`
 --
 ALTER TABLE `anunciante`
-  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idAnunciante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `cidades`
