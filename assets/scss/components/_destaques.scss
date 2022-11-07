@@ -1,4 +1,5 @@
 
+@use "../abstracts/colors" as c;
 @use "../abstracts/radius" as r;
 
 
@@ -17,6 +18,23 @@
   &__grid-item {
     position: relative;
     border-radius: r.$radius-1;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    opacity: 0.8;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    transition: 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
   }
 }
 

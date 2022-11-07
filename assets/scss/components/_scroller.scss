@@ -35,11 +35,29 @@
   }
 
   &__item {
+    position: relative;
     scroll-snap-align: start;
     border-radius: r.$radius-1;
-    
+
     @media only screen and (max-width: 550px) {
       scroll-snap-align: center; 
+    }
+  }
+  
+  &__icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    width: 29px;
+    height: 29px;
+    opacity: 0.8;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    transition: 200ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
     }
   }
 

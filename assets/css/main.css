@@ -741,6 +741,20 @@ header .nav__search-bar {
   position: relative;
   border-radius: 5px;
 }
+.destaques__icon {
+  position: absolute;
+  top: 15px;
+  right: 13px;
+  z-index: 3;
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  transition: 200ms ease-in-out;
+}
+.destaques__icon:hover, .destaques__icon:focus {
+  transform: scale(1.1);
+}
 
 .slider {
   position: relative;
@@ -775,6 +789,7 @@ header .nav__search-bar {
   }
 }
 .scroller__item {
+  position: relative;
   scroll-snap-align: start;
   border-radius: 5px;
 }
@@ -782,6 +797,20 @@ header .nav__search-bar {
   .scroller__item {
     scroll-snap-align: center;
   }
+}
+.scroller__icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 29px;
+  height: 29px;
+  opacity: 0.8;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  transition: 200ms ease-in-out;
+}
+.scroller__icon:hover, .scroller__icon:focus {
+  transform: scale(1.1);
 }
 @supports (scrollbar-width: thin) {
   .scroller, .scroller--sm {
