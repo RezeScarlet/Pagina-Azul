@@ -220,7 +220,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
         <!-- SCROLLER -->
         <div class="medios" id="medios">
-          <h1 class="section-title mb-4">Veja também</h1>
+          <h1 class="section-title mb-4">Veja Também</h1>
           <?php
 
           include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/scroller.php';

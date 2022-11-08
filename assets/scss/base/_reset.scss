@@ -21,10 +21,13 @@ body {
   flex-direction: column;
   min-width: 100%;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 100%;
   font-family: t.$ff-primary;
   background-color: c.$clr-primary;
   color: c.$fc-primary;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 
   &.mobile-nav-opened,
   &.modal-opened {
