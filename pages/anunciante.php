@@ -2,12 +2,15 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
 
+
+// PROCURA PELO ANUNCIANTE
 $anunciante = $_GET['anunciante'];
 
-$paginaQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome = '$anunciante'");
+$paginaQuery = $conexao->prepare("SELECT * FROM anunciante WHERE slug = '$anunciante'");
 $paginaQuery->execute();
 $paginaInfo = $paginaQuery->fetch(PDO::FETCH_ASSOC);
 
+// TIRA TAGS DA DESCRIÇÃO
 if (strpos($paginaInfo['descricao'], "§")) {
 
   $descricao = substr($paginaInfo['descricao'], 0, strpos($paginaInfo['descricao'], "§"));
@@ -18,6 +21,7 @@ if (strpos($paginaInfo['descricao'], "§")) {
   
 }
 
+// PROCURA PELA CIDADE
 if ($paginaInfo['idCidade']){
 
   $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE idCidade = ". $paginaInfo['idCidade']);
@@ -26,9 +30,24 @@ if ($paginaInfo['idCidade']){
 
 }
 
+// PROCURA PELA CATEGORIA
 $categoriaQuery = $conexao->prepare("SELECT nome, icone FROM categorias WHERE idCategoria = ". $paginaInfo['idCategoria']);
 $categoriaQuery->execute();
 $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
+
+// PEGA URL DA PÁGINA 
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+
+  $url = "https://";   
+
+} else {
+
+  $url = "http://";   
+
+}   
+
+$url.= $_SERVER['HTTP_HOST'];   
+$url.= $_SERVER['REQUEST_URI'];   
 
 ?>
 
@@ -39,6 +58,9 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="<?= $paginaInfo['nome'] ?> | Página Azul" />
+  <meta property="og:image" content="http://paginaazul.epizy.com/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" />
+  <meta property=”og:description” content="<?= $descricao ?>" />
   <title><?= $paginaInfo['nome'] ?> | Página Azul</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
@@ -56,24 +78,30 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
   include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/header.html';
   ?>
 
-  <main>
+  <main id="main">
     <section class="full-size">
       <div class="container--sm">
 
         <div class="anunciante">
 
-          <div class="anunciante__header">
-            <!-- CATEGORIA DO ANUNCIANTE -->
-            <a href="/busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
-              <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
-            </a>
-
-            <!-- NOME DO ANUNCIANTE -->
-            <h1 class="section-title"><?= $paginaInfo['nome'] ?></h1>
-          </div>
-
+          
           <div class="anunciante__wrapper">
-            <div>
+            <div class="anunciante__header">
+              <!-- CATEGORIA DO ANUNCIANTE -->
+              <a href="/busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
+                <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
+              </a>
+  
+              <!-- NOME DO ANUNCIANTE -->
+              <h1 class="section-title"><?= $paginaInfo['nome'] ?></h1>
+
+              <!-- BOTÃO DE COMPARTILHAMENTO -->
+              <button type="button" id="share-btn" title="Compartilhar">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
+
+            <div class="anunciante__img-site">
               <!-- IMAGEM DO ANUNCIANTE -->
               <img class="display-img" src="/assets/img/img-anunciante/<?= $paginaInfo['imgAnuncioG'] ?>" alt="<?= $paginaInfo['nome'] ?>">
 
@@ -136,7 +164,7 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
                   <!-- WHATSAPP -->
                   <?php
-                  if ($paginaInfo['whatsapp']) {
+                  if ($paginaInfo['whatsapp']) { 
                   ?>
                     <li>
                       <a class="icon-wrapper--sm icon-wrapper--whatsapp" href="https://api.whatsapp.com/send?phone=55<?= $paginaInfo['whatsapp'] ?>&text=Olá!%20Tenho%20interesse%20em%20seus%20serviços" title="Chamar no WhatsApp" target="_blank">
@@ -231,6 +259,46 @@ $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
       </div>
     </section>
   </main>
+
+  <!-- OPÇÕES DE COMPARTILHAMENTO -->
+  <div class="modal" id="share-options">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2 class="subsection-title mb-1">Compartilhar</h2>
+        <button type="button" class="modal__close-btn" data-modal-close><i>&#10005;</i></button>
+      </div>
+      <div class="modal__body">
+        <div class="share mt-4">
+          <ul class="share__list list-unstyled">
+            <li class="share__item">
+              <button data-copy-to-clipboard>
+                <i class="fa-regular fa-copy"></i>
+                <span>Copiar link</span>
+              </button>
+            </li>
+            <li class="share__item">
+              <a href="https://api.whatsapp.com/send?text=<?= $url ?>" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>WhatsApp</span>
+              </a>
+            </li>
+            <li class="share__item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?= $url ?>" target="_blank">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li class="share__item">
+              <a href="https://twitter.com/intent/tweet?text=<?= $url ?>" target="_blank">
+                <i class="fa-brands fa-twitter"></i>
+                <span>Twitter</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <a href="#" class="back-to-top">
     <i class="fa-solid fa-arrow-up"></i>

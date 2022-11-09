@@ -7,7 +7,7 @@
             <?php
 
             // Faz o SELECT no BD e executa
-            $mediosQuery = $conexao->prepare("SELECT nome, imgAnuncioP, idCategoria FROM anunciante WHERE idPlano >= 2");
+            $mediosQuery = $conexao->prepare("SELECT nome, slug, imgAnuncioP, idCategoria FROM anunciante WHERE idPlano >= 2");
             $mediosQuery->execute();
 
             // Looping para adicionar cada anuncio a um só array
@@ -27,7 +27,7 @@
 
             ?>
               <div class='scroller__item'>
-                <a href='/a/<?= $mediosrow[$x]["nome"]; ?>' class='link-wrapper' title='<?php echo $mediosrow[$x]["nome"]; ?>'>
+                <a href='/a/<?= $mediosrow[$x]["slug"]; ?>' class='link-wrapper' title='<?php echo $mediosrow[$x]["nome"]; ?>'>
                   <div class="scroller__img-container">
                     <img src='/assets/img/img-anunciante/<?php echo $mediosrow[$x]["imgAnuncioP"]; ?>' alt='<?php echo $mediosrow[$x]["nome"]; ?>' class='display-img no-select' draggable="false" />
                   </div>

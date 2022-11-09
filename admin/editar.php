@@ -55,7 +55,7 @@ table td {
   include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/header.html';
   ?>
 
-<main>
+<main id="main">
   <section id="edit" class="full-size">
     <div class="container">
       <p class="mb-6"><a class="link" href="index.php">Voltar</a></p>

@@ -1,4 +1,4 @@
- <!-- SELECT -->
+
  <div class="select" data-select>
    <div class="select__display">
      <i class="mr-1 fa-solid fa-location-dot"></i>

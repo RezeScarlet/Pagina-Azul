@@ -26,7 +26,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
   include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/header.html';
   ?>
 
-  <main>
+  <main id="main">
     <section class="full-size">
       <div class="container">
         <div class="mb-7">

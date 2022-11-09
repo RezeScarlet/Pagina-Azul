@@ -169,8 +169,8 @@ if (sliders) {
             e.preventDefault();
 
             const x = e.pageX - scroller.offsetLeft;
-            const movimento = x - startX;
-            scroller.scrollLeft = scrollLeft - movimento;
+            const movement = x - startX;
+            scroller.scrollLeft = scrollLeft - movement;
         })
     })
 }
@@ -198,7 +198,6 @@ if (backToTopBtn) {
 
 
 
-
 // --------------------
 // ABRIR E FECHAR MODALS
 // --------------------
@@ -206,20 +205,24 @@ if (backToTopBtn) {
 const modalOpenButtons = select("[data-modal-target]", true);
 const modalCloseButtons = select("[data-modal-close]", true);
 
-if (modalOpenButtons && modalCloseButtons) {
+// Tornar Modal ativo
+const toggleModal = (modal) => {
+    modal.classList.toggle("active");
+    document.body.classList.toggle("modal-opened");
+}
+
+if (modalOpenButtons || modalCloseButtons) {
     modalOpenButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const target = select(button.dataset.modalTarget);
-            active(target);
-            document.body.classList.toggle("modal-opened");
+            toggleModal(target);
         })
     })
     
     modalCloseButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const target = button.closest(".modal");
-            notActive(target);
-            document.body.classList.remove("modal-opened");
+            toggleModal(target);
         })
     })
     
@@ -227,11 +230,48 @@ if (modalOpenButtons && modalCloseButtons) {
         let target = e.target;
     
         if (target.classList.contains("modal")) {
-            notActive(target);
-            document.body.classList.remove("modal-opened");
+            toggleModal(target);
         }
     })
 }
+
+
+
+// --------------------
+// BOTÃO DE COMPARTILHAMENTO
+// --------------------
+
+const shareBtn = select("#share-btn");
+
+if (shareBtn) {
+    shareBtn.addEventListener("click", () => {
+        if (navigator.share) {
+            const documentTitle = document.title;
+            const documentUrl = document.location.href;
+
+            navigator.share({
+              title: documentTitle,
+              url: documentUrl
+            })
+        } else {
+            const optionsModal = select("#share-options");
+            toggleModal(optionsModal);
+        }
+    })
+
+    const copyToClipboardBtn = select("[data-copy-to-clipboard]");
+    const clipboardMessage = copyToClipboardBtn.querySelector("span");
+    
+    copyToClipboardBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(document.location.href);
+        clipboardMessage.textContent = "Link copiado!";
+
+        setTimeout(() => {
+            clipboardMessage.textContent = "Copiar link";
+        }, 1500)
+    })
+}
+
 
 
 

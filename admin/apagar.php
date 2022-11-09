@@ -74,7 +74,7 @@ if (isset($_POST['ID']) && is_numeric($_POST['ID']) && $_POST['ID'] > 0) {
   include_once $_SERVER['DOCUMENT_ROOT'] . '/assets/include/header.html';
   ?>
 
-  <main>
+  <main id="main">
     <section id="edit" class="full-size">
       <div class="container">
         <p class="mb-6"><a class="link" href="index.php">Voltar</a></p>

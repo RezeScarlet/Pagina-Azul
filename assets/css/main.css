@@ -200,7 +200,7 @@ section:not(.hero) {
 }
 
 .link-wrapper {
-  display: block;
+  display: inline-block;
 }
 
 .full-size {
@@ -260,8 +260,17 @@ header {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
   z-index: 10;
 }
-header ~ * {
+header ~ main {
   margin-top: 4rem;
+}
+header .skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+}
+header .skip-link:focus {
+  transform: translateY(0);
 }
 header .nav {
   display: flex;
@@ -892,6 +901,7 @@ header .nav__search-bar {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+  min-width: 13px;
 }
 .icon-wrapper--sm {
   padding: 0.5rem;
@@ -1026,8 +1036,9 @@ header .nav__search-bar {
   left: 0;
   bottom: 0;
   right: 0;
+  margin: 0;
   min-width: 100%;
-  min-height: 100%;
+  min-height: calc(100vh + 5rem);
   z-index: 11;
   display: grid;
   place-items: center;
@@ -1035,21 +1046,26 @@ header .nav__search-bar {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.5);
   overflow: auto;
-  transition: 150ms ease-in;
+  transition: 250ms ease-in-out;
 }
 .modal.active {
   opacity: 1;
   pointer-events: all;
   visibility: visible;
 }
+.modal.active .modal__content {
+  transform: translateY(-100px);
+}
 .modal__content {
   position: relative;
   background-color: hsl(0deg, 0%, 100%);
   width: min(600px, 100% - 2rem);
-  border-bottom-right-radius: 10px;
-  border-top-left-radius: 10px;
+  min-height: 200px;
+  border-radius: 10px;
   padding: 2rem;
   padding-bottom: 1rem;
+  transform: translateY(-130px);
+  transition: 250ms ease-in-out;
 }
 .modal__header {
   display: flex;
@@ -1430,16 +1446,39 @@ body {
 }
 
 .anunciante {
+  --a-layout-mobile: "header"
+                      "img-site"
+                      "contact"
+                      "social"
+                      "description"
+                      "address";
+  --a-layout-desktop: "header ."
+                      "img-site contact"
+                      "img-site social"
+                      "description address";
   position: relative;
   margin-bottom: 3.25rem;
   padding-bottom: 3.25rem;
   border-bottom: 2px solid lightgrey;
 }
+.anunciante__wrapper {
+  display: grid;
+  gap: 2rem;
+  grid-template-areas: var(--a-layout-mobile);
+}
+@media only screen and (min-width: 700px) {
+  .anunciante__wrapper {
+    grid-template-areas: var(--a-layout-desktop);
+    grid-template-columns: 1fr 230px;
+    gap: 1.75rem;
+  }
+}
 .anunciante__header {
+  grid-area: header;
   display: flex;
   gap: 1rem;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: -0.5rem;
 }
 .anunciante__header h1 {
   margin: 0;
@@ -1447,20 +1486,20 @@ body {
 .anunciante__header img {
   width: 15px;
 }
-.anunciante__wrapper {
-  display: grid;
-  gap: 2rem;
-  grid-template-areas: "first" "contact" "social" "description" "address";
+.anunciante__header #share-btn {
+  background-color: transparent;
+  border: 0;
+  margin-left: auto;
+  padding-left: 0.5rem;
+  font-size: 1.465rem;
+  color: hsl(237deg, 57%, 22%);
+  transition: 250ms ease-in-out;
 }
-@media only screen and (min-width: 700px) {
-  .anunciante__wrapper {
-    grid-template-areas: "first contact" "first social" "description address";
-    grid-template-columns: 1fr 230px;
-    gap: 1.75rem;
-  }
+.anunciante__header #share-btn:hover {
+  transform: rotate(10deg);
 }
-.anunciante__wrapper div:first-child {
-  grid-area: first;
+.anunciante__img-site {
+  grid-area: img-site;
   word-break: break-word;
 }
 .anunciante__contact {
@@ -1489,6 +1528,9 @@ body {
   width: 100%;
   max-width: 280px;
 }
+.anunciante__social-wrapper > * {
+  width: 52px;
+}
 @media only screen and (max-width: 700px) {
   .anunciante__social-wrapper {
     justify-content: center;
@@ -1504,6 +1546,39 @@ body {
 }
 .anunciante__description {
   grid-area: description;
+}
+
+.share {
+  position: relative;
+  font-size: 0.9rem;
+}
+.share button {
+  background-color: transparent;
+  border: 0;
+  color: currentColor;
+}
+.share__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+.share__item {
+  text-align: center;
+}
+.share__item > * {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+.share__item > * i {
+  font-size: 1.75rem;
+  color: hsl(237deg, 57%, 31%);
+}
+.share .message {
+  position: absolute;
 }
 
 .login {

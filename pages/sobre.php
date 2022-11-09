@@ -20,7 +20,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
   ?>
 
-  <main>
+  <main id="main">
     <section class="sobre full-size">
       <div class="sobre__box">
         <h1 class="section-title underlined mb-4">Sobre nós</h1>
@@ -33,7 +33,7 @@
           Todo esse processo resulta em maior presença do negócio e menor perda de clientes.
         </p>
       </div>
-      <img aria-hidden="true" src="/assets/img/logos/Logo.png">
+      <img aria-hidden="true" src="/assets/img/logos/logo.png">
     </section>
   </main>
 

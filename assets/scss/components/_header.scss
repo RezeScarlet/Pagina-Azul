@@ -18,8 +18,19 @@ header {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
   z-index: 10;
 
-  & ~ * {
+  & ~ main {
     margin-top: 4rem;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+
+    &:focus {
+      transform: translateY(0);
+    }
   }
 
   .nav {

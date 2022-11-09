@@ -3,7 +3,7 @@
             <?php
             
             // Faz o SELECT no BD e executa
-            $destaquesQuery = $conexao -> prepare("SELECT nome, imgAnuncioG, idCategoria FROM anunciante WHERE idPlano = 3");
+            $destaquesQuery = $conexao -> prepare("SELECT nome, slug, imgAnuncioG, idCategoria FROM anunciante WHERE idPlano = 3");
             $destaquesQuery -> execute();
             
             
@@ -28,7 +28,7 @@
 
               
               <div class='destaques__grid-item'>
-                <a href='/a/<?= $destaquesrow[$x]["nome"]; ?>' class='link-wrapper'>
+                <a href='/a/<?= $destaquesrow[$x]["slug"]; ?>' class='link-wrapper'>
                   <img src='/assets/img/img-anunciante/<?= $destaquesrow[$x]["imgAnuncioG"]; ?>'
                       alt='<?= $destaquesrow[$x]["nome"]; ?>'
                       title='<?= $destaquesrow[$x]["nome"]; ?>'

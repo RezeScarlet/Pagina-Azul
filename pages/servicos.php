@@ -20,7 +20,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
   ?>
 
-  <main>
+  <main id="main">
     <section class="planos full-size">
       <div class="container">
         <h1 class="section-title text-center mb-9">Nossos Planos</h1>

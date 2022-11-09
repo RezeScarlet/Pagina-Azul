@@ -18,18 +18,18 @@
   
   <?php
 
-    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
-
     require_once $_SERVER['DOCUMENT_ROOT'].'/assets/php/conexao.php';
+    
+    include_once $_SERVER['DOCUMENT_ROOT'].'/assets/include/header.html';
     
   ?>
 
 <!-- ============================================== -->
 
-  <main>
+  <main id="main">
     <div class="container">
       <section class="login full-size">
-        <img src="/assets/img/logos/Logo.png" class="login__logo">
+        <img src="/assets/img/logos/logo.png" class="login__logo">
         <p class="subtitle">Administração</p>
         <form class="login__form" action="login.php" method="post" enctype="multipart/form-data">
           <div class="login__group">

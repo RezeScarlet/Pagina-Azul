@@ -27,7 +27,7 @@
   ?>
 
   <!-- MAIN -->
-  <main>
+  <main id="main">
     <!-- HERO -->
     <div class="container--sm">
       <section class="hero">

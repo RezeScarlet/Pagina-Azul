@@ -35,7 +35,7 @@
   ?>
 
 
-  <main>
+  <main id="main">
     <section class="full-size">
       <div class="container--sm">
 
@@ -147,7 +147,7 @@
                   <div class="resultado">
 
                     <!-- LINK, IMAGEM E NOME -->
-                    <a href='/a/<?= $x['nome'] ?>'>
+                    <a href='/a/<?= $x['slug'] ?>'>
                       <div class="resultado__header">
                         <img class="resultado__img" src="/assets/img/img-anunciante/<?= $x['imgAnuncioP'] ?>">
                         <p class="resultado__title"><?= $x['nome'] ?></p>

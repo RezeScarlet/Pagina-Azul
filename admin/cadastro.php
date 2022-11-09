@@ -27,7 +27,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/verifyLogin.php';
   ?>
 
 
-  <main>
+  <main id="main">
     <section id="signup" class="full-size">
       <div class="container">
         <p class="mb-6"><a class="link" href="index.php">Voltar</a></p>
