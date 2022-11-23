@@ -20,7 +20,11 @@
             shuffle($mediosrow);
 
             // Mostra o item do scroll horizontal
-            for ($x = 0; $x < 7; $x++) {
+            for ($x = 0; $x < 8; $x++) {
+              if (isset($_GET["anunciante"]) && $_GET["anunciante"] == $mediosrow[$x]["slug"]) { 
+                $x++; 
+              }
+
               $categoriaQuery = $conexao->prepare("SELECT nome, icone FROM categorias WHERE idCategoria = ". $mediosrow[$x]['idCategoria']);
               $categoriaQuery->execute();
               $categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);

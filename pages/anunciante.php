@@ -109,7 +109,7 @@ $url.= $_SERVER['REQUEST_URI'];
               if ($paginaInfo['website']) {
               ?>
                 <!-- WEBSITE -->
-                <div class="info text-center mt-2">
+                <div class="info text-center mt-1">
                   <a class="link-wrapper" href="<?= $paginaInfo['website'] ?>" target="_blank">
                     <i class="info__icon fa-solid fa-arrow-up-right-from-square"></i>
                     <span class="info__title">Visitar website</span>
@@ -216,31 +216,31 @@ $url.= $_SERVER['REQUEST_URI'];
             <?php } ?>
 
             <!-- ENDEREÇO -->
-            <?php
-            if ($paginaInfo['idCidade']) {
-            ?>
               <div class="anunciante__address">
                 <h2 class="subsection-title underlined">Endereço</h2>
-                <div class="anunciante__address-wrapper info">
-                  <i class="info__icon mt-1 fa-solid fa-location-dot"></i>
+                  <?php
+                  if ($paginaInfo['idCidade']) {
+                  ?>
+                    <div class="anunciante__address-wrapper info">
+                      <i class="info__icon mt-1 fa-solid fa-location-dot"></i>
+                      <div>
+                          <!-- RUA E NÚMERO -->
+                          <p class="text-bold leading-sm mb-1"><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></p>
 
-                  <div>
-                    <?php
-                    if ($paginaInfo['rua'] && $paginaInfo['bairro'] && $paginaInfo['numero'] && $paginaInfo['CEP']) {
-                    ?>
-                      <!-- RUA E NÚMERO -->
-                      <p class="text-bold leading-sm"><?= $paginaInfo['rua'] ?>, <?= $paginaInfo['numero'] ?></p>
+                          <!-- BAIRRO -->
+                          <p class="mb-2 leading-sm"><?= $paginaInfo['bairro'] ?></p>
 
-                      <!-- BAIRRO -->
-                      <p class="mb-1"><?= $paginaInfo['bairro'] ?></p>
+                        <!-- CIDADE -->
+                        <p class="text-sm"><?= $cidadeArray['nome'] ?> - <?= $cidadeArray['estado'] ?></p>
+                      </div>
+                    </div>
+                    <?php } else { ?>
+                      <div class="info">
+                        <i class="info__icon fa-solid fa-globe"></i>
+                        <span class="text-bold">Serviço online</span>
+                      </div>
                     <?php } ?>
-
-                    <!-- CIDADE -->
-                    <p class="text-sm"><?= $cidadeArray['nome'] ?> - <?= $cidadeArray['estado'] ?></p>
-                  </div>
-                </div>
               </div>
-            <?php } ?>
 
 
           </div>
@@ -265,7 +265,7 @@ $url.= $_SERVER['REQUEST_URI'];
     <div class="modal__content">
       <div class="modal__header">
         <h2 class="subsection-title mb-1">Compartilhar</h2>
-        <button type="button" class="modal__close-btn" data-modal-close><i>&#10005;</i></button>
+        <button type="button" class="modal__close-btn" data-modal-close>&#10005;</button>
       </div>
       <div class="modal__body">
         <div class="share mt-4">

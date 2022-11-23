@@ -97,11 +97,9 @@
     width: 40px;
     height: 40px;
     background-color: c.$clr-primary;
-    transition: 50ms ease-in;
+    transition: 100ms ease-in;
     
     svg {
-      fill: c.$clr-primary;
-      object-fit: scale-down;
       width: 25px;
       height: 25px;
       transition: 50ms ease-in;

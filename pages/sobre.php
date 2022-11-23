@@ -29,7 +29,7 @@
           A <em>Página Azul</em> tem como objetivo trazer visibilidade e espaço online para empreendedores da região. Listamos os estabelecimentos e prestadores de serviço locais por um preço em conta, recomendando-os para possíveis clientes próximos.
           Nosso sistema de pesquisa é construído para devolver com precisão o resultado de acordo com o tipo ou nome do serviço pesquisado pelo usuário.
         </p>
-        <p class="mb-7 text-bold">
+        <p class="mb-5 text-bold">
           Todo esse processo resulta em maior presença do negócio e menor perda de clientes.
         </p>
       </div>

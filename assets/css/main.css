@@ -644,12 +644,9 @@ header .nav__search-bar {
   width: 40px;
   height: 40px;
   background-color: hsl(0deg, 0%, 97%);
-  transition: 50ms ease-in;
+  transition: 100ms ease-in;
 }
 .footer__social-icon svg {
-  fill: hsl(0deg, 0%, 97%);
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
   width: 25px;
   height: 25px;
   transition: 50ms ease-in;
@@ -1124,7 +1121,7 @@ header .nav__search-bar {
   transition: 200ms ease-in-out;
 }
 .select.active::after {
-  top: 22px;
+  top: 23px;
   transform: rotate(135deg);
 }
 .select__display {
@@ -1576,9 +1573,6 @@ body {
 .share__item > * i {
   font-size: 1.75rem;
   color: hsl(237deg, 57%, 31%);
-}
-.share .message {
-  position: absolute;
 }
 
 .login {

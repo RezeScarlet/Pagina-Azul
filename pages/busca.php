@@ -3,11 +3,9 @@
   require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/unaccent.php";
   require_once $_SERVER['DOCUMENT_ROOT'] . "/assets/php/conexao.php";
 
-  if (isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '') {
-    $searchConditions = TRUE;
-  } else {
-    $searchConditions = FALSE;
-  }
+ function isValidSearch() {
+  return isset($_GET['q']) && str_replace(" ", "", $_GET["q"]) != '';
+ }
 
 ?>
 
@@ -18,7 +16,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Busca <?php if ($searchConditions) echo "por " . $_GET["q"] ?> | Página Azul</title>
+  <title>Busca <?php if (isValidSearch()) echo "por " . $_GET["q"] ?> | Página Azul</title>
   <!-- FAVICON -->
   <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
   <!-- FONT AWESOME -->
@@ -29,7 +27,7 @@
   <script src="/assets/js/main.js" defer></script>
 </head>
 
-<body id="pesquisa">
+<body id="buscar">
   <?php
   include_once '../assets/include/header.html';
   ?>
@@ -59,7 +57,7 @@
         </div>
 
         <?php
-        if ($searchConditions) {
+        if (isValidSearch()) {
           $search = $_GET['q'];
           $resultArray = FALSE;
 
@@ -67,7 +65,7 @@
           $categoriaQuery->execute();
           $categoriaArray = $categoriaQuery->fetchAll(PDO::FETCH_ASSOC);
 
-          if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+          if (isset($_GET["cidade"]) && $_GET["cidade"] != '' && $_GET["cidade"] != "Online") {
 
             $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = '" . $_GET['cidade'] . "'");
             $cidadeQuery->execute();
@@ -75,12 +73,17 @@
 
           }
 
+          // BUSCA POR CATEGORIA
           foreach ($categoriaArray as $x) {
             if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
 
               if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
 
-                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
+                if ($_GET["cidade"] == "Online") {
+                  $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade IS NULL ORDER BY idPlano DESC");
+                } else {
+                  $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
+                }
 
               } else {
 
@@ -93,10 +96,15 @@
             }
           }
 
+          // BUSCA POR NOME OU DESCRIÇÃO
           if (!$resultArray) {
             if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
 
-              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
+              if ($_GET["cidade"] == "Online") {
+                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade IS NULL OR descricao LIKE '%$search%' AND idCidade IS NULL ORDER BY idPlano DESC");
+              } else {
+                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
+              }
 
             } else {
 
@@ -129,7 +137,8 @@
                   <?php
                     if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
                   ?>
-                    em <span class="text-bold"> <?= $_GET['cidade'] ?> </span>
+                    <?= ($_GET["cidade"] == "Online") ? "" : "em" ?>
+                    <span class="text-bold"> <?= $_GET['cidade'] ?> </span>
                   <?php
                     }
                   ?>
