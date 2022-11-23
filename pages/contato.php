@@ -91,7 +91,7 @@
                 </svg>
                 <div>
                   <span class="text-bold">Telefone</span><br>
-                  <a href="#" title="Ligar">(19) 2172-0289</a>
+                  <a href="tel: +551921720289" title="Ligar">(19) 2172-0289</a>
                 </div>
               </div>
               <div class="contact__item">
@@ -100,7 +100,7 @@
                 </svg>
                 <div>
                   <span class="text-bold">WhatsApp</span><br>
-                  <a href="#" title="Chamar no WhatsApp">(19) 99229-8435</a>
+                  <a href="https://api.whatsapp.com/send?phone=5519992298435" title="Chamar no WhatsApp" target="_blank">(19) 99229-8435</a>
                 </div>
               </div>
               <div class="contact__item">
@@ -109,7 +109,7 @@
                 </svg>
                 <div>
                   <span class="text-bold">E-mail</span><br>
-                  <a href="#" title="Enviar e-mail">contato@paginaazul.com.br</a>
+                  <a href="mailto: grupo08.tcc.infonet@gmail.com" title="Enviar e-mail">grupo08.tcc.infonet@gmail.com</a>
                 </div>
               </div>
             </div>
