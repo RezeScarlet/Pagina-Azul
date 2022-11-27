@@ -12,7 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato | Página Azul</title>
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/img/logos/favicon.ico" type="image/x-icon">
   <!-- FONT AWESOME -->
   <script src="https://kit.fontawesome.com/d80615c6de.js" crossorigin="anonymous"></script>
   <!-- CSS -->
@@ -33,7 +33,7 @@
         <p class="subtitle">Interessado em um de <a href="/servicos" class="link">nossos planos</a> ou deseja fazer uma sujestão? Entre em contato a partir de um dos meios abaixo.</p>
 
         <div class="columns--2-1">
-          <form class="form">
+          <form class="form" action="/enviar-mensagem" method="post">
             <div class="form__group">
               <label for="nome" class="form__label--required">Seu nome</label>
               <input type="text" class="form__input" name="nome" id="nome" placeholder="Insira seu nome" required>
@@ -51,7 +51,7 @@
                   $planosQuery->execute();
                   while ($plano = $planosQuery->fetch(PDO::FETCH_ASSOC)) {
                   ?>
-                    <option value="<?= $plano['idPlano'] ?>"
+                    <option value="<?= $plano['nome'] ?>"
                      <?php if (isset($_GET["plano"])) { if ($_GET["plano"] == strtolower(unaccent($plano['nome']))) { echo "selected"; } }  ?>>
                      <?= $plano['nome'] ?>
                     </option>

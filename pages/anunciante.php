@@ -63,7 +63,7 @@ $url.= $_SERVER['REQUEST_URI'];
   <meta property=”og:description” content="<?= $descricao ?>" />
   <title><?= $paginaInfo['nome'] ?> | Página Azul</title>
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/img/logos/favicon.ico" type="image/x-icon">
   <!-- FONT AWESOME -->
   <script src="https://kit.fontawesome.com/d80615c6de.js" crossorigin="anonymous"></script>
   <!-- CSS -->

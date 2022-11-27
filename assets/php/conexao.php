@@ -1,10 +1,12 @@
 <?php
+
+require $_SERVER['DOCUMENT_ROOT'] . "/global.php";
 session_start();
 
-$servidor = "localhost:3000";
-$usuario = "root";
-$senha = "usbw";
-$bancodados = "pagina_azul";
+$servidor = $_ENV['BANCO_SERVIDOR'];
+$usuario = $_ENV['BANCO_USUARIO'];
+$senha = $_ENV['BANCO_SENHA'];
+$bancodados = $_ENV['BANCO_NOME'];
 
 $datasource = "mysql:host=$servidor;dbname=$bancodados;charset=UTF8";
 

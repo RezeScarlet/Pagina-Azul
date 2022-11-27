@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Azul | Admin - Login</title>
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/img/logos/favicon.ico" type="image/x-icon">
   <!-- FONT AWESOME -->
   <script src="https://kit.fontawesome.com/d80615c6de.js" crossorigin="anonymous"></script>
   <!-- CSS -->
@@ -34,11 +34,11 @@
         <form class="login__form" action="login.php" method="post" enctype="multipart/form-data">
           <div class="login__group">
             <span><i class="fa-solid fa-user" aria-hidden="true"></i></span>
-            <input type="text" class="login__input" name="nome" id="nome" placeholder="Nome">
+            <input type="text" class="login__input" name="nome" id="nome" placeholder="Nome" required>
           </div>
           <div class="login__group">
             <span><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
-            <input type="password" class="login__input" name="senha" id="senha" placeholder="Senha">
+            <input type="password" class="login__input" name="senha" id="senha" placeholder="Senha" required>
           </div>
           <input type="submit" class="btn--block btn--dark" value="Entrar" name="login">
         </form>

@@ -30,7 +30,7 @@ if (isset($_POST['ID']) && is_numeric($_POST['ID']) && $_POST['ID'] > 0) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Azul | Admin - Apagar</title>
   <!-- FAVICON -->
-  <link rel="shortcut icon" href="/assets/img/logos/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/img/logos/favicon.ico" type="image/x-icon">
   <!-- FONT AWESOME -->
   <script src="https://kit.fontawesome.com/d80615c6de.js" crossorigin="anonymous"></script>
   <!-- CSS -->
