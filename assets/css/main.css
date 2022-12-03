@@ -205,8 +205,8 @@ section:not(.hero) {
 
 .full-size {
   min-height: 90vh;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 @media only screen and (min-width: 800px) {
   .full-size {
@@ -1125,6 +1125,9 @@ header .nav__search-bar {
   top: 23px;
   transform: rotate(135deg);
 }
+.select:not(.active):focus::after {
+  top: 19px;
+}
 .select__display {
   display: flex;
   gap: 0.4rem;
@@ -1190,6 +1193,7 @@ header .nav__search-bar {
 }
 .select__option:hover, .select__option:focus {
   background-color: rgb(242, 242, 242);
+  outline: none;
 }
 .select__option.active {
   background-color: hsl(237deg, 57%, 31%);
@@ -1263,9 +1267,14 @@ body {
 .hero {
   display: grid;
   place-items: center;
-  padding: 2.5rem 0;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  padding-top: 1.75rem;
+  padding-bottom: 3.5rem;
+}
+@media only screen and (min-width: 660px) {
+  .hero {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
 }
 
 .logo {

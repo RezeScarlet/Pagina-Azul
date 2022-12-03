@@ -58,16 +58,18 @@
 
         <?php
         if (isValidSearch()) {
-          $search = $_GET['q'];
+          $search = htmlspecialchars($_GET['q']);
+          $cidade = htmlspecialchars($_GET["cidade"]);
           $resultArray = FALSE;
 
           $categoriaQuery = $conexao->prepare("SELECT idCategoria, nome FROM categorias");
           $categoriaQuery->execute();
           $categoriaArray = $categoriaQuery->fetchAll(PDO::FETCH_ASSOC);
 
-          if (isset($_GET["cidade"]) && $_GET["cidade"] != '' && $_GET["cidade"] != "Online") {
+          if (isset($cidade) && $cidade != '' && $cidade != "Online") {
 
-            $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = '" . $_GET['cidade'] . "'");
+            $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = :cidade");
+            $cidadeQuery->bindParam(':cidade', $cidade);
             $cidadeQuery->execute();
             $cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
 
@@ -77,9 +79,9 @@
           foreach ($categoriaArray as $x) {
             if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
 
-              if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+              if (isset($cidade) && $cidade != '') {
 
-                if ($_GET["cidade"] == "Online") {
+                if ($cidade == "Online") {
                   $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade IS NULL ORDER BY idPlano DESC");
                 } else {
                   $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade = " . $cidadeArray['idCidade'] . " ORDER BY idPlano DESC");
@@ -98,25 +100,33 @@
 
           // BUSCA POR NOME OU DESCRIÇÃO
           if (!$resultArray) {
-            if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+            $param = '%' . $search . '%';
 
-              if ($_GET["cidade"] == "Online") {
-                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade IS NULL OR descricao LIKE '%$search%' AND idCidade IS NULL ORDER BY idPlano DESC");
+            if (isset($cidade) && $cidade != '') {
+
+              if ($cidade == "Online") {
+
+                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE :search AND idCidade IS NULL OR descricao LIKE :search AND idCidade IS NULL ORDER BY idPlano DESC");
+                
               } else {
-                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE '%$search%' AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
+
+                $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE :search AND idCidade = '" . $cidadeArray['idCidade'] . "' OR descricao LIKE :search AND idCidade = '" . $cidadeArray['idCidade'] . "' ORDER BY idPlano DESC");
+
               }
 
             } else {
 
-              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE '%$search%' OR descricao LIKE '%$search%' ORDER BY idPlano DESC");
-
+              $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE nome LIKE :search OR descricao LIKE :search ORDER BY idPlano DESC");
+              
             }
-
+            
+            $resultQuery->bindParam(":search", $param);
             $resultQuery->execute();
             $resultArray = $resultQuery->fetchAll(PDO::FETCH_ASSOC);
           }
           
           $numResultados = count($resultArray);
+ 
         ?>
 
           <?php

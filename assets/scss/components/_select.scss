@@ -38,6 +38,10 @@
         transform: rotate(135deg);
     }
 
+    &:not(.active):focus::after {
+        top: 19px;
+    }
+
     &__display {
         display: flex;
         gap: 0.4rem;
@@ -115,6 +119,7 @@
         &:hover,
         &:focus {
             background-color: rgb(242, 242, 242);
+            outline: none;
         }
 
         &.active {

@@ -4,9 +4,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
 
 
 // PROCURA PELO ANUNCIANTE
-$anunciante = $_GET['anunciante'];
+$anunciante = htmlspecialchars($_GET['anunciante']);
 
-$paginaQuery = $conexao->prepare("SELECT * FROM anunciante WHERE slug = '$anunciante'");
+$paginaQuery = $conexao->prepare("SELECT * FROM anunciante WHERE slug = :anunciante");
+$paginaQuery->bindParam(":anunciante", $anunciante);
 $paginaQuery->execute();
 $paginaInfo = $paginaQuery->fetch(PDO::FETCH_ASSOC);
 

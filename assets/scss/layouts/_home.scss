@@ -10,9 +10,13 @@ body {
 .hero {
   display: grid;
   place-items: center;
-  padding: 2.5rem 0;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  padding-top: 1.75rem;
+  padding-bottom: 3.5rem;
+
+  @media only screen and (min-width: 660px) {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
 }
 
 .logo {

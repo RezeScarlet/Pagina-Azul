@@ -1,6 +1,6 @@
 
 // --------------------
-// FUNÇÕES
+// HELPER FUNCTIONS
 // --------------------
 
 // Função para selecionar elementos
@@ -23,17 +23,16 @@ const notActive = (element) => {
 }
 
 
-// Tornar Nav mobile ativa
-const toggleMobileNav = () => {
-   active(navList);
-   document.body.classList.toggle("mobile-nav-opened");
-}
-
-
 
 // --------------------
 // NAVBAR
 // --------------------
+
+// Tornar Nav mobile ativa
+const toggleMobileNav = () => {
+    active(navList);
+    document.body.classList.toggle("mobile-nav-opened");
+ }
 
 const menuToggler = select(".menu-toggler");
 const closeMenuBtn = select(".nav__close-btn");
@@ -102,21 +101,40 @@ if (selectElements) {
         selectEl.addEventListener("click", () => {
             selectEl.classList.toggle("active");
         })
-
+  
         const options = selectEl.querySelectorAll("[data-select-option]");
         const text = selectEl.querySelector("[data-select-text]");
         const input = selectEl.querySelector("input");
+        
+        // Função para definir o valor e texto do Select
+        const setSelectValue = (option) => {
+            const value = option.dataset.selectOption;
+            input.value = value;    
+            text.textContent = option.textContent;
+            options.forEach((option) => { notActive(option); })
+            active(option);
+        }
 
         options.forEach((option) => {
-            const value = option.dataset.selectOption;
-
             option.addEventListener("click", () => {
-                input.value = value;    
-                text.textContent = option.textContent;
-
-                options.forEach((option) => { notActive(option); })
-                active(option);
+                setSelectValue(option);
             })
+
+            option.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    setSelectValue(option);
+                }
+            })
+        })
+
+        window.addEventListener("click", (e) => {
+            if (e.target === selectEl || selectEl.contains(e.target)) {
+                return;
+            }
+
+            if (selectEl.classList.contains("active")) {
+                selectEl.classList.remove("active");
+            }
         })
     })
 }
@@ -310,4 +328,3 @@ if (numbersToFormat) {
         number.innerText = formatPhoneNumber(number.innerText, formatTo);
     })
 }
-
