@@ -40,7 +40,7 @@
             </div>
             <div class="form__group">
               <label for="email" class="form__label--required">E-mail</label>
-              <input type="text" class="form__input" name="email" id="email" placeholder="Insira seu endereço de e-mail" required>
+              <input type="email" class="form__input" name="email" id="email" placeholder="Insira seu endereço de e-mail" required>
             </div>
             <div class="form__group">
               <label for="planos" class="form__label">Plano de interesse</label>
