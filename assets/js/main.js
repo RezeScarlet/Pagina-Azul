@@ -64,7 +64,7 @@ const navLinks = select(".nav__link", true);
 navLinks.forEach((link) => {
     if (!pageId) return;
 
-    if (link.innerText.toLowerCase() === pageId) {
+    if (link.textContent.toLowerCase() === pageId) {
        active(link);
     }
 })
