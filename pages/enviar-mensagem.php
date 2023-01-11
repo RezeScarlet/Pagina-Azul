@@ -19,12 +19,12 @@
             } else {
 
                 // PEGANDO INFORMAÇÕES DO FORMULÁRIO
-                $nome = (isset($_POST["nome"])) ? $_POST["nome"] : " ";
+                $nome = $_POST["nome"];
                 $email = $_POST["email"];
-                $plano = (isset($_POST["planos"])) ? $_POST["planos"] : " ";
-                $cidade = (isset($_POST["cidade"])) ? $_POST["cidade"] : " ";
-                $estado = (isset($_POST["estado"])) ? $_POST["estado"] : " ";
-                $assunto = (isset($_POST["assunto"])) ? $_POST["assunto"] : "Para Página Azul";
+                $plano = $_POST["planos"];
+                $cidade = $_POST["cidade"];
+                $estado = $_POST["estado"];
+                $assunto = $_POST["assunto"] ?? "Para Página Azul";
                 $mensagem = $_POST["mensagem"];
         
                 $body = "
