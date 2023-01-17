@@ -59,7 +59,7 @@
         <?php
         if (isValidSearch()) {
           $search = htmlspecialchars($_GET['q']);
-          $cidade = htmlspecialchars($_GET["cidade"]);
+          $cidade = isset($_GET["cidade"]) ? htmlspecialchars($_GET['cidade']) : "";
           $resultArray = FALSE;
 
           $categoriaQuery = $conexao->prepare("SELECT idCategoria, nome FROM categorias");
