@@ -1064,6 +1064,7 @@ header .nav__search-bar {
   padding-bottom: 1rem;
   transform: translateY(-130px);
   transition: 250ms ease-in-out;
+  overflow: hidden;
 }
 .modal__header {
   display: flex;

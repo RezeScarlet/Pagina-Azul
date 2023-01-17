@@ -36,11 +36,10 @@
                   <div class="scroller__img-container">
                     <img src='/assets/img/img-anunciante/<?php echo $mediosrow[$x]["imgAnuncioP"]; ?>' alt='<?php echo $mediosrow[$x]["nome"]; ?>' class='display-img no-select' draggable="false" />
                   </div>
-                  <a href="/busca?q=<?= $categoria['nome'] ?>" class="scroller__icon link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
-                    <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
-                  </a>
                 </a>
-                
+                <a href="/busca?q=<?= $categoria['nome'] ?>" class="scroller__icon link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
+                  <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
+                </a>
               </div>
 
             <?php

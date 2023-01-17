@@ -266,7 +266,7 @@ $url.= $_SERVER['REQUEST_URI'];
     <div class="modal__content">
       <div class="modal__header">
         <h2 class="subsection-title mb-1">Compartilhar</h2>
-        <button type="button" class="modal__close-btn" data-modal-close>&#10005;</button>
+        <button type="button" class="modal__close-btn" data-modal-close><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="modal__body">
         <div class="share mt-4">

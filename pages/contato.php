@@ -76,7 +76,7 @@
             </div>
             <div class="form__group">
               <label for="mensagem" class="form__label--required">Mensagem</label>
-              <textarea type="text" class="form__input" name="mensagem" id="mensagem" placeholder="Insira sua mensagem"></textarea>
+              <textarea type="text" class="form__input" name="mensagem" id="mensagem" placeholder="Insira sua mensagem" required></textarea>
             </div>
             <div class="form__submit">
               <button type="submit" class="btn--dark btn--block">Enviar mensagem</button>
