@@ -1,11 +1,10 @@
 <?php
 
-    require $_SERVER['DOCUMENT_ROOT'] . "/global.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+    require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
-
-    require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
     if (isset($_POST["email"]) && isset($_POST["mensagem"])) {
 
@@ -49,11 +48,11 @@
                 $mail->Port = 465;
                 $mail->CharSet = "UTF-8";
                 $mail->Host = "smtp.gmail.com";
-                $mail->Username = "thiagofkm@gmail.com";
-                $mail->Password = $_ENV['EMAIL_SENHA'];
+                $mail->Username = EMAIL_CONFIG["from_address"];
+                $mail->Password = EMAIL_CONFIG["password"];
         
-                $mail->SetFrom("thiagofkm@gmail.com", "Contato pelo formulário");
-                $mail->AddAddress("thiagofkm@gmail.com", "Thiago Fukuyama Marcilli");
+                $mail->SetFrom(EMAIL_CONFIG["from_address"], "Contato pelo formulário");
+                $mail->AddAddress(EMAIL_CONFIG["from_address"], EMAIL_CONFIG["from_name"]);
                 $mail->AddAddress("grupo08.tcc.infonet@gmail.com", "Página Azul");
         
                 $mail->Subject = $assunto;

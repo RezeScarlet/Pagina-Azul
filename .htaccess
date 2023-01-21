@@ -20,3 +20,8 @@ RewriteRule ^(.+) /pages/$1 [NC,L]
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+<Files config.php>
+    Order allow,deny
+    Deny from all
+</Files>

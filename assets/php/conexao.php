@@ -1,12 +1,12 @@
 <?php
 
-require $_SERVER['DOCUMENT_ROOT'] . "/global.php";
+require $_SERVER['DOCUMENT_ROOT'] . "/config.php";
 session_start();
 
-$servidor = $_ENV['BANCO_SERVIDOR'];
-$usuario = $_ENV['BANCO_USUARIO'];
-$senha = $_ENV['BANCO_SENHA'];
-$bancodados = $_ENV['BANCO_NOME'];
+$servidor = DB_CONFIG["host"];
+$usuario = DB_CONFIG["username"];
+$senha = DB_CONFIG["password"];
+$bancodados = DB_CONFIG["dbname"];
 
 $datasource = "mysql:host=$servidor;dbname=$bancodados;charset=UTF8";
 
