@@ -69,8 +69,7 @@
           if (isset($cidade) && $cidade != '' && $cidade != "Online") {
 
             $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = :cidade");
-            $cidadeQuery->bindParam(':cidade', $cidade);
-            $cidadeQuery->execute();
+            $cidadeQuery->execute([":cidade" => $cidade]);
             $cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
 
           }
@@ -138,17 +137,21 @@
 
                 <p class="subtitle mb-4">
                   <?= ($numResultados > 1) ? "Encontrados" : "Encontrado" ?> 
+
                   <span class="text-bold">
                     <?= $numResultados ?>
                     <?= ($numResultados > 1) ? "resultados" : "resultado" ?>
                   </span> 
+
                   para "<em><?= $search ?></em>"
 
                   <?php
                     if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
                   ?>
+
                     <?= ($_GET["cidade"] == "Online") ? "" : "em" ?>
                     <span class="text-bold"> <?= $_GET['cidade'] ?> </span>
+
                   <?php
                     }
                   ?>

@@ -2,14 +2,37 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/assets/php/conexao.php';
 
-
-// PROCURA PELO ANUNCIANTE
 $anunciante = htmlspecialchars($_GET['anunciante']);
 
-$paginaQuery = $conexao->prepare("SELECT * FROM anunciante WHERE slug = :anunciante");
+// PROCURA PELO ANUNCIANTE
+$paginaQuery = $conexao->prepare("
+  SELECT 
+    anunciante.nome,
+    anunciante.telefone,
+    anunciante.celular,
+    anunciante.email,
+    anunciante.whatsapp,
+    anunciante.facebook,
+    anunciante.instagram,
+    anunciante.website,
+    anunciante.descricao,
+    anunciante.rua,
+    anunciante.numero,
+    anunciante.bairro,
+    anunciante.imgAnuncioG,
+    categorias.nome AS categoria,
+    categorias.icone AS iconeCategoria,
+    cidades.nome AS cidade,
+    cidades.estado
+  FROM anunciante 
+  INNER JOIN categorias ON anunciante.idCategoria = categorias.idCategoria 
+  LEFT JOIN cidades ON anunciante.idCidade = cidades.idCidade 
+  WHERE slug = :anunciante");
+
 $paginaQuery->bindParam(":anunciante", $anunciante);
 $paginaQuery->execute();
 $paginaInfo = $paginaQuery->fetch(PDO::FETCH_ASSOC);
+
 
 // TIRA TAGS DA DESCRIÇÃO
 if (strpos($paginaInfo['descricao'], "§")) {
@@ -22,19 +45,6 @@ if (strpos($paginaInfo['descricao'], "§")) {
   
 }
 
-// PROCURA PELA CIDADE
-if ($paginaInfo['idCidade']){
-
-  $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE idCidade = ". $paginaInfo['idCidade']);
-  $cidadeQuery -> execute();
-  $cidadeArray = $cidadeQuery->fetch(PDO::FETCH_ASSOC);
-
-}
-
-// PROCURA PELA CATEGORIA
-$categoriaQuery = $conexao->prepare("SELECT nome, icone FROM categorias WHERE idCategoria = ". $paginaInfo['idCategoria']);
-$categoriaQuery->execute();
-$categoria = $categoriaQuery->fetch(PDO::FETCH_ASSOC);
 
 // PEGA URL DA PÁGINA 
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
@@ -89,8 +99,8 @@ $url.= $_SERVER['REQUEST_URI'];
           <div class="anunciante__wrapper">
             <div class="anunciante__header">
               <!-- CATEGORIA DO ANUNCIANTE -->
-              <a href="/busca?q=<?= $categoria['nome'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
-                <img src="/assets/img/icones-categorias/<?= $categoria['icone'] ?>" alt="<?= $categoria['nome'] ?>">
+              <a href="/busca?q=<?= $paginaInfo['categoria'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
+                <img src="/assets/img/icones-categorias/<?= $paginaInfo['iconeCategoria'] ?>" alt="<?= $categoria['nome'] ?>">
               </a>
   
               <!-- NOME DO ANUNCIANTE -->
@@ -220,7 +230,7 @@ $url.= $_SERVER['REQUEST_URI'];
               <div class="anunciante__address">
                 <h2 class="subsection-title underlined">Endereço</h2>
                   <?php
-                  if ($paginaInfo['idCidade']) {
+                  if ($paginaInfo['cidade']) {
                   ?>
                     <div class="anunciante__address-wrapper info">
                       <i class="info__icon mt-1 fa-solid fa-location-dot"></i>
@@ -232,7 +242,7 @@ $url.= $_SERVER['REQUEST_URI'];
                           <p class="mb-2 leading-sm"><?= $paginaInfo['bairro'] ?></p>
 
                         <!-- CIDADE -->
-                        <p class="text-sm"><?= $cidadeArray['nome'] ?> - <?= $cidadeArray['estado'] ?></p>
+                        <p class="text-sm"><?= $paginaInfo['cidade'] ?> - <?= $paginaInfo['estado'] ?></p>
                       </div>
                     </div>
                     <?php } else { ?>

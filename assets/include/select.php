@@ -5,16 +5,18 @@
      <div class="select__text no-select" data-select-text>
        <?php
 
-        if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+       $cidadeSelected = isset($_GET["cidade"]) ? htmlspecialchars($_GET["cidade"]) : "";
 
-          if ($_GET["cidade"] == "Online") {
+        if ($cidadeSelected != "") {
 
-            echo $_GET["cidade"];
+          if ($cidadeSelected == "Online") {
+
+            echo "Online";
 
           } else {
 
-            $cidadeSelectedQuery = $conexao->prepare('SELECT nome, estado FROM cidades WHERE nome = "' . $_GET['cidade'] . '"');
-            $cidadeSelectedQuery->execute();
+            $cidadeSelectedQuery = $conexao->prepare('SELECT nome, estado FROM cidades WHERE nome = :cidade');
+            $cidadeSelectedQuery->execute([":cidade" => $cidadeSelected]);
             $cidadeArray = $cidadeSelectedQuery->fetch(PDO::FETCH_ASSOC);
   
             echo $cidadeArray['nome'] . ' - ' . $cidadeArray['estado'];
@@ -29,12 +31,12 @@
 
         ?>
      </div>
-     <input type="text" readonly name="cidade" value="<?php if (isset($_GET["cidade"])) echo $_GET["cidade"] ?>">
+     <input type="text" readonly name="cidade" value="<?=  $cidadeSelected ?>">
    </div>
 
    <!-- OPTIONS -->
    <div class="select__options-container">
-     <div tabindex="0" class="select__option text-bold <?= (isset($_GET["cidade"]) && $_GET["cidade"] == "Online") ? "active" : "" ?>" data-select-option="Online">
+     <div tabindex="0" class="select__option text-bold <?= ($cidadeSelected != "" && $cidadeSelected == "Online") ? "active" : "" ?>" data-select-option="Online">
        Online
      </div>
 
@@ -44,7 +46,15 @@
         while ($cidade = $cidadesQuery->fetch(PDO::FETCH_ASSOC)) {
       ?>
 
-       <div  tabindex="0" class="select__option <?= (isset($_GET["cidade"]) && $_GET["cidade"] == $cidade['nome']) ? "active" : "" ?>" data-select-option="<?= $cidade['nome'] ?>"><?= $cidade['nome'] ?> - <?= $cidade['estado'] ?></div>
+       <div 
+          tabindex="0" 
+          class="select__option <?= ($cidadeSelected != "" && $cidadeSelected == $cidade['nome']) ? "active" : "" ?>" 
+          data-select-option="<?= $cidade['nome'] ?>"
+        >
+
+          <?= $cidade['nome'] ?> - <?= $cidade['estado'] ?>
+
+        </div>
 
       <?php
         }
