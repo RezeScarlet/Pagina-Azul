@@ -99,8 +99,8 @@ $url.= $_SERVER['REQUEST_URI'];
           <div class="anunciante__wrapper">
             <div class="anunciante__header">
               <!-- CATEGORIA DO ANUNCIANTE -->
-              <a href="/busca?q=<?= $paginaInfo['categoria'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $categoria['nome'] ?>">
-                <img src="/assets/img/icones-categorias/<?= $paginaInfo['iconeCategoria'] ?>" alt="<?= $categoria['nome'] ?>">
+              <a href="/busca?q=<?= $paginaInfo['categoria'] ?>" class="link-wrapper icon-wrapper--sm" title="<?= $paginaInfo['categoria'] ?>">
+                <img src="/assets/img/icones-categorias/<?= $paginaInfo['iconeCategoria'] ?>" alt="<?= $paginaInfo['categoria'] ?>">
               </a>
   
               <!-- NOME DO ANUNCIANTE -->
