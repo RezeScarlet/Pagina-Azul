@@ -66,7 +66,7 @@
           $categoriaQuery->execute();
           $categoriaArray = $categoriaQuery->fetchAll(PDO::FETCH_ASSOC);
 
-          if (isset($cidade) && $cidade != '' && $cidade != "Online") {
+          if ($cidade != '' && $cidade != "Online") {
 
             $cidadeQuery = $conexao->prepare("SELECT * FROM cidades WHERE nome = :cidade");
             $cidadeQuery->execute([":cidade" => $cidade]);
@@ -78,7 +78,7 @@
           foreach ($categoriaArray as $x) {
             if (strtolower(unaccent($x['nome'])) == strtolower(unaccent($search))) {
 
-              if (isset($cidade) && $cidade != '') {
+              if ($cidade != '') {
 
                 if ($cidade == "Online") {
                   $resultQuery = $conexao->prepare("SELECT * FROM anunciante WHERE idCategoria = " . $x['idCategoria'] . " AND idCidade IS NULL ORDER BY idPlano DESC");
@@ -101,7 +101,7 @@
           if (!$resultArray) {
             $param = '%' . $search . '%';
 
-            if (isset($cidade) && $cidade != '') {
+            if ($cidade != '') {
 
               if ($cidade == "Online") {
 
@@ -146,11 +146,11 @@
                   para "<em><?= $search ?></em>"
 
                   <?php
-                    if (isset($_GET["cidade"]) && $_GET["cidade"] != '') {
+                    if ($cidade != '') {
                   ?>
 
-                    <?= ($_GET["cidade"] == "Online") ? "" : "em" ?>
-                    <span class="text-bold"> <?= $_GET['cidade'] ?> </span>
+                    <?= ($cidade == "Online") ? "" : "em" ?>
+                    <span class="text-bold"> <?= $cidade ?> </span>
 
                   <?php
                     }
