@@ -4,7 +4,7 @@
         <img width="135" src="./assets/img/logos/Logo.png">
     </a>
     <h1>Página Azul</h1>
-    <p>Página Azul é o TCC do curso técnico em Informática para Internet Integrado ao Ensino Médio da ETEC Francisco Garcia no ano de 2022.</p>
+    <p>TCC do curso técnico em Informática para Internet Integrado ao Ensino Médio da ETEC Francisco Garcia no ano de 2022.</p>
 </div>
 <br>
 
