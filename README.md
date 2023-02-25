@@ -2,7 +2,6 @@
 <div align="center">
     <img width="150" src="./assets/img/logos/Logo.png">
     <br>
-    <br>
     <h1>Página Azul</h1>
     <p>Página Azul é o TCC do curso de Informática para Internet Integrado ao Ensino Médio da ETEC Francisco Garcia no ano de 2022.</p>
 </div>
