@@ -49,7 +49,7 @@
 
               <!-- SEARCH BAR -->
               <div class="search__bar-wrapper">
-                <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Digite o que precisa" value="<?php if (isset($_GET["q"])) { echo $_GET["q"]; } ?>">
+                <input class="search__bar" type="search" name="q" id="pesquisa" placeholder="Digite o que precisa" value="<?= (isset($_GET["q"])) ? htmlspecialchars($_GET["q"]) : "" ?>">
                 <button class="search__btn btn--dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
             </form>
