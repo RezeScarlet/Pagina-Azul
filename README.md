@@ -1,4 +1,3 @@
-
 <div align="center">
     <a href="https://github.com/DarkEyeBr/Pagina-Azul">
         <img width="135" src="./assets/img/logos/Logo.png">
@@ -6,7 +5,6 @@
     <h1>Página Azul</h1>
     <p>TCC do curso técnico em Informática para Internet Integrado ao Ensino Médio da ETEC Francisco Garcia no ano de 2022.</p>
 </div>
-<br>
 
 ## Sobre
 Plataforma de busca e anúncio de serviços, empresas e microempreendedores.
