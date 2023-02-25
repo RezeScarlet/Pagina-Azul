@@ -264,7 +264,7 @@
               <?php
                 }
               ?>
-              </div>
+              
             </div>
 
           <?php  } else { ?>
