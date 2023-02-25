@@ -1,4 +1,33 @@
 {
+    "name": "pagina-azul/pagina-azul",
+    "description": "Plataforma de busca e anúncio de serviços, empresas e microempreendedores",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guilherme de Souza Dionisio Rosseti",
+            "email": "gui171204@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Guilherme Flavio da Silva",
+            "email": "gui.gui29450@gmail.com",
+            "role": "Graphic Designer"
+        },
+        {
+            "name": "Matheus Henrique Leoncio Brando",
+            "email": "pikachugames345@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Thiago Fukuyama Marcilli",
+            "email": "thiagofkm@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
     "require": {
         "phpmailer/phpmailer": "^6.6"
     }
