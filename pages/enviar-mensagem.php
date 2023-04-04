@@ -18,11 +18,11 @@
             } else {
 
                 // PEGANDO INFORMAÇÕES DO FORMULÁRIO
-                $nome = $_POST["nome"];
+                $nome = $_POST["nome"] ?? "";
                 $email = $_POST["email"];
-                $plano = $_POST["planos"];
-                $cidade = $_POST["cidade"];
-                $estado = $_POST["estado"];
+                $plano = $_POST["planos"] ?? "";
+                $cidade = $_POST["cidade"] ?? "";
+                $estado = $_POST["estado"] ?? "";
                 $assunto = $_POST["assunto"] ?? "Para Página Azul";
                 $mensagem = $_POST["mensagem"];
         
