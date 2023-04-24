@@ -34,7 +34,7 @@ composer install
 
 4. Carregue o banco de dados disponível em `sql/localhost.sql`
 
-5. Copie o arquivo `config-template.php` e cole na raíz do projeto com o nome de `config.php`
+5. Copie o arquivo `config-template.php` e cole na raíz do projeto, renomeando para `config.php`
 
 6. Preencha ou substitua as configurações necessárias no novo arquivo `config.php`
 
