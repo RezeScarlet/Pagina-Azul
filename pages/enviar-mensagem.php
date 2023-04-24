@@ -23,7 +23,7 @@
                 $plano = $_POST["planos"] ?? "";
                 $cidade = $_POST["cidade"] ?? "";
                 $estado = $_POST["estado"] ?? "";
-                $assunto = $_POST["assunto"] ?? "Para Página Azul";
+                $assunto = (isset($_POST["assunto"]) && (strlen(trim($_POST["assunto"])) > 0)) ? $_POST["assunto"] : "Para Página Azul";
                 $mensagem = $_POST["mensagem"];
         
                 $body = "
@@ -47,13 +47,13 @@
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
                 $mail->Port = 465;
                 $mail->CharSet = "UTF-8";
-                $mail->Host = "smtp.gmail.com";
+                $mail->Host = EMAIL_CONFIG["from_host"];
                 $mail->Username = EMAIL_CONFIG["from_address"];
-                $mail->Password = EMAIL_CONFIG["password"];
+                $mail->Password = EMAIL_CONFIG["from_password"];
         
                 $mail->SetFrom(EMAIL_CONFIG["from_address"], "Contato pelo formulário");
                 $mail->AddAddress(EMAIL_CONFIG["from_address"], EMAIL_CONFIG["from_name"]);
-                $mail->AddAddress("grupo08.tcc.infonet@gmail.com", "Página Azul");
+                $mail->AddAddress(EMAIL_CONFIG["to_address"], "Página Azul");
         
                 $mail->Subject = $assunto;
                 $mail->Body = $body;

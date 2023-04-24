@@ -17,5 +17,7 @@ define("DB_CONFIG", [
 define("EMAIL_CONFIG", [
     "from_address" => "emailparaphpmailer",
     "from_name" => "",
-    "password" => ""
+    "from_password" => "",
+    "from_host" => "",
+    "to_address" => ""
 ]);
