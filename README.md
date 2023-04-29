@@ -26,7 +26,7 @@ Plataforma de busca e anúncio de serviços, empresas e microempreendedores.
 git clone https://github.com/DarkEyeBr/Pagina-Azul.git
 ```
 
-3. Instale as dependências
+3. No diretório do projeto, instale as dependências
 
 ```
 composer install
