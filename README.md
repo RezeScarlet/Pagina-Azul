@@ -3,7 +3,7 @@
         <img width="135" alt="Página Azul's logo" src="https://user-images.githubusercontent.com/99801948/236017601-1df13f5b-a86f-4020-88d9-0d8006b790a7.png">
     </a>
     <h1>Página Azul</h1>
-    <p><i>TCC do curso técnico em Informática para Internet Integrado ao Ensino Médio da ETEC Francisco Garcia no ano de 2022.</i></p>
+    <p><i>TCC do curso técnico em Informática para Internet Integrado ao Ensino Médio da ETEC Francisco Garcia no ano de 2022</i></p>
 </div>
 
 # Sobre
