@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://github.com/DarkEyeBr/Pagina-Azul">
-        <img width="135" src="./assets/img/logos/Logo.png">
+        <img width="135" alt="Página Azul's logo" src="https://user-images.githubusercontent.com/99801948/236017601-1df13f5b-a86f-4020-88d9-0d8006b790a7.png">
     </a>
     <h1>Página Azul</h1>
     <p>TCC do curso técnico em Informática para Internet Integrado ao Ensino Médio da ETEC Francisco Garcia no ano de 2022.</p>
@@ -9,6 +9,8 @@
 # Sobre
 
 Plataforma de busca e anúncio de serviços, empresas e microempreendedores.
+
+![Página Azul's homepage](https://user-images.githubusercontent.com/99801948/236017296-7894bc15-4af9-4515-99e2-b6074d69ea02.png)
 
 # Instalação e Configuração
 
