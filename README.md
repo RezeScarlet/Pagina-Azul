@@ -8,7 +8,7 @@
 
 # Sobre
 
-Plataforma de busca e anúncio de serviços, empresas e microempreendedores.
+Plataforma de busca e anúncio de serviços, empresas e microempreendedores
 
 ![Página Azul's homepage](https://user-images.githubusercontent.com/99801948/236017296-7894bc15-4af9-4515-99e2-b6074d69ea02.png)
 
